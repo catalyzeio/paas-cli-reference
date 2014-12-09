@@ -10,6 +10,11 @@ task :preview do
   system("middleman server")
 end
 
+desc "Preview onboarding docs"
+task :preview_onboarding do
+	system("cd ./paas/paas-onboarding-docs && gitbook serve ./")
+end
+
 desc "Deploy website via rsync"
 task :deploy do
 end
