@@ -1,0 +1,3 @@
+[submodule "paas/paas-onboarding-docs"]
+	path = paas/paas-onboarding-docs
+	url = https://github.com/catalyzeio/paas-onboarding-docs
