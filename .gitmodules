@@ -7,3 +7,6 @@
 [submodule "compliance/policies"]
 	path = compliance/policies
 	url = https://github.com/catalyzeio/policies
+[submodule "baas/baas-examples"]
+	path = baas/baas-examples
+	url = https://github.com/catalyzeio/baas-examples
