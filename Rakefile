@@ -15,6 +15,11 @@ task :preview_paas_onboarding do
 	system("cd ./paas/paas-onboarding-docs && gitbook serve ./")
 end
 
+desc "Preview baas guides"
+task :preview_baas_guides do
+	system("cd ./baas/baas-guides && middleman server")
+end
+
 desc "Preview baas examples"
 task :preview_baas_examples do
 	system("cd ./baas/baas-examples && middleman server")
