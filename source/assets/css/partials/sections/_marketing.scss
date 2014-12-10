@@ -1,0 +1,103 @@
+.r_main-marketing{
+	@extend .cf;
+	margin: 0px 0px 30px 0px;
+	header{
+		margin: 10px 0px 30px 0px;
+		padding: 30px 20px 30px 20px;
+		border-bottom: 1px solid $c_border;
+		border-top: 1px solid $c_border;
+		h1{
+			font-size: 35px;
+			font-family: $f_sans-thin;
+			color: $c_compliance-alt;
+		}
+		h2{
+			color: $c_text;
+			max-width: 320px;
+			padding: 20px 0px 0px 0px;
+			line-height: 1.5;
+			font-family: $f_sans-reg;
+		}
+	}
+	.r_small-grid{
+		padding: 0px 20px 0px 20px;
+		h1{
+			font-size: 25px;
+			font-family: $f_sans-thin;
+			color: $c_compliance-alt;
+			padding: 0px 0px 20px 0px;
+			border-bottom: 1px solid $c_border;
+			margin: 0px 0px 20px 0px;
+		}
+		p{
+			font-family: $f_sans-reg;
+			line-height: 1.5;
+			color: $c_text;
+			font-size: 14px;
+			margin: 0px 0px 20px 0px;
+		}
+	}
+	a.r_marketing-empty-btn{
+		display: inline-block;
+		text-decoration: none;
+		font-family: $f_sans-reg;
+		-moz-box-shadow: 0 1px 0 0 rgba(0,0,0,0.15);
+		-webkit-box-shadow: 0 1px 0 0 rgba(0,0,0,0.15);
+		box-shadow: 0 1px 0 0 rgba(0,0,0,0.15);
+		background-image: -o-linear-gradient(-89deg, #95D986 0%, #6CB95B 68%, #6CB95B 87%, #6FB75E 100%);
+		background-image: -moz-linear-gradient(-89deg, #95D986 0%, #6CB95B 68%, #6CB95B 87%, #6FB75E 100%);
+		background-image: -ms-linear-gradient(-89deg, #95D986 0%, #6CB95B 68%, #6CB95B 87%, #6FB75E 100%);
+		background-image: linear-gradient(-179deg, #95D986 0%, #6CB95B 68%, #6CB95B 87%, #6FB75E 100%);
+		font-size: 14px;
+		color: #fff;
+		text-shadow: 0px -1px 0px rgba(0,0,0,0.1);
+		padding: 10px;
+		@include border-radius(5px);
+	}
+	a.r_marketing-btn{
+		display: inline-block;
+		text-decoration: none;
+		font-family: $f_sans-reg;
+		font-size: 14px;
+		color: $c_marketing;
+		padding: 10px;
+		border: 1px solid $c_marketing;
+		@include border-radius(5px);
+	}
+}
+.r_start-helper{
+	@extend .r_main-marketing;
+	border-top: 1px solid $c_border;
+	padding: 20px 20px 15px 20px;
+	margin: 20px 0px 0px 0px;
+	.r_helper-inner{
+		padding: 0px 10px 0px 10px;
+		h1{
+			font-size: 20px;
+			font-family: $f_sans-reg;
+			padding: 0px 0px 10px 0px;
+			margin: 0px 0px 10px 0px;
+		}
+		p{margin: 0px 0px 10px 0px;}
+	}
+}
+.r_paas{
+	.r_start-helper{
+		a.r_marketing-btn{color: $c_paas;border: 1px solid $c_paas;}
+	}
+}
+.r_hl7{
+	.r_start-helper{
+		a.r_marketing-btn{color: $c_hl7;border: 1px solid $c_hl7;}
+	}
+}
+.r_baas{
+	.r_start-helper{
+		a.r_marketing-btn{color: $c_baas;border: 1px solid $c_baas;}
+	}
+}
+.r_compliance{
+	.r_start-helper{
+		a.r_marketing-btn{color: $c_compliance;border: 1px solid $c_compliance;}
+	}
+}
