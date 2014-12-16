@@ -3,6 +3,8 @@ title:  Introduction
 layout: guides_paas
 ---
 
+# Introduction
+
 Usage: catalyze [OPTIONS] COMMAND [ARGS]...
 
 Options:

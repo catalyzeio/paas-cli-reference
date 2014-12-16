@@ -13,13 +13,15 @@ configure :build do
   activate :directory_indexes
 end
 
-#Activate PaaS CLI with Blog Extension
-activate :blog do |blog|
-  blog.name = "paas_cli"
-  blog.prefix = "/paas/cli/sections"
-end
+activate :syntax
 
-page "/feed.xml", layout: false
+#Activate PaaS CLI with Blog Extension (Killing for now)
+# activate :blog do |blog|
+#   blog.name = "paas_cli"
+#   blog.prefix = "/paas/cli/sections"
+# end
+
+# page "/feed.xml", layout: false
 
 helpers do
   def site_title
