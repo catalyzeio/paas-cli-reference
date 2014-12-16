@@ -223,7 +223,9 @@
 	.r_guide-section{
 		.r_guide-content{
 			.r_guide-block{
-				h1{a{color: $c_paas;}}
+				h1{a{color: $c_paas;}
+					color: $c_paas;
+				}
 			}
 		}
 	}
@@ -232,7 +234,9 @@
 	.r_guide-section{
 		.r_guide-content{
 			.r_guide-block{
-				h1{a{color: $c_baas;}}
+				h1{a{color: $c_baas;}
+					color: $c_baas;
+				}
 			}
 		}
 	}
@@ -241,7 +245,9 @@
 	.r_guide-section{
 		.r_guide-content{
 			.r_guide-block{
-				h1{a{color: $c_hl7;}}
+				h1{a{color: $c_hl7;}
+					color: $c_hl7;
+				}
 			}
 		}
 	}
