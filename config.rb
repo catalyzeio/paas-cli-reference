@@ -13,6 +13,9 @@ configure :build do
   activate :directory_indexes
 end
 
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true, :smartypants => true
+
 activate :syntax
 
 #Activate PaaS CLI with Blog Extension (Killing for now)
