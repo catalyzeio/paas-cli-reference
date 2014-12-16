@@ -16,8 +16,7 @@ end
 #Activate PaaS CLI with Blog Extension
 activate :blog do |blog|
   blog.name = "paas_cli"
-  blog.prefix = "paas/cli/sections"
-  blog.sources = "{year}-{month}-{day}-{title}.html"
+  blog.prefix = "/paas/cli/sections"
 end
 
 page "/feed.xml", layout: false
