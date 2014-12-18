@@ -21,7 +21,6 @@ Commands:
 ```
   associate     Associates a local repository with an environment.
   dashboard     Open the Catalyze dashboard in your browser.
-  db            Import/export databases schemas and contents.
   disassociate  Remove association with environment.
   environments  Lists all environments you own.
   rake          Execute a rake task.
@@ -29,5 +28,4 @@ Commands:
   status        Check the status of the environment and...
   vars          Check/set/unset environment variables.
   version       Outputs the current CLI version.
-  worker        Start a background worker.
 ```
