@@ -32,26 +32,12 @@ title: BaaS Guides
 						<span><i class="fa fa-search"></i></span>
 					</div>
 				</form>
+				<% data.baas.guides.guides.each do |f| %>
 				<article class="r_guide-block">
-					<h1><a href="#">Manage Connections <i class="fa fa-caret-right"></i></a></h1>
+					<h1><a href="/baas/guides/<%= f.file %>"><%= f.name %> <i class="fa fa-caret-right"></i></a></h1>
 					<p>This is a description explaining how Catalyze allows a user to manage their connections per environment</p>
 				</article>
-				<article class="r_guide-block">
-					<h1><a href="#">Manage Connections <i class="fa fa-caret-right"></i></a></h1>
-					<p>This is a description explaining how Catalyze allows a user to manage their connections per environment</p>
-				</article>
-				<article class="r_guide-block">
-					<h1><a href="#">Manage Connections <i class="fa fa-caret-right"></i></a></h1>
-					<p>This is a description explaining how Catalyze allows a user to manage their connections per environment</p>
-				</article>
-				<article class="r_guide-block">
-					<h1><a href="#">Manage Connections <i class="fa fa-caret-right"></i></a></h1>
-					<p>This is a description explaining how Catalyze allows a user to manage their connections per environment</p>
-				</article>
-				<article class="r_guide-block">
-					<h1><a href="#">Manage Connections <i class="fa fa-caret-right"></i></a></h1>
-					<p>This is a description explaining how Catalyze allows a user to manage their connections per environment</p>
-				</article>
+				<% end %>
 			</div>
 		</div>
 	</section>

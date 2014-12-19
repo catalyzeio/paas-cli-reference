@@ -1,0 +1,13 @@
+guides:
+  - name: Introduction
+    file: introduction
+  - name: Getting Started
+    file: getting_started
+  - name: Clinical Data Models
+    file: clinical_data_models
+  - name: Custom Classes
+    file: custom_classes
+  - name: File Management
+    file: file_management
+  - name: Permissions and ACLs
+    file: permissions_and_acls
