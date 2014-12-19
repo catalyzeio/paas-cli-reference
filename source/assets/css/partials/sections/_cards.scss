@@ -1,6 +1,6 @@
 .r_home-cards{
 	.r_card-row{
-		margin: 0px 0px 20px 0px;
+		margin: 0px 0px 0px 0px;
 		@extend .cf;
 	}
 	.r_main-card{
@@ -250,5 +250,11 @@
 				}
 			}
 		}
+	}
+}
+/* Tests */
+.col-6-12{
+	.r_main-card{
+		margin-bottom: 25px;
 	}
 }

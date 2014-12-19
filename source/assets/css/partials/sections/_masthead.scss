@@ -21,6 +21,7 @@
 .r_submod-masthead{
 	padding: 30px 20px 30px 20px;
 	border-bottom: 1px solid $c_border;
+	@extend .cf;
 	h1{
 		font-size: 35px;
 		font-family: $f_sans-thin;
@@ -29,6 +30,15 @@
 			text-decoration: none;
 			color: $c_compliance-alt;
 		}
+	}
+	h1.r_header-left{float: left;}
+	a.r_crumb-right{
+		float: right;
+		text-decoration: none;
+		color: $c_compliance-alt;
+		font-family: $f_sans-med;
+		font-size: 14px;
+		margin-top: 16px;
 	}
 	.fa{color: $c_text;}
 	label{
