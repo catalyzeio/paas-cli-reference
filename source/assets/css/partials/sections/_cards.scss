@@ -252,9 +252,61 @@
 		}
 	}
 }
-/* Tests */
 .col-6-12{
 	.r_main-card{
 		margin-bottom: 25px;
+	}
+}
+/* Post Styles */
+.r_guide-section{
+	.r_guide-content{
+		.r_guide-block{
+			img{
+				max-width: 100%;
+				padding: 10px;
+				@include easing(350ms);
+				&:hover{
+					@include easing(350ms);
+					max-width: 120%;
+					cursor: crosshair;
+				}
+			}
+			blockquote{
+				padding: 15px;
+				p{
+					border-left: 2px solid #ddd;
+					margin-left: 0px;
+					padding: 10px;
+					font-family: $f_sans-ital;
+				}
+			}
+			h2,
+			h3,
+			h4{
+				font-family: $f_sans-bold;
+				line-height: 2;
+				padding: 15px;
+				color: $c_text;
+			}
+			h2{font-size: 18px;}
+			h3{font-size: 14px;}
+			h4{font-size: 12px;}
+			ol,
+			ul{
+				padding: 15px;
+				margin: 0px 0px 0px 20px;
+				list-style-type: circle;
+				li{
+					margin: 10px 0px 10px 0px;
+					font-family: $f_sans-med;
+					color: $c_text;
+					font-size: 14px;
+				}
+			}
+			a{
+				color: $c_paas;
+				text-decoration: none;
+			}
+		}
 	}
 }

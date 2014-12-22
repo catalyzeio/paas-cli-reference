@@ -31,14 +31,24 @@
 			color: $c_compliance-alt;
 		}
 	}
-	h1.r_header-left{float: left;}
+	h1.r_header-left{
+		font-size: 35px;
+		font-family: $f_sans-thin;
+		color: $c_compliance-alt;
+		float: left;
+		a{
+			text-decoration: none;
+			color: $c_compliance-alt;
+		}
+	}
 	a.r_crumb-right{
 		float: right;
-		text-decoration: none;
 		color: $c_compliance-alt;
+		text-decoration: none;
 		font-family: $f_sans-med;
 		font-size: 14px;
-		margin-top: 16px;
+		margin-top: 15px;
+		.fa{color: $c_compliance-alt;}
 	}
 	.fa{color: $c_text;}
 	label{
