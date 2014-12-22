@@ -1,3 +1,13 @@
+desc "Update all submodules to development"
+task :update_submodules_dev do
+  system("git submodule foreach git pull origin development")
+end
+
+desc "Update all submodules to master"
+task :update_submodules_master do
+  system("git submodule foreach git pull origin master")
+end
+
 desc "Build the website from source"
 task :build do
   puts "## Building website"
