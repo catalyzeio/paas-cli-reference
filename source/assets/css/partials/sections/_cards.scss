@@ -153,6 +153,31 @@
 				&:last-child{
 					a{border-bottom: 0px;}
 				}
+				ul{
+					// display: none;
+					margin: 0px 0px 0px 0px;
+					padding: 0px 0px 0px 20px;
+					border-left: 0px solid transparent;
+					// border-right: 1px solid $c_border;
+					border-bottom: 1px solid $c_border;
+					li{
+						a{
+							padding: 10px;
+							border-bottom: 1px solid $c_border;
+							border-left: 1px solid $c_border;
+							color: lighten($c_text, 15%);
+							font-family: $f_sans-med;
+							text-decoration: none;
+							font-size: 12px;
+							display: block;
+							// background-color: $c_lightbg;
+						}
+						a.r_is-selected{background-color: $c_lightbg;}
+						&:last-child{
+							a{border-bottom: 0px solid $c_border;}
+						}
+					}
+				}
 			}
 		}
 	}
