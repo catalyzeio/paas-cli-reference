@@ -18,6 +18,8 @@ set :markdown, :fenced_code_blocks => true, :smartypants => true
 
 activate :syntax
 
+page "/paas/getting-started/*", :layout => "gs_paas"
+
 #Activate PaaS CLI with Blog Extension (Killing for now)
 # activate :blog do |blog|
 #   blog.name = "paas_cli"
