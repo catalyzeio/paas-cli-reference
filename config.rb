@@ -20,16 +20,19 @@ activate :syntax
 
 page "/paas/getting-started/*", :layout => "gs_paas"
 
-#Activate PaaS CLI with Blog Extension (Killing for now)
-# activate :blog do |blog|
-#   blog.name = "paas_cli"
-#   blog.prefix = "/paas/cli/sections"
-# end
-
-# page "/feed.xml", layout: false
-
 helpers do
   def site_title
     "Catalyze Resources"
+  end
+
+  def nav_link(name, url, options={})
+    options = {
+      class: "",
+      active_if: url,
+    }.update options
+    active_url = options.delete(:active_if)
+    active = Regexp === active_url ? current_page.url =~ active_url : current_page.url == active_url
+    options[:class] += "r_is-active" if active
+    link_to name, url, options
   end
 end
