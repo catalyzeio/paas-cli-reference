@@ -18,7 +18,9 @@ set :markdown, :fenced_code_blocks => true, :smartypants => true
 
 activate :syntax
 
-page "/paas/getting-started/*", :layout => "gs_paas"
+# Set layouts for groups of pages
+page "/paas/getting-started/*", :layout => "paas_gettingstarted"
+page "/baas/guides/*", :layout => "baas_single"
 
 helpers do
   def site_title

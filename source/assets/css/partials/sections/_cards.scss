@@ -3,6 +3,7 @@
 		margin: 0px 0px 0px 0px;
 		@extend .cf;
 	}
+	.r_nthcard-row{margin-top: 20px;@extend .cf;}
 	.r_main-card{
 		@include border-radius(3px);
 		border: 1px solid $c_border;
