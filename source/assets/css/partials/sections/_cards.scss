@@ -148,8 +148,9 @@
 					text-decoration: none;
 					font-size: 14px;
 					display: block;
+					&:visited{color: $c_complete;}
 				}
-				a.r_is-selected{background-color: $c_lightbg;}
+				a.r_is-active{background-color: $c_lightbg;}
 				&:last-child{
 					a{border-bottom: 0px;}
 				}
