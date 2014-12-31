@@ -1,6 +1,6 @@
 ---
 title: Associate
-layout: guides_paas
+layout: paas_guides
 ---
 
 # Associate

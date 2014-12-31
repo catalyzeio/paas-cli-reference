@@ -1,6 +1,6 @@
 ---
 title: Variables List
-layout: guides_paas
+layout: paas_guides
 ---
 
 # Variables List

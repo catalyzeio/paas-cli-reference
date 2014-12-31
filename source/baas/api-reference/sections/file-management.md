@@ -1,4 +1,10 @@
-## File Management
+---
+title: File Management
+layout: baas_guides
+---
+
+# File Management
+
 Files can be uploaded, download or deleted. Images and documents are common use cases.
 ### Upload a File
 

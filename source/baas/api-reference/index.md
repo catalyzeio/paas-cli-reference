@@ -1,6 +1,6 @@
 ---
 title: Introduction
-layout: paas_guides
+layout: baas_guides
 ---
 
 # Introduction

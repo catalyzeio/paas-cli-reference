@@ -1,6 +1,6 @@
 ---
 title: Disassociate
-layout: guides_paas
+layout: paas_guides
 ---
 
 # Disassociate

@@ -1,6 +1,6 @@
 ---
 title: Rake
-layout: guides_paas
+layout: paas_guides
 ---
 
 # Rake
