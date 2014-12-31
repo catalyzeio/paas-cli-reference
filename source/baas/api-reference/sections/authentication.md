@@ -1,4 +1,10 @@
-## Authentication
+---
+title: Authentication
+layout: baas_guides
+---
+
+# Authentication
+
 Routes are provided for user login and logout. Sessions and session keys are 
 managed automatically. The following are the key parameters you need to know.
 

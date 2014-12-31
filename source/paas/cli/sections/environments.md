@@ -1,6 +1,6 @@
 ---
 title: Environments
-layout: guides_paas
+layout: paas_guides
 ---
 
 # Environments

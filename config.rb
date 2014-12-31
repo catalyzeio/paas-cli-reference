@@ -16,7 +16,7 @@ end
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :smartypants => true
 
-activate :syntax
+activate :syntax, :wrap => true
 
 # Set layouts for groups of pages
 page "/paas/getting-started/*", :layout => "paas_gettingstarted"

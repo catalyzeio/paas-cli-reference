@@ -1,4 +1,10 @@
-## Custom Classes
+---
+title: Custom Classes
+layout: baas_guides
+---
+
+# Custom Classes
+
 While Catalyze provides a whole set of data models, we also realize that we 
 can't cover all possible use cases that a developer might come up with. To support
 those, we have enabled the concept of custom classes that allow a developer to 

@@ -1,6 +1,6 @@
 ---
 title: Redeploy
-layout: guides_paas
+layout: paas_guides
 ---
 
 # Redeploy

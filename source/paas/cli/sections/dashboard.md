@@ -1,6 +1,6 @@
 ---
 title: Dashboard
-layout: guides_paas
+layout: paas_guides
 ---
 
 # Dashboard

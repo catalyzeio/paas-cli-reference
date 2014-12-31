@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+		<title><%= current_page.data.title || site_title %> - PaaS Guides</title>
+		<meta name="description" content="#">
+		<meta name="viewport" content="width=device-width">
+		<%= stylesheet_link_tag "styles", "syntax", "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" %>
+	</head>
+	<body class="r_<%= page_classes %>">
+		<%= partial "sections/header_index" %>
+		<div class="grid">
+			<section class="r_submod-masthead">
+				<h1 class="r_header-left"><i class="fa fa-bookmark-o"></i> <a href="/baas/api-reference">BaaS API Reference</a></h1>
+				<a href="/baas" class="r_crumb-right"><i class="fa fa-home"></i> BaaS Resources Home</a>
+			</section>
+			<section class="r_guide-section">
+				<%= partial "baas/partials/left_nav" %>
+				<div class="col-8-12">
+					<div class="r_guide-content">
+						<form class="r_guide-search">
+							<div class="r_input-wrapper">
+								<label for="guideSearch">Search:</label>
+								<input type="text" name="guideSearch" placeholder="Select a filter on the left">
+								<span><i class="fa fa-search"></i></span>
+							</div>
+						</form>
+						<article class="r_guide-block">
+							<%= yield %>
+						</article>
+					</div>
+				</div>
+			</section>
+		</div>
+		<%= partial "sections/marketing" %>
+		<%= partial "sections/footer" %>
+		<%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js", "//fast.fonts.net/jsapi/1ced54dd-da20-4061-b896-c5731d5d4974.js", "main" %>
+	</body>
+</html>

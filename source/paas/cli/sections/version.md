@@ -1,6 +1,6 @@
 ---
 title: Version
-layout: guides_paas
+layout: paas_guides
 ---
 
 # Version

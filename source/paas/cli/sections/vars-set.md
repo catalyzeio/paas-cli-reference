@@ -1,6 +1,6 @@
 ---
 title: Variables Set
-layout: guides_paas
+layout: paas_guides
 ---
 
 # Variables Set
