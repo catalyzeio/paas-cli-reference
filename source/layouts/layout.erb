@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
-		<title><%= current_page.data.title || site_title %></title>
-		<meta name="description" content="#">
-		<meta name="viewport" content="width=device-width">
-		<%= stylesheet_link_tag "styles", "syntax", "//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" %>
-		<!-- Analytics -->
-		<%= partial "sections/hotjar" %>
-		<%= partial "sections/ga" %>
-		<!-- /Analytics -->
-	</head>
+<%= partial "section/head" %>
 	<body class="r_<%= page_classes %>">
 		<%= yield %>
 		<%= javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js", "//fast.fonts.net/jsapi/1ced54dd-da20-4061-b896-c5731d5d4974.js", "main" %>
