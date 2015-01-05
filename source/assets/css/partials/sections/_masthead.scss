@@ -43,15 +43,6 @@
 			color: $c_compliance-alt;
 		}
 	}
-	a.r_crumb-right{
-		float: right;
-		color: $c_compliance-alt;
-		text-decoration: none;
-		font-family: $f_sans-med;
-		font-size: 14px;
-		margin-top: 15px;
-		.fa{color: $c_compliance-alt;}
-	}
 	.fa{color: $c_text;}
 	label{
 		display: block;
@@ -80,6 +71,15 @@
 		color: $c_text;
 		width: 100%;
 	}
+}
+a.r_crumb-left{
+	display: inline-block;
+	color: $c_compliance-alt;
+	text-decoration: none;
+	font-family: $f_sans-med;
+	font-size: 14px;
+	padding: 20px 0px 0px 20px;
+	.fa{color: $c_compliance-alt;}
 }
 .r_justsearch-masthead{
 	padding: 0px 0px 20px 0px;
