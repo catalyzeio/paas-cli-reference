@@ -1,3 +1,7 @@
+.tinynav{display: none}
+.r_guide-nav{
+	label{display: none;}
+}
 @media handheld, only screen and (max-width: 1000px){
 	.r_home-cards .r_card-row,
 	.r_4up-cards .r_card-row{
@@ -12,6 +16,22 @@
 	}
 }
 @media handheld, only screen and (max-width: 767px){
+	.tinynav{display: block}
+	#nav{display: none}
+	.r_guide-nav{
+		h1{display: none;}
+		label{
+			display: block;
+			padding: 0px 0px 10px 0px;
+			font-family: $f_sans-med;
+			color: $c_compliance;
+			display: block;
+		}
+		select#tinynav1{
+			width: 100%;
+			display: block;
+		}
+	}
 	.r_home-cards .r_card-row,
 	.r_4up-cards .r_card-row,
 	.r_4up-cards .r_card-row{
