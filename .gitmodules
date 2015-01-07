@@ -12,4 +12,4 @@
 	url = https://github.com/catalyzeio/baas-examples
 [submodule "baas/baas-guides"]
 	path = baas/baas-guides
-	url = git@github.com:catalyzeio/baas-guides.git
+	url = https://github.com/catalyzeio/baas-guides
