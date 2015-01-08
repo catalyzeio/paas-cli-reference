@@ -149,7 +149,11 @@
 					text-decoration: none;
 					font-size: 14px;
 					display: block;
-					&:visited{color: $c_complete;}
+					&:hover{
+						background-color: #f4f4f4;
+						color: $c_compliance;
+						opacity: 1.0;
+					}
 				}
 				a.r_is-active{background-color: $c_lightbg;}
 				&:last-child{
