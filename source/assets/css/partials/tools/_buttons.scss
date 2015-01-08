@@ -1,0 +1,99 @@
+/* base button structure, can be used independently, but won't have much styling */
+.btn {
+	display: inline-block;
+	padding: 0 15px;
+	text-align: center;
+	text-decoration: none;
+	@include border-radius(4px);
+	cursor: pointer;
+}
+/* blue button based on #2098CA brand color */
+.btn-brand {
+	@extend .btn;
+	height: 36px;
+	line-height: 35px;
+	@include box-shadow(0 1px 0 0 rgba(0,0,0,0.15));
+	background-image: -o-linear-gradient(-90deg, #24B3EE 0%, #1C97CB 62%, #1C97CB 81%, #229BCE 100%);
+	background-image: -moz-linear-gradient(-90deg, #24B3EE 0%, #1C97CB 62%, #1C97CB 81%, #229BCE 100%);
+	background-image: -ms-linear-gradient(-90deg, #24B3EE 0%, #1C97CB 62%, #1C97CB 81%, #229BCE 100%);
+	background-image: linear-gradient(-180deg, #24B3EE 0%, #1C97CB 62%, #1C97CB 81%, #229BCE 100%);
+	border: 1px solid #1C97CB;
+	font-size: 14px;
+	color: #FFF;
+	text-shadow: 0px -1px 0px rgba(0,0,0,0.10);
+	&:hover {
+
+	}
+}
+/* green button that acts as a complimentary primary CTA when the brand button color won't fit */
+.btn-primary {
+	@extend .btn;
+	height: 36px;
+	line-height: 35px;
+	@include box-shadow(0 1px 0 0 rgba(0,0,0,0.15));
+	background-image: -o-linear-gradient(-89deg, #95D986 0%, #6CB95B 68%, #6CB95B 87%, #6FB75E 100%);
+	background-image: -moz-linear-gradient(-89deg, #95D986 0%, #6CB95B 68%, #6CB95B 87%, #6FB75E 100%);
+	background-image: -ms-linear-gradient(-89deg, #95D986 0%, #6CB95B 68%, #6CB95B 87%, #6FB75E 100%);
+	background-image: linear-gradient(-179deg, #95D986 0%, #6CB95B 68%, #6CB95B 87%, #6FB75E 100%);
+	border: 1px solid #95D986;
+	font-size: 14px;
+	color: #FFF;
+	text-shadow: 0px -1px 0px rgba(0,0,0,0.10);
+	&:hover {
+
+	}
+}
+/*
+	secondary button that is the outline style.
+	gets color variable because the outline and font color will vary based on where it's used due to no bg color
+*/
+@mixin btn-secondary($up_color, $hover_color) {
+	@extend .btn;
+	height: 36px;
+	line-height: 35px;
+	background: none;
+	border: 1px solid $up_color;
+	font-size: 14px;
+	color: $up_color;
+	&:hover {
+		background: $up_color;
+		color: $hover_color;
+	}
+}
+/* header nav CTA */
+@mixin nav-cta($up_color, $hover_color) {
+	@extend .btn;
+	height: 31px;
+	line-height: 29px;
+	background: none;
+	border: 1px solid $up_color;
+	font-size: 14px;
+	color: $up_color;
+	&:hover {
+		background: $up_color;
+		color: $hover_color;
+	}
+}
+/* jump off text buttons */
+@mixin jumpoff($c) {
+	color: $c;
+	text-decoration: none;
+	font-family: $f_sans-med;
+	font-size: 14px;
+	position: relative;
+	padding-right: 12px;
+	white-space: nowrap;
+	i {
+		position: absolute;
+		bottom: 1px;
+		right: 0;
+		display: block;
+		line-height: 1;
+		width: 12px;
+		text-align: center;
+		font-size: 12px;
+	}
+	&:hover {
+		color: $c_dark2;
+	}
+}

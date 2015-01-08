@@ -3,6 +3,11 @@
 	label{display: none;}
 }
 @media handheld, only screen and (max-width: 1000px){
+	.r_main-marketing{
+		.r_marketing-inner-1{
+			padding: 30px 30px 30px 30px;
+		}
+	}
 	.r_home-cards .r_card-row,
 	.r_4up-cards .r_card-row{
 		margin: 0px 0px 0px 20px;
@@ -71,10 +76,7 @@
 @media handheld, only screen and (max-width: 630px){
 	.r_main-footer{
 		.r_footer-nav{
-			li{
-				display: block;
-				text-align: center;
-			}
+			li{display: block;text-align: center;}
 		}
 	}
 	.r_main-footer{
@@ -88,9 +90,7 @@
 		}
 	}
 	.r_main-header{
-		.r_main-logo{
-			float: none;
-		}
+		.r_main-logo{float: none;}
 		.r_main-nav{
 			float: none;
 			a{
@@ -102,6 +102,64 @@
 				width: 25%;
 				text-align: center;
 				&:first-of-type{margin: 10px 10px 0px 0px;}
+			}
+		}
+		.r_main-footer{
+			.r_footer-meta{
+				.r_footer-meta-links{
+					div{font-size: 10px;text-align: center;}
+				}
+				.r_footer-meta-coalfire{
+					float: none;
+					padding: 0;
+					clear: both;
+					a{float: none;margin: 0 auto;}
+				}
+			}
+		}
+		.r_main-marketing{
+			.r_marketing-inner-1{padding: 30px;}
+		}
+	}
+}
+@media all and (max-width: 479px){
+	.r_guide-section{padding: 0px;}
+	.r_submod-masthead{
+		h1.r_header-left{
+			.fa{font-size: 20px;}
+			font-size: 25px;
+			font-family: $f_sans-reg;
+		}
+	}
+	.r_main-footer{
+		.r_footer-bar{
+			a {margin: 10px;
+				&:first-child, &:last-child {margin: 10px;}
+			}
+		}
+		.r_footer-meta{
+			padding: 0;
+			text-align: center;
+			.r_footer-meta-links {
+				float: none;
+				strong{
+					display: none;
+				}
+				span{
+					display: block;
+				}
+				a{
+					display: block;
+					margin: 0;
+				}
+			}
+			.r_footer-meta-coalfire{
+				float: none;
+				padding: 0;
+				a{
+					float: none;
+					margin: 0 auto;
+				}
 			}
 		}
 	}

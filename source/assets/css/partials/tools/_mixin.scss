@@ -1,7 +1,9 @@
-@mixin border-radius($round){
-	-webkit-border-radius: $round;
-	-moz-border-radius: $round;
-	border-radius: $round;
+@mixin border-radius($radius){
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	-o-border-radius: $radius;
+	border-radius: $radius;
 }
 @mixin easing($speed){
 	-moz-transition: all $speed ease;
@@ -21,4 +23,25 @@
 	background: -ms-linear-gradient(-45deg,  $first 0%,$second 100%);
 	background: linear-gradient(135deg,  $first 0%,$second 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4db5e1', endColorstr='$second',GradientType=1 );
+}
+@mixin box-shadow($shadow1, $shadow2:false, $shadow3:false){
+	$shadow: $shadow1;
+	@if $shadow2 != false
+		{ $shadow: $shadow1, $shadow2; }
+		@if $shadow3 != false
+			{ $shadow: $shadow1, $shadow2, $shadow3; }
+
+	-moz-box-shadow: $shadow;
+	-webkit-box-shadow: $shadow;
+	box-shadow: $shadow;
+}
+@mixin flex-section($dir) {
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-flex-flow: $dir;
+	-ms-flex-flow: $dir;
+	flex-flow: $dir;
 }
