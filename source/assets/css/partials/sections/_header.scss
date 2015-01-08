@@ -32,9 +32,7 @@ body{
 			&:hover{border-bottom: 1px solid $c_border;}
 		}
 		a.r_nav-btn{
-			padding: 8px;
-			border: 1px solid $c_border;
-			@include border-radius(5px);
+			@include nav-cta(#444, #FFF);
 		}
 	}
 }
@@ -47,7 +45,7 @@ body{
 	}
 	.r_main-nav{
 		a{color: #fff;}
-		a.r_nav-btn{border: 1px solid #fff;}
+		a.r_nav-btn{border: 1px solid #fff;color:#FFF;}
 	}
 }
 .r_hl7-faq,
@@ -58,7 +56,7 @@ body{
 	}
 	.r_main-nav{
 		a{color: #fff;}
-		a.r_nav-btn{border: 1px solid #fff;}
+		a.r_nav-btn{border: 1px solid #fff;color:#FFF;}
 	}
 }
 .r_baas-guides,
@@ -69,7 +67,7 @@ body{
 	}
 	.r_main-nav{
 		a{color: #fff;}
-		a.r_nav-btn{border: 1px solid #fff;}
+		a.r_nav-btn{border: 1px solid #fff;color:#FFF;}
 	}
 }
 .r_compliance-guides,
@@ -80,6 +78,6 @@ body{
 	}
 	.r_main-nav{
 		a{color: #fff;}
-		a.r_nav-btn{border: 1px solid #fff;}
+		a.r_nav-btn{border: 1px solid #fff;color:#FFF;}
 	}
 }

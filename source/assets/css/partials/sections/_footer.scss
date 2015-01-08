@@ -1,36 +1,81 @@
 .r_main-footer{
-	padding: 0px 0px 30px 0px;
-	.r_bubble-nav{
-		padding: 20px 20px 20px 20px;
-		margin: 0px 0px 20px 0px;
-		border-top: 1px solid $c_border;
-		border-bottom: 1px solid $c_border;
-		a{
-			display: inline-block;
+	.r_footer-bar {
+		@include flex-section(row wrap);
+		-webkit-justify-content: space-around;
+		-ms-flex-pack: space-around;
+		justify-content: space-around;
+		-ms-flex-line-pack: stretch;
+		-webkit-align-content: stretch;
+		align-content: stretch;
+		padding: 30px 0;
+		border-bottom: 1px solid #EEE;
+		text-align: center;
+		a {
+			@extend .btn;
+			-webkit-flex-grow: 1;
+			flex-grow: 1;
+			height: 36px;
+			line-height: 35px;
+			border: 1px solid $c_border;
+			color: $c_secondary;
 			font-size: 14px;
-			font-family: $f_sans-reg;
-			padding: 8px;
-			@include border-radius(5px);
-			color: $c_compliance-alt;
-			border: 1px solid $c_compliance-alt;
-			margin: 0px 10px 0px 0px;
-			text-decoration: none;
-			&:last-of-type{margin: 0px;}
+			margin: 0 10px;
+			padding: 0 8px;
+			&:first-child {
+				margin-left: 0;
+			}
+			&:last-child {
+				margin-right: 0;
+			}
+			&:hover {
+				background: $c_border;
+				color: $c_primary;
+			}
 		}
 	}
-}
-.r_footer-nav{
-	margin: 0px 0px 20px 0px;
-	li{
-		display: inline-block;
-		font-size: 14px;
-		font-family: $f_sans-reg;
-		margin: 0px 5px 0px 5px;
-		a{
-			text-decoration: none;
-			color: $c_text;
-			padding: 0px 0px 3px 0px;
-			border-bottom: 1px solid $c_border;
+	.r_footer-meta {
+		@extend .cf;
+		padding: 30px 0;
+		.r_footer-meta-links {
+			float: left;
+			div {
+				font-size: 13px;
+				color: $c_secondary;
+				line-height: 24px;
+			}
+			a {
+				color: $c_secondary;
+				text-decoration: none;
+				margin: 0 5px;
+				&:first-child {
+					margin-left: 0;
+				}
+				&:last-child {
+					margin-right: 0;
+				}
+				&:hover {
+					text-decoration: underline;
+					color: $c_primary;
+				}
+			}
+			strong {
+				display: inline-block;
+				margin: 0 10px;
+			}
+		}
+		.r_footer-meta-coalfire {
+			float: right;
+			height: 48px;
+			a {
+				display: block;
+				float: right;
+				width: 70px;
+				height: 48px;
+				text-decoration: none;
+				text-indent: -9999px;
+				background: url(../img/coalfire-footer.png) no-repeat center right;
+				background-size: 70px 23px;
+			}
 		}
 	}
 }

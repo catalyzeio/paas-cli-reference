@@ -1,6 +1,5 @@
 .r_home-masthead{
 	padding: 30px 20px 30px 20px;
-	border-bottom: 1px solid $c_border;
 	margin: 0px 0px 30px 0px;
 	h1{
 		font-size: 35px;
@@ -20,8 +19,7 @@
 }
 .r_justsearch-masthead,
 .r_submod-masthead{
-	padding: 30px 20px 30px 20px;
-	border-bottom: 1px solid $c_border;
+	padding: 30px 0;
 	@extend .cf;
 	h1{
 		font-size: 35px;
