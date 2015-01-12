@@ -14,13 +14,13 @@
 			@extend .btn;
 			-webkit-flex-grow: 1;
 			flex-grow: 1;
-			height: 36px;
-			line-height: 35px;
+			height: 32px;
+			line-height: 31px;
 			border: 1px solid $c_border;
 			color: $c_secondary;
-			font-size: 14px;
-			margin: 0 10px;
-			padding: 0 8px;
+			font-size: 12px;
+			margin: 0 8px;
+			padding: 0 6px;
 			&:first-child {
 				margin-left: 0;
 			}
