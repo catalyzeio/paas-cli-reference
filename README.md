@@ -37,10 +37,9 @@ Recap: The Catalyze Resources repo is simply an aggregator of all content contai
 
 Once everything is installed you'll be able to run the site locally by entering `rake preview` which executes the middleman server. Your local version of the site will be running at `http://0.0.0.0:4567`
 
-
-
-
 ### Updating Submodules
+
+Updating submodules is a matter of running the appropriate rake task. To update each submodule with their respective development branches run `rake update_submodules_dev`. For a submodule master branch update run `update_submodules_master`.
 
 ### Deploying
 
