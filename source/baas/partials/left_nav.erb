@@ -1,17 +1,17 @@
-		<div class="col-4-12">
-			<nav class="r_guide-nav">
-				<h1>Contents:</h1>
-				<ul id="nav">
-					<li><%= link_to 'ACLs', '/baas/api-reference/sections/acls' %></li>
-					<li><%= link_to 'API Keys', '/baas/api-reference/sections/api-keys' %></li>
-					<li><%= link_to 'Application Invites', '/baas/api-reference/sections/application-invites' %></li>
-					<li><%= link_to 'Applications', '/baas/api-reference/sections/applications' %></li>
-					<li><%= link_to 'Authentication', '/baas/api-reference/sections/authentication' %></li>
-					<li><%= link_to 'Custom Classes', '/baas/api-reference/sections/custom-classes' %></li>
-					<li><%= link_to 'File Management', '/baas/api-reference/sections/file-management' %></li>
-					<li><%= link_to 'Groups', '/baas/api-reference/sections/groups' %></li>
-					<li><%= link_to 'Password Reset', '/baas/api-reference/sections/password-reset' %></li>
-					<li><%= link_to 'Users', '/baas/api-reference/sections/users' %></li>
-				</ul>
-			</nav>
-		</div>
+<div class="col-4-12">
+	<nav class="r_guide-nav">
+		<h1>Contents:</h1>
+		<ul id="nav">
+			<li><%= nav_link 'ACLs', '/baas/api-reference/sections/acls', active_if: %r{^/baas/api-reference/sections/acls}%></li>
+			<li><%= nav_link 'API Keys', '/baas/api-reference/sections/api-keys', active_if: %r{^/baas/api-reference/sections/api-keys}%></li>
+			<li><%= nav_link 'Application Invites', '/baas/api-reference/sections/application-invites', active_if: %r{^/baas/api-reference/sections/application-invites}%></li>
+			<li><%= nav_link 'Applications', '/baas/api-reference/sections/applications', active_if: %r{^/baas/api-reference/sections/applications}%></li>
+			<li><%= nav_link 'Authentication', '/baas/api-reference/sections/authentication', active_if: %r{^/baas/api-reference/sections/authentication}%></li>
+			<li><%= nav_link 'Custom Classes', '/baas/api-reference/sections/custom-classes', active_if: %r{^/baas/api-reference/sections/custom-classes}%></li>
+			<li><%= nav_link 'File Management', '/baas/api-reference/sections/file-management', active_if: %r{^/baas/api-reference/sections/file-management}%></li>
+			<li><%= nav_link 'Groups', '/baas/api-reference/sections/groups', active_if: %r{^/baas/api-reference/sections/groups}%></li>
+			<li><%= nav_link 'Password Reset', '/baas/api-reference/sections/password-reset', active_if: %r{^/baas/api-reference/sections/password-reset}%></li>
+			<li><%= nav_link 'Users', '/baas/api-reference/sections/users', active_if: %r{^/baas/api-reference/sections/users}%></li>
+		</ul>
+	</nav>
+</div>
