@@ -1,4 +1,8 @@
-## Delete a user
+---
+title: Delete a user
+---
+
+# Delete a user
 
 ```javascript
 var request = new XMLHttpRequest();

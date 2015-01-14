@@ -1,4 +1,8 @@
-## Retrieve a user by ID
+---
+title: Retrieve a user by ID
+---
+
+# Retrieve a user by ID
 
 ```javascript
 var request = new XMLHttpRequest();

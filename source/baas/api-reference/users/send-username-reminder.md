@@ -1,4 +1,8 @@
-## Send Username Reminder
+---
+title: Send Username Reminder
+---
+
+# Send Username Reminder
 
 ```javascript
 var request = new XMLHttpRequest();

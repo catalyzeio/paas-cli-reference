@@ -1,4 +1,8 @@
-## Update a user
+---
+title: Update a user
+---
+
+# Update a user
 
 ```javascript
 var request = new XMLHttpRequest();

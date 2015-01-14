@@ -1,4 +1,8 @@
-## Create a User
+---
+title: Create a User
+---
+
+# Create a User
 
 ```javascript
 var request = new XMLHttpRequest();
