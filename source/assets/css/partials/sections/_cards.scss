@@ -339,6 +339,37 @@
 				color: $c_paas;
 				text-decoration: none;
 			}
+			table{
+				padding: 10px;
+				border: 1px solid $c_border;
+				margin: 20px;
+				tr{
+					font-size: 14px;
+					td{
+						color: $c_text;
+						padding: 10px;
+						line-height: 1.5;
+						border: 1px solid $c_border;
+						@include easing(350ms);
+						&:hover{
+							@include easing(350ms);
+							background-color: $c_highlight;
+						}
+					}
+					th{
+						font-family: $f_sans-bold;
+						color: $c_compliance;
+						padding: 10px;
+						background-color: $c_lightbg;
+						border: 1px solid $c_border;
+						@include easing(350ms);
+						&:hover{
+							@include easing(350ms);
+							background-color: $c_highlight;
+						}
+					}
+				}
+			}
 		}
 	}
 }
