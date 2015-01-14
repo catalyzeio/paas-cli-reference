@@ -1,6 +1,5 @@
 ---
 title: Application Invites
-layout: ref_baas
 ---
 
 # Application Invites

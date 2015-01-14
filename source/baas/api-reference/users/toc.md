@@ -1,4 +1,4 @@
-header.md
+index.md
 create-a-user.md
 retrieve-a-user-by-id.md
 update-a-user.md

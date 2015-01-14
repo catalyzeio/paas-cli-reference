@@ -1,4 +1,4 @@
-header.md
+index.md
 create-a-new-custom-class.md
 add-columns.md
 retrieve-schema-.md

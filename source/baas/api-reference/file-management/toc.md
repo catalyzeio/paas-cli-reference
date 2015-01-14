@@ -1,4 +1,4 @@
-header.md
+index.md
 upload-a-file.md
 upload-a-file-for-a-user.md
 retrieve-a-users-file.md

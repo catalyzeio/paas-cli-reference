@@ -1,4 +1,4 @@
-header.md
+index.md
 retrieve-an-entitys-acl-for-a-custom-class.md
 set-an-acl-for-an-entity-on-a-custom-class.md
 retrieve-an-entitys-acl-for-a-core-model.md

@@ -1,6 +1,5 @@
 ---
 title: Groups
-layout: ref_baas
 ---
 
 # Groups

@@ -1,6 +1,5 @@
 ---
 title: Authentication
-layout: ref_baas
 ---
 
 # Authentication

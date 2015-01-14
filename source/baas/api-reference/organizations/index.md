@@ -1,6 +1,5 @@
 ---
 title: Organizations
-layout: ref_baas
 ---
 
 # Organizations

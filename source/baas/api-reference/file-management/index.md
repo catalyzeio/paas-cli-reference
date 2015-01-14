@@ -1,6 +1,5 @@
 ---
 title: File Management
-layout: ref_baas
 ---
 
 # File Management

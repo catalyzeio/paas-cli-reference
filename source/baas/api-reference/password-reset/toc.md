@@ -1,2 +1,2 @@
-header.md
+index.md
 initiate-password-reset.md

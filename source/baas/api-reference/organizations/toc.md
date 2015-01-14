@@ -1,4 +1,4 @@
-header.md
+index.md
 add-payment-method.md
 create-org.md
 delete-org.md
