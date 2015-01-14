@@ -1,6 +1,6 @@
 ---
 title: Users
-layout: baas_guides
+layout: ref_baas
 ---
 
 # Users
