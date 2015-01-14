@@ -1,4 +1,8 @@
-## Add Columns
+---
+title: Add Columns
+---
+
+# Add Columns
 
 ```javascript
 var request = new XMLHttpRequest();

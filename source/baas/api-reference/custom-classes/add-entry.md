@@ -1,4 +1,8 @@
-## Add Entry
+---
+title: Add Entry
+---
+
+# Add Entry
 
 ```javascript
 var request = new XMLHttpRequest();

@@ -1,4 +1,8 @@
-## Create a new group
+---
+title: Create a new group
+---
+
+# Create a new group
 
 ```javascript
 var request = new XMLHttpRequest();

@@ -1,4 +1,8 @@
-## Set an ACL for an entity on a Custom Class
+---
+title: Set an ACL for an entity on a Custom Class
+---
+
+# Set an ACL for an entity on a Custom Class
 
 ```javascript
 var request = new XMLHttpRequest();

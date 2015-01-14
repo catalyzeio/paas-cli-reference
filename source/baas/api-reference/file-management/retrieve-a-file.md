@@ -1,4 +1,8 @@
-## Retrieve a File
+---
+title: Retrieve a File
+---
+
+# Retrieve a File
 
 ```javascript
 var request = new XMLHttpRequest();

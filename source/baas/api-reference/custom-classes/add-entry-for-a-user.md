@@ -1,4 +1,8 @@
-## Add Entry for a User
+---
+title: Add Entry for a User
+---
+
+# Add Entry for a User
 
 ```javascript
 var request = new XMLHttpRequest();

@@ -1,4 +1,8 @@
-## List members of a group
+---
+title: List members of a group
+---
+
+# List members of a group
 
 ```javascript
 var request = new XMLHttpRequest();

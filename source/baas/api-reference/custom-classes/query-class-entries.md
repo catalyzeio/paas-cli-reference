@@ -1,4 +1,8 @@
-## Query Class Entries
+---
+title: Query Class Entries
+---
+
+# Query Class Entries
 
 ```javascript
 var request = new XMLHttpRequest();

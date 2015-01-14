@@ -1,4 +1,8 @@
-## Update Payment Method
+---
+title: Update Payment Method
+---
+
+# Update Payment Method
 
 ```javascript
 var request = new XMLHttpRequest();

@@ -1,4 +1,8 @@
-## Delete Entry Reference
+---
+title: Delete Entry Reference
+---
+
+# Delete Entry Reference
 
 ```javascript
 var request = new XMLHttpRequest();

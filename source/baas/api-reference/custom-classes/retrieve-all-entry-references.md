@@ -1,4 +1,8 @@
-## Retrieve All Entry References
+---
+title: Retrieve All Entry References
+---
+
+# Retrieve All Entry References
 
 ```javascript
 var request = new XMLHttpRequest();

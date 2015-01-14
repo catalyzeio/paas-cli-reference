@@ -1,4 +1,8 @@
-## Sign In
+---
+title: Sign In
+---
+
+# Sign In
 
 ```javascript
 var request = new XMLHttpRequest();

@@ -1,4 +1,8 @@
-## Retrieve all ACLs for an entity
+---
+title: Retrieve all ACLs for an entity
+---
+
+# Retrieve all ACLs for an entity
 
 ```javascript
 var request = new XMLHttpRequest();

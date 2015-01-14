@@ -1,4 +1,8 @@
-## Delete a group
+---
+title: Delete a group
+---
+
+# Delete a group
 
 ```javascript
 var request = new XMLHttpRequest();

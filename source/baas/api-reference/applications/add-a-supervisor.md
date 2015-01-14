@@ -1,4 +1,8 @@
-## Add a Supervisor
+---
+title: Add a Supervisor
+---
+
+# Add a Supervisor
 
 ```javascript
 var request = new XMLHttpRequest();

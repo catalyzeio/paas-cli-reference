@@ -1,4 +1,8 @@
-## Get Customer
+---
+title: Get Customer
+---
+
+# Get Customer
 
 ```javascript
 var request = new XMLHttpRequest();

@@ -1,4 +1,8 @@
-## Unset ACLs for an entity on a core model
+---
+title: Unset ACLs for an entity on a core model
+---
+
+# Unset ACLs for an entity on a core model
 
 ```javascript
 var request = new XMLHttpRequest();

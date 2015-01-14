@@ -1,4 +1,8 @@
-## Add Payment Method
+---
+title: Add Payment Method
+---
+
+# Add Payment Method
 
 ```javascript
 var request = new XMLHttpRequest();

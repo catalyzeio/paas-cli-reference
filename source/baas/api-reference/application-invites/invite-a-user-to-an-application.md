@@ -1,4 +1,8 @@
-## Invite a user to an application
+---
+title: Invite a user to an application
+---
+
+# Invite a user to an application
 
 ```javascript
 var request = new XMLHttpRequest();

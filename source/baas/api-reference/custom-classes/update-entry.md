@@ -1,4 +1,8 @@
-## Update Entry
+---
+title: Update Entry
+---
+
+# Update Entry
 
 ```javascript
 var request = new XMLHttpRequest();

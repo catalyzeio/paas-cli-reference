@@ -1,4 +1,8 @@
-## Retrieve Org
+---
+title: Retrieve Org
+---
+
+# Retrieve Org
 
 ```javascript
 var request = new XMLHttpRequest();

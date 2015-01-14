@@ -1,4 +1,8 @@
-## Filter a User's Class Entries
+---
+title: Filter a User's Class Entries
+---
+
+# Filter a User's Class Entries
 
 ```javascript
 var request = new XMLHttpRequest();

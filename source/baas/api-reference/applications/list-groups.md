@@ -1,4 +1,8 @@
-## List Groups
+---
+title: List Groups
+---
+
+# List Groups
 
 ```javascript
 var request = new XMLHttpRequest();

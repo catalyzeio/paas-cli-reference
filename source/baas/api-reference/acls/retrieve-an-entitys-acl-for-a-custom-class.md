@@ -1,4 +1,8 @@
-## Retrieve an entity's ACL for a custom class
+---
+title: Retrieve an entity's ACL for a custom class
+---
+
+# Retrieve an entity's ACL for a custom class
 
 ```javascript
 var request = new XMLHttpRequest();

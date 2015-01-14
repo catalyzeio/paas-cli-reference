@@ -1,4 +1,8 @@
-## Delete Invite
+---
+title: Delete Invite
+---
+
+# Delete Invite
 
 ```javascript
 var request = new XMLHttpRequest();

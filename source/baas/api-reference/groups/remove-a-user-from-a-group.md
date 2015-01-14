@@ -1,4 +1,8 @@
-## Remove a User from a Group
+---
+title: Remove a User from a Group
+---
+
+# Remove a User from a Group
 
 ```javascript
 var request = new XMLHttpRequest();

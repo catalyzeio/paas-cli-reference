@@ -1,4 +1,8 @@
-## Upload a File
+---
+title: Upload a File
+---
+
+# Upload a File
 
 ```javascript
 var request = new XMLHttpRequest();

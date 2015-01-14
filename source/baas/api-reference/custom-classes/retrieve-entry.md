@@ -1,4 +1,8 @@
-## Retrieve Entry
+---
+title: Retrieve Entry
+---
+
+# Retrieve Entry
 
 ```javascript
 var request = new XMLHttpRequest();

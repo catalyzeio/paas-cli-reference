@@ -1,4 +1,8 @@
-## Retrieve a group
+---
+title: Retrieve a group
+---
+
+# Retrieve a group
 
 ```javascript
 var request = new XMLHttpRequest();

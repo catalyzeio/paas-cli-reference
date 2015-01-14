@@ -1,6 +1,5 @@
 ---
 title: Custom Classes
-layout: ref_baas
 ---
 
 # Custom Classes

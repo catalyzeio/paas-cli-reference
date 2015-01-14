@@ -1,4 +1,8 @@
-## List User's Files
+---
+title: List User's Files
+---
+
+# List User's Files
 
 ```javascript
 var request = new XMLHttpRequest();

@@ -1,4 +1,8 @@
-## Add a User to a Group
+---
+title: Add a User to a Group
+---
+
+# Add a User to a Group
 
 ```javascript
 var request = new XMLHttpRequest();

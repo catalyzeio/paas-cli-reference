@@ -1,4 +1,8 @@
-## Remove a Supervisor
+---
+title: Remove a Supervisor
+---
+
+# Remove a Supervisor
 
 ```javascript
 var request = new XMLHttpRequest();

@@ -1,4 +1,8 @@
-## Retrieve an entity's ACL for a core model
+---
+title: Retrieve an entity's ACL for a core model
+---
+
+# Retrieve an entity's ACL for a core model
 
 ```javascript
 var request = new XMLHttpRequest();

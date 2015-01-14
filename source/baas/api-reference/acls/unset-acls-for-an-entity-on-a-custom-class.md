@@ -1,4 +1,8 @@
-## Unset ACLs for an entity on a custom class
+---
+title: Unset ACLs for an entity on a custom class
+---
+
+# Unset ACLs for an entity on a custom class
 
 ```javascript
 var request = new XMLHttpRequest();

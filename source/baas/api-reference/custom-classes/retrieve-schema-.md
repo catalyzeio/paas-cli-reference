@@ -1,4 +1,8 @@
-## Retrieve Schema 
+---
+title: Retrieve Schema
+---
+
+# Retrieve Schema
 
 ```javascript
 var request = new XMLHttpRequest();

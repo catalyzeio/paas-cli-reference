@@ -1,6 +1,5 @@
 ---
 title: Password Reset
-layout: ref_baas
 ---
 
 # Password Reset

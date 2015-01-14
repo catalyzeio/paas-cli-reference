@@ -1,4 +1,8 @@
-## Update Org
+---
+title: Update Org
+---
+
+# Update Org
 
 ```javascript
 var request = new XMLHttpRequest();

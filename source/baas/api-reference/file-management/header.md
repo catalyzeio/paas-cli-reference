@@ -1,8 +1,7 @@
 ---
-title: File Management
-layout: ref_baas
+title: List a User's Files
 ---
 
-# File Management
+# List a User's Files
 
 Files can be uploaded, download or deleted. Images and documents are common use cases.

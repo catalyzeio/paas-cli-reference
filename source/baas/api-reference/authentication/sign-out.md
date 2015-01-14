@@ -1,4 +1,8 @@
-## Sign Out
+---
+title: Sign Out
+---
+
+# Sign Out
 
 ```javascript
 var request = new XMLHttpRequest();

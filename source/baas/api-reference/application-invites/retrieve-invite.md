@@ -1,4 +1,8 @@
-## Retrieve Invite
+---
+title: Retrieve Invite
+---
+
+# Retrieve Invite
 
 ```javascript
 var request = new XMLHttpRequest();

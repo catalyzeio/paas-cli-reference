@@ -1,4 +1,8 @@
-## Delete a User's File
+---
+title: Delete a User's File
+---
+
+# Delete a User's File
 
 ```javascript
 var request = new XMLHttpRequest();

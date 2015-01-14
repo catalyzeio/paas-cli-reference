@@ -1,4 +1,8 @@
-## Set an ACL for an entity on a core model
+---
+title: Set an ACL for an entity on a core model
+---
+
+# Set an ACL for an entity on a core model
 
 ```javascript
 var request = new XMLHttpRequest();

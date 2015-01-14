@@ -1,4 +1,8 @@
-## Filter Class Entries
+---
+title: Filter Class Entries
+---
+
+# Filter Class Entries
 
 ```javascript
 var request = new XMLHttpRequest();

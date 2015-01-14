@@ -1,4 +1,8 @@
-## Initiate Password Reset
+---
+title: Initiate Password Reset
+---
+
+# Initiate Password Reset
 
 ```javascript
 var request = new XMLHttpRequest();

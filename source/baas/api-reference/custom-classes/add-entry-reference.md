@@ -1,4 +1,8 @@
-## Add Entry Reference
+---
+title: Add Entry Reference
+---
+
+# Add Entry Reference
 
 ```javascript
 var request = new XMLHttpRequest();

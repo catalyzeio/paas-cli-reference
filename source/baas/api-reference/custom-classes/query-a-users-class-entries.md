@@ -1,4 +1,8 @@
-## Query a User's Class Entries
+---
+title: Query a User's Class Entries
+---
+
+# Query a User's Class Entries
 
 ```javascript
 var request = new XMLHttpRequest();

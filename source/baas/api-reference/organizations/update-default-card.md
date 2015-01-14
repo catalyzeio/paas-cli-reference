@@ -1,4 +1,8 @@
-## Update Default Card
+---
+title: Update Default Card
+---
+
+# Update Default Card
 
 ```javascript
 var request = new XMLHttpRequest();

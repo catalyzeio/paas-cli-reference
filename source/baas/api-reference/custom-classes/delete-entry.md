@@ -1,4 +1,8 @@
-## Delete Entry
+---
+title: Delete Entry
+---
+
+# Delete Entry
 
 ```javascript
 var request = new XMLHttpRequest();

@@ -1,4 +1,8 @@
-## Retrieve Entity Reference
+---
+title: Retrieve Entity Reference
+---
+
+# Retrieve Entity Reference
 
 ```javascript
 var request = new XMLHttpRequest();

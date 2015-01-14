@@ -1,4 +1,8 @@
-## Retrieve a User's File
+---
+title: Retrieve a User's File
+---
+
+# Retrieve a User's File
 
 ```javascript
 var request = new XMLHttpRequest();

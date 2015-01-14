@@ -1,4 +1,8 @@
-## Create a New Custom Class
+---
+title: Create a New Custom Class
+---
+
+# Create a New Custom Class
 
 ```javascript
 var request = new XMLHttpRequest();

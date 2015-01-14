@@ -1,6 +1,5 @@
 ---
 title: Applications
-layout: ref_baas
 ---
 
 # Applications

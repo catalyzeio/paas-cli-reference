@@ -1,4 +1,8 @@
-## Delete Payment Method
+---
+title: Delete Payment Method
+---
+
+# Delete Payment Method
 
 ```javascript
 var request = new XMLHttpRequest();

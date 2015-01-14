@@ -1,4 +1,8 @@
-## Delete Org
+---
+title: Delete Org
+---
+
+# Delete Org
 
 ```javascript
 var request = new XMLHttpRequest();

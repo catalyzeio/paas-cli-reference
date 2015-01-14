@@ -1,4 +1,8 @@
-## Delete Class
+---
+title: Delete Class
+---
+
+# Delete Class
 
 ```javascript
 var request = new XMLHttpRequest();

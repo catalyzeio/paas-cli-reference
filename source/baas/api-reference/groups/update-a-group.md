@@ -1,4 +1,8 @@
-## Update a group
+---
+title: Update a group
+---
+
+# Update a group
 
 ```javascript
 var request = new XMLHttpRequest();

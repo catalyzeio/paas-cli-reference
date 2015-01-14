@@ -1,4 +1,8 @@
-## Export Data
+---
+title: Export Data
+---
+
+# Export Data
 
 ```javascript
 var request = new XMLHttpRequest();
