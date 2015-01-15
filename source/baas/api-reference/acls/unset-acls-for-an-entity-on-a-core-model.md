@@ -51,7 +51,7 @@ NSDictionary *body = @[]
 ```
 
 
-### DELETE /acl/core/{model}/{entityId}
+## DELETE /acl/core/{model}/{entityId}
 Unset directly-set ACLs for a user/group/application on a core (non-custom) model.
 
 This route requires *admin/dev*-level permissions.

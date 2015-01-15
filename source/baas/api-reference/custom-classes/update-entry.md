@@ -73,7 +73,7 @@ NSDictionary *body = @{
 ```
 
 
-### PUT /classes/{name}/entry/{entryId}
+## PUT /classes/{name}/entry/{entryId}
 Update an existing custom class entry.
 
 This route requires *Supervisor, owner, or author*-level permissions.

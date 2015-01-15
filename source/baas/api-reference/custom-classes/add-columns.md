@@ -65,7 +65,7 @@ NSDictionary *body = @{
 ```
 
 
-### PUT /classes/{name}
+## PUT /classes/{name}
 Use this route to add columns to a custom class.
 
 * Parameters

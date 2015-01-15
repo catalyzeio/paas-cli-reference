@@ -50,7 +50,7 @@ NSDictionary *body = @{};
 ```
 
 
-### DELETE /users/{usersId}
+## DELETE /users/{usersId}
 This is used to delete a user and all associated PII details. **Be careful using this as it cannot be reversed.**
 
 * Parameters

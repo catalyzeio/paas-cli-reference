@@ -60,7 +60,7 @@ NSDictionary *body = @{
 ```
 
 
-### GET /classes/{name}/entry/{entryId}
+## GET /classes/{name}/entry/{entryId}
 Return a specific custom class entry.
 
 This route requires *Supervisor, owner, or author*-level permissions.

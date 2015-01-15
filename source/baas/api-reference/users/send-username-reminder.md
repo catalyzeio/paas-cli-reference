@@ -53,7 +53,7 @@ NSDictionary *body = @{};
 ```
 
 
-### POST /users/forgotUsername
+## POST /users/forgotUsername
 Send a username to a user's primary email address
 
 

@@ -66,7 +66,7 @@ NSDictionary *body = @[
 ```
 
 
-### GET /users/{userId}/files
+## GET /users/{userId}/files
 Return a list of the specified user's files stored within the application.
 
 Model level or higher access to files is required to perform this operation.

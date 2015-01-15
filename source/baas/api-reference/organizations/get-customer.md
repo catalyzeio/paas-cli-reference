@@ -104,7 +104,7 @@ NSDictionary *body = @{
 ```
 
 
-### GET /org/{orgId}/customer
+## GET /org/{orgId}/customer
 Get the customer object of an existing organization. This is a Customer object from Stripe.
 A payment method needs to exist on the customer in order to retrieve the customer.
 Otherwise the customer object has not been setup yet and a 400 will be thrown.

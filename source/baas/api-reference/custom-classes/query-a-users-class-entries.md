@@ -53,18 +53,18 @@ NSDictionary *body = @{};
 ```
 
 
-### POST /classes/{name}/query/{usersId}{?pageSize,pageNumber,orderBy,direction}
+## POST /classes/{name}/query/{usersId}{?pageSize,pageNumber,orderBy,direction}
 Query a user's custom class entries in a specific class, using an advanced query.
 
 This route requires *Admin, dev, supervisor, or querying own ID*-level permissions.
 
 * Parameters
-    * pageNumber (optional (default=1), int) ... The number of pages of size pageSize to skip before returning entries.  If not specified, defaults to 1.
-    * name (required, String) ... The name of the custom class to query.
-    * usersId (required, String) ... The user whose data will be queried.
-    * pageSize (optional (default=10), int) ... The number of entries to return. If not specified, defaults to 10.
     * orderBy (optional (default=@createdAt), String) ... The field by which to order the results.
     * direction (optional (default=asc), String) ... The direction in which to sort entries. "asc" and "desc" are accepted values.
+    * name (required, String) ... The name of the custom class to query.
+    * pageSize (optional (default=10), int) ... The number of entries to return. If not specified, defaults to 10.
+    * usersId (required, String) ... The user whose data will be queried.
+    * pageNumber (optional (default=1), int) ... The number of pages of size pageSize to skip before returning entries.  If not specified, defaults to 1.
 
 **Request (application/json)**
 

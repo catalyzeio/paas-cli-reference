@@ -50,7 +50,7 @@ NSDictionary *body = @{};
 ```
 
 
-### GET /auth/signout
+## GET /auth/signout
 Sign a user out of an application, invalidating their session token server-side.
 
 

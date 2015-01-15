@@ -73,7 +73,7 @@ NSDictionary *body = @{
 ```
 
 
-### POST /classes/{name}/entry
+## POST /classes/{name}/entry
 Use this route to add data to the custom class that you created.
 
 NAME | TYPE | DESCRIPTION

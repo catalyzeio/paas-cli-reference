@@ -50,7 +50,7 @@ NSDictionary *body = @{};
 ```
 
 
-### DELETE /app/supervisor/{name}
+## DELETE /app/supervisor/{name}
 Remove a supervisor from the currently-authenticated application by username.
 
 This route requires *Admin/Dev*-level permissions.

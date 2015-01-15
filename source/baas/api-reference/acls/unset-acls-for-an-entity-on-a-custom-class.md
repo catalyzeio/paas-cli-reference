@@ -51,14 +51,14 @@ NSDictionary *body = @[]
 ```
 
 
-### DELETE /acl/custom/{customClass}/{entityId}
+## DELETE /acl/custom/{customClass}/{entityId}
 Unset directly-set ACLs for a user/group/application on a custom class.
 
 This route requires *admin/dev*-level permissions.
 
 * Parameters
-    * customClass (required, String) ... The name of the custom class
     * entityId (required, String) ... The ID of the user/group/application
+    * customClass (required, String) ... The name of the custom class
 
 
 **Response (application/json)**

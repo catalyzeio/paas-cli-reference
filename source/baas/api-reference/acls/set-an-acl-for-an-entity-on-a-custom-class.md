@@ -55,14 +55,14 @@ NSDictionary *body = @[@"retrieve", @"update@"]
 ```
 
 
-### POST /acl/custom/{customClass}/{entityId}
+## POST /acl/custom/{customClass}/{entityId}
 Set an ACL for a user/group/application on a custom class. Setting an ACL on an entity/model combination that was already set results in the new ACL replacing the old.
 
 This route requires *admin/dev*-level permissions.
 
 * Parameters
-    * customClass (required, String) ... The name of the custom class
     * entityId (required, String) ... The ID of the user/group/application
+    * customClass (required, String) ... The name of the custom class
 
 **Request (application/json)**
 

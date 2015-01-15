@@ -93,7 +93,7 @@ NSDictionary *body = @[
 ```
 
 
-### POST /classes/{name}/query{?pageSize,pageNumber,orderBy,direction}
+## POST /classes/{name}/query{?pageSize,pageNumber,orderBy,direction}
 This route allows the data in a custom class to be queried via an arbitrary `expression`, using a custom syntax. This expression, built as JSON, is sent as the body of the `POST` request.
 
 In general, an `expression` consists of an object with a single property, the `operator`, with the  value of that property being the array of `arguments` to pass to that operator.
@@ -159,11 +159,11 @@ To query the `createdAt` and `updatedAt` fields, the special values `@createdAt`
 This route requires *Admin, dev, or supervisor*-level permissions.
 
 * Parameters
-    * pageNumber (optional (default=1), int) ... The number of pages of size pageSize to skip before returning entries.  If not specified, defaults to 1.
-    * name (required, String) ... The name of the custom class
-    * pageSize (optional (default=10), int) ... The number of entries to return. If not specified, defaults to 10.
     * orderBy (optional (default=@createdAt), String) ... The field by which to order the results.
     * direction (optional (default=asc), String) ... The direction in which to sort entries. "asc" and "desc" are accepted values.
+    * name (required, String) ... The name of the custom class
+    * pageSize (optional (default=10), int) ... The number of entries to return. If not specified, defaults to 10.
+    * pageNumber (optional (default=1), int) ... The number of pages of size pageSize to skip before returning entries.  If not specified, defaults to 1.
 
 **Request (application/json)**
 

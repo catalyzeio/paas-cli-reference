@@ -115,7 +115,7 @@ NSDictionary *body = @{
 ```
 
 
-### PUT /classes/{name}/entry/{entryId}/ref/{refName}
+## PUT /classes/{name}/entry/{entryId}/ref/{refName}
 Add a reference to a custom class entry.
 
 * Parameters

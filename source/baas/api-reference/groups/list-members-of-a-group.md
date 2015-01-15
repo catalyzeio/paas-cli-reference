@@ -55,7 +55,7 @@ NSDictionary *body = @[
 ```
 
 
-### GET /groups/{groupId}/members
+## GET /groups/{groupId}/members
 List the IDs of users belonging to a group.
 
 This route requires *Supervisor*-level permissions.

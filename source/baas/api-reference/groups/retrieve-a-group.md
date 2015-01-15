@@ -55,7 +55,7 @@ NSDictionary *body = @{
 ```
 
 
-### GET /groups/{groupId}
+## GET /groups/{groupId}
 Retrieve a group's metadata. This will return 404 if the group does not exist.
 
 This route requires *Supervisor*-level permissions.

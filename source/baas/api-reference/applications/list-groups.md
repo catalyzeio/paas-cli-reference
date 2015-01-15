@@ -57,7 +57,7 @@ NSDictionary *body = @[
 ```
 
 
-### GET /app/{appId}/groups
+## GET /app/{appId}/groups
 Retrieve all groups for an app.
 
 This route requires *Supervisor*-level permissions.

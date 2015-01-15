@@ -77,7 +77,7 @@ NSDictionary *body = @{
 ```
 
 
-### PUT /org/{orgId}
+## PUT /org/{orgId}
 Update an organization and associated details. Include the fields or data elements you wish to add or update into the body of the request.
 
 This route requires *admin,dev*-level permissions.

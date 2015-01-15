@@ -50,14 +50,14 @@ NSDictionary *body = @{};
 ```
 
 
-### DELETE /org/{orgId}/payment/{paymentId}
+## DELETE /org/{orgId}/payment/{paymentId}
 /org/delete_payment.md
 
 This route requires *payment*-level permissions.
 
 * Parameters
-    * paymentId (required, String) ... The ID of the existing payment method
     * orgId (required, String) ... The ID of the org
+    * paymentId (required, String) ... The ID of the existing payment method
 
 
 **Response (application/json)**

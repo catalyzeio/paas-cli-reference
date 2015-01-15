@@ -51,7 +51,7 @@ NSDictionary *body = (the file's contents)
 ```
 
 
-### GET /users/files/{fileId}
+## GET /users/files/{fileId}
 Retrieve a file by its ID.
 Only the owner, author, supervisor or admin can perform this operation.
 

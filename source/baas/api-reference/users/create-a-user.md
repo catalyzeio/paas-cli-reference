@@ -245,7 +245,7 @@ NSDictionary *body = @{
 ```
 
 
-### POST /users
+## POST /users
 This is used to create a user with associated PII (Personally Identifiable Information) details.
 
 

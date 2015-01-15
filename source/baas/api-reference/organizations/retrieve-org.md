@@ -62,7 +62,7 @@ NSDictionary *body = @{
 ```
 
 
-### GET /org/{orgId}
+## GET /org/{orgId}
 Get the details of an existing organization.
 
 * Parameters

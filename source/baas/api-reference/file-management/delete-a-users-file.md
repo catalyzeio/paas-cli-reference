@@ -50,15 +50,15 @@ NSDictionary *body = @{};
 ```
 
 
-### DELETE /users/{userId}/files/{fileId}
+## DELETE /users/{userId}/files/{fileId}
 Delete a file owned by another user. 
 
 The authenticated user must be the author or owner of the file or have model level or higher access to files in order to perform this operation.
 
 
 * Parameters
-    * userId (required, String) ... The ID of the user that owns the file
     * fileId (required, String) ... The ID of the file to delete
+    * userId (required, String) ... The ID of the user that owns the file
 
 
 **Response (application/json)**

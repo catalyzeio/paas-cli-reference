@@ -77,7 +77,7 @@ NSDictionary *body = @{
 ```
 
 
-### POST /org
+## POST /org
 Creates and returns an organization with an auto generated orgId.
 
 

@@ -61,7 +61,7 @@ NSDictionary *body = @{
 ```
 
 
-### GET /acl/{entityId}
+## GET /acl/{entityId}
 Retrieve all directly-granted ACLs for a user/group/application.
 
 This route requires *admin/dev*-level permissions.

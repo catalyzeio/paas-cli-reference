@@ -66,7 +66,7 @@ NSDictionary *body = @[
 ```
 
 
-### GET /users/files
+## GET /users/files
 Return a list of the authenticated user's files stored within the application.
 
 

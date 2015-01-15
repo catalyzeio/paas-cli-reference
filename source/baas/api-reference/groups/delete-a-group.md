@@ -50,7 +50,7 @@ NSDictionary *body = @{};
 ```
 
 
-### DELETE /groups/{groupId}
+## DELETE /groups/{groupId}
 Delete a group. This cannot be reversed.
 
 This route requires *Supervisor*-level permissions.

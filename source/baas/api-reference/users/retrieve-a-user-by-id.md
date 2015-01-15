@@ -74,7 +74,7 @@ NSDictionary *body = @{
 ```
 
 
-### GET /users/{usersId}
+## GET /users/{usersId}
 This is used to retrieve a user's PII details by ID.
 
 * Parameters

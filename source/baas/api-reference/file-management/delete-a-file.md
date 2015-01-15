@@ -53,7 +53,7 @@ NSDictionary *body = @{
 ```
 
 
-### DELETE /users/files/{fileId}
+## DELETE /users/files/{fileId}
 Deletes an existing file.
 Only the owner, author, supervisor or admin can perform this operation.
 

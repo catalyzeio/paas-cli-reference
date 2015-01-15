@@ -53,7 +53,7 @@ NSDictionary *body = @{};
 ```
 
 
-### PUT /org/{orgId}/payment/{paymentId}
+## PUT /org/{orgId}/payment/{paymentId}
 Update an existing payment method on the organization's Stripe customer. The only fields that should
 be updated are specified [here](https://stripe.com/docs/api#update_card). No credit card numbers should be sent to the Catalyze API.
 
@@ -61,8 +61,8 @@ be updated are specified [here](https://stripe.com/docs/api#update_card). No cre
 This route requires *payment*-level permissions.
 
 * Parameters
-    * paymentId (required, String) ... The ID of the existing payment method
     * orgId (required, String) ... The ID of the org
+    * paymentId (required, String) ... The ID of the existing payment method
 
 **Request (application/json)**
 

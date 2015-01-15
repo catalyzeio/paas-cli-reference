@@ -56,7 +56,7 @@ NSDictionary *body = @{
 ```
 
 
-### POST /users/files
+## POST /users/files
 Upload a file that belongs to the currently logged in User such as a CCDA document or an image.
 
 

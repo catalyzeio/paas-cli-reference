@@ -63,7 +63,7 @@ NSDictionary *body = @{
 ```
 
 
-### POST /groups
+## POST /groups
 Create a new group within the currently-authenticated application.
 
 This route requires *Supervisor*-level permissions.

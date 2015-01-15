@@ -57,12 +57,12 @@ NSDictionary *body = @{
 ```
 
 
-### GET /app/{appId}/invite/{inviteId}
+## GET /app/{appId}/invite/{inviteId}
 Use this route to retrieve a specific invite by its ID. This invite must be unused.
 
 * Parameters
-    * inviteId (required, String) ... The ID of the invite
     * appId (required, String) ... The ID of the application
+    * inviteId (required, String) ... The ID of the invite
 
 
 **Response (application/json)**

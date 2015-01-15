@@ -101,7 +101,7 @@ NSDictionary *body = @{
 ```
 
 
-### PUT /users/{usersId}
+## PUT /users/{usersId}
 This is used to update or add to a user's PII details.
 
 * Parameters

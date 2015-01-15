@@ -53,14 +53,14 @@ NSDictionary *body = @{};
 ```
 
 
-### POST /groups/{groupsId}/users/{usersId}
+## POST /groups/{groupsId}/users/{usersId}
 Add a user to a group by ID.
 
 This route requires *Supervisor*-level permissions.
 
 * Parameters
-    * groupsId (required, String) ... The ID of the group.
     * usersId (required, String) ... The ID of the user.
+    * groupsId (required, String) ... The ID of the group.
 
 **Request (application/json)**
 

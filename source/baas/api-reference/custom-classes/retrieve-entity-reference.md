@@ -61,7 +61,7 @@ NSDictionary *body = @{
 ```
 
 
-### GET /classes/{name}/entry/{entryId}/ref/{refName}/{refId}
+## GET /classes/{name}/entry/{entryId}/ref/{refName}/{refId}
 Retrieve a specific reference for an entry.
 
 * Parameters

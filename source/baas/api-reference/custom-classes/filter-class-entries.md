@@ -50,7 +50,7 @@ NSDictionary *body = @{};
 ```
 
 
-### GET /classes/{name}/query{?pageSize,pageNumber,orderBy,direction}
+## GET /classes/{name}/query{?pageSize,pageNumber,orderBy,direction}
 This route allows the data in a custom class to be filtered by certain values inside it, each passed as part of the query string by `fieldName=value`. Any number of fields can be passed, including zero (no entries would be filtered out).
 
 Examples for an imaginary class "people":
@@ -68,11 +68,11 @@ To query the `createdAt` and `updatedAt` fields, the special values `@createdAt`
 This route requires *Admin, dev, or supervisor*-level permissions.
 
 * Parameters
-    * pageNumber (optional (default=1), int) ... The number of pages of size pageSize to skip before returning entries.  If not specified, defaults to 1.
-    * name (required, String) ... The name of the custom class to query.
-    * pageSize (optional (default=10), int) ... The number of entries to return. If not specified, defaults to 10.
     * orderBy (optional (default=@createdAt), String) ... The field by which to order the results.
     * direction (optional (default=asc), String) ... The direction in which to sort entries. "asc" and "desc" are accepted values.
+    * name (required, String) ... The name of the custom class to query.
+    * pageSize (optional (default=10), int) ... The number of entries to return. If not specified, defaults to 10.
+    * pageNumber (optional (default=1), int) ... The number of pages of size pageSize to skip before returning entries.  If not specified, defaults to 1.
 
 
 **Response (application/json)**

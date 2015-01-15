@@ -14,16 +14,16 @@
 				</ul>
 			</li>
 			<li>
-				<%= nav_link 'Authenticaion', '/baas/api-reference/authenticaion', active_if: %r{^/baas/api-reference/authenticaion}%>
+				<%= nav_link 'Authentication', '/baas/api-reference/authentication', active_if: %r{^/baas/api-reference/authentication}%>
 				<ul>
-					<li><%= nav_link 'Sign in', '/baas/api-reference/authenticaion/sign-in', active_if: %r{^/baas/api-reference/authenticaion/sign-in}%></li>
-					<li><%= nav_link 'Sign out', '/baas/api-reference/authenticaion/sign-out', active_if: %r{^/baas/api-reference/authenticaion/sign-out}%></li>
+					<li><%= nav_link 'Sign in', '/baas/api-reference/authentication/sign-in', active_if: %r{^/baas/api-reference/authentication/sign-in}%></li>
+					<li><%= nav_link 'Sign out', '/baas/api-reference/authentication/sign-out', active_if: %r{^/baas/api-reference/authentication/sign-out}%></li>
 				</ul>
 			</li>
 			<li>
 				<%= nav_link 'Applications', '/baas/api-reference/applications', active_if: %r{^/baas/api-reference/applications}%>
 				<ul>
-					<li><%= nav_link 'List groups', '/baas/api-reference/application/list-groups', active_if: %r{^/baas/api-reference/application/list-groups}%></li>
+					<li><%= nav_link 'List groups', '/baas/api-reference/applications/list-groups', active_if: %r{^/baas/api-reference/applications/list-groups}%></li>
 					<li><%= nav_link 'List default groups', '/baas/api-reference/applications/list-default-groups', active_if: %r{^/baas/api-reference/applications/list-default-groups}%></li>
 					<li><%= nav_link 'Add a supervisor', '/baas/api-reference/applications/add-a-supervisor', active_if: %r{^/baas/api-reference/applications/add-a-supervisor}%></li>
 					<li><%= nav_link 'Remove a supervisor', '/baas/api-reference/applications/remove-a-supervisor', active_if: %r{^/baas/api-reference/applications/remove-a-supervisor}%></li>
@@ -33,14 +33,14 @@
 				<%= nav_link 'Application invites', '/baas/api-reference/application-invites', active_if: %r{^/baas/api-reference/application-invites}%>
 				<ul>
 					<li><%= nav_link 'Invite a user to an application', '/baas/api-reference/application-invites/invite-a-user-to-an-application', active_if: %r{^/baas/api-reference/application-invites/invite-a-user-to-an-application}%></li>
-					<li><%= nav_link 'Retrieve invite', '/baas/api-reference/applications/retrieve-invite', active_if: %r{^/baas/api-reference/application-invites/retrieve-invite}%></li>
+					<li><%= nav_link 'Retrieve invite', '/baas/api-reference/application-invites/retrieve-invite', active_if: %r{^/baas/api-reference/application-invites/retrieve-invite}%></li>
 					<li><%= nav_link 'Delete invite', '/baas/api-reference/application-invites/delete-invite', active_if: %r{^/baas/api-reference/application-invites/delete-invite}%></li>
 				</ul>
 			</li>
 			<li>
 				<%= nav_link 'Custom classes', '/baas/api-reference/custom-classes', active_if: %r{^/baas/api-reference/custom-classes}%>
 				<ul>
-					<li><%= nav_link 'Create a custom class', '/baas/api-reference/custom-classes/create-a-custom-class', active_if: %r{^/baas/api-reference/custom-classes/create-a-custom-class}%></li>
+					<li><%= nav_link 'Create a new custom class', '/baas/api-reference/custom-classes/create-a-new-custom-class', active_if: %r{^/baas/api-reference/custom-classes/create-a-new-custom-class}%></li>
 					<li><%= nav_link 'Add columns', '/baas/api-reference/custom-classes/add-columns', active_if: %r{^/baas/api-reference/custom-classes/add-columns}%></li>
 					<li><%= nav_link 'Retrieve schema', '/baas/api-reference/custom-classes/retrieve-schema-', active_if: %r{^/baas/api-reference/custom-classes/retrieve-schema-}%></li>
 					<li><%= nav_link 'Delete class', '/baas/api-reference/custom-classes/delete-class', active_if: %r{^/baas/api-reference/custom-classes/delete-class}%></li>
@@ -113,7 +113,7 @@
 				<li>
 					<%= nav_link 'Password reset', '/baas/api-reference/password-reset', active_if: %r{^/baas/api-reference/password-reset}%>
 					<ul>
-						<li><%= nav_link 'Initiate password reset', '/baas/api-reference/organizations/password-reset', active_if: %r{^/baas/api-reference/organizations/password-reset}%></li>
+						<li><%= nav_link 'Initiate password reset', '/baas/api-reference/password-reset/initiate-password-reset', active_if: %r{^/baas/api-reference/password-reset/initiate-password-reset}%></li>
 					</ul>
 				</li>
 			</li>

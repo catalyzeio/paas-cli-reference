@@ -57,7 +57,7 @@ NSDictionary *body = @[
 ```
 
 
-### GET /users/{usersId}/groups
+## GET /users/{usersId}/groups
 Retrieve the groups of which a user is a member.
 
 * Parameters

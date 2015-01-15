@@ -18,5 +18,5 @@ NAME | TYPE | DESCRIPTION
 id      | string | ID of the custom class                              
 name    | string | The name of the class                               
 editable| Boolean | You may use custom classes to store metadata and logging information which should not be edited after being written. Setting editable to "false" prevents using PUT or DELETE routes to edit or delete custom class entries. This defaults to `true` and _can only be set when creating the custom class_.
-schema  | Object | This schema is a key value schema. Such as "zipcode":null, "city":null, "state":null. Note the use of the word null. No validations will be applied to custom class entries when null values are given. You may specify "integer", "string", "boolean", "array", "object", "double", or any UMLS health vocabulary. 
+schema  | Object | This schema is a key value schema. Such as "zipcode":null, "city":null, "state":null. Note the use of the word null. No validations will be applied to custom class entries when null values are given. You may specify "integer", "string", "boolean", "array", "object", or "double".
 

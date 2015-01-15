@@ -50,7 +50,7 @@ NSDictionary *body = @{};
 ```
 
 
-### DELETE /classes/{name}/entry/{entryId}/ref/{refName}/{refId}
+## DELETE /classes/{name}/entry/{entryId}/ref/{refName}/{refId}
 Delete a reference from an entry.
 
 * Parameters

@@ -67,7 +67,7 @@ NSDictionary *body = @{
 ```
 
 
-### POST /app/{appId}/invite
+## POST /app/{appId}/invite
 Use this route to invite a user to your application by email.
 
 This route requires *admin,dev*-level permissions.

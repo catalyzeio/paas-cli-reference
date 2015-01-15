@@ -67,7 +67,7 @@ NSDictionary *body = @[
 ```
 
 
-### GET /classes/{name}/entry/{entryId}/ref/{refName}
+## GET /classes/{name}/entry/{entryId}/ref/{refName}
 /cc/getReferenceDescription.json
 
 * Parameters

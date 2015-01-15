@@ -56,7 +56,7 @@ NSDictionary *body = @{
 ```
 
 
-### POST /users/{userId}/files
+## POST /users/{userId}/files
 Upload a file to another user and assign that user ownership of the file. 
 The authenticated user will be listed as the author of the file and will still be able to access it. 
 

@@ -53,7 +53,7 @@ NSDictionary *body = @{};
 ```
 
 
-### PUT /org/{orgId}/customer
+## PUT /org/{orgId}/customer
 Update an organization's default credit card. Each customer has a single default card.
 Sending the ID of an existing payment method already linked to the customer will set it as
 the organization's default card. This card is used for all active subscriptions (all paid apps)

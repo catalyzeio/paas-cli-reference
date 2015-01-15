@@ -101,7 +101,7 @@ NSDictionary *body = @{
 ```
 
 
-### POST /auth/signin
+## POST /auth/signin
 Use this to sign into the application. When you sign in, you get a session token.  
 This session token currently never expires (although we are working on a mechanism to do 
 this).  You may sign out, which invalidates your session token and requires you to sign 

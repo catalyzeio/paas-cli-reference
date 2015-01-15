@@ -1,8 +1,8 @@
 ---
-title: Retrieve Schema
+title: Retrieve Schema 
 ---
 
-# Retrieve Schema
+# Retrieve Schema 
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -56,7 +56,7 @@ NSDictionary *body = @{
 ```
 
 
-### GET /classes/{name}
+## GET /classes/{name}
 Get the schema for an existing custom class.
 
 This route requires *Admin or dev*-level permissions.

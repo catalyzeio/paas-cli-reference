@@ -51,14 +51,14 @@ NSDictionary *body = @[@"retrieve", @"update@"]
 ```
 
 
-### GET /acl/custom/{customClass}/{entityId}
+## GET /acl/custom/{customClass}/{entityId}
 Retrieve a user/group/applications's directly-granted ACL for a custom class.
 
 This route requires *admin/dev*-level permissions.
 
 * Parameters
-    * customClass (required, String) ... The name of the custom class
     * entityId (required, String) ... The ID of the user/group/application
+    * customClass (required, String) ... The name of the custom class
 
 
 **Response (application/json)**

@@ -77,7 +77,7 @@ NSDictionary *body = @{
 ```
 
 
-### POST /classes
+## POST /classes
 Use this route to create a new custom class.
 
 

@@ -63,7 +63,7 @@ NSDictionary *body = @{
 ```
 
 
-### PUT /groups/{groupId}
+## PUT /groups/{groupId}
 Update a group's metadata.
 
 This route requires *Supervisor*-level permissions.

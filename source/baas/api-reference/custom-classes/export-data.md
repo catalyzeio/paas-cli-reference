@@ -69,7 +69,7 @@ NSDictionary *body = @[
 ```
 
 
-### GET /classes/{name}/export
+## GET /classes/{name}/export
 Export a JSON array of class entries.
 
 This route requires *Admin/dev*-level permissions.

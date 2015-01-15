@@ -73,7 +73,7 @@ NSDictionary *body = @{
 ```
 
 
-### POST /classes/{name}/entry/{parentsId}
+## POST /classes/{name}/entry/{parentsId}
 Use this route to add data for a custom class for another user.
 
 * Parameters

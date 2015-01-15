@@ -55,7 +55,7 @@ NSDictionary *body = @[@"retrieve", @"update@"]
 ```
 
 
-### POST /acl/core/{model}/{entityId}
+## POST /acl/core/{model}/{entityId}
 Set an ACL for a user/group/application on a core (non-custom) model. Setting an ACL on an entity/model combination that was already set results in the new ACL replacing the old.
 
 This route requires *admin/dev*-level permissions.

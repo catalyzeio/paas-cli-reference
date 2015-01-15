@@ -53,7 +53,7 @@ NSDictionary *body = @{};
 ```
 
 
-### POST /app/supervisor/{name}
+## POST /app/supervisor/{name}
 Add a supervisor to the currently-authenticated application by username.
 
 This route requires *Admin/Dev*-level permissions.

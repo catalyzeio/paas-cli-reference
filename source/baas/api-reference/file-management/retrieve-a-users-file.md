@@ -51,15 +51,15 @@ NSDictionary *body = (the file's contents)
 ```
 
 
-### GET /users/{userId}/files/{fileId}
+## GET /users/{userId}/files/{fileId}
 Retrieve a file owned by another user. 
 
 The authenticated user must be the author or owner of the file or have model level or higher access to files in order to perform this operation.
 
 
 * Parameters
-    * userId (required, String) ... The ID of the user that owns the file
     * fileId (required, String) ... The ID of the file to retrieve
+    * userId (required, String) ... The ID of the user that owns the file
 
 
 **Response (application/json, application/octet-stream)**

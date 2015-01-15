@@ -50,7 +50,7 @@ NSDictionary *body = @{};
 ```
 
 
-### DELETE /org/{orgId}
+## DELETE /org/{orgId}
 Delete an organization and all associated Stripe information. **Be careful using this as it cannot be reversed**.
 
 This route requires *admin*-level permissions.

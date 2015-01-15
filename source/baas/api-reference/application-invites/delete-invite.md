@@ -50,14 +50,14 @@ NSDictionary *body = @{};
 ```
 
 
-### DELETE /app/{appId}/invite/{inviteId}
+## DELETE /app/{appId}/invite/{inviteId}
 This will delete an invite by its ID if it is unused. If the invite has been used, this has no effect.
 
 This route requires *admin,dev*-level permissions.
 
 * Parameters
-    * inviteId (required, String) ... The ID of the invite
     * appId (required, String) ... The ID of the application
+    * inviteId (required, String) ... The ID of the invite
 
 
 **Response (application/json)**

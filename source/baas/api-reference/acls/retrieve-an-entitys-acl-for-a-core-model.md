@@ -51,7 +51,7 @@ NSDictionary *body = @[@"retrieve", @"update@"]
 ```
 
 
-### GET /acl/core/{model}/{entityId}
+## GET /acl/core/{model}/{entityId}
 Retrieve a user/group/applications's directly-granted ACL for a core (non-custom) model.
 
 This route requires *admin/dev*-level permissions.

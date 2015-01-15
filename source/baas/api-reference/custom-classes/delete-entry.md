@@ -50,7 +50,7 @@ NSDictionary *body = @{};
 ```
 
 
-### DELETE /classes/{name}/entry/{entryId}
+## DELETE /classes/{name}/entry/{entryId}
 Delete a custom class entry.
 
 * Parameters
