@@ -1,13 +1,14 @@
 ---
 title: Users
-layout: baas_guides
 ---
 
 # Users
 
 The user model is core to Catalyze and HIPAA-compliance. It continues to evolve as we explore different ways in which Protected Health Information (PHI) and PII (Personally Identifiable Information) data can be connected and used for identification. The current user model, outlined below, represents the core elements of PII.
 
-Fields noted with an asterisk (*) are **required** for user creation - the rest are optional, and can be used as you see fit.
+Fields noted with an asterisk `(*)` are **required** for user creation - the rest are options, and can be used as you see fit.
+
+**something**
 
 NAME          |TYPE        |DESCRIPTION
 --------------|------------|-------------
