@@ -4,6 +4,41 @@ title: Update Org
 
 # Update Org
 
+## PUT /org/{orgId}
+Update an organization and associated details. Include the fields or data elements you wish to add or update into the body of the request.
+
+This route requires *admin,dev*-level permissions.
+
+* Parameters
+    * orgId (required, String) ... The ID of the org
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+    "description": "We simplify building apps for healthcare. Here's an updated description!"
+}
+```
+
+**Response (application/json)**
+
+```json
+{
+    "name": "Catalyze Inc.",
+    "orgId": "0468bfb5-31b6-441d-8012-bda14410d0e7",
+    "description": "We simplify building apps for healthcare. Here's an updated description!",
+    "permissions": {
+        "dev":["a564ef59-085b-4803-b514-37288e32709e"],
+        "admin":["a564ef59-085b-4803-b514-37288e32709e"],
+        "payment":["a564ef59-085b-4803-b514-37288e32709e"],
+        "viewOther":["a564ef59-085b-4803-b514-37288e32709e"],
+        "viewPhi":["a564ef59-085b-4803-b514-37288e32709e"]
+    }
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -76,39 +111,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## PUT /org/{orgId}
-Update an organization and associated details. Include the fields or data elements you wish to add or update into the body of the request.
-
-This route requires *admin,dev*-level permissions.
-
-* Parameters
-    * orgId (required, String) ... The ID of the org
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-    "description": "We simplify building apps for healthcare. Here's an updated description!"
-}
-```
-
-**Response (application/json)**
-
-```json
-{
-    "name": "Catalyze Inc.",
-    "orgId": "0468bfb5-31b6-441d-8012-bda14410d0e7",
-    "description": "We simplify building apps for healthcare. Here's an updated description!",
-    "permissions": {
-        "dev":["a564ef59-085b-4803-b514-37288e32709e"],
-        "admin":["a564ef59-085b-4803-b514-37288e32709e"],
-        "payment":["a564ef59-085b-4803-b514-37288e32709e"],
-        "viewOther":["a564ef59-085b-4803-b514-37288e32709e"],
-        "viewPhi":["a564ef59-085b-4803-b514-37288e32709e"]
-    }
-}
-```
 

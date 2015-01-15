@@ -4,6 +4,47 @@ title: Add Entry
 
 # Add Entry
 
+## POST /classes/{name}/entry
+Use this route to add data to the custom class that you created.
+
+NAME | TYPE | DESCRIPTION
+-----|------|------------
+content | object | Include the key value pairs corresponding to each data column name. For example, 
+ | | {"zip_code":"53202", "city":"Milwaukee", "state":"Wisconsin", "latitude":"43.038758", "longitude":"­87.906506"}
+
+
+* Parameters
+    * name (required, String) ... The name of the custom class you are creating an entry for.
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+	"content": 
+	{
+		"zipcode": "53202",
+		"city": "Milwaukee"
+	}
+}
+```
+
+**Response (application/json)**
+
+```json
+{
+	"id": "ENTRY_ID_123",
+	"content": 
+	{
+		"zipcode": "53202",
+		"city": "Milwaukee"
+	},
+
+	"phi": false
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -72,45 +113,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## POST /classes/{name}/entry
-Use this route to add data to the custom class that you created.
-
-NAME | TYPE | DESCRIPTION
------|------|------------
-content | object | Include the key value pairs corresponding to each data column name. For example, 
- | | {"zip_code":"53202", "city":"Milwaukee", "state":"Wisconsin", "latitude":"43.038758", "longitude":"­87.906506"}
-
-
-* Parameters
-    * name (required, String) ... The name of the custom class you are creating an entry for.
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-	"content": 
-	{
-		"zipcode": "53202",
-		"city": "Milwaukee"
-	}
-}
-```
-
-**Response (application/json)**
-
-```json
-{
-	"id": "ENTRY_ID_123",
-	"content": 
-	{
-		"zipcode": "53202",
-		"city": "Milwaukee"
-	},
-
-	"phi": false
-}
-```
 

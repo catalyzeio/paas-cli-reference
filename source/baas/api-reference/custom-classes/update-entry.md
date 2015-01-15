@@ -4,6 +4,44 @@ title: Update Entry
 
 # Update Entry
 
+## PUT /classes/{name}/entry/{entryId}
+Update an existing custom class entry.
+
+This route requires *Supervisor, owner, or author*-level permissions.
+
+* Parameters
+    * name (required, String) ... The name of the custom class you are creating an entry for.
+    * entryId (required, String) ... The ID of the custom class entry you are modifying.
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+	"content": 
+	{
+		"zipcode": "53202",
+		"city": "Milwaukee"
+	}
+}
+```
+
+**Response (application/json)**
+
+```json
+{
+	"id": "ENTRY_ID_123",
+	"content": 
+	{
+		"zipcode": "53202",
+		"city": "Milwaukee"
+	},
+
+	"phi": false
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -72,42 +110,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## PUT /classes/{name}/entry/{entryId}
-Update an existing custom class entry.
-
-This route requires *Supervisor, owner, or author*-level permissions.
-
-* Parameters
-    * name (required, String) ... The name of the custom class you are creating an entry for.
-    * entryId (required, String) ... The ID of the custom class entry you are modifying.
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-	"content": 
-	{
-		"zipcode": "53202",
-		"city": "Milwaukee"
-	}
-}
-```
-
-**Response (application/json)**
-
-```json
-{
-	"id": "ENTRY_ID_123",
-	"content": 
-	{
-		"zipcode": "53202",
-		"city": "Milwaukee"
-	},
-
-	"phi": false
-}
-```
 

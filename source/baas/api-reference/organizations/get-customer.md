@@ -4,6 +4,77 @@ title: Get Customer
 
 # Get Customer
 
+## GET /org/{orgId}/customer
+Get the customer object of an existing organization. This is a Customer object from Stripe.
+A payment method needs to exist on the customer in order to retrieve the customer.
+Otherwise the customer object has not been setup yet and a 400 will be thrown.
+
+
+This route requires *payment*-level permissions.
+
+* Parameters
+    * orgId (required, String) ... The ID of the org
+
+
+**Response (application/json)**
+
+```json
+{
+    "object": "customer",
+    "created": 1403096315,
+    "id": "cus_4FD4wvEKNQ2sJi",
+    "livemode": false,
+    "description": "Bingo|www|0c1234567890",
+    "email": null,
+    "delinquent": false,
+    "metadata": {
+    },
+    "subscriptions": {
+        "object": "list",
+        "total_count": 0,
+        "has_more": false,
+        "url": "/v1/customers/cus_4FD4wvEKNQ2sJi/subscriptions",
+        "data": [
+
+        ]
+    },
+    "discount": null,
+    "account_balance": 0,
+    "currency": "usd",
+    "cards": {
+        "object": "list",
+        "total_count": 1,
+        "has_more": false,
+        "url": "/v1/customers/cus_4FD4wvEKNQ2sJi/cards",
+        "data": [
+            {
+                "id": "card_104FD42eZvKYlo2Cm1wYwsL1",
+                "object": "card",
+                "last4": "4242",
+                "brand": "Visa",
+                "funding": "credit",
+                "exp_month": 5,
+                "exp_year": 2015,
+                "fingerprint": "Xt5EWLLDS7FJjR1c",
+                "country": "US",
+                "name": null,
+                "address_line1": null,
+                "address_line2": null,
+                "address_city": null,
+                "address_state": null,
+                "address_zip": null,
+                "address_country": null,
+                "cvc_check": "pass",
+                "address_line1_check": null,
+                "address_zip_check": null,
+                "customer": "cus_4FD4wvEKNQ2sJi"
+            }
+        ]
+    },
+    "default_card": "card_104FD42eZvKYlo2Cm1wYwsL1"
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -103,75 +174,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## GET /org/{orgId}/customer
-Get the customer object of an existing organization. This is a Customer object from Stripe.
-A payment method needs to exist on the customer in order to retrieve the customer.
-Otherwise the customer object has not been setup yet and a 400 will be thrown.
-
-
-This route requires *payment*-level permissions.
-
-* Parameters
-    * orgId (required, String) ... The ID of the org
-
-
-**Response (application/json)**
-
-```json
-{
-    "object": "customer",
-    "created": 1403096315,
-    "id": "cus_4FD4wvEKNQ2sJi",
-    "livemode": false,
-    "description": "Bingo|www|0c1234567890",
-    "email": null,
-    "delinquent": false,
-    "metadata": {
-    },
-    "subscriptions": {
-        "object": "list",
-        "total_count": 0,
-        "has_more": false,
-        "url": "/v1/customers/cus_4FD4wvEKNQ2sJi/subscriptions",
-        "data": [
-
-        ]
-    },
-    "discount": null,
-    "account_balance": 0,
-    "currency": "usd",
-    "cards": {
-        "object": "list",
-        "total_count": 1,
-        "has_more": false,
-        "url": "/v1/customers/cus_4FD4wvEKNQ2sJi/cards",
-        "data": [
-            {
-                "id": "card_104FD42eZvKYlo2Cm1wYwsL1",
-                "object": "card",
-                "last4": "4242",
-                "brand": "Visa",
-                "funding": "credit",
-                "exp_month": 5,
-                "exp_year": 2015,
-                "fingerprint": "Xt5EWLLDS7FJjR1c",
-                "country": "US",
-                "name": null,
-                "address_line1": null,
-                "address_line2": null,
-                "address_city": null,
-                "address_state": null,
-                "address_zip": null,
-                "address_country": null,
-                "cvc_check": "pass",
-                "address_line1_check": null,
-                "address_zip_check": null,
-                "customer": "cus_4FD4wvEKNQ2sJi"
-            }
-        ]
-    },
-    "default_card": "card_104FD42eZvKYlo2Cm1wYwsL1"
-}
-```
 

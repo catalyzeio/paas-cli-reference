@@ -4,6 +4,37 @@ title: Retrieve All Entry References
 
 # Retrieve All Entry References
 
+## GET /classes/{name}/entry/{entryId}/ref/{refName}
+/cc/getReferenceDescription.json
+
+* Parameters
+    * name (required, String) ... The name of the custom class you are querying.
+    * refName (required, String) ... The reference name which you are searching for based upon this entry ID.
+    * entryId (required, String) ... The ID of the custom class entry you are referencing
+
+
+**Response (application/json)**
+
+```json
+[
+	{
+		"content": 
+		{
+			"key1-1": "value1-1",
+			"key1-2": "value1-2"
+		}
+	},
+
+	{
+		"content": 
+		{
+			"key2-1": "value2-1",
+			"key2-2": "value2-2"
+		}
+	}
+]
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -66,35 +97,4 @@ NSDictionary *body = @[
 }];
 ```
 
-
-## GET /classes/{name}/entry/{entryId}/ref/{refName}
-/cc/getReferenceDescription.json
-
-* Parameters
-    * name (required, String) ... The name of the custom class you are querying.
-    * refName (required, String) ... The reference name which you are searching for based upon this entry ID.
-    * entryId (required, String) ... The ID of the custom class entry you are referencing
-
-
-**Response (application/json)**
-
-```json
-[
-	{
-		"content": 
-		{
-			"key1-1": "value1-1",
-			"key1-2": "value1-2"
-		}
-	},
-
-	{
-		"content": 
-		{
-			"key2-1": "value2-1",
-			"key2-2": "value2-2"
-		}
-	}
-]
-```
 

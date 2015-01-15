@@ -4,6 +4,29 @@ title: Add a User to a Group
 
 # Add a User to a Group
 
+## POST /groups/{groupsId}/users/{usersId}
+Add a user to a group by ID.
+
+This route requires *Supervisor*-level permissions.
+
+* Parameters
+    * usersId (required, String) ... The ID of the user.
+    * groupsId (required, String) ... The ID of the group.
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{}
+```
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -52,27 +75,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## POST /groups/{groupsId}/users/{usersId}
-Add a user to a group by ID.
-
-This route requires *Supervisor*-level permissions.
-
-* Parameters
-    * usersId (required, String) ... The ID of the user.
-    * groupsId (required, String) ... The ID of the group.
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{}
-```
-
-**Response (application/json)**
-
-```json
-{}
-```
 

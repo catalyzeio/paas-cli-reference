@@ -4,6 +4,22 @@ title: Delete a File
 
 # Delete a File
 
+## DELETE /users/files/{fileId}
+Deletes an existing file.
+Only the owner, author, supervisor or admin can perform this operation.
+
+* Parameters
+    * fileId (required, String) ... The ID of the file to delete
+
+
+**Response (application/json)**
+
+```json
+{
+	"filesId": "123abcFileId"
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -52,20 +68,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## DELETE /users/files/{fileId}
-Deletes an existing file.
-Only the owner, author, supervisor or admin can perform this operation.
-
-* Parameters
-    * fileId (required, String) ... The ID of the file to delete
-
-
-**Response (application/json)**
-
-```json
-{
-	"filesId": "123abcFileId"
-}
-```
 

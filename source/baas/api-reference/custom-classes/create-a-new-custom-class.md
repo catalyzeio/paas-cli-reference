@@ -4,6 +4,45 @@ title: Create a New Custom Class
 
 # Create a New Custom Class
 
+## POST /classes
+Use this route to create a new custom class.
+
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+	"name": "MyNewClass",
+	"schema": 
+	{
+		"zipcode": "string",
+		"city": null
+	},
+
+	"phi": false,
+	"editable": true
+}
+```
+
+**Response (application/json)**
+
+```json
+{
+	"name": "MyNewClass",
+	"schema": 
+	{
+		"zipcode": "string",
+		"city": "string"
+	},
+
+	"phi": false,
+	"editable": true,
+	"id": "CLASS_ID_123"
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -76,43 +115,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## POST /classes
-Use this route to create a new custom class.
-
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-	"name": "MyNewClass",
-	"schema": 
-	{
-		"zipcode": "string",
-		"city": null
-	},
-
-	"phi": false,
-	"editable": true
-}
-```
-
-**Response (application/json)**
-
-```json
-{
-	"name": "MyNewClass",
-	"schema": 
-	{
-		"zipcode": "string",
-		"city": "string"
-	},
-
-	"phi": false,
-	"editable": true,
-	"id": "CLASS_ID_123"
-}
-```
 

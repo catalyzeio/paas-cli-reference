@@ -4,6 +4,17 @@ title: Sign Out
 
 # Sign Out
 
+## GET /auth/signout
+Sign a user out of an application, invalidating their session token server-side.
+
+
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -49,15 +60,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## GET /auth/signout
-Sign a user out of an application, invalidating their session token server-side.
-
-
-
-**Response (application/json)**
-
-```json
-{}
-```
 

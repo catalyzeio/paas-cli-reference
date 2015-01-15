@@ -4,6 +4,22 @@ title: Remove a User from a Group
 
 # Remove a User from a Group
 
+## DELETE /groups/{groupsId}/users/{usersId}
+Remove a user from a group by ID.
+
+This route requires *Supervisor*-level permissions.
+
+* Parameters
+    * usersId (required, String) ... The ID of the user.
+    * groupsId (required, String) ... The ID of the group.
+
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -49,20 +65,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## DELETE /groups/{groupsId}/users/{usersId}
-Remove a user from a group by ID.
-
-This route requires *Supervisor*-level permissions.
-
-* Parameters
-    * usersId (required, String) ... The ID of the user.
-    * groupsId (required, String) ... The ID of the group.
-
-
-**Response (application/json)**
-
-```json
-{}
-```
 

@@ -4,6 +4,20 @@ title: Retrieve a File
 
 # Retrieve a File
 
+## GET /users/files/{fileId}
+Retrieve a file by its ID.
+Only the owner, author, supervisor or admin can perform this operation.
+
+* Parameters
+    * fileId (required, String) ... The file ID to retrieve
+
+
+**Response (application/json, application/octet-stream)**
+
+```json
+(the file's contents)
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -50,18 +64,4 @@ NSDictionary *body = (the file's contents)
 }];
 ```
 
-
-## GET /users/files/{fileId}
-Retrieve a file by its ID.
-Only the owner, author, supervisor or admin can perform this operation.
-
-* Parameters
-    * fileId (required, String) ... The file ID to retrieve
-
-
-**Response (application/json, application/octet-stream)**
-
-```json
-(the file's contents)
-```
 

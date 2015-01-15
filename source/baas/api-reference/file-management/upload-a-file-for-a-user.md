@@ -4,6 +4,32 @@ title: Upload a File for a User
 
 # Upload a File for a User
 
+## POST /users/{userId}/files
+Upload a file to another user and assign that user ownership of the file. 
+The authenticated user will be listed as the author of the file and will still be able to access it. 
+
+Model level or higher access to files is required in order to perform this operation.
+
+
+* Parameters
+    * userId (required, String) ... The ID of the user that will own the uploaded file
+
+**Request (multipart/form-data)**
+
+* [Headers](#headers)
+
+```json
+{}
+```
+
+**Response (application/json)**
+
+```json
+{
+	"filesId": "123abcFileId"
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -55,30 +81,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## POST /users/{userId}/files
-Upload a file to another user and assign that user ownership of the file. 
-The authenticated user will be listed as the author of the file and will still be able to access it. 
-
-Model level or higher access to files is required in order to perform this operation.
-
-
-* Parameters
-    * userId (required, String) ... The ID of the user that will own the uploaded file
-
-**Request (multipart/form-data)**
-
-* [Headers](#headers)
-
-```json
-{}
-```
-
-**Response (application/json)**
-
-```json
-{
-	"filesId": "123abcFileId"
-}
-```
 

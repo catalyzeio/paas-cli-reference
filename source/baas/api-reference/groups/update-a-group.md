@@ -4,6 +4,35 @@ title: Update a group
 
 # Update a group
 
+## PUT /groups/{groupId}
+Update a group's metadata.
+
+This route requires *Supervisor*-level permissions.
+
+* Parameters
+    * groupId (required, String) ... The ID of the group.
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+    "name": "A Really Cool Group",
+    "default": false
+}
+```
+
+**Response (application/json)**
+
+```json
+{
+    "groupsId": "550e8400-e29b-41d4-a716-446655440000",
+    "name": "A Really Cool Group",
+    "default": false
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -62,33 +91,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## PUT /groups/{groupId}
-Update a group's metadata.
-
-This route requires *Supervisor*-level permissions.
-
-* Parameters
-    * groupId (required, String) ... The ID of the group.
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-    "name": "A Really Cool Group",
-    "default": false
-}
-```
-
-**Response (application/json)**
-
-```json
-{
-    "groupsId": "550e8400-e29b-41d4-a716-446655440000",
-    "name": "A Really Cool Group",
-    "default": false
-}
-```
 

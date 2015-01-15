@@ -4,6 +4,25 @@ title: Retrieve a group
 
 # Retrieve a group
 
+## GET /groups/{groupId}
+Retrieve a group's metadata. This will return 404 if the group does not exist.
+
+This route requires *Supervisor*-level permissions.
+
+* Parameters
+    * groupId (required, String) ... The ID of the group.
+
+
+**Response (application/json)**
+
+```json
+{
+    "groupsId": "550e8400-e29b-41d4-a716-446655440000",
+    "name": "A Really Cool Group",
+    "default": false
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -54,23 +73,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## GET /groups/{groupId}
-Retrieve a group's metadata. This will return 404 if the group does not exist.
-
-This route requires *Supervisor*-level permissions.
-
-* Parameters
-    * groupId (required, String) ... The ID of the group.
-
-
-**Response (application/json)**
-
-```json
-{
-    "groupsId": "550e8400-e29b-41d4-a716-446655440000",
-    "name": "A Really Cool Group",
-    "default": false
-}
-```
 

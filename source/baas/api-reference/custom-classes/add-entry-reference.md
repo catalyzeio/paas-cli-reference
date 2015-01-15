@@ -4,6 +4,64 @@ title: Add Entry Reference
 
 # Add Entry Reference
 
+## PUT /classes/{name}/entry/{entryId}/ref/{refName}
+Add a reference to a custom class entry.
+
+* Parameters
+    * name (required, String) ... The name of the base custom class.
+    * refName (required, String) ... The name of the reference which refers to the entry.
+    * entryId (required, String) ... The entry in the custom class to create a reference on.
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+[
+	{
+		"type": "__ref",
+		"class": "NAME_OF_CLASS_THIS_NEW_REFERENCE_BELONGS_TO",
+		"entryId": "ID_OF_NEW_REFERENCED_OBJECT"
+	}
+]
+```
+
+**Response (application/json)**
+
+```json
+{
+	"content": 
+	{
+		"referencesArray": 
+		[
+			{
+				"type": "__ref",
+				"class": "REFERENCED_CLASS_NAME_WITHIN_SAME_APP",
+				"entryId": "REFERENCED_OBJECT_ID"
+			},
+
+			{
+				"type": "__ref",
+				"class": "REFERENCED_CLASS_NAME_2_WITHIN_SAME_APP",
+				"entryId": "REFERENCED_OBJECT_ID_2"
+			},
+
+			{
+				"type": "__ref",
+				"class": "NAME_OF_CLASS_THIS_NEW_REFERENCE_BELONGS_TO",
+				"entryId": "ID_OF_NEW_REFERENCED_OBJECT"
+			}
+		],
+
+		"name": "nameOfEntry"
+	},
+
+	"entryId": "ENTRY_ID_123",
+	"parentId": "USER_ID_123",
+	"phi": false
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -114,62 +172,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## PUT /classes/{name}/entry/{entryId}/ref/{refName}
-Add a reference to a custom class entry.
-
-* Parameters
-    * name (required, String) ... The name of the base custom class.
-    * refName (required, String) ... The name of the reference which refers to the entry.
-    * entryId (required, String) ... The entry in the custom class to create a reference on.
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-[
-	{
-		"type": "__ref",
-		"class": "NAME_OF_CLASS_THIS_NEW_REFERENCE_BELONGS_TO",
-		"entryId": "ID_OF_NEW_REFERENCED_OBJECT"
-	}
-]
-```
-
-**Response (application/json)**
-
-```json
-{
-	"content": 
-	{
-		"referencesArray": 
-		[
-			{
-				"type": "__ref",
-				"class": "REFERENCED_CLASS_NAME_WITHIN_SAME_APP",
-				"entryId": "REFERENCED_OBJECT_ID"
-			},
-
-			{
-				"type": "__ref",
-				"class": "REFERENCED_CLASS_NAME_2_WITHIN_SAME_APP",
-				"entryId": "REFERENCED_OBJECT_ID_2"
-			},
-
-			{
-				"type": "__ref",
-				"class": "NAME_OF_CLASS_THIS_NEW_REFERENCE_BELONGS_TO",
-				"entryId": "ID_OF_NEW_REFERENCED_OBJECT"
-			}
-		],
-
-		"name": "nameOfEntry"
-	},
-
-	"entryId": "ENTRY_ID_123",
-	"parentId": "USER_ID_123",
-	"phi": false
-}
-```
 

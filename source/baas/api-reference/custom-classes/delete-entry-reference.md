@@ -4,6 +4,22 @@ title: Delete Entry Reference
 
 # Delete Entry Reference
 
+## DELETE /classes/{name}/entry/{entryId}/ref/{refName}/{refId}
+Delete a reference from an entry.
+
+* Parameters
+    * name (required, String) ... The name of the base custom class.
+    * refId (required, String) ... The ID of the reference that should be deleted.
+    * refName (required, String) ... The name of the reference which applies to this custom class entry.
+    * entryId (required, String) ... The ID of the custom class entry which has the reference.
+
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -49,20 +65,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## DELETE /classes/{name}/entry/{entryId}/ref/{refName}/{refId}
-Delete a reference from an entry.
-
-* Parameters
-    * name (required, String) ... The name of the base custom class.
-    * refId (required, String) ... The ID of the reference that should be deleted.
-    * refName (required, String) ... The name of the reference which applies to this custom class entry.
-    * entryId (required, String) ... The ID of the custom class entry which has the reference.
-
-
-**Response (application/json)**
-
-```json
-{}
-```
 

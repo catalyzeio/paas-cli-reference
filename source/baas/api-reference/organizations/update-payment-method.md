@@ -4,6 +4,41 @@ title: Update Payment Method
 
 # Update Payment Method
 
+## PUT /org/{orgId}/payment/{paymentId}
+Update an existing payment method on the organization's Stripe customer. The only fields that should
+be updated are specified [here](https://stripe.com/docs/api#update_card). No credit card numbers should be sent to the Catalyze API.
+
+
+This route requires *payment*-level permissions.
+
+* Parameters
+    * orgId (required, String) ... The ID of the org
+    * paymentId (required, String) ... The ID of the existing payment method
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+    "address_city": "Madison",
+    "address_country": "US",
+    "address_line1": "1234 5th Street",
+    "address_line2": "#1",
+    "address_state": "Wisconsin",
+    "address_zip": "53703",
+    "exp_month": "01",
+    "exp_year": "2014",
+    "name": "my favorite card"
+}
+```
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -52,39 +87,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## PUT /org/{orgId}/payment/{paymentId}
-Update an existing payment method on the organization's Stripe customer. The only fields that should
-be updated are specified [here](https://stripe.com/docs/api#update_card). No credit card numbers should be sent to the Catalyze API.
-
-
-This route requires *payment*-level permissions.
-
-* Parameters
-    * orgId (required, String) ... The ID of the org
-    * paymentId (required, String) ... The ID of the existing payment method
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-    "address_city": "Madison",
-    "address_country": "US",
-    "address_line1": "1234 5th Street",
-    "address_line2": "#1",
-    "address_state": "Wisconsin",
-    "address_zip": "53703",
-    "exp_month": "01",
-    "exp_year": "2014",
-    "name": "my favorite card"
-}
-```
-
-**Response (application/json)**
-
-```json
-{}
-```
 

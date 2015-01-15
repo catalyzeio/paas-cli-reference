@@ -4,6 +4,20 @@ title: Delete Entry
 
 # Delete Entry
 
+## DELETE /classes/{name}/entry/{entryId}
+Delete a custom class entry.
+
+* Parameters
+    * name (required, String) ... The name of the custom class.
+    * entryId (required, String) ... The entry ID to delete.
+
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -49,18 +63,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## DELETE /classes/{name}/entry/{entryId}
-Delete a custom class entry.
-
-* Parameters
-    * name (required, String) ... The name of the custom class.
-    * entryId (required, String) ... The entry ID to delete.
-
-
-**Response (application/json)**
-
-```json
-{}
-```
 

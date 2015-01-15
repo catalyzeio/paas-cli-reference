@@ -4,6 +4,70 @@ title: Update a user
 
 # Update a user
 
+## PUT /users/{usersId}
+This is used to update or add to a user's PII details.
+
+* Parameters
+    * usersId (required, String) ... The ID of the user
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+    "username":"username",
+    "password":"test123",
+    "email": {
+        "primary":"primary@email.com",
+        "secondary":"secondary@email.com",
+        "work":"work@email.com",
+        "other":"other@email.com"
+    },
+    "name": {
+        "prefix":"prefix",
+        "firstName":"first name",
+        "middleName":"middle name",
+        "lastName":"last name",
+        "maidenName":"maiden name",
+        "suffix":"jr"
+    },
+    "extras":{
+        "extra1":"value1",
+        "extra2":"value2"
+    }
+}
+```
+
+**Response (application/json)**
+
+```json
+{
+    "email": {
+        "primary":"primary@email.com",
+        "secondary":"secondary@email.com",
+        "work":"work@email.com",
+        "other":"other@email.com"
+    },
+    "name": {
+        "prefix":"prefix",
+        "firstName":"first name",
+        "middleName":"middle name",
+        "lastName":"last name",
+        "maidenName":"maiden name",
+        "suffix":"jr"
+    },
+    "extras":{
+        "extra1":"value1",
+        "extra2":"value2"
+    },
+    "usersId":"a564ef59-085b-4803-b514-37288e32709e",
+    "active":false,
+    "createdAt":"2013-11-07T12:00:00Z",
+    "updatedAt":"2013-11-07T12:00:00Z"
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -100,68 +164,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## PUT /users/{usersId}
-This is used to update or add to a user's PII details.
-
-* Parameters
-    * usersId (required, String) ... The ID of the user
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-    "username":"username",
-    "password":"test123",
-    "email": {
-        "primary":"primary@email.com",
-        "secondary":"secondary@email.com",
-        "work":"work@email.com",
-        "other":"other@email.com"
-    },
-    "name": {
-        "prefix":"prefix",
-        "firstName":"first name",
-        "middleName":"middle name",
-        "lastName":"last name",
-        "maidenName":"maiden name",
-        "suffix":"jr"
-    },
-    "extras":{
-        "extra1":"value1",
-        "extra2":"value2"
-    }
-}
-```
-
-**Response (application/json)**
-
-```json
-{
-    "email": {
-        "primary":"primary@email.com",
-        "secondary":"secondary@email.com",
-        "work":"work@email.com",
-        "other":"other@email.com"
-    },
-    "name": {
-        "prefix":"prefix",
-        "firstName":"first name",
-        "middleName":"middle name",
-        "lastName":"last name",
-        "maidenName":"maiden name",
-        "suffix":"jr"
-    },
-    "extras":{
-        "extra1":"value1",
-        "extra2":"value2"
-    },
-    "usersId":"a564ef59-085b-4803-b514-37288e32709e",
-    "active":false,
-    "createdAt":"2013-11-07T12:00:00Z",
-    "updatedAt":"2013-11-07T12:00:00Z"
-}
-```
 

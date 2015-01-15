@@ -14,13 +14,14 @@ configure :build do
 end
 
 set :markdown_engine, :redcarpet
-set :markdown, :fenced_code_blocks => true, :smartypants => true
+set :markdown, :fenced_code_blocks => true, :smartypants => true, :tables => true, :with_toc_data => true, :no_intra_emphasis => true
 
 activate :syntax, :wrap => true
 
 # Set layouts for groups of pages
 page "/paas/getting-started/*", :layout => "paas_gettingstarted"
 page "/baas/guides/*", :layout => "baas_single"
+page "/baas/api-reference/*", :layout => "baas_guides"
 
 helpers do
   def site_title

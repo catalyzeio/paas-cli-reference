@@ -4,6 +4,29 @@ title: Set an ACL for an entity on a core model
 
 # Set an ACL for an entity on a core model
 
+## POST /acl/core/{model}/{entityId}
+Set an ACL for a user/group/application on a core (non-custom) model. Setting an ACL on an entity/model combination that was already set results in the new ACL replacing the old.
+
+This route requires *admin/dev*-level permissions.
+
+* Parameters
+    * model (required, String) ... The name of the model
+    * entityId (required, String) ... The ID of the user/group/application
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+["retrieve", "update"]
+```
+
+**Response (application/json)**
+
+```json
+["retrieve", "update"]
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -54,27 +77,4 @@ NSDictionary *body = @[@"retrieve", @"update@"]
 }];
 ```
 
-
-## POST /acl/core/{model}/{entityId}
-Set an ACL for a user/group/application on a core (non-custom) model. Setting an ACL on an entity/model combination that was already set results in the new ACL replacing the old.
-
-This route requires *admin/dev*-level permissions.
-
-* Parameters
-    * model (required, String) ... The name of the model
-    * entityId (required, String) ... The ID of the user/group/application
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-["retrieve", "update"]
-```
-
-**Response (application/json)**
-
-```json
-["retrieve", "update"]
-```
 

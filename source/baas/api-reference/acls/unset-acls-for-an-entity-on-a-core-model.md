@@ -4,6 +4,22 @@ title: Unset ACLs for an entity on a core model
 
 # Unset ACLs for an entity on a core model
 
+## DELETE /acl/core/{model}/{entityId}
+Unset directly-set ACLs for a user/group/application on a core (non-custom) model.
+
+This route requires *admin/dev*-level permissions.
+
+* Parameters
+    * model (required, String) ... The name of the model
+    * entityId (required, String) ... The ID of the user/group/application
+
+
+**Response (application/json)**
+
+```json
+[]
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -50,20 +66,4 @@ NSDictionary *body = @[]
 }];
 ```
 
-
-## DELETE /acl/core/{model}/{entityId}
-Unset directly-set ACLs for a user/group/application on a core (non-custom) model.
-
-This route requires *admin/dev*-level permissions.
-
-* Parameters
-    * model (required, String) ... The name of the model
-    * entityId (required, String) ... The ID of the user/group/application
-
-
-**Response (application/json)**
-
-```json
-[]
-```
 

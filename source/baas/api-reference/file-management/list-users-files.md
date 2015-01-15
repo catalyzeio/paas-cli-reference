@@ -4,6 +4,32 @@ title: List User's Files
 
 # List User's Files
 
+## GET /users/files
+Return a list of the authenticated user's files stored within the application.
+
+
+
+**Response (application/json)**
+
+```json
+[
+    {
+        "filesId": "123abcFilesId",
+        "usersId": "456xyzUsersId",
+        "authorsId": "789zxcUsersId",
+        "phi": "true",
+        "createdAt": "2013-05-01T07:00:00.000Z"
+    },
+    {
+        "filesId": "456defFilesId",
+        "usersId": "456xyzUsersId",
+        "authorsId": "789zxcUsersId",
+        "phi": "true",
+        "createdAt": "2013-05-02T07:00:00.000Z"
+    }
+]
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -65,30 +91,4 @@ NSDictionary *body = @[
 }];
 ```
 
-
-## GET /users/files
-Return a list of the authenticated user's files stored within the application.
-
-
-
-**Response (application/json)**
-
-```json
-[
-    {
-        "filesId": "123abcFilesId",
-        "usersId": "456xyzUsersId",
-        "authorsId": "789zxcUsersId",
-        "phi": "true",
-        "createdAt": "2013-05-01T07:00:00.000Z"
-    },
-    {
-        "filesId": "456defFilesId",
-        "usersId": "456xyzUsersId",
-        "authorsId": "789zxcUsersId",
-        "phi": "true",
-        "createdAt": "2013-05-02T07:00:00.000Z"
-    }
-]
-```
 

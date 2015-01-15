@@ -65,6 +65,7 @@
 				padding: 10px;
 				@include border-radius(5px);
 				font-size: 14px;
+				.fa{font-size: 12px;}
 			}
 		}
 	}
@@ -133,6 +134,9 @@
 	@extend .cf;
 	.r_guide-nav{
 		margin: 10px 0px 0px 0px;
+		max-height: 1000px;
+		overflow: scroll;
+		border-bottom: 1px solid $c_border;
 		h1{
 			font-family: $f_sans-med;
 			color: $c_text;
@@ -155,7 +159,7 @@
 						opacity: 1.0;
 					}
 				}
-				a.r_is-active{background-color: $c_lightbg;}
+				a.r_is-active{background-color: $c_lightbg;color: $c_compliance;}
 				&:last-child{
 					a{border-bottom: 0px;}
 				}
@@ -311,6 +315,7 @@
 					font-family: $f_sans-ital;
 				}
 			}
+			strong{font-family: $f_sans-med;border-bottom: 1px solid $c_border;}
 			h2,
 			h3,
 			h4{
@@ -337,6 +342,37 @@
 			a{
 				color: $c_paas;
 				text-decoration: none;
+			}
+			table{
+				padding: 10px;
+				border: 1px solid $c_border;
+				margin: 20px;
+				tr{
+					font-size: 14px;
+					td{
+						color: $c_text;
+						padding: 10px;
+						line-height: 1.5;
+						border: 1px solid $c_border;
+						@include easing(350ms);
+						&:hover{
+							@include easing(350ms);
+							background-color: $c_highlight;
+						}
+					}
+					th{
+						font-family: $f_sans-bold;
+						color: $c_compliance;
+						padding: 10px;
+						background-color: $c_lightbg;
+						border: 1px solid $c_border;
+						@include easing(350ms);
+						&:hover{
+							@include easing(350ms);
+							background-color: $c_highlight;
+						}
+					}
+				}
 			}
 		}
 	}

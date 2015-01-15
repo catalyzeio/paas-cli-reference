@@ -4,6 +4,31 @@ title: Retrieve Entry
 
 # Retrieve Entry
 
+## GET /classes/{name}/entry/{entryId}
+Return a specific custom class entry.
+
+This route requires *Supervisor, owner, or author*-level permissions.
+
+* Parameters
+    * name (required, String) ... The name of the custom class you are creating an entry for.
+    * entryId (required, String) ... The name of the custom class entry to retrieve.
+
+
+**Response (application/json)**
+
+```json
+{
+	"id": "ENTRY_ID_123",
+	"content": 
+	{
+		"zipcode": "53202",
+		"city": "Milwaukee"
+	},
+
+	"phi": false
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -59,29 +84,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## GET /classes/{name}/entry/{entryId}
-Return a specific custom class entry.
-
-This route requires *Supervisor, owner, or author*-level permissions.
-
-* Parameters
-    * name (required, String) ... The name of the custom class you are creating an entry for.
-    * entryId (required, String) ... The name of the custom class entry to retrieve.
-
-
-**Response (application/json)**
-
-```json
-{
-	"id": "ENTRY_ID_123",
-	"content": 
-	{
-		"zipcode": "53202",
-		"city": "Milwaukee"
-	},
-
-	"phi": false
-}
-```
 

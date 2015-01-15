@@ -1,17 +1,122 @@
-		<div class="col-4-12">
-			<nav class="r_guide-nav">
-				<h1>Contents:</h1>
-				<ul id="nav">
-					<li><%= link_to 'ACLs', '/baas/api-reference/sections/acls' %></li>
-					<li><%= link_to 'API Keys', '/baas/api-reference/sections/api-keys' %></li>
-					<li><%= link_to 'Application Invites', '/baas/api-reference/sections/application-invites' %></li>
-					<li><%= link_to 'Applications', '/baas/api-reference/sections/applications' %></li>
-					<li><%= link_to 'Authentication', '/baas/api-reference/sections/authentication' %></li>
-					<li><%= link_to 'Custom Classes', '/baas/api-reference/sections/custom-classes' %></li>
-					<li><%= link_to 'File Management', '/baas/api-reference/sections/file-management' %></li>
-					<li><%= link_to 'Groups', '/baas/api-reference/sections/groups' %></li>
-					<li><%= link_to 'Password Reset', '/baas/api-reference/sections/password-reset' %></li>
-					<li><%= link_to 'Users', '/baas/api-reference/sections/users' %></li>
+<div class="col-4-12">
+	<nav class="r_guide-nav">
+		<h1>Contents:</h1>
+		<ul id="nav">
+			<li>
+				<%= nav_link 'Users', '/baas/api-reference/users', active_if: %r{^/baas/api-reference/users}%>
+				<ul>
+					<li><%= nav_link 'Create a user', '/baas/api-reference/users/create-a-user', active_if: %r{^/baas/api-reference/users/create-a-user}%></li>
+					<li><%= nav_link 'Retrieve a user by ID', '/baas/api-reference/users/retrieve-a-user-by-id', active_if: %r{^/baas/api-reference/users/retrieve-a-user-by-id}%></li>
+					<li><%= nav_link 'Update a user', '/baas/api-reference/users/update-a-user', active_if: %r{^/baas/api-reference/users/update-a-user}%></li>
+					<li><%= nav_link 'Delete a user', '/baas/api-reference/users/delete-a-user', active_if: %r{^/baas/api-reference/users/delete-a-user}%></li>
+					<li><%= nav_link 'Send username reminder', '/baas/api-reference/users/send-username-reminder', active_if: %r{^/baas/api-reference/users/send-username-reminder}%></li>
+					<li><%= nav_link 'Retrieve groups', '/baas/api-reference/users/retrieve-groups', active_if: %r{^/baas/api-reference/users/retrieve-groups}%></li>
 				</ul>
-			</nav>
-		</div>
+			</li>
+			<li>
+				<%= nav_link 'Authentication', '/baas/api-reference/authentication', active_if: %r{^/baas/api-reference/authentication}%>
+				<ul>
+					<li><%= nav_link 'Sign in', '/baas/api-reference/authentication/sign-in', active_if: %r{^/baas/api-reference/authentication/sign-in}%></li>
+					<li><%= nav_link 'Sign out', '/baas/api-reference/authentication/sign-out', active_if: %r{^/baas/api-reference/authentication/sign-out}%></li>
+				</ul>
+			</li>
+			<li>
+				<%= nav_link 'Applications', '/baas/api-reference/applications', active_if: %r{^/baas/api-reference/applications}%>
+				<ul>
+					<li><%= nav_link 'List groups', '/baas/api-reference/applications/list-groups', active_if: %r{^/baas/api-reference/applications/list-groups}%></li>
+					<li><%= nav_link 'List default groups', '/baas/api-reference/applications/list-default-groups', active_if: %r{^/baas/api-reference/applications/list-default-groups}%></li>
+					<li><%= nav_link 'Add a supervisor', '/baas/api-reference/applications/add-a-supervisor', active_if: %r{^/baas/api-reference/applications/add-a-supervisor}%></li>
+					<li><%= nav_link 'Remove a supervisor', '/baas/api-reference/applications/remove-a-supervisor', active_if: %r{^/baas/api-reference/applications/remove-a-supervisor}%></li>
+				</ul>
+			</li>
+			<li>
+				<%= nav_link 'Application invites', '/baas/api-reference/application-invites', active_if: %r{^/baas/api-reference/application-invites}%>
+				<ul>
+					<li><%= nav_link 'Invite a user to an application', '/baas/api-reference/application-invites/invite-a-user-to-an-application', active_if: %r{^/baas/api-reference/application-invites/invite-a-user-to-an-application}%></li>
+					<li><%= nav_link 'Retrieve invite', '/baas/api-reference/application-invites/retrieve-invite', active_if: %r{^/baas/api-reference/application-invites/retrieve-invite}%></li>
+					<li><%= nav_link 'Delete invite', '/baas/api-reference/application-invites/delete-invite', active_if: %r{^/baas/api-reference/application-invites/delete-invite}%></li>
+				</ul>
+			</li>
+			<li>
+				<%= nav_link 'Custom classes', '/baas/api-reference/custom-classes', active_if: %r{^/baas/api-reference/custom-classes}%>
+				<ul>
+					<li><%= nav_link 'Create a new custom class', '/baas/api-reference/custom-classes/create-a-new-custom-class', active_if: %r{^/baas/api-reference/custom-classes/create-a-new-custom-class}%></li>
+					<li><%= nav_link 'Add columns', '/baas/api-reference/custom-classes/add-columns', active_if: %r{^/baas/api-reference/custom-classes/add-columns}%></li>
+					<li><%= nav_link 'Retrieve schema', '/baas/api-reference/custom-classes/retrieve-schema-', active_if: %r{^/baas/api-reference/custom-classes/retrieve-schema-}%></li>
+					<li><%= nav_link 'Delete class', '/baas/api-reference/custom-classes/delete-class', active_if: %r{^/baas/api-reference/custom-classes/delete-class}%></li>
+					<li><%= nav_link 'Add entry for a user', '/baas/api-reference/custom-classes/add-entry-for-a-user', active_if: %r{^/baas/api-reference/custom-classes/add-entry-for-a-user}%></li>
+					<li><%= nav_link 'Add entry', '/baas/api-reference/custom-classes/add-entry', active_if: %r{^/baas/api-reference/custom-classes/add-entry}%></li>
+					<li><%= nav_link 'Delete entry', '/baas/api-reference/custom-classes/delete-entry', active_if: %r{^/baas/api-reference/custom-classes/delete-entry}%></li>
+					<li><%= nav_link 'Retrieve entry', '/baas/api-reference/custom-classes/retrieve-entry', active_if: %r{^/baas/api-reference/custom-classes/retrieve-entry}%></li>
+					<li><%= nav_link 'Update entry', '/baas/api-reference/custom-classes/update-entry', active_if: %r{^/baas/api-reference/custom-classes/update-entry}%></li>
+					<li><%= nav_link 'Filter a users class entries', '/baas/api-reference/custom-classes/filter-a-users-class-entries', active_if: %r{^/baas/api-reference/custom-classes/filter-a-users-class-entries}%></li>
+					<li><%= nav_link 'Filter class entries', '/baas/api-reference/custom-classes/filter-class-entries', active_if: %r{^/baas/api-reference/custom-classes/filter-class-entries}%></li>
+					<li><%= nav_link 'Query a users class entries', '/baas/api-reference/custom-classes/query-a-users-class-entries', active_if: %r{^/baas/api-reference/custom-classes/query-a-users-class-entries}%></li>
+					<li><%= nav_link 'Query class entries', '/baas/api-reference/custom-classes/query-class-entries', active_if: %r{^/baas/api-reference/custom-classes/query-class-entries}%></li>
+					<li><%= nav_link 'Export data', '/baas/api-reference/custom-classes/export-data', active_if: %r{^/baas/api-reference/custom-classes/export-data}%></li>
+					<li><%= nav_link 'Add entry reference', '/baas/api-reference/custom-classes/add-entry-reference', active_if: %r{^/baas/api-reference/custom-classes/add-entry-reference}%></li>
+					<li><%= nav_link 'Delete entry reference', '/baas/api-reference/custom-classes/delete-entry-reference', active_if: %r{^/baas/api-reference/custom-classes/delete-entry-reference}%></li>
+					<li><%= nav_link 'Retrieve all entry references', '/baas/api-reference/custom-classes/retrieve-all-entry-references', active_if: %r{^/baas/api-reference/custom-classes/retrieve-all-entry-references}%></li>
+					<li><%= nav_link 'Retrieve entity reference', '/baas/api-reference/custom-classes/retrieve-entity-reference', active_if: %r{^/baas/api-reference/custom-classes/retrieve-entity-reference}%></li>
+				</ul>
+				<li>
+					<%= nav_link 'ACLs', '/baas/api-reference/acls', active_if: %r{^/baas/api-reference/acls}%>
+					<ul>
+						<li><%= nav_link 'Retrieve an entities acl for a custom class', '/baas/api-reference/acls/retrieve-an-entitys-acl-for-a-custom-class', active_if: %r{^/baas/api-reference/acls/retrieve-an-entitys-acl-for-a-custom-class}%></li>
+						<li><%= nav_link 'Set an ACL for an entity on a custom class', '/baas/api-reference/acls/set-an-acl-for-an-entity-on-a-custom-class', active_if: %r{^/baas/api-reference/acls/set-an-acl-for-an-entity-on-a-custom-class}%></li>
+						<li><%= nav_link 'Retrieve and entities acl for a core model', '/baas/api-reference/acls/retrieve-an-entitys-acl-for-a-core-model', active_if: %r{^/baas/api-reference/acls/retrieve-an-entitys-acl-for-a-core-model}%></li>
+						<li><%= nav_link 'Set an ACL for an entity on a core model', '/baas/api-reference/acls/set-an-acl-for-an-entity-on-a-core-model', active_if: %r{^/baas/api-reference/acls/set-an-acl-for-an-entity-on-a-core-model}%></li>
+						<li><%= nav_link 'Unset an ACL for an entity on a custom class', '/baas/api-reference/acls/unset-acls-for-an-entity-on-a-custom-class', active_if: %r{^/baas/api-reference/acls/unset-acls-for-an-entity-on-a-custom-class}%></li>
+						<li><%= nav_link 'Unset ACLs for an entity on a core model', '/baas/api-reference/acls/unset-acls-for-an-entity-on-a-core-model', active_if: %r{^/baas/api-reference/acls/unset-acls-for-an-entity-on-a-core-model}%></li>
+						<li><%= nav_link 'Retrieve all ACLs for an entity', '/baas/api-reference/acls/retrieve-all-acls-for-an-entity', active_if: %r{^/baas/api-reference/acls/retrieve-all-acls-for-an-entity}%></li>
+					</ul>
+				</li>
+				<li>
+					<%= nav_link 'File management', '/baas/api-reference/file-management', active_if: %r{^/baas/api-reference/file-management}%>
+					<ul>
+						<li><%= nav_link 'Upload a file', '/baas/api-reference/file-management/upload-a-file', active_if: %r{^/baas/api-reference/file-management/upload-a-file}%></li>
+						<li><%= nav_link 'Upload a file for a user', '/baas/api-reference/file-management/upload-a-file-for-a-user', active_if: %r{^/baas/api-reference/file-management/upload-a-file-for-a-user}%></li>
+						<li><%= nav_link 'Retrieve a users file', '/baas/api-reference/file-management/retrieve-a-users-file', active_if: %r{^/baas/api-reference/file-management/retrieve-a-users-file}%></li>
+						<li><%= nav_link 'List a users file', '/baas/api-reference/file-management/list-a-users-files', active_if: %r{^/baas/api-reference/file-management/list-a-users-files}%></li>
+						<li><%= nav_link 'Delete a users file', '/baas/api-reference/file-management/delete-a-users-file', active_if: %r{^/baas/api-reference/file-management/delete-a-users-file}%></li>
+						<li><%= nav_link 'Lists users files', '/baas/api-reference/file-management/list-users-files', active_if: %r{^/baas/api-reference/file-management/list-users-files}%></li>
+						<li><%= nav_link 'Retrieve a file', '/baas/api-reference/file-management/retrieve-a-file', active_if: %r{^/baas/api-reference/file-management/retrieve-a-file}%></li>
+						<li><%= nav_link 'Delete a file', '/baas/api-reference/file-management/delete-a-file', active_if: %r{^/baas/api-reference/file-management/delete-a-file}%></li>
+					</ul>
+				</li>
+				<li>
+					<%= nav_link 'Groups', '/baas/api-reference/groups', active_if: %r{^/baas/api-reference/groups}%>
+					<ul>
+						<li><%= nav_link 'Create a new group', '/baas/api-reference/groups/create-a-new-group', active_if: %r{^/baas/api-reference/groups/create-a-new-group}%></li>
+						<li><%= nav_link 'Retrieve a group', '/baas/api-reference/groups/retrieve-a-group', active_if: %r{^/baas/api-reference/groups/retrieve-a-group}%></li>
+						<li><%= nav_link 'Update a group', '/baas/api-reference/groups/update-a-group', active_if: %r{^/baas/api-reference/groups/update-a-group}%></li>
+						<li><%= nav_link 'Delete a group', '/baas/api-reference/groups/delete-a-group', active_if: %r{^/baas/api-reference/groups/delete-a-group}%></li>
+						<li><%= nav_link 'Add a user to a group', '/baas/api-reference/groups/add-a-user-to-a-group', active_if: %r{^/baas/api-reference/groups/add-a-user-to-a-group}%></li>
+						<li><%= nav_link 'Remove a user from a group', '/baas/api-reference/groups/remove-a-user-from-a-group', active_if: %r{^/baas/api-reference/groups/remove-a-user-from-a-group}%></li>
+						<li><%= nav_link 'List members of a group', '/baas/api-reference/groups/list-members-of-a-group', active_if: %r{^/baas/api-reference/groups/list-members-of-a-group}%></li>
+					</ul>
+				</li>
+				<li>
+					<%= nav_link 'Organizations', '/baas/api-reference/organizations', active_if: %r{^/baas/api-reference/organizations}%>
+					<ul>
+						<li><%= nav_link 'Add payment method', '/baas/api-reference/organizations/add-payment-method', active_if: %r{^/baas/api-reference/organizations/add-payment-method}%></li>
+						<li><%= nav_link 'Create org', '/baas/api-reference/organizations/create-org', active_if: %r{^/baas/api-reference/organizations/create-org}%></li>
+						<li><%= nav_link 'Delete org', '/baas/api-reference/organizations/delete-org', active_if: %r{^/baas/api-reference/organizations/delete-org}%></li>
+						<li><%= nav_link 'Delete payment method', '/baas/api-reference/organizations/delete-payment-method', active_if: %r{^/baas/api-reference/organizations/delete-payment-method}%></li>
+						<li><%= nav_link 'Get customer', '/baas/api-reference/organizations/get-customer', active_if: %r{^/baas/api-reference/organizations/get-customer}%></li>
+						<li><%= nav_link 'Retrieve org', '/baas/api-reference/organizations/retrieve-org', active_if: %r{^/baas/api-reference/organizations/retrieve-org}%></li>
+						<li><%= nav_link 'Update default card', '/baas/api-reference/organizations/update-default-card', active_if: %r{^/baas/api-reference/organizations/update-default-card}%></li>
+						<li><%= nav_link 'Update org', '/baas/api-reference/organizations/update-org', active_if: %r{^/baas/api-reference/organizations/update-org}%></li>
+						<li><%= nav_link 'Update payment method', '/baas/api-reference/organizations/update-payment-method', active_if: %r{^/baas/api-reference/organizations/update-payment-method}%></li>
+					</ul>
+				</li>
+				<li>
+					<%= nav_link 'Password reset', '/baas/api-reference/password-reset', active_if: %r{^/baas/api-reference/password-reset}%>
+					<ul>
+						<li><%= nav_link 'Initiate password reset', '/baas/api-reference/password-reset/initiate-password-reset', active_if: %r{^/baas/api-reference/password-reset/initiate-password-reset}%></li>
+					</ul>
+				</li>
+			</li>
+		</ul>
+	</nav>
+</div>

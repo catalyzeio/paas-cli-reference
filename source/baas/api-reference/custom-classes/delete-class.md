@@ -4,6 +4,21 @@ title: Delete Class
 
 # Delete Class
 
+## DELETE /classes/{name}
+Use this route to delete a custom class that you created. All entries in the class will be deleted. As always, please use judiciously as this will **delete** the data from the backend completely.
+
+This route requires *Admin or dev*-level permissions.
+
+* Parameters
+    * name (required, String) ... {parameter description}
+
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -49,19 +64,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## DELETE /classes/{name}
-Use this route to delete a custom class that you created. All entries in the class will be deleted. As always, please use judiciously as this will **delete** the data from the backend completely.
-
-This route requires *Admin or dev*-level permissions.
-
-* Parameters
-    * name (required, String) ... {parameter description}
-
-
-**Response (application/json)**
-
-```json
-{}
-```
 

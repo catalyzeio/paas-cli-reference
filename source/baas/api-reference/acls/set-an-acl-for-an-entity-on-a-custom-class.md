@@ -4,6 +4,29 @@ title: Set an ACL for an entity on a Custom Class
 
 # Set an ACL for an entity on a Custom Class
 
+## POST /acl/custom/{customClass}/{entityId}
+Set an ACL for a user/group/application on a custom class. Setting an ACL on an entity/model combination that was already set results in the new ACL replacing the old.
+
+This route requires *admin/dev*-level permissions.
+
+* Parameters
+    * entityId (required, String) ... The ID of the user/group/application
+    * customClass (required, String) ... The name of the custom class
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+["retrieve", "update"]
+```
+
+**Response (application/json)**
+
+```json
+["retrieve", "update"]
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -54,27 +77,4 @@ NSDictionary *body = @[@"retrieve", @"update@"]
 }];
 ```
 
-
-## POST /acl/custom/{customClass}/{entityId}
-Set an ACL for a user/group/application on a custom class. Setting an ACL on an entity/model combination that was already set results in the new ACL replacing the old.
-
-This route requires *admin/dev*-level permissions.
-
-* Parameters
-    * entityId (required, String) ... The ID of the user/group/application
-    * customClass (required, String) ... The name of the custom class
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-["retrieve", "update"]
-```
-
-**Response (application/json)**
-
-```json
-["retrieve", "update"]
-```
 

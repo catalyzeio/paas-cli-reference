@@ -4,6 +4,30 @@ title: Retrieve Org
 
 # Retrieve Org
 
+## GET /org/{orgId}
+Get the details of an existing organization.
+
+* Parameters
+    * orgId (required, String) ... The ID of the org
+
+
+**Response (application/json)**
+
+```json
+{
+    "name": "Catalyze Inc.",
+    "orgId": "0468bfb5-31b6-441d-8012-bda14410d0e7",
+    "description": "We simplify building apps for healthcare",
+    "permissions": {
+        "dev":["a564ef59-085b-4803-b514-37288e32709e"],
+        "admin":["a564ef59-085b-4803-b514-37288e32709e"],
+        "payment":["a564ef59-085b-4803-b514-37288e32709e"],
+        "viewOther":["a564ef59-085b-4803-b514-37288e32709e"],
+        "viewPhi":["a564ef59-085b-4803-b514-37288e32709e"]
+    }
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -61,28 +85,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## GET /org/{orgId}
-Get the details of an existing organization.
-
-* Parameters
-    * orgId (required, String) ... The ID of the org
-
-
-**Response (application/json)**
-
-```json
-{
-    "name": "Catalyze Inc.",
-    "orgId": "0468bfb5-31b6-441d-8012-bda14410d0e7",
-    "description": "We simplify building apps for healthcare",
-    "permissions": {
-        "dev":["a564ef59-085b-4803-b514-37288e32709e"],
-        "admin":["a564ef59-085b-4803-b514-37288e32709e"],
-        "payment":["a564ef59-085b-4803-b514-37288e32709e"],
-        "viewOther":["a564ef59-085b-4803-b514-37288e32709e"],
-        "viewPhi":["a564ef59-085b-4803-b514-37288e32709e"]
-    }
-}
-```
 

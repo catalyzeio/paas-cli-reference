@@ -10,8 +10,6 @@ Usage: `catalyze [OPTIONS] COMMAND [ARGS]...`
 Options:
 
 ```
-  --baas-host TEXT   Alternate BaaS API URL
-  --paas-host TEXT   Alternate PaaS API URL
   --skip-validation  Skip certificate validation
   --help             Show this message and exit.
 ```
