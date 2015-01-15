@@ -4,6 +4,34 @@ title: Add Columns
 
 # Add Columns
 
+## PUT /classes/{name}
+Use this route to add columns to a custom class.
+
+* Parameters
+    * name (required, String) ... {parameter description}
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+	"latitude": "double",
+	"longitude": "double"
+}
+```
+
+**Response (application/json)**
+
+```json
+{
+	"zipcode": "string",
+	"city": "string",
+	"latitude": "double",
+	"longitude": "double"
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -64,32 +92,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## PUT /classes/{name}
-Use this route to add columns to a custom class.
-
-* Parameters
-    * name (required, String) ... {parameter description}
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-	"latitude": "double",
-	"longitude": "double"
-}
-```
-
-**Response (application/json)**
-
-```json
-{
-	"zipcode": "string",
-	"city": "string",
-	"latitude": "double",
-	"longitude": "double"
-}
-```
 

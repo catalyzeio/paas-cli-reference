@@ -4,6 +4,25 @@ title: Retrieve Groups
 
 # Retrieve Groups
 
+## GET /users/{usersId}/groups
+Retrieve the groups of which a user is a member.
+
+* Parameters
+    * usersId (required, String) ... The ID of the user
+
+
+**Response (application/json)**
+
+```json
+[
+    {
+        "groupsId":"d405a8f4-09ac-418b-adae-59a9379a2624",
+        "name":"Read Group",
+        "default": false
+    }
+]
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -56,23 +75,4 @@ NSDictionary *body = @[
 }];
 ```
 
-
-## GET /users/{usersId}/groups
-Retrieve the groups of which a user is a member.
-
-* Parameters
-    * usersId (required, String) ... The ID of the user
-
-
-**Response (application/json)**
-
-```json
-[
-    {
-        "groupsId":"d405a8f4-09ac-418b-adae-59a9379a2624",
-        "name":"Read Group",
-        "default": false
-    }
-]
-```
 

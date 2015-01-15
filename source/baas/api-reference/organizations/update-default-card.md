@@ -4,6 +4,36 @@ title: Update Default Card
 
 # Update Default Card
 
+## PUT /org/{orgId}/customer
+Update an organization's default credit card. Each customer has a single default card.
+Sending the ID of an existing payment method already linked to the customer will set it as
+the organization's default card. This card is used for all active subscriptions (all paid apps)
+and all messaging application related billing. You cannot add a new card and set it as the default
+with this route. Please add a new card with a POST to /org/{orgId}/payment and then use this
+route to set it as the default.
+
+
+This route requires *payment*-level permissions.
+
+* Parameters
+    * orgId (required, String) ... The ID of the org
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+    "paymentId":"tok_104FD42eZvKYlo2Cm1wYwsL1"
+}
+```
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -52,34 +82,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## PUT /org/{orgId}/customer
-Update an organization's default credit card. Each customer has a single default card.
-Sending the ID of an existing payment method already linked to the customer will set it as
-the organization's default card. This card is used for all active subscriptions (all paid apps)
-and all messaging application related billing. You cannot add a new card and set it as the default
-with this route. Please add a new card with a POST to /org/{orgId}/payment and then use this
-route to set it as the default.
-
-
-This route requires *payment*-level permissions.
-
-* Parameters
-    * orgId (required, String) ... The ID of the org
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-    "paymentId":"tok_104FD42eZvKYlo2Cm1wYwsL1"
-}
-```
-
-**Response (application/json)**
-
-```json
-{}
-```
 

@@ -4,6 +4,37 @@ title: List a User's Files
 
 # List a User's Files
 
+## GET /users/{userId}/files
+Return a list of the specified user's files stored within the application.
+
+Model level or higher access to files is required to perform this operation.
+
+
+* Parameters
+    * userId (required, String) ... The ID of the user to list files for
+
+
+**Response (application/json)**
+
+```json
+[
+    {
+        "filesId": "123abcFilesId",
+        "usersId": "456xyzUsersId",
+        "authorsId": "789zxcUsersId",
+        "phi": "true",
+        "createdAt": "2013-05-01T07:00:00.000Z"
+    },
+    {
+        "filesId": "456defFilesId",
+        "usersId": "456xyzUsersId",
+        "authorsId": "789zxcUsersId",
+        "phi": "true",
+        "createdAt": "2013-05-02T07:00:00.000Z"
+    }
+]
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -65,35 +96,4 @@ NSDictionary *body = @[
 }];
 ```
 
-
-## GET /users/{userId}/files
-Return a list of the specified user's files stored within the application.
-
-Model level or higher access to files is required to perform this operation.
-
-
-* Parameters
-    * userId (required, String) ... The ID of the user to list files for
-
-
-**Response (application/json)**
-
-```json
-[
-    {
-        "filesId": "123abcFilesId",
-        "usersId": "456xyzUsersId",
-        "authorsId": "789zxcUsersId",
-        "phi": "true",
-        "createdAt": "2013-05-01T07:00:00.000Z"
-    },
-    {
-        "filesId": "456defFilesId",
-        "usersId": "456xyzUsersId",
-        "authorsId": "789zxcUsersId",
-        "phi": "true",
-        "createdAt": "2013-05-02T07:00:00.000Z"
-    }
-]
-```
 

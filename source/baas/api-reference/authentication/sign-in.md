@@ -4,6 +4,54 @@ title: Sign In
 
 # Sign In
 
+## POST /auth/signin
+Use this to sign into the application. When you sign in, you get a session token.  
+This session token currently never expires (although we are working on a mechanism to do 
+this).  You may sign out, which invalidates your session token and requires you to sign 
+in again. Every time you sign in, you get a new session token.
+
+
+
+**Request (null)**
+
+* [Headers](#headers)
+
+```json
+{
+    "username":"username",
+    "password":"test123"
+}
+```
+
+**Response (application/json)**
+
+```json
+{
+    "email": {
+        "primary":"primary@email.com",
+        "secondary":"secondary@email.com",
+        "work":"work@email.com",
+        "other":"other@email.com"
+    },
+    "name": {
+        "prefix":"prefix",
+        "firstName":"first name",
+        "middleName":"middle name",
+        "lastName":"last name",
+        "maidenName":"maiden name",
+        "suffix":"jr"
+    },
+    "extras":{
+        "extra1":"value1",
+        "extra2":"value2"
+    },
+    "usersId":"a564ef59-085b-4803-b514-37288e32709e",
+    "active":false,
+    "createdAt":"2013-11-07T12:00:00Z",
+    "updatedAt":"2013-11-07T12:00:00Z"
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -100,52 +148,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## POST /auth/signin
-Use this to sign into the application. When you sign in, you get a session token.  
-This session token currently never expires (although we are working on a mechanism to do 
-this).  You may sign out, which invalidates your session token and requires you to sign 
-in again. Every time you sign in, you get a new session token.
-
-
-
-**Request (null)**
-
-* [Headers](#headers)
-
-```json
-{
-    "username":"username",
-    "password":"test123"
-}
-```
-
-**Response (application/json)**
-
-```json
-{
-    "email": {
-        "primary":"primary@email.com",
-        "secondary":"secondary@email.com",
-        "work":"work@email.com",
-        "other":"other@email.com"
-    },
-    "name": {
-        "prefix":"prefix",
-        "firstName":"first name",
-        "middleName":"middle name",
-        "lastName":"last name",
-        "maidenName":"maiden name",
-        "suffix":"jr"
-    },
-    "extras":{
-        "extra1":"value1",
-        "extra2":"value2"
-    },
-    "usersId":"a564ef59-085b-4803-b514-37288e32709e",
-    "active":false,
-    "createdAt":"2013-11-07T12:00:00Z",
-    "updatedAt":"2013-11-07T12:00:00Z"
-}
-```
 

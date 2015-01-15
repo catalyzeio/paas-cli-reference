@@ -4,6 +4,26 @@ title: Send Username Reminder
 
 # Send Username Reminder
 
+## POST /users/forgotUsername
+Send a username to a user's primary email address
+
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+    "email": "bobby@example.com"
+}
+```
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -52,24 +72,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## POST /users/forgotUsername
-Send a username to a user's primary email address
-
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-    "email": "bobby@example.com"
-}
-```
-
-**Response (application/json)**
-
-```json
-{}
-```
 

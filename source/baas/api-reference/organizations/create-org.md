@@ -4,6 +4,45 @@ title: Create Org
 
 # Create Org
 
+## POST /org
+Creates and returns an organization with an auto generated orgId.
+
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+    "name": "Catalyze Inc." ,
+    "description": "We simplify building apps for healthcare",
+    "permissions": {
+        "dev":[],
+        "admin":[],
+        "payment":[],
+        "viewOther":[],
+        "viewPhi":[]
+    }
+}
+```
+
+**Response (application/json)**
+
+```json
+{
+    "name": "Catalyze Inc.",
+    "orgId": "0468bfb5-31b6-441d-8012-bda14410d0e7",
+    "description": "We simplify building apps for healthcare",
+    "permissions": {
+        "dev":["a564ef59-085b-4803-b514-37288e32709e"],
+        "admin":["a564ef59-085b-4803-b514-37288e32709e"],
+        "payment":["a564ef59-085b-4803-b514-37288e32709e"],
+        "viewOther":["a564ef59-085b-4803-b514-37288e32709e"],
+        "viewPhi":["a564ef59-085b-4803-b514-37288e32709e"]
+    }
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -76,43 +115,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## POST /org
-Creates and returns an organization with an auto generated orgId.
-
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-    "name": "Catalyze Inc." ,
-    "description": "We simplify building apps for healthcare",
-    "permissions": {
-        "dev":[],
-        "admin":[],
-        "payment":[],
-        "viewOther":[],
-        "viewPhi":[]
-    }
-}
-```
-
-**Response (application/json)**
-
-```json
-{
-    "name": "Catalyze Inc.",
-    "orgId": "0468bfb5-31b6-441d-8012-bda14410d0e7",
-    "description": "We simplify building apps for healthcare",
-    "permissions": {
-        "dev":["a564ef59-085b-4803-b514-37288e32709e"],
-        "admin":["a564ef59-085b-4803-b514-37288e32709e"],
-        "payment":["a564ef59-085b-4803-b514-37288e32709e"],
-        "viewOther":["a564ef59-085b-4803-b514-37288e32709e"],
-        "viewPhi":["a564ef59-085b-4803-b514-37288e32709e"]
-    }
-}
-```
 

@@ -4,6 +4,22 @@ title: Retrieve an entity's ACL for a core model
 
 # Retrieve an entity's ACL for a core model
 
+## GET /acl/core/{model}/{entityId}
+Retrieve a user/group/applications's directly-granted ACL for a core (non-custom) model.
+
+This route requires *admin/dev*-level permissions.
+
+* Parameters
+    * model (required, String) ... The name of the model
+    * entityId (required, String) ... The ID of the user/group/application
+
+
+**Response (application/json)**
+
+```json
+["retrieve", "update"]
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -50,20 +66,4 @@ NSDictionary *body = @[@"retrieve", @"update@"]
 }];
 ```
 
-
-## GET /acl/core/{model}/{entityId}
-Retrieve a user/group/applications's directly-granted ACL for a core (non-custom) model.
-
-This route requires *admin/dev*-level permissions.
-
-* Parameters
-    * model (required, String) ... The name of the model
-    * entityId (required, String) ... The ID of the user/group/application
-
-
-**Response (application/json)**
-
-```json
-["retrieve", "update"]
-```
 

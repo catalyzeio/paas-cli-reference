@@ -4,6 +4,26 @@ title: Upload a File
 
 # Upload a File
 
+## POST /users/files
+Upload a file that belongs to the currently logged in User such as a CCDA document or an image.
+
+
+**Request (multipart/form-data)**
+
+* [Headers](#headers)
+
+```json
+{}
+```
+
+**Response (application/json)**
+
+```json
+{
+	"filesId": "123abcFileId"
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -55,24 +75,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## POST /users/files
-Upload a file that belongs to the currently logged in User such as a CCDA document or an image.
-
-
-**Request (multipart/form-data)**
-
-* [Headers](#headers)
-
-```json
-{}
-```
-
-**Response (application/json)**
-
-```json
-{
-	"filesId": "123abcFileId"
-}
-```
 

@@ -4,6 +4,23 @@ title: Delete a User's File
 
 # Delete a User's File
 
+## DELETE /users/{userId}/files/{fileId}
+Delete a file owned by another user. 
+
+The authenticated user must be the author or owner of the file or have model level or higher access to files in order to perform this operation.
+
+
+* Parameters
+    * fileId (required, String) ... The ID of the file to delete
+    * userId (required, String) ... The ID of the user that owns the file
+
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -49,21 +66,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## DELETE /users/{userId}/files/{fileId}
-Delete a file owned by another user. 
-
-The authenticated user must be the author or owner of the file or have model level or higher access to files in order to perform this operation.
-
-
-* Parameters
-    * fileId (required, String) ... The ID of the file to delete
-    * userId (required, String) ... The ID of the user that owns the file
-
-
-**Response (application/json)**
-
-```json
-{}
-```
 

@@ -4,6 +4,21 @@ title: Remove a Supervisor
 
 # Remove a Supervisor
 
+## DELETE /app/supervisor/{name}
+Remove a supervisor from the currently-authenticated application by username.
+
+This route requires *Admin/Dev*-level permissions.
+
+* Parameters
+    * name (required, String) ... The username of the user to be added
+
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -49,19 +64,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## DELETE /app/supervisor/{name}
-Remove a supervisor from the currently-authenticated application by username.
-
-This route requires *Admin/Dev*-level permissions.
-
-* Parameters
-    * name (required, String) ... The username of the user to be added
-
-
-**Response (application/json)**
-
-```json
-{}
-```
 

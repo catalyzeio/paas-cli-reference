@@ -4,6 +4,37 @@ title: Filter Class Entries
 
 # Filter Class Entries
 
+## GET /classes/{name}/query{?pageSize,pageNumber,orderBy,direction}
+This route allows the data in a custom class to be filtered by certain values inside it, each passed as part of the query string by `fieldName=value`. Any number of fields can be passed, including zero (no entries would be filtered out).
+
+Examples for an imaginary class "people":
+
+* `?name=Bob` - entries with `name` = `"Bob"`
+* `?name=Bob&gender=male&age=20` - entries with `name` = `"Bob"`, `gender` = `"male"`, and `age` = `20`
+
+Properties of child objects can also be queried (Note: if querying a child property, ensure that every entry in that class has that property, or errors may occur) by separating the properties with a period (`.`):
+
+* `?name.first=Bob` - would match `{"name": {"first": "Bob"}}`
+
+To query the `createdAt` and `updatedAt` fields, the special values `@createdAt` and `@updatedAt` can be passed.
+
+
+This route requires *Admin, dev, or supervisor*-level permissions.
+
+* Parameters
+    * orderBy (optional (default=@createdAt), String) ... The field by which to order the results.
+    * direction (optional (default=asc), String) ... The direction in which to sort entries. "asc" and "desc" are accepted values.
+    * name (required, String) ... The name of the custom class to query.
+    * pageSize (optional (default=10), int) ... The number of entries to return. If not specified, defaults to 10.
+    * pageNumber (optional (default=1), int) ... The number of pages of size pageSize to skip before returning entries.  If not specified, defaults to 1.
+
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -49,35 +80,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## GET /classes/{name}/query{?pageSize,pageNumber,orderBy,direction}
-This route allows the data in a custom class to be filtered by certain values inside it, each passed as part of the query string by `fieldName=value`. Any number of fields can be passed, including zero (no entries would be filtered out).
-
-Examples for an imaginary class "people":
-
-* `?name=Bob` - entries with `name` = `"Bob"`
-* `?name=Bob&gender=male&age=20` - entries with `name` = `"Bob"`, `gender` = `"male"`, and `age` = `20`
-
-Properties of child objects can also be queried (Note: if querying a child property, ensure that every entry in that class has that property, or errors may occur) by separating the properties with a period (`.`):
-
-* `?name.first=Bob` - would match `{"name": {"first": "Bob"}}`
-
-To query the `createdAt` and `updatedAt` fields, the special values `@createdAt` and `@updatedAt` can be passed.
-
-
-This route requires *Admin, dev, or supervisor*-level permissions.
-
-* Parameters
-    * orderBy (optional (default=@createdAt), String) ... The field by which to order the results.
-    * direction (optional (default=asc), String) ... The direction in which to sort entries. "asc" and "desc" are accepted values.
-    * name (required, String) ... The name of the custom class to query.
-    * pageSize (optional (default=10), int) ... The number of entries to return. If not specified, defaults to 10.
-    * pageNumber (optional (default=1), int) ... The number of pages of size pageSize to skip before returning entries.  If not specified, defaults to 1.
-
-
-**Response (application/json)**
-
-```json
-{}
-```
 

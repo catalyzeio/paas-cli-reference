@@ -4,6 +4,32 @@ title: Retrieve Entity Reference
 
 # Retrieve Entity Reference
 
+## GET /classes/{name}/entry/{entryId}/ref/{refName}/{refId}
+Retrieve a specific reference for an entry.
+
+* Parameters
+    * name (required, String) ... The name of the custom class you are querying.
+    * refId (required, String) ... The ID of the reference which you are querying.
+    * refName (required, String) ... The name of the reference you are querying.
+    * entryId (required, String) ... The ID of the custom class entry you are searching for references.
+
+
+**Response (application/json)**
+
+```json
+{
+	"content": 
+	{
+		"REFERENCED_CLASS_KEY_1": "REFERENCED_CLASS_VAL_1",
+		"REFERENCED_CLASS_KEY_2": "REFERENCED_CLASS_VAL_2"
+	},
+
+	"id": "REFERENCED_ENTRY_ID_123",
+	"parentId": "USER_ID_123",
+	"phi": false
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -60,30 +86,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## GET /classes/{name}/entry/{entryId}/ref/{refName}/{refId}
-Retrieve a specific reference for an entry.
-
-* Parameters
-    * name (required, String) ... The name of the custom class you are querying.
-    * refId (required, String) ... The ID of the reference which you are querying.
-    * refName (required, String) ... The name of the reference you are querying.
-    * entryId (required, String) ... The ID of the custom class entry you are searching for references.
-
-
-**Response (application/json)**
-
-```json
-{
-	"content": 
-	{
-		"REFERENCED_CLASS_KEY_1": "REFERENCED_CLASS_VAL_1",
-		"REFERENCED_CLASS_KEY_2": "REFERENCED_CLASS_VAL_2"
-	},
-
-	"id": "REFERENCED_ENTRY_ID_123",
-	"parentId": "USER_ID_123",
-	"phi": false
-}
-```
 

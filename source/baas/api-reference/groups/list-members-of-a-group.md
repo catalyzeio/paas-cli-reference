@@ -4,6 +4,25 @@ title: List members of a group
 
 # List members of a group
 
+## GET /groups/{groupId}/members
+List the IDs of users belonging to a group.
+
+This route requires *Supervisor*-level permissions.
+
+* Parameters
+    * groupId (required, String) ... The ID of the group.
+
+
+**Response (application/json)**
+
+```json
+[
+    "111A1111-A11A-11A1-A111-111111111111",
+    "111B1111-B11B-11B1-B111-111111111111",
+    "111C1111-C11C-11C1-C111-111111111111"
+]
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -54,23 +73,4 @@ NSDictionary *body = @[
 }];
 ```
 
-
-## GET /groups/{groupId}/members
-List the IDs of users belonging to a group.
-
-This route requires *Supervisor*-level permissions.
-
-* Parameters
-    * groupId (required, String) ... The ID of the group.
-
-
-**Response (application/json)**
-
-```json
-[
-    "111A1111-A11A-11A1-A111-111111111111",
-    "111B1111-B11B-11B1-B111-111111111111",
-    "111C1111-C11C-11C1-C111-111111111111"
-]
-```
 
