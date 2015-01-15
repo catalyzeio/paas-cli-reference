@@ -159,7 +159,7 @@
 						opacity: 1.0;
 					}
 				}
-				a.r_is-active{background-color: $c_lightbg;}
+				a.r_is-active{background-color: $c_lightbg;color: $c_compliance;}
 				&:last-child{
 					a{border-bottom: 0px;}
 				}
