@@ -4,6 +4,39 @@ title: Export Data
 
 # Export Data
 
+## GET /classes/{name}/export
+Export a JSON array of class entries.
+
+This route requires *Admin/dev*-level permissions.
+
+* Parameters
+    * name (required, String) ... {parameter description}
+
+
+**Response (application/json)**
+
+```json
+[
+	{
+		"_id": "abc123",
+		"color": "red",
+		"code": "F00"
+	},
+
+	{
+		"_id": "def456",
+		"color": "green",
+		"code": "0F0"
+	},
+
+	{
+		"_id": "ghi789",
+		"color": "blue",
+		"code": "00F"
+	}
+]
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -68,37 +101,4 @@ NSDictionary *body = @[
 }];
 ```
 
-
-## GET /classes/{name}/export
-Export a JSON array of class entries.
-
-This route requires *Admin/dev*-level permissions.
-
-* Parameters
-    * name (required, String) ... {parameter description}
-
-
-**Response (application/json)**
-
-```json
-[
-	{
-		"_id": "abc123",
-		"color": "red",
-		"code": "F00"
-	},
-
-	{
-		"_id": "def456",
-		"color": "green",
-		"code": "0F0"
-	},
-
-	{
-		"_id": "ghi789",
-		"color": "blue",
-		"code": "00F"
-	}
-]
-```
 

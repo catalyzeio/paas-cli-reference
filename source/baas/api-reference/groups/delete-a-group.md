@@ -4,6 +4,21 @@ title: Delete a group
 
 # Delete a group
 
+## DELETE /groups/{groupId}
+Delete a group. This cannot be reversed.
+
+This route requires *Supervisor*-level permissions.
+
+* Parameters
+    * groupId (required, String) ... The ID of the group.
+
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -49,19 +64,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## DELETE /groups/{groupId}
-Delete a group. This cannot be reversed.
-
-This route requires *Supervisor*-level permissions.
-
-* Parameters
-    * groupId (required, String) ... The ID of the group.
-
-
-**Response (application/json)**
-
-```json
-{}
-```
 

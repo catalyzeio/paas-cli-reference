@@ -4,6 +4,42 @@ title: Add Entry for a User
 
 # Add Entry for a User
 
+## POST /classes/{name}/entry/{parentsId}
+Use this route to add data for a custom class for another user.
+
+* Parameters
+    * parentsId (required, String) ... The user ID which is the parent of this custom class entry.
+    * name (required, String) ... The name of the custom class you are creating an entry for.
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+	"content": 
+	{
+		"zipcode": "53202",
+		"city": "Milwaukee"
+	}
+}
+```
+
+**Response (application/json)**
+
+```json
+{
+	"id": "ENTRY_ID_123",
+	"content": 
+	{
+		"zipcode": "53202",
+		"city": "Milwaukee"
+	},
+
+	"phi": false
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -72,40 +108,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## POST /classes/{name}/entry/{parentsId}
-Use this route to add data for a custom class for another user.
-
-* Parameters
-    * parentsId (required, String) ... The user ID which is the parent of this custom class entry.
-    * name (required, String) ... The name of the custom class you are creating an entry for.
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-	"content": 
-	{
-		"zipcode": "53202",
-		"city": "Milwaukee"
-	}
-}
-```
-
-**Response (application/json)**
-
-```json
-{
-	"id": "ENTRY_ID_123",
-	"content": 
-	{
-		"zipcode": "53202",
-		"city": "Milwaukee"
-	},
-
-	"phi": false
-}
-```
 

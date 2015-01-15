@@ -4,6 +4,22 @@ title: Delete Payment Method
 
 # Delete Payment Method
 
+## DELETE /org/{orgId}/payment/{paymentId}
+/org/delete_payment.md
+
+This route requires *payment*-level permissions.
+
+* Parameters
+    * orgId (required, String) ... The ID of the org
+    * paymentId (required, String) ... The ID of the existing payment method
+
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -49,20 +65,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## DELETE /org/{orgId}/payment/{paymentId}
-/org/delete_payment.md
-
-This route requires *payment*-level permissions.
-
-* Parameters
-    * orgId (required, String) ... The ID of the org
-    * paymentId (required, String) ... The ID of the existing payment method
-
-
-**Response (application/json)**
-
-```json
-{}
-```
 

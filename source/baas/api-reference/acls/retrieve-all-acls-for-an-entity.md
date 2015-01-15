@@ -4,6 +4,31 @@ title: Retrieve all ACLs for an entity
 
 # Retrieve all ACLs for an entity
 
+## GET /acl/{entityId}
+Retrieve all directly-granted ACLs for a user/group/application.
+
+This route requires *admin/dev*-level permissions.
+
+* Parameters
+    * entityId (required, String) ... {parameter description}
+
+
+**Response (application/json)**
+
+```json
+{
+    "core": {
+        "users": ["create", "retrieve", "update"],
+        "medications": ["retrieve"],
+        "procedures": ["retrieve"]
+    },
+    "custom": {
+        "licenses": ["create", "retrieve"],
+        "foods": ["retrieve", "delete"]
+    }
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -60,29 +85,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## GET /acl/{entityId}
-Retrieve all directly-granted ACLs for a user/group/application.
-
-This route requires *admin/dev*-level permissions.
-
-* Parameters
-    * entityId (required, String) ... {parameter description}
-
-
-**Response (application/json)**
-
-```json
-{
-    "core": {
-        "users": ["create", "retrieve", "update"],
-        "medications": ["retrieve"],
-        "procedures": ["retrieve"]
-    },
-    "custom": {
-        "licenses": ["create", "retrieve"],
-        "foods": ["retrieve", "delete"]
-    }
-}
-```
 

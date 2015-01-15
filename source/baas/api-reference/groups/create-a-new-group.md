@@ -4,6 +4,33 @@ title: Create a new group
 
 # Create a new group
 
+## POST /groups
+Create a new group within the currently-authenticated application.
+
+This route requires *Supervisor*-level permissions.
+
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+    "name": "A Really Cool Group",
+    "default": false
+}
+```
+
+**Response (application/json)**
+
+```json
+{
+    "groupsId": "550e8400-e29b-41d4-a716-446655440000",
+    "name": "A Really Cool Group",
+    "default": false
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -62,31 +89,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## POST /groups
-Create a new group within the currently-authenticated application.
-
-This route requires *Supervisor*-level permissions.
-
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-    "name": "A Really Cool Group",
-    "default": false
-}
-```
-
-**Response (application/json)**
-
-```json
-{
-    "groupsId": "550e8400-e29b-41d4-a716-446655440000",
-    "name": "A Really Cool Group",
-    "default": false
-}
-```
 

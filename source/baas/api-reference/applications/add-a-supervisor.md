@@ -4,6 +4,28 @@ title: Add a Supervisor
 
 # Add a Supervisor
 
+## POST /app/supervisor/{name}
+Add a supervisor to the currently-authenticated application by username.
+
+This route requires *Admin/Dev*-level permissions.
+
+* Parameters
+    * name (required, String) ... The username of the user to be added
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{}
+```
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -52,26 +74,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## POST /app/supervisor/{name}
-Add a supervisor to the currently-authenticated application by username.
-
-This route requires *Admin/Dev*-level permissions.
-
-* Parameters
-    * name (required, String) ... The username of the user to be added
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{}
-```
-
-**Response (application/json)**
-
-```json
-{}
-```
 

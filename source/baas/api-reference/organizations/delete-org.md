@@ -4,6 +4,21 @@ title: Delete Org
 
 # Delete Org
 
+## DELETE /org/{orgId}
+Delete an organization and all associated Stripe information. **Be careful using this as it cannot be reversed**.
+
+This route requires *admin*-level permissions.
+
+* Parameters
+    * orgId (required, String) ... The ID of the org
+
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -49,19 +64,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## DELETE /org/{orgId}
-Delete an organization and all associated Stripe information. **Be careful using this as it cannot be reversed**.
-
-This route requires *admin*-level permissions.
-
-* Parameters
-    * orgId (required, String) ... The ID of the org
-
-
-**Response (application/json)**
-
-```json
-{}
-```
 

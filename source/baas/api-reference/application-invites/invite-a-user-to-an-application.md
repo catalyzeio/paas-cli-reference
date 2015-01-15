@@ -4,6 +4,36 @@ title: Invite a user to an application
 
 # Invite a user to an application
 
+## POST /app/{appId}/invite
+Use this route to invite a user to your application by email.
+
+This route requires *admin,dev*-level permissions.
+
+* Parameters
+    * appId (required, String) ... The ID of the application
+
+**Request (application/json)**
+
+* [Headers](#headers)
+
+```json
+{
+    "email":"inviteMe@catalyze.io"
+}
+```
+
+**Response (application/json)**
+
+```json
+{
+    "inviteId":"e1200bd6-b0de-461a-893f-25d6c36b277b",
+    "inviteCode":"8216502f-e57f-40c8-9bd1-833d99fb0854",
+    "email":"inviteMe@catalyze.io",
+    "appId":"bf9e0920-e41b-4705-b66b-87e4dc11cd46",
+    "used":false
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -66,34 +96,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## POST /app/{appId}/invite
-Use this route to invite a user to your application by email.
-
-This route requires *admin,dev*-level permissions.
-
-* Parameters
-    * appId (required, String) ... The ID of the application
-
-**Request (application/json)**
-
-* [Headers](#headers)
-
-```json
-{
-    "email":"inviteMe@catalyze.io"
-}
-```
-
-**Response (application/json)**
-
-```json
-{
-    "inviteId":"e1200bd6-b0de-461a-893f-25d6c36b277b",
-    "inviteCode":"8216502f-e57f-40c8-9bd1-833d99fb0854",
-    "email":"inviteMe@catalyze.io",
-    "appId":"bf9e0920-e41b-4705-b66b-87e4dc11cd46",
-    "used":false
-}
-```
 

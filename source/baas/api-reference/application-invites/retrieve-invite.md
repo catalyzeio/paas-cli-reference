@@ -4,6 +4,26 @@ title: Retrieve Invite
 
 # Retrieve Invite
 
+## GET /app/{appId}/invite/{inviteId}
+Use this route to retrieve a specific invite by its ID. This invite must be unused.
+
+* Parameters
+    * appId (required, String) ... The ID of the application
+    * inviteId (required, String) ... The ID of the invite
+
+
+**Response (application/json)**
+
+```json
+{
+    "inviteId":"e1200bd6-b0de-461a-893f-25d6c36b277b",
+    "inviteCode":"8216502f-e57f-40c8-9bd1-833d99fb0854",
+    "email":"inviteMe@catalyze.io",
+    "appId":"bf9e0920-e41b-4705-b66b-87e4dc11cd46",
+    "used":false
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -56,24 +76,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## GET /app/{appId}/invite/{inviteId}
-Use this route to retrieve a specific invite by its ID. This invite must be unused.
-
-* Parameters
-    * appId (required, String) ... The ID of the application
-    * inviteId (required, String) ... The ID of the invite
-
-
-**Response (application/json)**
-
-```json
-{
-    "inviteId":"e1200bd6-b0de-461a-893f-25d6c36b277b",
-    "inviteCode":"8216502f-e57f-40c8-9bd1-833d99fb0854",
-    "email":"inviteMe@catalyze.io",
-    "appId":"bf9e0920-e41b-4705-b66b-87e4dc11cd46",
-    "used":false
-}
-```
 

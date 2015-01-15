@@ -4,6 +4,19 @@ title: Delete a user
 
 # Delete a user
 
+## DELETE /users/{usersId}
+This is used to delete a user and all associated PII details. **Be careful using this as it cannot be reversed.**
+
+* Parameters
+    * usersId (required, String) ... The ID of the user
+
+
+**Response (application/json)**
+
+```json
+{}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -49,17 +62,4 @@ NSDictionary *body = @{};
 }];
 ```
 
-
-## DELETE /users/{usersId}
-This is used to delete a user and all associated PII details. **Be careful using this as it cannot be reversed.**
-
-* Parameters
-    * usersId (required, String) ... The ID of the user
-
-
-**Response (application/json)**
-
-```json
-{}
-```
 

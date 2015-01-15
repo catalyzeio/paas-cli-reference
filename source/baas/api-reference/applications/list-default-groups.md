@@ -4,6 +4,27 @@ title: List Default Groups
 
 # List Default Groups
 
+## GET /app/{appId}/groups/default
+Retrieve all default groups for an app.
+
+This route requires *Supervisor*-level permissions.
+
+* Parameters
+    * appId (required, String) ... {parameter description}
+
+
+**Response (application/json)**
+
+```json
+[
+    {
+        "groupsId": "663cffcf-4de7-4c49-984f-196236e5d098",
+        "name": "default_group",
+        "default": true
+    }
+]
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -56,25 +77,4 @@ NSDictionary *body = @[
 }];
 ```
 
-
-## GET /app/{appId}/groups/default
-Retrieve all default groups for an app.
-
-This route requires *Supervisor*-level permissions.
-
-* Parameters
-    * appId (required, String) ... {parameter description}
-
-
-**Response (application/json)**
-
-```json
-[
-    {
-        "groupsId": "663cffcf-4de7-4c49-984f-196236e5d098",
-        "name": "default_group",
-        "default": true
-    }
-]
-```
 

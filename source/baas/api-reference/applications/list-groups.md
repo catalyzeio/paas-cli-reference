@@ -4,6 +4,27 @@ title: List Groups
 
 # List Groups
 
+## GET /app/{appId}/groups
+Retrieve all groups for an app.
+
+This route requires *Supervisor*-level permissions.
+
+* Parameters
+    * appId (required, String) ... {parameter description}
+
+
+**Response (application/json)**
+
+```json
+[
+    {
+        "groupsId": "87a6ac9d-7b12-457b-b509-0a67e485b4de",
+        "name": "my_group",
+        "default": false
+    }
+]
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -56,25 +77,4 @@ NSDictionary *body = @[
 }];
 ```
 
-
-## GET /app/{appId}/groups
-Retrieve all groups for an app.
-
-This route requires *Supervisor*-level permissions.
-
-* Parameters
-    * appId (required, String) ... {parameter description}
-
-
-**Response (application/json)**
-
-```json
-[
-    {
-        "groupsId": "87a6ac9d-7b12-457b-b509-0a67e485b4de",
-        "name": "my_group",
-        "default": false
-    }
-]
-```
 

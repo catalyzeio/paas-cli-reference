@@ -4,6 +4,26 @@ title: Retrieve Schema
 
 # Retrieve Schema 
 
+## GET /classes/{name}
+Get the schema for an existing custom class.
+
+This route requires *Admin or dev*-level permissions.
+
+* Parameters
+    * name (required, String) ... {parameter description}
+
+
+**Response (application/json)**
+
+```json
+{
+	"zipcode": "string",
+	"city": "string",
+	"latitude": "double",
+	"longitude": "double"
+}
+```
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -55,24 +75,4 @@ NSDictionary *body = @{
 }];
 ```
 
-
-## GET /classes/{name}
-Get the schema for an existing custom class.
-
-This route requires *Admin or dev*-level permissions.
-
-* Parameters
-    * name (required, String) ... {parameter description}
-
-
-**Response (application/json)**
-
-```json
-{
-	"zipcode": "string",
-	"city": "string",
-	"latitude": "double",
-	"longitude": "double"
-}
-```
 
