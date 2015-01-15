@@ -134,6 +134,9 @@
 	@extend .cf;
 	.r_guide-nav{
 		margin: 10px 0px 0px 0px;
+		max-height: 1000px;
+		overflow: scroll;
+		border-bottom: 1px solid $c_border;
 		h1{
 			font-family: $f_sans-med;
 			color: $c_text;
