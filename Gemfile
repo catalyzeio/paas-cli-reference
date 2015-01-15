@@ -9,3 +9,5 @@ gem "builder", "~> 3.0"
 gem "redcarpet"
 
 gem "middleman-syntax"
+
+gem "middleman-search_engine_sitemap"

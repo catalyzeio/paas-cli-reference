@@ -1,3 +1,4 @@
+require 'builder'
 Time.zone = "UTC"
 
 set :css_dir, 'assets/css'
@@ -22,6 +23,11 @@ activate :syntax, :wrap => true
 page "/paas/getting-started/*", :layout => "paas_gettingstarted"
 page "/baas/guides/*", :layout => "baas_single"
 page "/baas/api-reference/*", :layout => "baas_guides"
+
+# Sitemap settings
+set :url_root, 'https://resources.catalyze.io'
+activate :search_engine_sitemap
+page "/sitemap.xml", :layout => false
 
 helpers do
   def site_title
