@@ -3,6 +3,9 @@
 	label{display: none;}
 }
 @media handheld, only screen and (max-width: 1000px){
+	.r_submod-masthead{
+		margin: 0px 20px 0px 20px;
+	}
 	.r_main-marketing{
 		.r_marketing-inner-1{
 			padding: 30px 30px 30px 30px;
