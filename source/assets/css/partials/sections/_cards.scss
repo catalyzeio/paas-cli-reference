@@ -294,6 +294,7 @@
 }
 /* Post Styles */
 .r_guide-section{
+	@extend .cf;
 	.r_guide-content{
 		.r_guide-block{
 			img{
@@ -425,7 +426,9 @@
 }
 .baas_guides{
 	.r_guide-section{
+		padding: 15px 15px 15px 15px;
 		.r_guide-content{
+			margin-left: 30%;
 			.r_guide-block{
 				ul{
 					background-color: $c_lightbg;
