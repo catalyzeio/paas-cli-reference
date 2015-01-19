@@ -7,6 +7,7 @@ $("document").ready(function(){
 		var toc = $("#toc").tocify({
 			context: ".r_guide-block",
 			extendPage: false,
+			showAndHide: false
 		});
 	});
 	$(window).scroll(function(){
