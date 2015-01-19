@@ -11,7 +11,7 @@ $("document").ready(function(){
 	});
 	$(window).scroll(function(){
 		var bottom = $('#r_guide-selector').position().top+$('#r_guide-selector').outerHeight(true);
-		var trueHeight = bottom - 580;
+		var trueHeight = bottom - 545;
 		console.log(bottom);
 		//
 		var scroll = $(window).scrollTop();
