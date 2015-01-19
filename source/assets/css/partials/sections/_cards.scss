@@ -423,3 +423,56 @@
 		}
 	}
 }
+.baas_guides{
+	.r_guide-section{
+		.r_guide-content{
+			.r_guide-block{
+				ul{
+					background-color: $c_lightbg;
+					border: 1px solid $c_border;
+					margin: 0px 15px 15px 15px;
+					padding: 0px 15px 0px 35px;
+					@include border-radius(5px);
+					ul{
+						background-color: transparent;
+						border: 0px solid transparent;
+						margin: 0px 15px 0px 15px;
+						padding: 0px 15px 0px 35px;
+						li{
+							font-size: 12px;
+							max-width: 80%;
+						}
+					}
+					li{
+						line-height: 1.5;
+						font-family: $f_sans-reg;
+					}
+				}
+				p{
+					padding: 0px 15px 15px 15px;
+					&:first-of-type{
+						padding: 15px 15px 15px 15px;
+					}
+				}
+				h4{
+					padding: 0px 0px 15px 0px;
+					margin: 0px 15px 15px 15px;
+					font-family: $f_sans-med;
+					font-size: 14px;
+					color: $c_baas;
+					border-bottom: 1px solid $c_border;
+				}
+				h3{
+					font-size: 18px;
+					font-family: $f_sans-reg;
+					color: $c_compliance;
+					background-color: $c_lightbg;
+					padding: 5px 15px 5px 15px;
+					margin: 20px 0px 20px 0px;
+					border-top: 1px solid $c_border;
+					border-bottom: 1px solid $c_border;
+				}
+			}
+		}
+	}
+}
