@@ -41,6 +41,4 @@ Once everything is installed you'll be able to run the site locally by entering 
 
 Updating submodules is a matter of running the appropriate rake task. To update each submodule with their respective development branches run `rake update_submodules_dev`. For a submodule master branch update run `update_submodules_master`.
 
-### Deploying
-
 ### References
