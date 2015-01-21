@@ -425,6 +425,7 @@
 		}
 	}
 }
+.r_baas,
 .baas_guides{
 	.r_guide-section{
 		padding: 15px 15px 15px 15px;
@@ -476,6 +477,21 @@
 					border-top: 1px solid $c_border;
 					border-bottom: 1px solid $c_border;
 				}
+			}
+		}
+	}
+}
+.r_baas{
+	.r_guide-section{
+		.r_guide-content{
+			margin-left: 0px;
+			.r_guide-block{
+				h2{
+					padding: 15px 15px 0px 15px;
+					font-family: $f_sans-med;
+					color: $c_compliance;
+				}
+				pre{overflow-x: scroll;}
 			}
 		}
 	}
