@@ -14,6 +14,7 @@ configure :build do
   activate :directory_indexes
 end
 
+# Syntax
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :smartypants => true, :tables => true, :with_toc_data => true, :no_intra_emphasis => true
 
@@ -29,6 +30,7 @@ set :url_root, 'https://resources.catalyze.io'
 activate :search_engine_sitemap
 page "/sitemap.xml", :layout => false
 
+# ERB Helpers
 helpers do
   def site_title
     "Catalyze Resources"
