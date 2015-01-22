@@ -13,12 +13,13 @@ content | object | Include the key value pairs corresponding to each data column
  | | {"zip_code":"53202", "city":"Milwaukee", "state":"Wisconsin", "latitude":"43.038758", "longitude":"­87.906506"}
 
 
-* Parameters
-    * name (required, String) ... The name of the custom class you are creating an entry for.
+### Parameters
 
-**Request (application/json)**
+* name (required, String) ... The name of the custom class you are creating an entry for.
 
-* [Headers](#headers)
+### Request (application/json)
+
+[Headers](../overview/eheaders)
 
 ```json
 {
@@ -29,8 +30,7 @@ content | object | Include the key value pairs corresponding to each data column
 	}
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
@@ -44,6 +44,10 @@ content | object | Include the key value pairs corresponding to each data column
 	"phi": false
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -77,6 +81,9 @@ var body = {
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

@@ -7,18 +7,27 @@ title: Delete Entry Reference
 ## DELETE /classes/{name}/entry/{entryId}/ref/{refName}/{refId}
 Delete a reference from an entry.
 
-* Parameters
-    * name (required, String) ... The name of the base custom class.
-    * refId (required, String) ... The ID of the reference that should be deleted.
-    * refName (required, String) ... The name of the reference which applies to this custom class entry.
-    * entryId (required, String) ... The ID of the custom class entry which has the reference.
+### Parameters
 
+* name (required, String) ... The name of the base custom class.
+* refId (required, String) ... The ID of the reference that should be deleted.
+* refName (required, String) ... The name of the reference which applies to this custom class entry.
+* entryId (required, String) ... The ID of the custom class entry which has the reference.
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {}
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -39,6 +48,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

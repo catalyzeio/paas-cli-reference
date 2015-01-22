@@ -8,21 +8,24 @@ title: Upload a File
 Upload a file that belongs to the currently logged in User such as a CCDA document or an image.
 
 
-**Request (multipart/form-data)**
+### Request (multipart/form-data)
 
-* [Headers](#headers)
+[Headers](../overview/eheaders)
 
 ```json
 {}
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
 	"filesId": "123abcFileId"
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -46,6 +49,9 @@ form.append("file", document.getElementById("file").files[0]);
 form.append("phi", false);
 Request.send(form);
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

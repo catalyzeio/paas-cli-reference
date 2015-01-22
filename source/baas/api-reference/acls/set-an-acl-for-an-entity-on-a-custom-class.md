@@ -9,23 +9,27 @@ Set an ACL for a user/group/application on a custom class. Setting an ACL on an 
 
 This route requires *admin/dev*-level permissions.
 
-* Parameters
-    * entityId (required, String) ... The ID of the user/group/application
-    * customClass (required, String) ... The name of the custom class
+### Parameters
 
-**Request (application/json)**
+* entityId (required, String) ... The ID of the user/group/application
+* customClass (required, String) ... The name of the custom class
 
-* [Headers](#headers)
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+```json
+["retrieve", "update"]
+```
+### Response (application/json)
 
 ```json
 ["retrieve", "update"]
 ```
 
-**Response (application/json)**
+### Examples
 
-```json
-["retrieve", "update"]
-```
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -50,6 +54,9 @@ var body = ["retrieve", "update"]
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

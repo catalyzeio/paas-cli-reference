@@ -9,11 +9,16 @@ Get the schema for an existing custom class.
 
 This route requires *Admin or dev*-level permissions.
 
-* Parameters
-    * name (required, String) ... {parameter description}
+### Parameters
 
+* name (required, String) ... {parameter description}
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {
@@ -23,6 +28,10 @@ This route requires *Admin or dev*-level permissions.
 	"longitude": "double"
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -43,6 +52,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

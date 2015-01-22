@@ -9,22 +9,26 @@ Add a supervisor to the currently-authenticated application by username.
 
 This route requires *Admin/Dev*-level permissions.
 
-* Parameters
-    * name (required, String) ... The username of the user to be added
+### Parameters
 
-**Request (application/json)**
+* name (required, String) ... The username of the user to be added
 
-* [Headers](#headers)
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+```json
+{}
+```
+### Response (application/json)
 
 ```json
 {}
 ```
 
-**Response (application/json)**
+### Examples
 
-```json
-{}
-```
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -48,6 +52,9 @@ var body = {};
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

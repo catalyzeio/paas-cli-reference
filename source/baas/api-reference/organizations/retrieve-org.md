@@ -7,11 +7,16 @@ title: Retrieve Org
 ## GET /org/{orgId}
 Get the details of an existing organization.
 
-* Parameters
-    * orgId (required, String) ... The ID of the org
+### Parameters
 
+* orgId (required, String) ... The ID of the org
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {
@@ -27,6 +32,10 @@ Get the details of an existing organization.
     }
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -47,6 +56,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

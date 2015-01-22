@@ -10,9 +10,9 @@ Create a new group within the currently-authenticated application.
 This route requires *Supervisor*-level permissions.
 
 
-**Request (application/json)**
+### Request (application/json)
 
-* [Headers](#headers)
+[Headers](../overview/eheaders)
 
 ```json
 {
@@ -20,8 +20,7 @@ This route requires *Supervisor*-level permissions.
     "default": false
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
@@ -30,6 +29,10 @@ This route requires *Supervisor*-level permissions.
     "default": false
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -58,6 +61,9 @@ var body = {
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

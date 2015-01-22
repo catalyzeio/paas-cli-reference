@@ -7,11 +7,16 @@ title: Retrieve Groups
 ## GET /users/{usersId}/groups
 Retrieve the groups of which a user is a member.
 
-* Parameters
-    * usersId (required, String) ... The ID of the user
+### Parameters
 
+* usersId (required, String) ... The ID of the user
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 [
@@ -22,6 +27,10 @@ Retrieve the groups of which a user is a member.
     }
 ]
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -42,6 +51,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

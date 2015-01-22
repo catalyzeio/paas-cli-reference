@@ -9,15 +9,24 @@ Delete a group. This cannot be reversed.
 
 This route requires *Supervisor*-level permissions.
 
-* Parameters
-    * groupId (required, String) ... The ID of the group.
+### Parameters
 
+* groupId (required, String) ... The ID of the group.
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {}
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -38,6 +47,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

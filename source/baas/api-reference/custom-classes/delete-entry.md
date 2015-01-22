@@ -7,16 +7,25 @@ title: Delete Entry
 ## DELETE /classes/{name}/entry/{entryId}
 Delete a custom class entry.
 
-* Parameters
-    * name (required, String) ... The name of the custom class.
-    * entryId (required, String) ... The entry ID to delete.
+### Parameters
 
+* name (required, String) ... The name of the custom class.
+* entryId (required, String) ... The entry ID to delete.
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {}
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -37,6 +46,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

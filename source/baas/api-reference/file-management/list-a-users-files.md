@@ -10,11 +10,16 @@ Return a list of the specified user's files stored within the application.
 Model level or higher access to files is required to perform this operation.
 
 
-* Parameters
-    * userId (required, String) ... The ID of the user to list files for
+### Parameters
 
+* userId (required, String) ... The ID of the user to list files for
 
-**Response (application/json)**
+### Request (null)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 [
@@ -35,6 +40,10 @@ Model level or higher access to files is required to perform this operation.
 ]
 ```
 
+### Examples
+
+#### JavaScript
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -54,6 +63,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

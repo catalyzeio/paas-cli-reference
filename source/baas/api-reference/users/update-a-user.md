@@ -7,12 +7,13 @@ title: Update a user
 ## PUT /users/{usersId}
 This is used to update or add to a user's PII details.
 
-* Parameters
-    * usersId (required, String) ... The ID of the user
+### Parameters
 
-**Request (application/json)**
+* usersId (required, String) ... The ID of the user
 
-* [Headers](#headers)
+### Request (application/json)
+
+[Headers](../overview/eheaders)
 
 ```json
 {
@@ -38,8 +39,7 @@ This is used to update or add to a user's PII details.
     }
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
@@ -67,6 +67,10 @@ This is used to update or add to a user's PII details.
     "updatedAt":"2013-11-07T12:00:00Z"
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -114,6 +118,9 @@ var body = {
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

@@ -9,11 +9,16 @@ Retrieve all directly-granted ACLs for a user/group/application.
 
 This route requires *admin/dev*-level permissions.
 
-* Parameters
-    * entityId (required, String) ... {parameter description}
+### Parameters
 
+* entityId (required, String) ... {parameter description}
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {
@@ -28,6 +33,10 @@ This route requires *admin/dev*-level permissions.
     }
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -48,6 +57,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

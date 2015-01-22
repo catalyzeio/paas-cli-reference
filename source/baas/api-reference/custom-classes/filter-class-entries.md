@@ -21,19 +21,28 @@ To query the `createdAt` and `updatedAt` fields, the special values `@createdAt`
 
 This route requires *Admin, dev, or supervisor*-level permissions.
 
-* Parameters
-    * orderBy (optional (default=@createdAt), String) ... The field by which to order the results.
-    * direction (optional (default=asc), String) ... The direction in which to sort entries. "asc" and "desc" are accepted values.
-    * name (required, String) ... The name of the custom class to query.
-    * pageSize (optional (default=10), int) ... The number of entries to return. If not specified, defaults to 10.
-    * pageNumber (optional (default=1), int) ... The number of pages of size pageSize to skip before returning entries.  If not specified, defaults to 1.
+### Parameters
 
+* orderBy (optional (default=@createdAt), String) ... The field by which to order the results.
+* direction (optional (default=asc), String) ... The direction in which to sort entries. "asc" and "desc" are accepted values.
+* name (required, String) ... The name of the custom class to query.
+* pageSize (optional (default=10), int) ... The number of entries to return. If not specified, defaults to 10.
+* pageNumber (optional (default=1), int) ... The number of pages of size pageSize to skip before returning entries.  If not specified, defaults to 1.
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {}
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -54,6 +63,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

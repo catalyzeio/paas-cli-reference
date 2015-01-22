@@ -9,15 +9,24 @@ Remove a supervisor from the currently-authenticated application by username.
 
 This route requires *Admin/Dev*-level permissions.
 
-* Parameters
-    * name (required, String) ... The username of the user to be added
+### Parameters
 
+* name (required, String) ... The username of the user to be added
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {}
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -38,6 +47,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

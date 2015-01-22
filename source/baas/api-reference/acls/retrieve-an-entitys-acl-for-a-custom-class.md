@@ -9,16 +9,25 @@ Retrieve a user/group/applications's directly-granted ACL for a custom class.
 
 This route requires *admin/dev*-level permissions.
 
-* Parameters
-    * entityId (required, String) ... The ID of the user/group/application
-    * customClass (required, String) ... The name of the custom class
+### Parameters
 
+* entityId (required, String) ... The ID of the user/group/application
+* customClass (required, String) ... The name of the custom class
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 ["retrieve", "update"]
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -39,6 +48,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

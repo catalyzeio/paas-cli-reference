@@ -9,12 +9,17 @@ Return a specific custom class entry.
 
 This route requires *Supervisor, owner, or author*-level permissions.
 
-* Parameters
-    * name (required, String) ... The name of the custom class you are creating an entry for.
-    * entryId (required, String) ... The name of the custom class entry to retrieve.
+### Parameters
 
+* name (required, String) ... The name of the custom class you are creating an entry for.
+* entryId (required, String) ... The name of the custom class entry to retrieve.
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {
@@ -28,6 +33,10 @@ This route requires *Supervisor, owner, or author*-level permissions.
 	"phi": false
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -48,6 +57,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

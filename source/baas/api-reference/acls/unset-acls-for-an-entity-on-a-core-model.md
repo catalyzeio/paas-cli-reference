@@ -9,16 +9,25 @@ Unset directly-set ACLs for a user/group/application on a core (non-custom) mode
 
 This route requires *admin/dev*-level permissions.
 
-* Parameters
-    * model (required, String) ... The name of the model
-    * entityId (required, String) ... The ID of the user/group/application
+### Parameters
 
+* model (required, String) ... The name of the model
+* entityId (required, String) ... The ID of the user/group/application
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 []
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -39,6 +48,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

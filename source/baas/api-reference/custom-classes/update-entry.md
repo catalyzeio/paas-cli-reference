@@ -9,13 +9,14 @@ Update an existing custom class entry.
 
 This route requires *Supervisor, owner, or author*-level permissions.
 
-* Parameters
-    * name (required, String) ... The name of the custom class you are creating an entry for.
-    * entryId (required, String) ... The ID of the custom class entry you are modifying.
+### Parameters
 
-**Request (application/json)**
+* name (required, String) ... The name of the custom class you are creating an entry for.
+* entryId (required, String) ... The ID of the custom class entry you are modifying.
 
-* [Headers](#headers)
+### Request (application/json)
+
+[Headers](../overview/eheaders)
 
 ```json
 {
@@ -26,8 +27,7 @@ This route requires *Supervisor, owner, or author*-level permissions.
 	}
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
@@ -41,6 +41,10 @@ This route requires *Supervisor, owner, or author*-level permissions.
 	"phi": false
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -74,6 +78,9 @@ var body = {
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

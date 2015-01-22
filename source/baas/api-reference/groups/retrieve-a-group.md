@@ -9,11 +9,16 @@ Retrieve a group's metadata. This will return 404 if the group does not exist.
 
 This route requires *Supervisor*-level permissions.
 
-* Parameters
-    * groupId (required, String) ... The ID of the group.
+### Parameters
 
+* groupId (required, String) ... The ID of the group.
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {
@@ -22,6 +27,10 @@ This route requires *Supervisor*-level permissions.
     "default": false
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -42,6 +51,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

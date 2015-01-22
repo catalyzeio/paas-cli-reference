@@ -10,16 +10,25 @@ Delete a file owned by another user.
 The authenticated user must be the author or owner of the file or have model level or higher access to files in order to perform this operation.
 
 
-* Parameters
-    * fileId (required, String) ... The ID of the file to delete
-    * userId (required, String) ... The ID of the user that owns the file
+### Parameters
 
+* fileId (required, String) ... The ID of the file to delete
+* userId (required, String) ... The ID of the user that owns the file
 
-**Response (application/json)**
+### Request (null)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {}
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -40,6 +49,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

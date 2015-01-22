@@ -11,13 +11,14 @@ be updated are specified [here](https://stripe.com/docs/api#update_card). No cre
 
 This route requires *payment*-level permissions.
 
-* Parameters
-    * orgId (required, String) ... The ID of the org
-    * paymentId (required, String) ... The ID of the existing payment method
+### Parameters
 
-**Request (application/json)**
+* orgId (required, String) ... The ID of the org
+* paymentId (required, String) ... The ID of the existing payment method
 
-* [Headers](#headers)
+### Request (application/json)
+
+[Headers](../overview/eheaders)
 
 ```json
 {
@@ -32,12 +33,15 @@ This route requires *payment*-level permissions.
     "name": "my favorite card"
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {}
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -61,6 +65,9 @@ var body = {};
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

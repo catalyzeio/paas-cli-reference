@@ -7,14 +7,15 @@ title: Add Entry Reference
 ## PUT /classes/{name}/entry/{entryId}/ref/{refName}
 Add a reference to a custom class entry.
 
-* Parameters
-    * name (required, String) ... The name of the base custom class.
-    * refName (required, String) ... The name of the reference which refers to the entry.
-    * entryId (required, String) ... The entry in the custom class to create a reference on.
+### Parameters
 
-**Request (application/json)**
+* name (required, String) ... The name of the base custom class.
+* refName (required, String) ... The name of the reference which refers to the entry.
+* entryId (required, String) ... The entry in the custom class to create a reference on.
 
-* [Headers](#headers)
+### Request (application/json)
+
+[Headers](../overview/eheaders)
 
 ```json
 [
@@ -25,8 +26,7 @@ Add a reference to a custom class entry.
 	}
 ]
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
@@ -61,6 +61,10 @@ Add a reference to a custom class entry.
 	"phi": false
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -115,6 +119,9 @@ var body = {
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];
