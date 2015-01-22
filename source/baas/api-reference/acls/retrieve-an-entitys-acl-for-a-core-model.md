@@ -9,16 +9,25 @@ Retrieve a user/group/applications's directly-granted ACL for a core (non-custom
 
 This route requires *admin/dev*-level permissions.
 
-* Parameters
-    * model (required, String) ... The name of the model
-    * entityId (required, String) ... The ID of the user/group/application
+### Parameters
 
+* model (required, String) ... The name of the model
+* entityId (required, String) ... The ID of the user/group/application
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 ["retrieve", "update"]
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -39,6 +48,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

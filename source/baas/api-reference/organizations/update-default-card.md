@@ -15,24 +15,28 @@ route to set it as the default.
 
 This route requires *payment*-level permissions.
 
-* Parameters
-    * orgId (required, String) ... The ID of the org
+### Parameters
 
-**Request (application/json)**
+* orgId (required, String) ... The ID of the org
 
-* [Headers](#headers)
+### Request (application/json)
+
+[Headers](../overview/eheaders)
 
 ```json
 {
     "paymentId":"tok_104FD42eZvKYlo2Cm1wYwsL1"
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {}
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -56,6 +60,9 @@ var body = {};
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

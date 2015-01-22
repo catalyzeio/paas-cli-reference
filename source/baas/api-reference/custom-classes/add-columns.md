@@ -7,12 +7,13 @@ title: Add Columns
 ## PUT /classes/{name}
 Use this route to add columns to a custom class.
 
-* Parameters
-    * name (required, String) ... {parameter description}
+### Parameters
 
-**Request (application/json)**
+* name (required, String) ... {parameter description}
 
-* [Headers](#headers)
+### Request (application/json)
+
+[Headers](../overview/eheaders)
 
 ```json
 {
@@ -20,8 +21,7 @@ Use this route to add columns to a custom class.
 	"longitude": "double"
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
@@ -31,6 +31,10 @@ Use this route to add columns to a custom class.
 	"longitude": "double"
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -60,6 +64,9 @@ var body = {
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

@@ -9,20 +9,20 @@ Update an organization and associated details. Include the fields or data elemen
 
 This route requires *admin,dev*-level permissions.
 
-* Parameters
-    * orgId (required, String) ... The ID of the org
+### Parameters
 
-**Request (application/json)**
+* orgId (required, String) ... The ID of the org
 
-* [Headers](#headers)
+### Request (application/json)
+
+[Headers](../overview/eheaders)
 
 ```json
 {
     "description": "We simplify building apps for healthcare. Here's an updated description!"
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
@@ -38,6 +38,10 @@ This route requires *admin,dev*-level permissions.
     }
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -73,6 +77,9 @@ var body = {
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

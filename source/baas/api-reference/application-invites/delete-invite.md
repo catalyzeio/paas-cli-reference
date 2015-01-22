@@ -9,16 +9,25 @@ This will delete an invite by its ID if it is unused. If the invite has been use
 
 This route requires *admin,dev*-level permissions.
 
-* Parameters
-    * appId (required, String) ... The ID of the application
-    * inviteId (required, String) ... The ID of the invite
+### Parameters
 
+* appId (required, String) ... The ID of the application
+* inviteId (required, String) ... The ID of the invite
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {}
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -39,6 +48,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

@@ -9,11 +9,16 @@ Retrieve all default groups for an app.
 
 This route requires *Supervisor*-level permissions.
 
-* Parameters
-    * appId (required, String) ... {parameter description}
+### Parameters
 
+* appId (required, String) ... {parameter description}
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 [
@@ -24,6 +29,10 @@ This route requires *Supervisor*-level permissions.
     }
 ]
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -44,6 +53,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

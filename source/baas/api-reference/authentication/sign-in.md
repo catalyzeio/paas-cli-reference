@@ -12,9 +12,9 @@ in again. Every time you sign in, you get a new session token.
 
 
 
-**Request (null)**
+### Request (null)
 
-* [Headers](#headers)
+[Headers](../overview/eheaders)
 
 ```json
 {
@@ -22,8 +22,7 @@ in again. Every time you sign in, you get a new session token.
     "password":"test123"
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
@@ -51,6 +50,10 @@ in again. Every time you sign in, you get a new session token.
     "updatedAt":"2013-11-07T12:00:00Z"
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -98,6 +101,9 @@ var body = {
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

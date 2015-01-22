@@ -7,12 +7,17 @@ title: Retrieve Invite
 ## GET /app/{appId}/invite/{inviteId}
 Use this route to retrieve a specific invite by its ID. This invite must be unused.
 
-* Parameters
-    * appId (required, String) ... The ID of the application
-    * inviteId (required, String) ... The ID of the invite
+### Parameters
 
+* appId (required, String) ... The ID of the application
+* inviteId (required, String) ... The ID of the invite
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {
@@ -23,6 +28,10 @@ Use this route to retrieve a specific invite by its ID. This invite must be unus
     "used":false
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -43,6 +52,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

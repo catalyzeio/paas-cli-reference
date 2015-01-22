@@ -8,9 +8,9 @@ title: Create a New Custom Class
 Use this route to create a new custom class.
 
 
-**Request (application/json)**
+### Request (application/json)
 
-* [Headers](#headers)
+[Headers](../overview/eheaders)
 
 ```json
 {
@@ -25,8 +25,7 @@ Use this route to create a new custom class.
 	"editable": true
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
@@ -42,6 +41,10 @@ Use this route to create a new custom class.
 	"id": "CLASS_ID_123"
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -77,6 +80,9 @@ var body = {
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

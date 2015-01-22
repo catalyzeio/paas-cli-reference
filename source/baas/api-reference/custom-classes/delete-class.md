@@ -9,15 +9,24 @@ Use this route to delete a custom class that you created. All entries in the cla
 
 This route requires *Admin or dev*-level permissions.
 
-* Parameters
-    * name (required, String) ... {parameter description}
+### Parameters
 
+* name (required, String) ... {parameter description}
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {}
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -38,6 +47,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

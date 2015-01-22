@@ -9,23 +9,27 @@ Set an ACL for a user/group/application on a core (non-custom) model. Setting an
 
 This route requires *admin/dev*-level permissions.
 
-* Parameters
-    * model (required, String) ... The name of the model
-    * entityId (required, String) ... The ID of the user/group/application
+### Parameters
 
-**Request (application/json)**
+* model (required, String) ... The name of the model
+* entityId (required, String) ... The ID of the user/group/application
 
-* [Headers](#headers)
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+```json
+["retrieve", "update"]
+```
+### Response (application/json)
 
 ```json
 ["retrieve", "update"]
 ```
 
-**Response (application/json)**
+### Examples
 
-```json
-["retrieve", "update"]
-```
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -50,6 +54,9 @@ var body = ["retrieve", "update"]
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

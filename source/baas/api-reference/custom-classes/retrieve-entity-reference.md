@@ -7,14 +7,19 @@ title: Retrieve Entity Reference
 ## GET /classes/{name}/entry/{entryId}/ref/{refName}/{refId}
 Retrieve a specific reference for an entry.
 
-* Parameters
-    * name (required, String) ... The name of the custom class you are querying.
-    * refId (required, String) ... The ID of the reference which you are querying.
-    * refName (required, String) ... The name of the reference you are querying.
-    * entryId (required, String) ... The ID of the custom class entry you are searching for references.
+### Parameters
 
+* name (required, String) ... The name of the custom class you are querying.
+* refId (required, String) ... The ID of the reference which you are querying.
+* refName (required, String) ... The name of the reference you are querying.
+* entryId (required, String) ... The ID of the custom class entry you are searching for references.
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {
@@ -29,6 +34,10 @@ Retrieve a specific reference for an entry.
 	"phi": false
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -49,6 +58,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

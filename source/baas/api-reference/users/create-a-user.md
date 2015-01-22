@@ -8,9 +8,9 @@ title: Create a User
 This is used to create a user with associated PII (Personally Identifiable Information) details.
 
 
-**Request (application/json)**
+### Request (application/json)
 
-* [Headers](#headers)
+[Headers](../overview/eheaders)
 
 ```json
 {
@@ -36,8 +36,7 @@ This is used to create a user with associated PII (Personally Identifiable Infor
     }
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
@@ -137,6 +136,10 @@ This is used to create a user with associated PII (Personally Identifiable Infor
     "updatedAt":"2013-11-07T12:00:00Z"
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -256,6 +259,9 @@ var body = {
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

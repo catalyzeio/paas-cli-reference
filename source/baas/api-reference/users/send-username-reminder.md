@@ -8,21 +8,24 @@ title: Send Username Reminder
 Send a username to a user's primary email address
 
 
-**Request (application/json)**
+### Request (application/json)
 
-* [Headers](#headers)
+[Headers](../overview/eheaders)
 
 ```json
 {
     "email": "bobby@example.com"
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {}
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -46,6 +49,9 @@ var body = {};
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

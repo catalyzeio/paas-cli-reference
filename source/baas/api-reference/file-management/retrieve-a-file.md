@@ -8,15 +8,24 @@ title: Retrieve a File
 Retrieve a file by its ID.
 Only the owner, author, supervisor or admin can perform this operation.
 
-* Parameters
-    * fileId (required, String) ... The file ID to retrieve
+### Parameters
 
+* fileId (required, String) ... The file ID to retrieve
 
-**Response (application/json, application/octet-stream)**
+### Request (null)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json, application/octet-stream)
 
 ```json
 (the file's contents)
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -37,6 +46,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

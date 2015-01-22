@@ -8,17 +8,26 @@ title: Delete a File
 Deletes an existing file.
 Only the owner, author, supervisor or admin can perform this operation.
 
-* Parameters
-    * fileId (required, String) ... The ID of the file to delete
+### Parameters
 
+* fileId (required, String) ... The ID of the file to delete
 
-**Response (application/json)**
+### Request (null)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {
 	"filesId": "123abcFileId"
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -39,6 +48,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

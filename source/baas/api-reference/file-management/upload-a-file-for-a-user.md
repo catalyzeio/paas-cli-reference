@@ -11,24 +11,28 @@ The authenticated user will be listed as the author of the file and will still b
 Model level or higher access to files is required in order to perform this operation.
 
 
-* Parameters
-    * userId (required, String) ... The ID of the user that will own the uploaded file
+### Parameters
 
-**Request (multipart/form-data)**
+* userId (required, String) ... The ID of the user that will own the uploaded file
 
-* [Headers](#headers)
+### Request (multipart/form-data)
+
+[Headers](../overview/eheaders)
 
 ```json
 {}
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
 	"filesId": "123abcFileId"
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -52,6 +56,9 @@ form.append("file", document.getElementById("file").files[0]);
 form.append("phi", false);
 Request.send(form);
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

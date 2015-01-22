@@ -9,20 +9,20 @@ Use this route to invite a user to your application by email.
 
 This route requires *admin,dev*-level permissions.
 
-* Parameters
-    * appId (required, String) ... The ID of the application
+### Parameters
 
-**Request (application/json)**
+* appId (required, String) ... The ID of the application
 
-* [Headers](#headers)
+### Request (application/json)
+
+[Headers](../overview/eheaders)
 
 ```json
 {
     "email":"inviteMe@catalyze.io"
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
@@ -33,6 +33,10 @@ This route requires *admin,dev*-level permissions.
     "used":false
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -63,6 +67,9 @@ var body = {
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

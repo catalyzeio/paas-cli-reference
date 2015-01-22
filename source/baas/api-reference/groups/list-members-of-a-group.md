@@ -9,11 +9,16 @@ List the IDs of users belonging to a group.
 
 This route requires *Supervisor*-level permissions.
 
-* Parameters
-    * groupId (required, String) ... The ID of the group.
+### Parameters
 
+* groupId (required, String) ... The ID of the group.
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 [
@@ -22,6 +27,10 @@ This route requires *Supervisor*-level permissions.
     "111C1111-C11C-11C1-C111-111111111111"
 ]
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -42,6 +51,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

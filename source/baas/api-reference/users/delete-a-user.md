@@ -7,15 +7,24 @@ title: Delete a user
 ## DELETE /users/{usersId}
 This is used to delete a user and all associated PII details. **Be careful using this as it cannot be reversed.**
 
-* Parameters
-    * usersId (required, String) ... The ID of the user
+### Parameters
 
+* usersId (required, String) ... The ID of the user
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {}
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -36,6 +45,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

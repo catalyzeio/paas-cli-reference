@@ -8,16 +8,25 @@ title: Initiate Password Reset
 To reset a user's password, you must first initiate the password reset process by sending their username to this route. Currently only username is supported as a valid way to reset your password. An email containing a link to a form to reset their password will be sent to the email address we have on file linked to that username.
 
 
-* Parameters
-    * username (required, String) ... The username of the user whose password will be reset
-    * appId (required, String) ... The ID of the application
+### Parameters
 
+* username (required, String) ... The username of the user whose password will be reset
+* appId (required, String) ... The ID of the application
 
-**Response (application/json)**
+### Request (null)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {}
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -38,6 +47,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

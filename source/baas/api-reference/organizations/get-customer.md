@@ -12,11 +12,16 @@ Otherwise the customer object has not been setup yet and a 400 will be thrown.
 
 This route requires *payment*-level permissions.
 
-* Parameters
-    * orgId (required, String) ... The ID of the org
+### Parameters
 
+* orgId (required, String) ... The ID of the org
 
-**Response (application/json)**
+### Request (application/json)
+
+[Headers](../overview/eheaders)
+
+(no body)
+### Response (application/json)
 
 ```json
 {
@@ -75,6 +80,10 @@ This route requires *payment*-level permissions.
 }
 ```
 
+### Examples
+
+#### JavaScript
+
 ```javascript
 var request = new XMLHttpRequest();
 
@@ -94,6 +103,9 @@ request.onreadystatechange = function () {
 
 request.send();
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

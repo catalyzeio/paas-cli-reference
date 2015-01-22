@@ -8,9 +8,9 @@ title: Create Org
 Creates and returns an organization with an auto generated orgId.
 
 
-**Request (application/json)**
+### Request (application/json)
 
-* [Headers](#headers)
+[Headers](../overview/eheaders)
 
 ```json
 {
@@ -25,8 +25,7 @@ Creates and returns an organization with an auto generated orgId.
     }
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
@@ -42,6 +41,10 @@ Creates and returns an organization with an auto generated orgId.
     }
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -77,6 +80,9 @@ var body = {
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];

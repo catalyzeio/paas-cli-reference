@@ -7,13 +7,14 @@ title: Add Entry for a User
 ## POST /classes/{name}/entry/{parentsId}
 Use this route to add data for a custom class for another user.
 
-* Parameters
-    * parentsId (required, String) ... The user ID which is the parent of this custom class entry.
-    * name (required, String) ... The name of the custom class you are creating an entry for.
+### Parameters
 
-**Request (application/json)**
+* parentsId (required, String) ... The user ID which is the parent of this custom class entry.
+* name (required, String) ... The name of the custom class you are creating an entry for.
 
-* [Headers](#headers)
+### Request (application/json)
+
+[Headers](../overview/eheaders)
 
 ```json
 {
@@ -24,8 +25,7 @@ Use this route to add data for a custom class for another user.
 	}
 }
 ```
-
-**Response (application/json)**
+### Response (application/json)
 
 ```json
 {
@@ -39,6 +39,10 @@ Use this route to add data for a custom class for another user.
 	"phi": false
 }
 ```
+
+### Examples
+
+#### JavaScript
 
 ```javascript
 var request = new XMLHttpRequest();
@@ -72,6 +76,9 @@ var body = {
 
 request.send(JSON.stringify(body));
 ```
+
+
+#### iOS
 
 ```objc
 NSURL *baseUrl = [NSURL URLWithString:@"https://api.catalyze.io"];
