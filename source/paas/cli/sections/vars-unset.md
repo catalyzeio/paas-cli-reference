@@ -1,9 +1,9 @@
 ---
-title: Variables Unset
+title: Vars Unset
 layout: paas_guides
 ---
 
-# Variables Unset
+# Vars Unset
 
 Usage: `catalyze vars unset [OPTIONS] VARIABLE`
 
