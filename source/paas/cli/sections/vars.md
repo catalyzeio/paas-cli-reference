@@ -1,9 +1,9 @@
 ---
-title: Variables
+title: Vars
 layout: paas_guides
 ---
 
-# Variables
+# Vars
 
 Usage: `catalyze vars [OPTIONS] COMMAND [ARGS]...`
 

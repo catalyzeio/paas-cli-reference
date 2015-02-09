@@ -7,8 +7,7 @@ layout: paas_guides
 
 Usage: `catalyze associate [OPTIONS] ENV_LABEL`
 
-  Associates the git repository in the current directory. This caches the
-  session token and the environment ID, and creates a git remote.
+  Associates the git repository in the current directory. This caches the session token and the environment ID, and creates a git remote.
 
 Options:
 

@@ -1,17 +1,16 @@
 ---
-title: Introduction
+title: Overview
 layout: paas_guides
 ---
 
-# Introduction
+# Overview
 
 Usage: `catalyze [OPTIONS] COMMAND [ARGS]...`
 
 Options:
 
 ```
-  --skip-validation  Skip certificate validation
-  --help             Show this message and exit.
+  --help  Show this message and exit.
 ```
 
 Commands:
