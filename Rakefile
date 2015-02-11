@@ -44,3 +44,8 @@ end
 desc "Build and deploy website"
 task :gen_deploy => [:build, :deploy] do
 end
+
+desc "Watch and compress Sass"
+task :sass do
+  system("cd source/assets/css && sass --watch styles.scss:styles.css --style compressed")
+end
