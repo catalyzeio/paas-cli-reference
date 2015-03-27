@@ -7,7 +7,7 @@ layout: paas_guides
 
 Usage: `catalyze vars [OPTIONS] COMMAND [ARGS]...`
 
-  Interacts with environment variables set for the associated service.
+  Interacts with environment variables for the associated environment.
 
 Options:
 

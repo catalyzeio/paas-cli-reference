@@ -1,14 +1,26 @@
 <li><%= nav_link 'Overview', '/paas/cli/' %></li>
+<li><%= nav_link 'Adduser', '/paas/cli/sections/adduser', active_if: %r{^/paas/cli/sections/adduser}%></li>
 <li><%= nav_link 'Associate', '/paas/cli/sections/associate', active_if: %r{^/paas/cli/sections/associate}%></li>
+<li><%= nav_link 'Backup', '/paas/cli/sections/backup', active_if: %r{^/paas/cli/sections/backup}%><ul>
+	<li><%= nav_link 'Create', '/paas/cli/sections/backup-create', active_if: %r{^/paas/cli/sections/backup-create}%>
+	<li><%= nav_link 'List', '/paas/cli/sections/backup-list', active_if: %r{^/paas/cli/sections/backup-list}%>
+	<li><%= nav_link 'Restore', '/paas/cli/sections/backup-restore', active_if: %r{^/paas/cli/sections/backup-restore}%>
+</ul></li>
 <li><%= nav_link 'Dashboard', '/paas/cli/sections/dashboard', active_if: %r{^/paas/cli/sections/dashboard}%></li>
+<li><%= nav_link 'Db', '/paas/cli/sections/db', active_if: %r{^/paas/cli/sections/db}%><ul>
+	<li><%= nav_link 'Import', '/paas/cli/sections/db-import', active_if: %r{^/paas/cli/sections/db-import}%>
+</ul></li>
 <li><%= nav_link 'Disassociate', '/paas/cli/sections/disassociate', active_if: %r{^/paas/cli/sections/disassociate}%></li>
 <li><%= nav_link 'Environments', '/paas/cli/sections/environments', active_if: %r{^/paas/cli/sections/environments}%></li>
 <li><%= nav_link 'Rake', '/paas/cli/sections/rake', active_if: %r{^/paas/cli/sections/rake}%></li>
 <li><%= nav_link 'Redeploy', '/paas/cli/sections/redeploy', active_if: %r{^/paas/cli/sections/redeploy}%></li>
+<li><%= nav_link 'Rmuser', '/paas/cli/sections/rmuser', active_if: %r{^/paas/cli/sections/rmuser}%></li>
 <li><%= nav_link 'Status', '/paas/cli/sections/status', active_if: %r{^/paas/cli/sections/status}%></li>
+<li><%= nav_link 'Users', '/paas/cli/sections/users', active_if: %r{^/paas/cli/sections/users}%></li>
 <li><%= nav_link 'Vars', '/paas/cli/sections/vars', active_if: %r{^/paas/cli/sections/vars}%><ul>
 	<li><%= nav_link 'List', '/paas/cli/sections/vars-list', active_if: %r{^/paas/cli/sections/vars-list}%>
 	<li><%= nav_link 'Set', '/paas/cli/sections/vars-set', active_if: %r{^/paas/cli/sections/vars-set}%>
 	<li><%= nav_link 'Unset', '/paas/cli/sections/vars-unset', active_if: %r{^/paas/cli/sections/vars-unset}%>
 </ul></li>
-<li><%= nav_link 'Version', '/paas/cli/sections/version', active_if: %r{^/paas/cli/sections/version}%></li>
+<li><%= nav_link 'Whoami', '/paas/cli/sections/whoami', active_if: %r{^/paas/cli/sections/whoami}%></li>
+<li><%= nav_link 'Worker', '/paas/cli/sections/worker', active_if: %r{^/paas/cli/sections/worker}%></li>

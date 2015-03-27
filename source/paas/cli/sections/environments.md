@@ -7,7 +7,7 @@ layout: paas_guides
 
 Usage: `catalyze environments [OPTIONS]`
 
-  Lists all environments you own.
+  Lists all environments to which you have access.
 
 Options:
 

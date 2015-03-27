@@ -5,13 +5,13 @@ layout: paas_guides
 
 # Associate
 
-Usage: `catalyze associate [OPTIONS] ENV_LABEL`
+Usage: `catalyze associate [OPTIONS] ENV_LABEL [SERVICE_LABEL]`
 
-  Associates the git repository in the current directory. This caches the session token and the environment ID, and creates a git remote.
+  Associates the git repository in the current directory. This means that the service and environment IDs are stored locally, and a git remote is created (default name = "catalyze") so that code can be pushed, built, and deployed.
 
 Options:
 
 ```
-  --remote TEXT  The git remote to be created
+  --remote TEXT  The name of the git remote to be created.
   --help         Show this message and exit.
 ```

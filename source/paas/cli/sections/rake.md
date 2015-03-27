@@ -7,7 +7,7 @@ layout: paas_guides
 
 Usage: `catalyze rake [OPTIONS] TASK_NAME`
 
-  Execute a rake task.
+  Execute a rake task. This is only applicable to ruby-based applications.
 
 Options:
 

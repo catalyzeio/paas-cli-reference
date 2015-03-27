@@ -7,7 +7,7 @@ layout: paas_guides
 
 Usage: `catalyze status [OPTIONS]`
 
-  Check the status of the environment and service.
+  Check the status of the environment and every service in it.
 
 Options:
 

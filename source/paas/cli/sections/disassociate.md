@@ -7,7 +7,7 @@ layout: paas_guides
 
 Usage: `catalyze disassociate [OPTIONS]`
 
-  Remove association with environment.
+  Remove association with environment
 
 Options:
 
