@@ -44,6 +44,22 @@
 	.tocify-subheader li{width: 100px;}
 }
 @media handheld, only screen and (max-width: 767px){
+	.r_home-masthead{
+		padding: 30px 20px 30px 20px;
+		a.r_contrib-btn{
+			float: none;
+			margin: 20px auto 0px auto;
+		}
+		h2,h1{text-align: center;margin:auto;}
+	}
+	.r_home-masthead{
+		.r_global-search{
+			.r_input-wrapper{
+				float: none;
+				margin: auto;
+			}
+		}
+	}
 	.tinynav{display: block}
 	#nav{display: none}
 	.r_guide-nav{
@@ -159,9 +175,12 @@
 				margin: 10px 10px 0px 0px;
 				border: 1px solid #ddd;
 				border-radius: 5px;
-				width: 25%;
+				width: auto;
 				text-align: center;
-				&:first-of-type{margin: 10px 10px 0px 0px;}
+				&:first-of-type{
+					margin: 10px 10px 0px 0px;
+					padding: 10px;
+				}
 			}
 		}
 		.r_main-footer{

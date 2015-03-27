@@ -12,6 +12,7 @@ body{
 	@extend .cf;
 	padding: 14px;
 	border-bottom: 1px solid $c_border;
+	@include bg-gradient(lighten(#f4f4f4, 25%), darken(#f4f4f4, 5%));;
 	.r_main-logo{
 		display: block;
 		float: left;
@@ -34,6 +35,11 @@ body{
 		a.r_nav-btn{
 			@include nav-cta(#444, #FFF);
 		}
+		a.r_hiring-btn{
+			color: $c_paas;
+			padding: 0px 0px 3px 0px;
+			span{font-size: 10px;}
+		}
 	}
 }
 .r_paas-cli-reference,
@@ -45,6 +51,7 @@ body{
 	}
 	.r_main-nav{
 		a{color: #fff;}
+		a.r_hiring-btn{color: #fff;}
 		a.r_nav-btn{border: 1px solid #fff;color:#FFF;}
 	}
 }
@@ -56,6 +63,7 @@ body{
 	}
 	.r_main-nav{
 		a{color: #fff;}
+		a.r_hiring-btn{color: #fff;}
 		a.r_nav-btn{border: 1px solid #fff;color:#FFF;}
 	}
 }
@@ -67,6 +75,7 @@ body{
 	}
 	.r_main-nav{
 		a{color: #fff;}
+		a.r_hiring-btn{color: #fff;}
 		a.r_nav-btn{border: 1px solid #fff;color:#FFF;}
 	}
 }
@@ -78,6 +87,7 @@ body{
 	}
 	.r_main-nav{
 		a{color: #fff;}
+		a.r_hiring-btn{color: #fff;}
 		a.r_nav-btn{border: 1px solid #fff;color:#FFF;}
 	}
 }
