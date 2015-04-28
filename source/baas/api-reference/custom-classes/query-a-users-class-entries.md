@@ -20,7 +20,7 @@ This route requires *Admin, dev, supervisor, or querying own ID*-level permissio
 
 ### Request (application/json)
 
-[Headers](/api-reference/overview/headers)
+[Headers](/baas/api-reference/overview/headers/)
 
 ```json
 {}

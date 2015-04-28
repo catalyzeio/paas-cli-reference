@@ -14,7 +14,7 @@ Only the owner, author, supervisor or admin can perform this operation.
 
 ### Request (null)
 
-[Headers](/api-reference/overview/headers)
+[Headers](/baas/api-reference/overview/headers/)
 
 (no body)
 ### Response (application/json)

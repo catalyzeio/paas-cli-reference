@@ -13,7 +13,7 @@ This is used to delete a user and all associated PII details. **Be careful using
 
 ### Request (application/json)
 
-[Headers](/api-reference/overview/headers)
+[Headers](/baas/api-reference/overview/headers/)
 
 (no body)
 ### Response (application/json)

@@ -15,7 +15,7 @@ This route requires *admin,dev*-level permissions.
 
 ### Request (application/json)
 
-[Headers](/api-reference/overview/headers)
+[Headers](/baas/api-reference/overview/headers/)
 
 ```json
 {

@@ -10,7 +10,7 @@ Return a list of the authenticated user's files stored within the application.
 
 ### Request (null)
 
-[Headers](/api-reference/overview/headers)
+[Headers](/baas/api-reference/overview/headers/)
 
 (no body)
 ### Response (application/json)

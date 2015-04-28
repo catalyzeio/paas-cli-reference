@@ -17,7 +17,7 @@ Model level or higher access to files is required in order to perform this opera
 
 ### Request (multipart/form-data)
 
-[Headers](/api-reference/overview/headers)
+[Headers](/baas/api-reference/overview/headers/)
 
 ```json
 {}

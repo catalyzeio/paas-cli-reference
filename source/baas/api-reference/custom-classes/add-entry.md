@@ -19,7 +19,7 @@ content | object | Include the key value pairs corresponding to each data column
 
 ### Request (application/json)
 
-[Headers](/api-reference/overview/headers)
+[Headers](/baas/api-reference/overview/headers/)
 
 ```json
 {

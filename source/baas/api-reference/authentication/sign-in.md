@@ -14,7 +14,7 @@ in again. Every time you sign in, you get a new session token.
 
 ### Request (null)
 
-[Headers](/api-reference/overview/headers)
+[Headers](/baas/api-reference/overview/headers/)
 
 ```json
 {
