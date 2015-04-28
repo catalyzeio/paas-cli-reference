@@ -10,7 +10,7 @@ Send a username to a user's primary email address
 
 ### Request (application/json)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 ```json
 {

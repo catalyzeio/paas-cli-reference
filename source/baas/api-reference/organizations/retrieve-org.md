@@ -13,7 +13,7 @@ Get the details of an existing organization.
 
 ### Request (application/json)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 (no body)
 ### Response (application/json)

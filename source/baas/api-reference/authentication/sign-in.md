@@ -14,7 +14,7 @@ in again. Every time you sign in, you get a new session token.
 
 ### Request (null)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 ```json
 {

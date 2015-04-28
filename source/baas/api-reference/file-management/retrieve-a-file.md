@@ -14,7 +14,7 @@ Only the owner, author, supervisor or admin can perform this operation.
 
 ### Request (null)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 (no body)
 ### Response (application/json, application/octet-stream)

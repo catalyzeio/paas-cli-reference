@@ -13,7 +13,7 @@ Use this route to add columns to a custom class.
 
 ### Request (application/json)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 ```json
 {

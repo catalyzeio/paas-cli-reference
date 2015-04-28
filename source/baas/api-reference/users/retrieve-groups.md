@@ -13,7 +13,7 @@ Retrieve the groups of which a user is a member.
 
 ### Request (application/json)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 (no body)
 ### Response (application/json)

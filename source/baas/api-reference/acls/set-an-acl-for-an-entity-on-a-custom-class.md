@@ -16,7 +16,7 @@ This route requires *admin/dev*-level permissions.
 
 ### Request (application/json)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 ```json
 ["retrieve", "update"]

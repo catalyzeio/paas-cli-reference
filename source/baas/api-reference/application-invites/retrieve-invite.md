@@ -14,7 +14,7 @@ Use this route to retrieve a specific invite by its ID. This invite must be unus
 
 ### Request (application/json)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 (no body)
 ### Response (application/json)

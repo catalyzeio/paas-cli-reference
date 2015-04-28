@@ -17,7 +17,7 @@ The authenticated user must be the author or owner of the file or have model lev
 
 ### Request (null)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 (no body)
 ### Response (application/json, application/octet-stream)

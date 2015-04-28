@@ -13,7 +13,7 @@ This is used to update or add to a user's PII details.
 
 ### Request (application/json)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 ```json
 {

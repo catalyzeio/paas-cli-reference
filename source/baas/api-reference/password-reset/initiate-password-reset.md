@@ -15,7 +15,7 @@ To reset a user's password, you must first initiate the password reset process b
 
 ### Request (null)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 (no body)
 ### Response (application/json)

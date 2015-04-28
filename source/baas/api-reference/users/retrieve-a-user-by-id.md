@@ -13,7 +13,7 @@ This is used to retrieve a user's PII details by ID.
 
 ### Request (application/json)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 (no body)
 ### Response (application/json)

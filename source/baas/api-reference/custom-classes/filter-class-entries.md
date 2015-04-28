@@ -31,7 +31,7 @@ This route requires *Admin, dev, or supervisor*-level permissions.
 
 ### Request (application/json)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 (no body)
 ### Response (application/json)

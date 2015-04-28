@@ -14,7 +14,7 @@ Use this route to add data for a custom class for another user.
 
 ### Request (application/json)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 ```json
 {

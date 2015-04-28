@@ -15,7 +15,7 @@ Add a reference to a custom class entry.
 
 ### Request (application/json)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 ```json
 [

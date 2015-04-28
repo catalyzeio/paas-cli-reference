@@ -10,7 +10,7 @@ Upload a file that belongs to the currently logged in User such as a CCDA docume
 
 ### Request (multipart/form-data)
 
-[Headers](../overview/headers)
+[Headers](/api-reference/overview/headers)
 
 ```json
 {}
