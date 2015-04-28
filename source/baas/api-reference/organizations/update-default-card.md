@@ -21,7 +21,7 @@ This route requires *payment*-level permissions.
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 ```json
 {

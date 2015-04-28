@@ -14,7 +14,7 @@ Only the owner, author, supervisor or admin can perform this operation.
 
 ### Request (null)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 (no body)
 ### Response (application/json)

@@ -11,12 +11,12 @@ This route requires *Supervisor*-level permissions.
 
 ### Parameters
 
-* usersId (required, String) ... The ID of the user.
 * groupsId (required, String) ... The ID of the group.
+* usersId (required, String) ... The ID of the user.
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 ```json
 {}

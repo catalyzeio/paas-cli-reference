@@ -10,7 +10,7 @@ Sign a user out of an application, invalidating their session token server-side.
 
 ### Request (null)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 (no body)
 ### Response (application/json)

@@ -16,7 +16,7 @@ Model level or higher access to files is required to perform this operation.
 
 ### Request (null)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 (no body)
 ### Response (application/json)

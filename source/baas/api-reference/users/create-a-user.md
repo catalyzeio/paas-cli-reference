@@ -10,7 +10,7 @@ This is used to create a user with associated PII (Personally Identifiable Infor
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 ```json
 {

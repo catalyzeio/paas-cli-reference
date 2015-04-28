@@ -11,12 +11,12 @@ This route requires *payment*-level permissions.
 
 ### Parameters
 
-* orgId (required, String) ... The ID of the org
 * paymentId (required, String) ... The ID of the existing payment method
+* orgId (required, String) ... The ID of the org
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 (no body)
 ### Response (application/json)

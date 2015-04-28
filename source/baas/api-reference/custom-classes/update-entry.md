@@ -16,7 +16,7 @@ This route requires *Supervisor, owner, or author*-level permissions.
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 ```json
 {

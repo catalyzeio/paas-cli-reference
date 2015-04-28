@@ -9,12 +9,12 @@ Use this route to retrieve a specific invite by its ID. This invite must be unus
 
 ### Parameters
 
-* appId (required, String) ... The ID of the application
 * inviteId (required, String) ... The ID of the invite
+* appId (required, String) ... The ID of the application
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 (no body)
 ### Response (application/json)

@@ -15,7 +15,7 @@ This route requires *Admin/dev*-level permissions.
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 (no body)
 ### Response (application/json)

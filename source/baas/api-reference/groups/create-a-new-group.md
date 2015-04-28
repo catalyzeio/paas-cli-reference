@@ -12,7 +12,7 @@ This route requires *Supervisor*-level permissions.
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 ```json
 {

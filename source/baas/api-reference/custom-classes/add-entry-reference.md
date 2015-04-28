@@ -15,14 +15,14 @@ Add a reference to a custom class entry.
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 ```json
 [
 	{
 		"type": "__ref",
 		"class": "NAME_OF_CLASS_THIS_NEW_REFERENCE_BELONGS_TO",
-		"entryId": "ID_OF_NEW_REFERENCED_OBJECT"
+		"id": "ID_OF_NEW_REFERENCED_OBJECT"
 	}
 ]
 ```
@@ -37,19 +37,19 @@ Add a reference to a custom class entry.
 			{
 				"type": "__ref",
 				"class": "REFERENCED_CLASS_NAME_WITHIN_SAME_APP",
-				"entryId": "REFERENCED_OBJECT_ID"
+				"id": "REFERENCED_OBJECT_ID"
 			},
 
 			{
 				"type": "__ref",
 				"class": "REFERENCED_CLASS_NAME_2_WITHIN_SAME_APP",
-				"entryId": "REFERENCED_OBJECT_ID_2"
+				"id": "REFERENCED_OBJECT_ID_2"
 			},
 
 			{
 				"type": "__ref",
 				"class": "NAME_OF_CLASS_THIS_NEW_REFERENCE_BELONGS_TO",
-				"entryId": "ID_OF_NEW_REFERENCED_OBJECT"
+				"id": "ID_OF_NEW_REFERENCED_OBJECT"
 			}
 		],
 
@@ -92,19 +92,19 @@ var body = {
 			{
 				"type": "__ref",
 				"class": "REFERENCED_CLASS_NAME_WITHIN_SAME_APP",
-				"entryId": "REFERENCED_OBJECT_ID"
+				"id": "REFERENCED_OBJECT_ID"
 			},
 
 			{
 				"type": "__ref",
 				"class": "REFERENCED_CLASS_NAME_2_WITHIN_SAME_APP",
-				"entryId": "REFERENCED_OBJECT_ID_2"
+				"id": "REFERENCED_OBJECT_ID_2"
 			},
 
 			{
 				"type": "__ref",
 				"class": "NAME_OF_CLASS_THIS_NEW_REFERENCE_BELONGS_TO",
-				"entryId": "ID_OF_NEW_REFERENCED_OBJECT"
+				"id": "ID_OF_NEW_REFERENCED_OBJECT"
 			}
 		],
 
@@ -145,19 +145,19 @@ NSDictionary *body = @{
 			@{
 				@"type": @"__ref",
 				@"class": @"REFERENCED_CLASS_NAME_WITHIN_SAME_APP",
-				@"entryId": @"REFERENCED_OBJECT_ID"
+				@"id": @"REFERENCED_OBJECT_ID"
 			},
 
 			@{
 				@"type": @"__ref",
 				@"class": @"REFERENCED_CLASS_NAME_2_WITHIN_SAME_APP",
-				@"entryId": @"REFERENCED_OBJECT_ID_2"
+				@"id": @"REFERENCED_OBJECT_ID_2"
 			},
 
 			@{
 				@"type": @"__ref",
 				@"class": @"NAME_OF_CLASS_THIS_NEW_REFERENCE_BELONGS_TO",
-				@"entryId": @"ID_OF_NEW_REFERENCED_OBJECT"
+				@"id": @"ID_OF_NEW_REFERENCED_OBJECT"
 			}
 		],
 

@@ -11,12 +11,12 @@ This route requires *admin/dev*-level permissions.
 
 ### Parameters
 
-* entityId (required, String) ... The ID of the user/group/application
 * customClass (required, String) ... The name of the custom class
+* entityId (required, String) ... The ID of the user/group/application
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 (no body)
 ### Response (application/json)

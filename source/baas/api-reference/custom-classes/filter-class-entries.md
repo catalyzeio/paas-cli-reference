@@ -23,15 +23,15 @@ This route requires *Admin, dev, or supervisor*-level permissions.
 
 ### Parameters
 
-* orderBy (optional (default=@createdAt), String) ... The field by which to order the results.
-* direction (optional (default=asc), String) ... The direction in which to sort entries. "asc" and "desc" are accepted values.
+* pageNumber (optional (default=1), int) ... The number of pages of size pageSize to skip before returning entries.  If not specified, defaults to 1.
 * name (required, String) ... The name of the custom class to query.
 * pageSize (optional (default=10), int) ... The number of entries to return. If not specified, defaults to 10.
-* pageNumber (optional (default=1), int) ... The number of pages of size pageSize to skip before returning entries.  If not specified, defaults to 1.
+* orderBy (optional (default=@createdAt), String) ... The field by which to order the results.
+* direction (optional (default=asc), String) ... The direction in which to sort entries. "asc" and "desc" are accepted values.
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 (no body)
 ### Response (application/json)

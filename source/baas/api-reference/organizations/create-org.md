@@ -10,7 +10,7 @@ Creates and returns an organization with an auto generated orgId.
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 ```json
 {

@@ -10,12 +10,12 @@ To reset a user's password, you must first initiate the password reset process b
 
 ### Parameters
 
-* username (required, String) ... The username of the user whose password will be reset
 * appId (required, String) ... The ID of the application
+* username (required, String) ... The username of the user whose password will be reset
 
 ### Request (null)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 (no body)
 ### Response (application/json)

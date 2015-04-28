@@ -12,12 +12,12 @@ The authenticated user must be the author or owner of the file or have model lev
 
 ### Parameters
 
-* fileId (required, String) ... The ID of the file to delete
 * userId (required, String) ... The ID of the user that owns the file
+* fileId (required, String) ... The ID of the file to delete
 
 ### Request (null)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 (no body)
 ### Response (application/json)

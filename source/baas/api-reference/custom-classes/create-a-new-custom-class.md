@@ -10,7 +10,7 @@ Use this route to create a new custom class.
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 ```json
 {

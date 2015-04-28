@@ -17,7 +17,7 @@ Model level or higher access to files is required in order to perform this opera
 
 ### Request (multipart/form-data)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 ```json
 {}

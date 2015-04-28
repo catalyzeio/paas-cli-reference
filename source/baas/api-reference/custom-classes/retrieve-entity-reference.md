@@ -16,7 +16,7 @@ Retrieve a specific reference for an entry.
 
 ### Request (application/json)
 
-[Headers](../overview/eheaders)
+[Headers](../overview/headers)
 
 (no body)
 ### Response (application/json)
