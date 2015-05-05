@@ -17,17 +17,23 @@
 		font-family: $f_sans-reg;
 	}
 	a.r_contrib-btn{
+		
 		display: block;
 		text-decoration: none;
 		font-size: 14px;
 		color: #fff;
 		text-align: center;
-		@include bg-gradient($c_compliance-alt, $c_compliance);
+		background-image: linear-gradient(-180deg, #606060 0%, #121212 100%);
+		border: 1px solid #000000;
 		width: 320px;
 		padding: 10px;
 		border-radius: 5px;
 		margin: 30px 0px 0px 0px;
 		float: right;
+		&:hover{
+			opacity: 1.0;
+			background-image: linear-gradient(-180deg, darken( #4B4B4B, 10%) 0%, darken( #121212, 10%) 100%);
+		}
 	}
 }
 .r_justsearch-masthead,

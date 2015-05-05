@@ -60,18 +60,23 @@
 		color: $hover_color;
 	}
 }
-/* header nav CTA */
-@mixin nav-cta($up_color, $hover_color) {
+@mixin main-cta($g1, $g2){
 	@extend .btn;
 	height: 31px;
-	line-height: 29px;
-	background: none;
-	border: 1px solid $up_color;
+	line-height: 30px;
+	background-image: linear-gradient(-180deg, $g1 0%, $g2 100%);
+	border: 1px solid lighten( #146587, 5%);
 	font-size: 14px;
-	color: $up_color;
+	color: #fff;
 	&:hover {
-		background: $up_color;
-		color: $hover_color;
+		background: #fff;
+		background-image: linear-gradient(-180deg, darken( $g1, 10%) 0%, darken( $g2, 10%) 100%);
+		opacity: 1.0;
+	}
+	&:active{
+		-moz-box-shadow: inset 0 0 10px #555;
+		-webkit-box-shadow: inset 0 0 10px #555;
+		box-shadow: inset 0 0 10px #555;
 	}
 }
 /* jump off text buttons */
@@ -95,5 +100,26 @@
 	}
 	&:hover {
 		color: $c_dark2;
+	}
+}
+@mixin depth-button($c1, $b1, $g1, $g2){
+	display: block;
+	text-decoration: none;
+	font-size: 14px;
+	color: $c;
+	text-align: center;
+	background-image: linear-gradient(-180deg, $g1 0%, $g2 100%);
+//	background-image: linear-gradient(-180deg, #606060 0%, #121212 100%);
+	border: 1px solid $b1;
+//	border: 1px solid #000000;
+	width: 320px;
+	padding: 10px;
+	border-radius: 5px;
+	margin: 30px 0px 0px 0px;
+	float: right;
+	&:hover{
+		opacity: 1.0;
+		background-image: linear-gradient(-180deg, darken($g1, 10%) 0%, darken($g2, 10%) 100%);
+//		background-image: linear-gradient(-180deg, darken( #4B4B4B, 10%) 0%, darken( #121212, 10%) 100%);
 	}
 }

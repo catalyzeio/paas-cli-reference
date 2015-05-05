@@ -2,7 +2,55 @@
 title: Resources Home
 ---
 <%= partial "sections/header" %>
-<section class="r_home-masthead">
+<div class="grid">
+	<section class="front-faq">
+		<header>
+			<h1><i class="ss-questionchat"></i> Frequently Asked Questions</h1>
+		</header>
+		<article>
+			<div class="col-6-12">
+				<ul>
+					<li><a href="#">How do I deploy my application?</a></li>
+					<li><a href="#">What is a Catalyze buildpack?</a></li>
+					<li><a href="#">What type of database can I use with Catalyze?</a></li>
+					<li><a href="#">How do I access my database?</a></li>
+					<li><a href="#">Are all my environments on Catalyze PaaS compliant?</a></li>
+					<li><a href="#">How do subdomains work on PaaS?</a></li>
+				</ul>
+			</div>
+			<div class="col-6-12">
+				<ul>
+					<li><a href="#">What's the difference between PaaS and BaaS?</a></li>
+					<li><a href="#">How do I sign a BAA?</a></li>
+					<li><a href="#">How can I add a user to my existing environment?</a></li>
+					<li><a href="#">How do I access my application after it has been deployed?</a></li>
+					<li><a href="#">Can I run my own buildpack?</a></li>
+					<li><a href="#">What does HA mean?</a></li>
+				</ul>
+			</div>
+		</article>
+	</section>
+	<div class="sort-faq">
+		<header>
+			<h1><i class="ss-filter"></i> View FAQs by product</h1>
+		</header>
+		<article>
+			<div class="col-1-4">
+				<a href="#" class="button button-paas">PaaS</a>
+			</div>
+			<div class="col-1-4">
+				<a href="#" class="button button-baas">BaaS</a>
+			</div>
+			<div class="col-1-4">
+				<a href="#" class="button button-hl7">HL7</a>
+			</div>
+			<div class="col-1-4">
+				<a href="#" class="button button-compliance">Compliance</a>
+			</div>
+		</article>
+	</div>
+</div>
+<!-- <section class="r_home-masthead">
 	<div class="grid">
 		<div class="col-6-12">
 			<h1>Catalyze Resources</h1>
@@ -91,6 +139,5 @@ title: Resources Home
 			</div>
 		</div>
 	</div>
-</section>
-<%= partial "sections/marketing" %>
+</section> -->
 <%= partial "sections/footer" %>

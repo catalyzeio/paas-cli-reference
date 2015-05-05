@@ -1,0 +1,50 @@
+.front-faq{
+	margin: 40px auto 20px auto;
+	max-width: 99%;
+	border: 1px solid $c_border;
+	@include border-radius(5px);
+	@include box-shadow(0px 0px 10px $c_border);
+	header{
+		padding: 10px;
+		border-bottom: 1px solid darken($c_border, 3%);
+		background-image: linear-gradient(-180deg, #FFFFFF 0%, #E7E7E7 100%);
+		@include border-radius-top(5px);
+		h1{
+			font-size: 14px;
+			font-family: $f_sans-med;
+			color: $c_dark-text;
+			[class*='ss-']{font-size:12px;opacity:0.6;}
+		}
+	}
+	article{
+		padding: 20px;
+		@extend .cf;
+		ul{
+			li{
+				a{
+					display: block;
+					margin: 15px 0px 15px 0px;
+					color: $c_brand;
+					font-size: 14px;
+				}
+				&:first-child{a{margin:0px;}}
+				&:last-child{a{margin:0px;}}
+			}
+		}
+	}
+}
+.sort-faq{
+	@extend .front-faq;
+	margin: 20px auto 40px auto;
+	[class*='col-']{
+		&:last-of-type{padding-right:0px;}
+	}
+	a.button{
+		@include main-cta(#4BB8E6, #1680AC);
+		width: 100%;
+	}
+	a.button-paas{@include main-cta(#4BB8E6, #1680AC);}
+	a.button-baas{@include main-cta(#8B53EC, #331071);border: 1px solid #2C0F5E;}
+	a.button-hl7{@include main-cta(#FCC97B, #D47A01);border: 1px solid #A8701E;}
+	a.button-compliance{@include main-cta(#666666, #1c1c1c);border: 1px solid #000;}
+}
