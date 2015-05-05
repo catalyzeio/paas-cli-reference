@@ -47,44 +47,47 @@ body{
 .r_paas-guides,
 .r_paas{
 	.r_main-header{
-		border-bottom: 0px;
-		@include bg-gradient($c_paas-alt, $c_paas);
+		background-image: linear-gradient(-180deg, #58C3F0 0%, #147BA6 100%);
+		border: 0px;
+		border-bottom: 1px solid #1C6887;
 	}
 	.r_main-nav{
 		a{color: #fff;}
 		a.r_hiring-btn{color: #fff;}
-		a.r_nav-btn{border: 1px solid #fff;color:#FFF;}
+		a.r_nav-btn{
+			@include main-cta(#5CD775, #218435);
+			border: 1px solid #18702A;
+		}
 	}
 }
 .r_hl7-faq,
 .r_hl7{
 	.r_main-header{
+		border: 0px;
 		border-bottom: 0px;
-		@include bg-gradient($c_hl7-alt, $c_hl7);
 	}
 	.r_main-nav{
 		a{color: #fff;}
 		a.r_hiring-btn{color: #fff;}
-		a.r_nav-btn{border: 1px solid #fff;color:#FFF;}
 	}
 }
 .r_baas-guides,
 .r_baas{
 	.r_main-header{
-		border-bottom: 0px;
-		@include bg-gradient($c_baas-alt, $c_baas);
+		background-image: linear-gradient(-180deg, #9658F0 0%, #491A8F 100%);
+		border: 0px;
+		border-bottom: 1px solid #351168;
 	}
 	.r_main-nav{
 		a{color: #fff;}
 		a.r_hiring-btn{color: #fff;}
-		a.r_nav-btn{border: 1px solid #fff;color:#FFF;}
+		a.r_nav-btn{border: 1px solid darken($c_baas, 15%);}
 	}
 }
 .r_compliance-guides,
 .r_compliance{
 	.r_main-header{
 		border-bottom: 0px;
-		@include bg-gradient($c_compliance-alt, $c_compliance);
 	}
 	.r_main-nav{
 		a{color: #fff;}

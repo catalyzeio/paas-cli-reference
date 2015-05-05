@@ -1,3 +1,31 @@
+.front-header{
+	margin: 40px auto 20px auto;
+	max-width: 99%;
+	[class*='col-']{&:last-of-type{padding-right:0px;}}
+	@extend .cf;
+	h1{
+		font-size: 30px;
+		font-family: $f_sans-thin;
+		color: $c_dark-text;
+		margin: 5px 0px 0px 0px;
+	}
+	.front-search{
+		input[type="text"]{
+			@include border-radius(5px);
+			border: 1px solid $c_border;
+			padding: 15px;
+			width: 100%;
+			display: block;
+		}
+		position: relative;
+		[class*='ss-']{
+			position: absolute;
+			right: 15px;
+			top: 15px;
+			color: $c_text;
+		}
+	}
+}
 .front-faq{
 	margin: 40px auto 20px auto;
 	max-width: 99%;
@@ -5,11 +33,13 @@
 	@include border-radius(5px);
 	@include box-shadow(0px 0px 10px $c_border);
 	header{
+		@extend .cf;
 		padding: 10px;
 		border-bottom: 1px solid darken($c_border, 3%);
 		background-image: linear-gradient(-180deg, #FFFFFF 0%, #E7E7E7 100%);
 		@include border-radius-top(5px);
 		h1{
+			float: left;
 			font-size: 14px;
 			font-family: $f_sans-med;
 			color: $c_dark-text;
@@ -35,10 +65,8 @@
 }
 .sort-faq{
 	@extend .front-faq;
-	margin: 20px auto 40px auto;
-	[class*='col-']{
-		&:last-of-type{padding-right:0px;}
-	}
+	margin: 20px auto 20px auto;
+	[class*='col-']{&:last-of-type{padding-right:0px;}}
 	a.button{
 		@include main-cta(#4BB8E6, #1680AC);
 		width: 100%;
@@ -47,4 +75,95 @@
 	a.button-baas{@include main-cta(#8B53EC, #331071);border: 1px solid #2C0F5E;}
 	a.button-hl7{@include main-cta(#FCC97B, #D47A01);border: 1px solid #A8701E;}
 	a.button-compliance{@include main-cta(#666666, #1c1c1c);border: 1px solid #000;}
+}
+.front-guides{
+	margin: 0px auto 20px auto;
+	a.more{
+		float: right;
+		font-size: 12px;
+		font-family: $f_sans-dem;
+		color: $c_brand;
+	}
+	@extend .front-faq;
+	a{text-decoration: none;display: block;}
+	.guide-book{
+		position: relative;
+		background-color: #f4f4f4;
+		@include border-radius(2px);
+		border: 1px solid $c_border;
+		background-image: linear-gradient(-180deg, #FFFFFF 0%, #E7E7E7 100%);
+		@include box-shadow(0px 0px 10px $c_border);
+		.spine{
+			font-size: 10px;
+			text-transform: uppercase;
+			font-family: $f_sans-bold;
+			color: #fff;
+			background-color: $c_dark-text;
+			border-bottom: 1px solid darken($c_dark-text, 25%);
+			letter-spacing: 2px;
+			padding: 5px 5px 5px 10px;
+		}
+		h1{
+			padding: 10px;
+			font-size: 12px;
+			color: $c_text;
+			font-family: $f_sans-dem;
+			background-color: #fff;
+			border-bottom: 1px solid $c_border;
+			span.sphere{
+				display: inline-block;
+				height: 10px;
+				margin-right: 5px;
+				width: 10px;
+				@include border-radius(10px);
+				background-color: $c_dark-text;
+			}
+		}
+		p{
+			padding: 10px;
+			font-size: 12px;
+			color: $c_text;
+			line-height: 2;
+		}
+	}
+	.paas-guide{
+		h1{color: $c_paas;}
+		.spine{background-color: $c_paas;border: 1px solid darken($c_paas, 10%);}
+	}
+	.hl7-guide{
+		h1{color: $c_hl7;}
+		.spine{background-color: $c_hl7;border: 1px solid darken($c_hl7, 10%);}
+	}
+	.baas-guide{
+		h1{color: $c_baas;}
+		.spine{background-color: $c_baas;border: 1px solid darken($c_baas, 10%);}
+	}
+	.compliance-guide{
+		h1{color: $c_compliance;}
+		.spine{background-color: $c_compliance;border: 1px solid darken($c_compliance, 10%);}
+	}
+}
+.front-docs{
+	margin: 0px auto 20px auto;
+	a{text-decoration: none;}
+	@extend .front-faq;
+	[class*='col-']{&:last-of-type{padding-right:0px;}}
+	.docs-block{
+		border: 1px solid $c_border;
+		padding: 10px;
+		text-decoration: none;
+		font-family: $f_sans-med;
+		font-size: 12px;
+		color: $c_brand;
+		text-align: center;
+		[class*='ss-']{font-size:10px;opacity:0.6;}
+		@include box-shadow(0px 0px 10px $c_border);
+		@include border-radius(5px);
+		@include easing(350ms);
+		&:hover{
+			background-color: #f4f4f4;
+			@include easing(350ms);
+			@include box-shadow(0px 0px 0px $c_border);
+		}
+	}
 }

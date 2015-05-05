@@ -8,12 +8,7 @@
 		@include border-radius(3px);
 		border: 1px solid $c_border;
 		header{
-			-webkit-border-top-left-radius: 5px;
-			-webkit-border-top-right-radius: 5px;
-			-moz-border-radius-topleft: 5px;
-			-moz-border-radius-topright: 5px;
-			border-top-left-radius: 5px;
-			border-top-right-radius: 5px;
+			@include border-radius-top(5px);
 			background-color: $c_lightbg;
 			padding: 15px;
 			border-bottom: 1px solid $c_border;
@@ -145,18 +140,13 @@
 		border: 1px solid #ddd;
 		border-radius: 5px;
 		h1{
-			font-family: $f_sans-med;
+			font-family: $f_sans-reg;
 			color: $c_compliance;
 			font-size: 14px;
-			padding: 15px;
-			border-bottom: 1px solid #ddd;
-			background-color: $c_lightbg;
-			-webkit-border-top-left-radius: 5px;
-			-webkit-border-top-right-radius: 5px;
-			-moz-border-radius-topleft: 5px;
-			-moz-border-radius-topright: 5px;
-			border-top-left-radius: 5px;
-			border-top-right-radius: 5px;
+			padding: 10px;
+			border-bottom: 1px solid darken($c_border, 3%);
+			background-image: linear-gradient(-180deg, #FFFFFF 0%, #E7E7E7 100%);
+			@include border-radius-top(5px);
 		}
 		ul{
 			margin: 0px 0px 0px 0px;
@@ -251,17 +241,13 @@
 		}
 		.r_guide-block{
 			border: 1px solid $c_border;
-			@include border-radius(3px);
+			@include border-radius(5px);
 			h1{
-				-webkit-border-top-left-radius: 5px;
-				-webkit-border-top-right-radius: 5px;
-				-moz-border-radius-topleft: 5px;
-				-moz-border-radius-topright: 5px;
-				border-top-left-radius: 5px;
-				border-top-right-radius: 5px;
-				background-color: $c_lightbg;
-				padding: 15px;
+				border-bottom: 1px solid darken($c_border, 3%);
+				background-image: linear-gradient(-180deg, #FFFFFF 0%, #E7E7E7 100%);
+				padding: 10px;
 				border-bottom: 1px solid $c_border;
+				@include border-radius-top(5px);
 				a{
 					font-size: 16px;
 					font-family: $f_sans-med;
@@ -498,11 +484,11 @@
 					font-size: 18px;
 					font-family: $f_sans-reg;
 					color: $c_compliance;
-					background-color: $c_lightbg;
 					padding: 5px 15px 5px 15px;
 					margin: 20px 0px 20px 0px;
 					border-top: 1px solid $c_border;
 					border-bottom: 1px solid $c_border;
+					background-image: linear-gradient(-180deg, #FFFFFF 0%, #E7E7E7 100%);
 				}
 			}
 		}

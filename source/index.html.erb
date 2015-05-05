@@ -3,6 +3,18 @@ title: Resources Home
 ---
 <%= partial "sections/header" %>
 <div class="grid">
+	<!-- FAQ Section -->
+	<header class="front-header">
+		<div class="col-6-12">
+			<h1>Catalyze Knowledge Base</h1>
+		</div>
+		<div class="col-6-12">
+			<div class="front-search">
+				<input type="text" id="st-search-input" name="globalSearch" placeholder="Search all resources...">
+				<span><i class="ss-search"></i></span>
+			</div>
+		</div>
+	</header>
 	<section class="front-faq">
 		<header>
 			<h1><i class="ss-questionchat"></i> Frequently Asked Questions</h1>
@@ -36,108 +48,104 @@ title: Resources Home
 		</header>
 		<article>
 			<div class="col-1-4">
-				<a href="#" class="button button-paas">PaaS</a>
+				<a href="/paas/paas-faq" class="button button-paas">PaaS</a>
 			</div>
 			<div class="col-1-4">
-				<a href="#" class="button button-baas">BaaS</a>
+				<a href="/baas/baas-faq" class="button button-baas">BaaS</a>
 			</div>
 			<div class="col-1-4">
-				<a href="#" class="button button-hl7">HL7</a>
+				<a href="/hl7/hl7-faq" class="button button-hl7">HL7</a>
 			</div>
 			<div class="col-1-4">
-				<a href="#" class="button button-compliance">Compliance</a>
+				<a href="/compliance/compliance-faq" class="button button-compliance">Compliance</a>
 			</div>
 		</article>
 	</div>
+	<!-- Docs Section -->
+	<section class="front-docs">
+		<header>
+			<h1><i class="ss-code"></i> Documentation</h1>
+		</header>
+		<article>
+			<div class="col-1-3">
+				<a href="/paas/getting-started/">
+					<div class="docs-block">
+						<h1><i class="ss-star"></i> PaaS Getting Started Docs</h1>
+					</div>
+				</a>
+			</div>
+			<div class="col-1-3">
+				<a href="/paas/cli/">
+					<div class="docs-block">
+						<h1><i class="ss-star"></i> PaaS CLI Reference</h1>
+					</div>
+				</a>
+			</div>
+			<div class="col-1-3">
+				<a href="/baas/api-reference/">
+					<div class="docs-block">
+						<h1><i class="ss-star"></i> BaaS API Reference</h1>
+					</div>
+				</a>
+			</div>
+		</article>
+	</section>
+	<!-- Guides Section -->
+	<section class="front-guides">
+		<header>
+			<h1><i class="ss-openbook"></i> Product Guides</h1>
+			<a href="#" class="more">View All Guides &raquo;</a>
+		</header>
+		<article>
+			<div class="guide-row">
+				<div class="col-1-5">
+					<a href="/baas/guides/clinical-data-models/">
+						<div class="guide-book baas-guide">
+							<div class="spine">BaaS</div>
+							<h1>Clinical Data Models</h1>
+							<p>This BaaS Guide gives you examples clinical data models based off of CCDA models.</p>
+						</div>
+					</a>
+				</div>
+				<div class="col-1-5">
+					<a href="/baas/guides/permissions-and-acls/">
+						<div class="guide-book baas-guide">
+							<div class="spine">BaaS</div>
+							<h1>Permissions and ACLs</h1>
+							<p>This guide highlights some of the permission model features that are provided BaaS.</p>
+						</div>
+					</a>
+				</div>
+				<div class="col-1-5">
+					<a href="/baas/guides/custom-classes/">
+						<div class="guide-book baas-guide">
+							<div class="spine">BaaS</div>
+							<h1>Building Custom Classes</h1>
+							<p>Custom classes are the swiss army knife of Catalyze’s secure data offerings on BaaS.</p>
+						</div>
+					</a>
+				</div>
+				<div class="col-1-5">
+					<a href="/paas/getting-started/">
+						<div class="guide-book paas-guide">
+							<div class="spine">PaaS</div>
+							<h1>Getting Started Guide</h1>
+							<p>This guide will walk you through building and deploying your first environment.</p>
+						</div>
+					</a>
+				</div>
+				<div class="col-1-5">
+					<a href="https://catalyze.io/learn/proving-hipaa-compliance">
+						<div class="guide-book compliance-guide">
+							<div class="spine">Compliance</div>
+							<h1>Proving Compliance</h1>
+							<p>In this post we'll discuss the work necessary for proving HIPAA compliance in 2015.</p>
+						</div>
+					</a>
+				</div>
+			</div>
+		</article>
+	</section>
 </div>
-<!-- <section class="r_home-masthead">
-	<div class="grid">
-		<div class="col-6-12">
-			<h1>Catalyze Resources</h1>
-			<h2>Find documentation, guides, tutorials and SDKs for every Catalyze product.</h2>
-		</div>
-		<div class="col-6-12">
-			<form class="r_global-search">
-				<div class="r_input-wrapper">
-					<label for="globalSearch">Search:</label>
-					<input type="text" id="st-search-input" name="globalSearch" placeholder="Search all resources...">
-					<span><i class="ss-search"></i></span>
-				</div>
-			</form>
-			<a class="r_contrib-btn" target="_blank" href="//catalyzeio.github.io"><i class="fa fa-github"></i> Contribute to resources</a>
-		</div>
-	</div>
-</section>
-<section class="r_home-cards">
-	<div class="grid">
-		<div class="r_card-row">
-			<div class="col-6-12">
-				<div class="r_main-card r_paas-card">
-					<header>
-						<h1>
-							<a href="/paas">PaaS: <span>platform as a service</span></a>
-						</h1>
-					</header>
-					<article>
-						<div class="r_card-item">
-							<h3><a href="/paas/getting-started"><i class="ss-rocket"></i> Getting Started</a></h3>
-							<p>This guide will walk you through creating your first environment on the Catalyze Platform.</p>
-						</div>
-						<div class="r_card-item">
-							<h3><a href="/paas/cli"><i class="ss-openbook"></i> CLI Reference</a></h3>
-							<p>Our CLI reference gives you the ability to access and manage your environment via the command line.</p>
-						</div>
-						<div class="r_card-item">
-							<h3><a href="/paas/paas-faq"><i class="ss-questionchat"></i> PaaS FAQ</a></h3>
-							<p>Our FAQ provides answers to questions not covered in our onboarding documentation.</p>
-						</div>
-						<a href="/paas" class="r_card-btn">View All PaaS Resources <i class="fa fa-caret-right"></i></a>
-					</article>
-				</div>
-				<div class="r_main-card r_compliance-card">
-					<header>
-						<h1>
-							<a href="/compliance">Compliance: <span>industry best security</span></a>
-						</h1>
-					</header>
-					<article>
-						<div class="r_card-item">
-							<h3><a href="https://hipaa.catalyze.io" target="_blank"><i class="ss-lock"></i> HIPAA</a></h3>
-							<p> We've spent a lot of time and money on security specifically to comply with HIPAA. See how we do it here.</p>
-						</div>
-						<div class="r_card-item">
-							<h3><a href="https://policy.catalyze.io" target="_blank"><i class="ss-lock"></i> Policy</a></h3>
-							<p>Our policies are intended to make compliance as easy as possible for companies working with protected health information (PHI).</p>
-						</div>
-						<a href="/compliance" class="r_card-btn">View All Compliance Resources <i class="fa fa-caret-right"></i></a>
-					</article>
-				</div>
-			</div>
-			<div class="col-6-12">
-				<div class="r_main-card r_baas-card">
-					<header>
-						<h1>
-							<a href="/baas">BaaS: <span>backend as a service</span></a>
-						</h1>
-					</header>
-					<article>
-						<div class="r_card-item">
-							<h3><a href="/baas/guides/getting-started"><i class="ss-rocket"></i> Getting Started</a></h3>
-							<p>This guide will walk you through the basics of building a mobile app on the Catalyze Backend.</p>
-						</div>
-						<div class="r_card-item">
-							<h3><a href="/baas/guides"><i class="ss-graduationcap"></i> Guides</a></h3>
-							<p>These guides will help you understand the more complex functions of building an app.</p>
-						</div>
-						<div class="r_card-item">
-							<h3><a href="/baas/api-reference"><i class="ss-openbook"></i> API Reference</a></h3>
-							<p>Our API reference gives routes and code in both Objective C and JavaScript to help you build your app.</p>
-						</div>
-						<a href="/baas" class="r_card-btn">View All BaaS Resources <i class="fa fa-caret-right"></i></a>
-					</article>
-				</div>
-			</div>
-		</div>
-	</div>
-</section> -->
+<%= partial "sections/marketing" %>
 <%= partial "sections/footer" %>
