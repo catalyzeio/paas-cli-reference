@@ -39,6 +39,11 @@
 			}
 		}
 	}
+	//
+	.front-faq,
+	.front-header{
+		margin: 40px 30px 20px 30px;
+	}
 }
 @media handheld, only screen and (max-width: 890px){
 	.tocify-subheader li{width: 100px;}
@@ -112,40 +117,60 @@
 		}
 	}
 	#toc{
-		// width: 100%;
-		// float: left;
-		// max-height: 90%;
-		// overflow: auto;
-		// margin-top: 0px;
-		// margin-right: 15px;
-		// position: relative;
-		// @include box-shadow(0 1px 0 0 rgba(0,0,0,0.15));
-		// background-image: -o-linear-gradient(-90deg, #24B3EE 0%, #1C97CB 62%, #1C97CB 81%, #229BCE 100%);
-		// background-image: -moz-linear-gradient(-90deg, #24B3EE 0%, #1C97CB 62%, #1C97CB 81%, #229BCE 100%);
-		// background-image: -ms-linear-gradient(-90deg, #24B3EE 0%, #1C97CB 62%, #1C97CB 81%, #229BCE 100%);
-		// background-image: linear-gradient(-180deg, #24B3EE 0%, #1C97CB 62%, #1C97CB 81%, #229BCE 100%);
-		// border: 1px solid #1C97CB;
-		// font-size: 14px;
-		// color: #FFF;
-		// text-shadow: 0px -1px 0px rgba(0,0,0,0.10);
-		// @include border-radius(5px);
 		display: none !important;
-		// .tocify-header{
-		// 	text-indent: 10px;
-		// 	color: #fff;
-		// 	background-color: transparent;
-		// }
-		// .tocify-item.active{
-		// 	background-color: transparent;
-		// 	border: 0px;
-		// }
 	}
-	// .tocify-subheader li{width: 240px;}
 	.baas_guides{
 		.r_guide-section{
 			.r_guide-content{
 				margin-left: 0;
 			}
+		}
+	}
+	.front-header{
+		padding: 20px 20px 0px 20px;
+		margin: 0px 0px 0px 0px;
+		h1{
+			text-align: center;
+			padding: 0px 0px 20px 0px;
+		}
+	}
+	.front-faq{
+		margin: 20px 20px 20px 20px;
+		article{
+			[class*='col-']{padding-right:0px;padding-left:0px;margin:0px;}
+			padding: 0px;
+			ul{
+				li{
+					margin: 0px;
+					a{
+						margin: 0px;
+						padding: 10px;
+						line-height: 2;
+						border-bottom: 1px solid #ddd;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+	.front-docs{
+		article{padding: 10px 0px 0px 0px;}
+		.docs-block{
+			margin: 0px 10px 10px 10px;
+			width: 97%;
+		}
+	}
+	.sort-faq{
+		article{padding: 10px 0px 0px 0px;}
+		a.button{
+			margin: 0px 10px 10px 10px;
+			width: 97%;
+		}
+	}
+	.front-guides{
+		article{padding: 10px 0px 0px 0px;}
+		.guide-book{
+			margin: 0px 10px 10px 10px;
 		}
 	}
 }

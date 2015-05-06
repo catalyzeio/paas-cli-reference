@@ -5,13 +5,13 @@
 	}
 	.r_nthcard-row{margin-top: 20px;@extend .cf;}
 	.r_main-card{
-		@include border-radius(3px);
+		@include border-radius(5px);
 		border: 1px solid $c_border;
 		header{
-			@include border-radius-top(5px);
-			background-color: $c_lightbg;
+			background-image: linear-gradient(-180deg, #FDFDFD 0%, #E8E8E8 100%);
 			padding: 15px;
-			border-bottom: 1px solid $c_border;
+			border-bottom: 1px solid darken($c_border, 3%);
+			@include border-radius-top(5px);
 			h1{
 				font-size: 20px;
 				a{
@@ -51,16 +51,8 @@
 				}
 			}
 			a.r_card-btn{
-				display: block;
-				background-color: $c_compliance-alt;
-				color: #fff;
-				font-family: $f_sans-med;
-				text-decoration: none;
-				text-align: center;
-				padding: 10px;
-				@include border-radius(5px);
-				font-size: 14px;
-				.fa{font-size: 12px;}
+				@include main-cta(#666666, #1c1c1c);border: 1px solid #000;
+				width: 100%;
 			}
 		}
 	}
@@ -72,7 +64,7 @@
 		}
 		article{
 			.r_card-item{h3{a{color: $c_paas;}}}
-			a.r_card-btn{@include bg-gradient($c_paas-alt, $c_paas);}
+			a.r_card-btn{@include main-cta(#4BB8E6, #1680AC);border: 1px solid darken($c_paas, 15%);}
 		}
 	}
 }
@@ -83,7 +75,7 @@
 		}
 		article{
 			.r_card-item{h3{a{color: $c_baas;}}}
-			a.r_card-btn{@include bg-gradient($c_baas-alt, $c_baas);}
+			a.r_card-btn{@include main-cta(#8B53EC, #331071);border: 1px solid #2C0F5E;}
 		}
 	}
 }
@@ -94,7 +86,7 @@
 		}
 		article{
 			.r_card-item{h3{a{color: $c_hl7;}}}
-			a.r_card-btn{background-color: $c_hl7;}
+			a.r_card-btn{@include main-cta(#FCC97B, #D47A01);border: 1px solid #A8701E;}
 		}
 	}
 }
@@ -105,7 +97,6 @@
 		}
 		article{
 			.r_card-item{h3{a{color: $c_compliance;}}}
-			a.r_card-btn{@include bg-gradient($c_compliance-alt, $c_compliance);}
 		}
 	}
 }
