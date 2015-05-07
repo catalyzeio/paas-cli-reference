@@ -15,134 +15,20 @@ title: Resources Home
 			</div>
 		</div>
 	</header>
-	<section class="front-faq">
-		<header>
-			<h1><i class="ss-questionchat"></i> Frequently Asked Questions</h1>
-		</header>
-		<article>
-			<div class="col-6-12">
-				<ul>
-					<li><a href="#">How do I deploy my application?</a></li>
-					<li><a href="#">What is a Catalyze buildpack?</a></li>
-					<li><a href="#">What type of database can I use with Catalyze?</a></li>
-					<li><a href="#">How do I access my database?</a></li>
-					<li><a href="#">Are all my environments on Catalyze PaaS compliant?</a></li>
-					<li><a href="#">How do subdomains work on PaaS?</a></li>
-				</ul>
-			</div>
-			<div class="col-6-12">
-				<ul>
-					<li><a href="#">What's the difference between PaaS and BaaS?</a></li>
-					<li><a href="#">How do I sign a BAA?</a></li>
-					<li><a href="#">How can I add a user to my existing environment?</a></li>
-					<li><a href="#">How do I access my application after it has been deployed?</a></li>
-					<li><a href="#">Can I run my own buildpack?</a></li>
-					<li><a href="#">What does HA mean?</a></li>
-				</ul>
-			</div>
-		</article>
-		<footer>
-			<div class="sort-faq">
-				<div class="col-1-4">
-					<a href="/paas/paas-faq" class="button button-paas">PaaS FAQ</a>
-				</div>
-				<div class="col-1-4">
-					<a href="/baas/baas-faq" class="button button-baas">BaaS FAQ</a>
-				</div>
-				<div class="col-1-4">
-					<a href="/hl7/hl7-faq" class="button button-hl7">HL7 FAQ</a>
-				</div>
-				<div class="col-1-4">
-					<a href="/compliance/compliance-faq" class="button button-compliance">Compliance FAQ</a>
-				</div>
-			</div>
-		</footer>
-	</section>
-	<!-- Docs Section -->
-	<section class="front-docs">
-		<header>
-			<h1><i class="ss-code"></i> Documentation</h1>
-		</header>
-		<article>
-			<div class="col-1-3">
-				<a href="/paas/getting-started/">
-					<div class="docs-block">
-						<h1><i class="ss-star"></i> PaaS Getting Started Docs</h1>
-					</div>
-				</a>
-			</div>
-			<div class="col-1-3">
-				<a href="/paas/cli/">
-					<div class="docs-block">
-						<h1><i class="ss-star"></i> PaaS CLI Reference</h1>
-					</div>
-				</a>
-			</div>
-			<div class="col-1-3">
-				<a href="/baas/api-reference/">
-					<div class="docs-block">
-						<h1><i class="ss-star"></i> BaaS API Reference</h1>
-					</div>
-				</a>
-			</div>
-		</article>
-	</section>
+	<!-- FAQs Section -->
+	<%= partial "sections/homepage/faqs" %>
+	<div class="front-twoup">
+		<div class="col-6-12">
+			<!-- Starters Section -->
+			<%= partial "sections/homepage/starters" %>
+		</div>
+		<div class="col-6-12">
+			<!-- Docs Section -->
+			<%= partial "sections/homepage/docs" %>
+		</div>
+	</div>
 	<!-- Guides Section -->
-	<section class="front-guides">
-		<header>
-			<h1><i class="ss-openbook"></i> Product Guides</h1>
-			<a href="#" class="more">View All Guides &raquo;</a>
-		</header>
-		<article>
-			<div class="guide-row">
-				<div class="col-1-5">
-					<a href="/baas/guides/clinical-data-models/">
-						<div class="guide-book baas-guide">
-							<div class="spine">BaaS</div>
-							<h1>Clinical Data Models</h1>
-							<p>This BaaS Guide gives you examples clinical data models based off of CCDA models.</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-1-5">
-					<a href="/baas/guides/permissions-and-acls/">
-						<div class="guide-book baas-guide">
-							<div class="spine">BaaS</div>
-							<h1>Permissions and ACLs</h1>
-							<p>This guide highlights some of the permission model features that are provided BaaS.</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-1-5">
-					<a href="/baas/guides/custom-classes/">
-						<div class="guide-book baas-guide">
-							<div class="spine">BaaS</div>
-							<h1>Building Custom Classes</h1>
-							<p>Custom classes are the swiss army knife of Catalyze’s secure data offerings on BaaS.</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-1-5">
-					<a href="/paas/getting-started/">
-						<div class="guide-book paas-guide">
-							<div class="spine">PaaS</div>
-							<h1>Getting Started Guide</h1>
-							<p>This guide will walk you through building and deploying your first environment.</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-1-5">
-					<a href="https://catalyze.io/learn/proving-hipaa-compliance">
-						<div class="guide-book compliance-guide">
-							<div class="spine">Compliance</div>
-							<h1>Proving Compliance</h1>
-							<p>In this post we'll discuss the work necessary for proving HIPAA compliance in 2015.</p>
-						</div>
-					</a>
-				</div>
-			</div>
-		</article>
-	</section>
+	<%= partial "sections/homepage/guides" %>
 </div>
 <%= partial "sections/marketing" %>
 <%= partial "sections/footer" %>
