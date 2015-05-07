@@ -1,12 +1,6 @@
 [submodule "paas/paas-onboarding-docs"]
 	path = paas/paas-onboarding-docs
 	url = https://github.com/catalyzeio/paas-onboarding-docs
-[submodule "compliance/training"]
-	path = compliance/training
-	url = https://github.com/catalyzeio/training
-[submodule "compliance/policies"]
-	path = compliance/policies
-	url = https://github.com/catalyzeio/policies
 [submodule "baas/baas-examples"]
 	path = baas/baas-examples
 	url = https://github.com/catalyzeio/baas-examples
