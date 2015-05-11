@@ -10,3 +10,6 @@
 [submodule "paas/paas-faq"]
 	path = paas/paas-faq
 	url = https://github.com/catalyzeio/paas-faq
+[submodule "baas/baas-faq"]
+	path = baas/baas-faq
+	url = https://github.com/catalyzeio/baas-faq
