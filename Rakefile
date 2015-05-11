@@ -1,6 +1,6 @@
 desc "Update all submodules to development"
 task :update_submodules_dev do
-  system("git submodule foreach '[[ $name =~ ^paas/paas-onboarding-docs|^paas/paas-faq ]] \
+  system("git submodule foreach '[[ $name =~ ^paas/paas-onboarding-docs|^paas/paas-faq|^baas/baas-faq ]] \
     && branch=master \
     || branch=development; git pull origin $branch'")
 end

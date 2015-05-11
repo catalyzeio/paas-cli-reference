@@ -27,7 +27,7 @@ page "/baas/guides/*", :layout => "baas_single"
 page "/baas/api-reference/*", :layout => "baas_guides"
 
 # Sitemap settings
-set :url_root, 'https://resources.catalyze.io'
+set :url_root, 'https://docs.catalyze.io'
 activate :search_engine_sitemap
 page "/sitemap.xml", :layout => false
 
@@ -47,4 +47,5 @@ helpers do
     options[:class] += "r_is-active" if active
     link_to name, url, options
   end
+
 end

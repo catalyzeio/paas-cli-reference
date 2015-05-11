@@ -1,12 +1,12 @@
-[submodule "paas/paas-onboarding-docs"]
-	path = paas/paas-onboarding-docs
-	url = https://github.com/catalyzeio/paas-onboarding-docs
 [submodule "baas/baas-examples"]
 	path = baas/baas-examples
 	url = https://github.com/catalyzeio/baas-examples
 [submodule "baas/baas-guides"]
 	path = baas/baas-guides
 	url = https://github.com/catalyzeio/baas-guides
+[submodule "paas/paas-onboarding-docs"]
+	path = paas/paas-onboarding-docs
+	url = https://github.com/catalyzeio/paas-onboarding-docs
 [submodule "paas/paas-faq"]
 	path = paas/paas-faq
 	url = https://github.com/catalyzeio/paas-faq
