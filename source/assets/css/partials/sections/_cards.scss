@@ -537,3 +537,8 @@
 		}
 	}
 }
+.all-guides-row{
+	@extend .cf;
+	margin: 0px 0px 20px 0px;
+	&:last-of-type{margin: 0px;}
+}
