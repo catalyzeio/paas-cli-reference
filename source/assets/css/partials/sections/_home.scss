@@ -191,3 +191,10 @@ a.button{
 		opacity: 1.0;
 	}
 }
+.guide-row{
+	[class*='col-']{
+		float: left;
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
