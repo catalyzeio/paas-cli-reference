@@ -13,3 +13,6 @@
 [submodule "baas/baas-faq"]
 	path = baas/baas-faq
 	url = https://github.com/catalyzeio/baas-faq
+[submodule "paas/paas-guides"]
+	path = paas/paas-guides
+	url = https://github.com/catalyzeio/paas-guides
