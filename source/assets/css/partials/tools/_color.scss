@@ -9,10 +9,12 @@ $c_compliance-alt: #444444;
 $c_border: #ddd;
 $c_lightbg: #f4f4f4;
 $c_text: lighten($c_compliance-alt, 25%);
+$c_dark-text: $c_compliance-alt;
 $c_marketing: #6FB75E;
 $c_complete: darken(#6FB75E, 5%);
 $c_highlight: #FFF597;
 $c_code: #ca2657;
+$c_brand: $c_paas;
 
 /* key gray scale colors used with microcopy */
 $c_primary: #111;

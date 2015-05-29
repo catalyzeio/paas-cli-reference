@@ -5,18 +5,13 @@
 	}
 	.r_nthcard-row{margin-top: 20px;@extend .cf;}
 	.r_main-card{
-		@include border-radius(3px);
+		@include border-radius(5px);
 		border: 1px solid $c_border;
 		header{
-			-webkit-border-top-left-radius: 5px;
-			-webkit-border-top-right-radius: 5px;
-			-moz-border-radius-topleft: 5px;
-			-moz-border-radius-topright: 5px;
-			border-top-left-radius: 5px;
-			border-top-right-radius: 5px;
-			background-color: $c_lightbg;
+			background-image: linear-gradient(-180deg, #FDFDFD 0%, #E8E8E8 100%);
 			padding: 15px;
-			border-bottom: 1px solid $c_border;
+			border-bottom: 1px solid darken($c_border, 3%);
+			@include border-radius-top(5px);
 			h1{
 				font-size: 20px;
 				a{
@@ -56,16 +51,8 @@
 				}
 			}
 			a.r_card-btn{
-				display: block;
-				background-color: $c_compliance-alt;
-				color: #fff;
-				font-family: $f_sans-med;
-				text-decoration: none;
-				text-align: center;
-				padding: 10px;
-				@include border-radius(5px);
-				font-size: 14px;
-				.fa{font-size: 12px;}
+				@include main-cta(#666666, #1c1c1c);border: 1px solid #000;
+				width: 100%;
 			}
 		}
 	}
@@ -77,7 +64,7 @@
 		}
 		article{
 			.r_card-item{h3{a{color: $c_paas;}}}
-			a.r_card-btn{@include bg-gradient($c_paas-alt, $c_paas);}
+			a.r_card-btn{@include main-cta(#4BB8E6, #1680AC);border: 1px solid darken($c_paas, 15%);}
 		}
 	}
 }
@@ -88,7 +75,7 @@
 		}
 		article{
 			.r_card-item{h3{a{color: $c_baas;}}}
-			a.r_card-btn{@include bg-gradient($c_baas-alt, $c_baas);}
+			a.r_card-btn{@include main-cta(#8B53EC, #331071);border: 1px solid #2C0F5E;}
 		}
 	}
 }
@@ -99,7 +86,7 @@
 		}
 		article{
 			.r_card-item{h3{a{color: $c_hl7;}}}
-			a.r_card-btn{background-color: $c_hl7;}
+			a.r_card-btn{@include main-cta(#FCC97B, #D47A01);border: 1px solid #A8701E;}
 		}
 	}
 }
@@ -110,7 +97,6 @@
 		}
 		article{
 			.r_card-item{h3{a{color: $c_compliance;}}}
-			a.r_card-btn{@include bg-gradient($c_compliance-alt, $c_compliance);}
 		}
 	}
 }
@@ -145,18 +131,13 @@
 		border: 1px solid #ddd;
 		border-radius: 5px;
 		h1{
-			font-family: $f_sans-med;
+			font-family: $f_sans-reg;
 			color: $c_compliance;
 			font-size: 14px;
-			padding: 15px;
-			border-bottom: 1px solid #ddd;
-			background-color: $c_lightbg;
-			-webkit-border-top-left-radius: 5px;
-			-webkit-border-top-right-radius: 5px;
-			-moz-border-radius-topleft: 5px;
-			-moz-border-radius-topright: 5px;
-			border-top-left-radius: 5px;
-			border-top-right-radius: 5px;
+			padding: 10px;
+			border-bottom: 1px solid darken($c_border, 3%);
+			background-image: linear-gradient(-180deg, #FFFFFF 0%, #E7E7E7 100%);
+			@include border-radius-top(5px);
 		}
 		ul{
 			margin: 0px 0px 0px 0px;
@@ -251,17 +232,13 @@
 		}
 		.r_guide-block{
 			border: 1px solid $c_border;
-			@include border-radius(3px);
+			@include border-radius(5px);
 			h1{
-				-webkit-border-top-left-radius: 5px;
-				-webkit-border-top-right-radius: 5px;
-				-moz-border-radius-topleft: 5px;
-				-moz-border-radius-topright: 5px;
-				border-top-left-radius: 5px;
-				border-top-right-radius: 5px;
-				background-color: $c_lightbg;
-				padding: 15px;
+				border-bottom: 1px solid darken($c_border, 3%);
+				background-image: linear-gradient(-180deg, #FFFFFF 0%, #E7E7E7 100%);
+				padding: 10px;
 				border-bottom: 1px solid $c_border;
+				@include border-radius-top(5px);
 				a{
 					font-size: 16px;
 					font-family: $f_sans-med;
@@ -452,6 +429,19 @@
 		}
 	}
 }
+.paas_paas-guides{
+	.r_main-card{
+		header{
+			min-height: 88px;
+			h1{
+				font-size: 16px;
+				a{
+					font-family: $f_sans-med;
+				}
+			}
+		}
+	}
+}
 .r_baas,
 .baas_guides{
 	.r_guide-section{
@@ -498,14 +488,15 @@
 					font-size: 18px;
 					font-family: $f_sans-reg;
 					color: $c_compliance;
-					background-color: $c_lightbg;
 					padding: 5px 15px 5px 15px;
 					margin: 20px 0px 20px 0px;
 					border-top: 1px solid $c_border;
 					border-bottom: 1px solid $c_border;
+					background-image: linear-gradient(-180deg, #FFFFFF 0%, #E7E7E7 100%);
 				}
 			}
 		}
+		.r_faq-content{@extend .r_guide-content;margin: 0px;}
 	}
 }
 .baas_api-reference{
@@ -558,4 +549,9 @@
 			}
 		}
 	}
+}
+.all-guides-row{
+	@extend .cf;
+	margin: 0px 0px 20px 0px;
+	&:last-of-type{margin: 0px;}
 }
