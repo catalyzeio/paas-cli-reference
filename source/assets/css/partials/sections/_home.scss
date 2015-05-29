@@ -185,6 +185,7 @@ a.button{
 	.lang-icon.ruby{&:after{content: url('../img/icons/ruby-logo.png');}}
 	.lang-icon.js{&:after{content: url('../img/icons/js-logo.png');}}
 	.lang-icon.python{&:after{content: url('../img/icons/python-logo.png');}}
+	.lang-icon.php{&:after{content: url('../img/icons/php-logo.png');}}
 	&:hover{
 		background-image: linear-gradient(-180deg, #FFFAD8 0%, #FFF191 100%);
 		opacity: 1.0;

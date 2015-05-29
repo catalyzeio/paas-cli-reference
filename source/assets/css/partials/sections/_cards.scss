@@ -429,6 +429,19 @@
 		}
 	}
 }
+.paas_paas-guides{
+	.r_main-card{
+		header{
+			min-height: 88px;
+			h1{
+				font-size: 16px;
+				a{
+					font-family: $f_sans-med;
+				}
+			}
+		}
+	}
+}
 .r_baas,
 .baas_guides{
 	.r_guide-section{

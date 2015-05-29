@@ -23,6 +23,7 @@ activate :syntax, :wrap => true
 # Set layouts for groups of pages
 page "/paas/getting-started/*", :layout => "paas_gettingstarted"
 page "/paas/paas-faq/*", :layout => "paas_faq"
+page "/paas/paas-guides/*", :layout => "paas_code_guides"
 page "/baas/baas-faq/*", :layout => "baas_faq"
 page "/baas/guides/*", :layout => "baas_single"
 page "/baas/api-reference/*", :layout => "baas_guides"
