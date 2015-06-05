@@ -40,10 +40,10 @@
 		}
 	}
 	//
-	.front-faq,
 	.front-header{
 		margin: 40px 30px 20px 30px;
 	}
+	.front-faq{footer{.sort-faq{margin: 0px;}}}
 }
 @media handheld, only screen and (max-width: 890px){
 	.tocify-subheader li{width: 100px;}
@@ -152,6 +152,10 @@
 				}
 			}
 		}
+		footer{
+			padding: 10px 0px 0px 0px;
+			[class*='col-']{padding-right:0px;padding-left:0px;margin:0px;}
+		}
 	}
 	.front-docs{
 		article{padding: 10px 0px 0px 0px;}
@@ -172,6 +176,11 @@
 		.guide-book{
 			margin: 0px 10px 10px 10px;
 		}
+	}
+	.front-twoup{
+		[class*='col-']{padding-right: 0px;padding-left: 0px;margin: auto;}
+		.front-starter{margin: 0px 20px 20px 20px;}
+		.front-docs{margin: 0px 20px 20px 20px;}
 	}
 }
 @media handheld, only screen and (max-width: 630px){

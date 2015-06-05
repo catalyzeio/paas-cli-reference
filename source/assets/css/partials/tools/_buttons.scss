@@ -1,5 +1,5 @@
 /* base button structure, can be used independently, but won't have much styling */
-.btn {
+.btn{
 	display: inline-block;
 	padding: 0 15px;
 	text-align: center;
@@ -8,7 +8,7 @@
 	cursor: pointer;
 }
 /* blue button based on #2098CA brand color */
-.btn-brand {
+.btn-brand{
 	@extend .btn;
 	height: 36px;
 	line-height: 35px;
@@ -26,7 +26,7 @@
 	}
 }
 /* green button that acts as a complimentary primary CTA when the brand button color won't fit */
-.btn-primary {
+.btn-primary{
 	@extend .btn;
 	height: 36px;
 	line-height: 35px;
@@ -47,7 +47,7 @@
 	secondary button that is the outline style.
 	gets color variable because the outline and font color will vary based on where it's used due to no bg color
 */
-@mixin btn-secondary($up_color, $hover_color) {
+@mixin btn-secondary($up_color, $hover_color){
 	@extend .btn;
 	height: 36px;
 	line-height: 35px;
@@ -65,11 +65,12 @@
 	height: 31px;
 	line-height: 30px;
 	background-image: linear-gradient(-180deg, $g1 0%, $g2 100%);
-	box-shadow: inset 0px 0px 2px 0px rgba(255,255,255,0.6);
-	border: 1px solid lighten( #146587, 5%);
+	box-shadow: inset 0px 1px 1px 0px rgba(200,239,255,0.50), inset 0px -4px 4px 0px rgba(201,238,255,0.10);
 	font-size: 14px;
 	color: #fff;
-	&:hover {
+	text-shadow: 0px 1px 1px darken($g2, 20%);
+	border: 1px solid $g2;
+	&:hover{
 		background: #fff;
 		background-image: linear-gradient(-180deg, darken( $g1, 10%) 0%, darken( $g2, 10%) 100%);
 		opacity: 1.0;
@@ -81,7 +82,7 @@
 	}
 }
 /* jump off text buttons */
-@mixin jumpoff($c) {
+@mixin jumpoff($c){
 	color: $c;
 	text-decoration: none;
 	font-family: $f_sans-med;
