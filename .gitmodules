@@ -16,3 +16,6 @@
 [submodule "paas/paas-guides"]
 	path = paas/paas-guides
 	url = https://github.com/catalyzeio/paas-guides
+[submodule "compliance/compliance-faq"]
+	path = compliance/compliance-faq
+	url = https://github.com/catalyzeio/compliance-faq
