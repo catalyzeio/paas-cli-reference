@@ -14,6 +14,14 @@
 @mixin opacity($alpha){
 	opacity: $alpha;
 }
+@mixin vert-gradient($o, $t){
+	background: -moz-linear-gradient(top,  $o 0%, $t 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$o), color-stop(100%,$t));
+	background: -webkit-linear-gradient(top,  $o 0%,$t 100%);
+	background: -o-linear-gradient(top,  $o 0%,$t 100%);
+	background: -ms-linear-gradient(top,  $o 0%,$t 100%);
+	background: linear-gradient(to bottom,  $o 0%,$t 100%);
+}
 @mixin bg-gradient($first, $second){
 	background: $first;
 	background: -moz-linear-gradient(-45deg,  $first 0%, $second 100%);

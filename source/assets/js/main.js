@@ -22,4 +22,10 @@ $("document").ready(function(){
 			$("#toc").fadeIn(100);
 		}
 	});
+	// Newton
+	var newtonHeight = $(".newton").height() - 40;
+	var nav = $('.narrow-docs-nav');
+	nav.css({
+		height: newtonHeight
+	});
 });
