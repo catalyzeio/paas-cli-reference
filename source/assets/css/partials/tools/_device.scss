@@ -45,6 +45,14 @@
 	}
 	.front-faq{footer{.sort-faq{margin: 0px;}}}
 }
+@media handheld, only screen and (max-width: 965px){
+	.narrow-docs-wrapper{
+		.narrow-docs-nav{display: none;}
+	}
+}
+@media handheld, only screen and (max-width: 640px){
+	.newton{margin-left: 20px;margin-right: 20px;}
+}
 @media handheld, only screen and (max-width: 890px){
 	.tocify-subheader li{width: 100px;}
 }
