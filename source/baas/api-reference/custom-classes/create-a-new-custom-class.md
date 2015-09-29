@@ -21,7 +21,6 @@ Use this route to create a new custom class.
 		"city": null
 	},
 
-	"phi": false,
 	"editable": true
 }
 ```
@@ -36,7 +35,6 @@ Use this route to create a new custom class.
 		"city": "string"
 	},
 
-	"phi": false,
 	"editable": true,
 	"id": "CLASS_ID_123"
 }
@@ -72,7 +70,6 @@ var body = {
 		"city": "string"
 	},
 
-	"phi": false,
 	"editable": true,
 	"id": "CLASS_ID_123"
 }
@@ -106,7 +103,6 @@ NSDictionary *body = @{
 		@"city": @"string"
 	},
 
-	@"phi":@false,
 	@"editable":@true,
 	@"id": @"CLASS_ID_123"
 }
