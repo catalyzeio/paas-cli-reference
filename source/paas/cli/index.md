@@ -3,6 +3,8 @@ title: Overview
 layout: paas_guides
 ---
 
+# Overview
+
 Usage: catalyze [OPTIONS] COMMAND [arg...]
 
 Catalyze CLI. Version 2.1.4
