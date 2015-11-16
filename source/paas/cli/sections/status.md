@@ -5,12 +5,14 @@ layout: paas_guides
 
 # Status
 
-Usage: `catalyze status [OPTIONS]`
+```
+Usage: catalyze status  
 
-  Check the status of the environment and every service in it.
+Get quick readout of the current status of your associated environment and all of its services
+```
 
-Options:
+`status` will give a quick readout of your environment's health. This includes your environment name, environment ID, and for each service the name, size, build status, deploy status, and service ID. Here is a sample command
 
 ```
-  --help  Show this message and exit.
+catalyze status
 ```

@@ -5,12 +5,14 @@ layout: paas_guides
 
 # Environments
 
-Usage: `catalyze environments [OPTIONS]`
+```
+Usage: catalyze environments  
 
-  Lists all environments to which you have access.
+List all environments you have access to
+```
 
-Options:
+`environments` lists all environments that you are granted access to. These environments include those you created and those that other Catalyze customers have added you to. Here is a sample command
 
 ```
-  --help  Show this message and exit.
+catalyze environments
 ```

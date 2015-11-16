@@ -1,17 +1,18 @@
 ---
-title: Associate
+title: Associated
 layout: paas_guides
 ---
 
-# Associate
-
-Usage: `catalyze associate [OPTIONS] ENV_LABEL [SERVICE_LABEL]`
-
-  Associates the git repository in the current directory. This means that the service and environment IDs are stored locally, and a git remote is created (default name = "catalyze") so that code can be pushed, built, and deployed.
-
-Options:
+# Associated
 
 ```
-  --remote TEXT  The name of the git remote to be created.
-  --help         Show this message and exit.
+Usage: catalyze associated  
+
+Lists all associated environments
+```
+
+`associated` outputs information about all previously associated environments on your local machine. The information that is printed out includes the alias, environment ID, actual environment name, service ID, the git repo directory, and whether or not it is the default environment. Here is a sample command
+
+```
+catalyze associated
 ```

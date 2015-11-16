@@ -5,14 +5,18 @@ layout: paas_guides
 
 # Vars Set
 
-Usage: `catalyze vars set [OPTIONS] [VARIABLES]...`
+```
+Usage: catalyze vars set -v...
 
-  Set or update one or more variables. Expects variables in the form <key>=<value>. Multiple variables can be set at once.
-
-  Variable changes will not take effect in the application until it is redeployed (via either a push or 'catalyze redeploy').
+Set one or more new environment variables or update the values of existing ones
 
 Options:
+  -v, --variable    The env variable to set or update in the form "<key>=<value>"
+```
+
+`vars set` allows you to add a new environment variable or update the value of an existing environment variable on your code service. You can set/update 1 or more environment variables at a time with this command by repeating the `-v` option multiple times. Once new environment variables are added or values updated, a [redeploy](#redeploy) is required for your code service to have access to the changes. The environment variables must be of the form `<key>=<value>`. Here is a sample command
 
 ```
-  --help  Show this message and exit.
+catalyze vars set -v AWS_ACCESS_KEY_ID=1234 -v AWS_SECRET_ACCESS_KEY=5678
 ```
+

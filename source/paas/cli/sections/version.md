@@ -5,12 +5,14 @@ layout: paas_guides
 
 # Version
 
-Usage: `catalyze version [OPTIONS]`
+```
+Usage: catalyze version  
 
-  Outputs the current CLI version.
+Output the version and quit
+```
 
-Options:
+`version` prints out the current CLI version. Here is a sample command
 
 ```
-  --help  Show this message and exit.
+catalyze version
 ```
