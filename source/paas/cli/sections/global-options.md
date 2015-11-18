@@ -11,6 +11,5 @@ The following table outlines all global options available in the CLI. Global opt
 |------------|-----------|-------------|----------------------|
 | -U | --username | Your catalyze username that you login to the Dashboard with | CATALYZE_USERNAME |
 | -P | --password | Your catalyze password that you login to the Dashboard with | CATALYZE_PASSWORD |
-| -E | --env | The local alias of the environment in which this command will be run. Read more about [environment aliases](#aliases) | CATALYZE_ENV |
+| -E | --env | The local alias of the environment in which this command will be run. Read more about [environment aliases](https://resources.catalyze.io/paas/cli/sections/environment-aliases/) | CATALYZE_ENV |
 | | --version | Prints out the CLI version | |
-
