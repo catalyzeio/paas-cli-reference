@@ -7,7 +7,7 @@ layout: paas_guides
 
 Usage: catalyze [OPTIONS] COMMAND [arg...]
 
-Catalyze CLI. Version 2.1.4
+Catalyze CLI. Version 2.1.5
 
 Options:
 
@@ -37,6 +37,7 @@ Commands:
   ssl            Perform operations on local certificates to verify their validity
   status         Get quick readout of the current status of your associated environment and all of its services
   support-ids    Print out various IDs related to your associated environment to be used when contacting Catalyze support
+  update         Checks for available updates and updates the CLI if a new update is available
   users          Manage users who have access to the associated environment
   vars           Interaction with environment variables for the associated environment
   whoami         Retrieve your user ID
