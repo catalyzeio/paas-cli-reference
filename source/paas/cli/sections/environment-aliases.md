@@ -1,20 +1,27 @@
 ---
-title: Global Scope
+title: Environment Aliases
 layout: paas_guides
 ---
 
-# Global Scope
+# Environment Aliases
 
-The CLI now supports the concept of scope. Previous to version 2.0.0, all commands had to be run within an associated local git repo. Now, the only time you need to be in a local git repo is when you associate a new environment. After the initial associated, CLI commands can be run from any directory. If you have more than one environment, the CLI uses this concept of scope to decide which environment you are using for the command.
 
-Let's say you have an environment that you associated in the directory `~/mysandbox-code` and another you associated in the directory `~/myprod-code`. These environments are named `mysandbox` and `myprod` respectively. When you are within either of those directories, the CLI knows that any command you run will be in the context of the given environment. Commands run in the `~/myprod-code` directory will be run against the `myprod` environment. Similarly for `~/mysandbox-code` and the `mysandbox` environment. What if you are outside those directories? You have three options.
-
-First, you can tell the CLI which environment you want to use with the global option `-E` or `--env` (see [Global Options](https://resources.catalyze.io/paas/cli/sections/global-options/)). Your command might start like this
+When you associate an environment from within a local git repo, you typically run the following command:
 
 ```
-catalyze -E myprod ...
+catalyze associate "My Health Tech Company Production"
 ```
 
-This global option will even override the environment found in a local git repo. If you don't set the `-E` flag, and the CLI can't find an environment in your local git repo, the CLI then checks for a default environment. A default environment is used whenever you are outside of a git repo and an environment is not specified. A default environment can be specified using the [default](https://resources.catalyze.io/paas/cli/sections/default/) command. You can find out which environment is the default by running the [associated](https://resources.catalyze.io/paas/cli/sections/associated/) command.
+Where `My Health Tech Company Production` is the name of your environment. However with the concept of [scope](https://resources.catalyze.io/paas/cli/sections/global-scope/) and being able to specify which environment to use on a command by command basis with the `-E` global option, that is a lot to type! This is where environment aliases come in handy.
 
-Lastly, if no environment is specified, you're outside of a git repo, and no default environment is set, then the CLI simply takes the first environment you associated and prompts you to continue with this environment. This concept of scope will make it easier for Catalyze customers with multiple environments to use the CLI!
+When you associate an environment and you want to pick a shorter name to reference the environment by, simply add a `-a` flag to the command. Let's try the command again calling it `prod` this time:
+
+```
+catalyze associate "My Health Tech Company Production" -a prod
+```
+
+Now when you run the [associated](https://resources.catalyze.io/paas/cli/sections/associated/) command, you will see the alias as well as the actual environment name.
+
+When using aliases, there are a couple things to keep in mind. Aliases are only local and never leave your local machine. If you alias this environment `prod`, a coworker can alias the environment `healthtech-prod` with no ramifications. Second, after setting an alias, you will never reference the environment by its actual name with the CLI. You will always use the alias for flags, arguments, options, etc.
+
+To change or remove an alias, you must [disassociate](https://resources.catalyze.io/paas/cli/sections/disassociate/) and then [reassociate](https://resources.catalyze.io/paas/cli/sections/associate/) with a new alias.
