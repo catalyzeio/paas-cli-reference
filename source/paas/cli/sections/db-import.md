@@ -1,25 +1,38 @@
 ---
-title: Db Import
+title: DB Import
 layout: paas_guides
 ---
 
-# Db Import
+# DB Import
 
-Usage: `catalyze db import [OPTIONS] DATABASE_LABEL FILEPATH`
-
-  Imports a file into a chosen database service.
-
-  The import is accomplished by encrypting the file and uploading it to Catalyze. An automated service processes the file according to the passed parameters. The command offers the option to either wait until the processing is finished (and be notified of the end result), or to just kick it off.
-
-  The type of file depends on the database. For postgres and mysql, this should be a single SQL script with the extension "sql". For mongo, this should be a tar'd, gzipped archive of the dump that you wish to import, with the extension "tar.gz". For further help on creating backups,
-
-  If there is an unexpected error, please contact Catalyze support (support@catalyze.io).
-
-Options:
 
 ```
-  --mongo-collection TEXT  The name of a specific mongo collection to import into. Only applies for mongo imports.
-  --mongo-database TEXT    The name of the mongo database to import into, if not using the default. Only applies for mongo imports.
-  --wipe-first             If set, empties the database before importing. This should not be used lightly.
-  --help                   Show this message and exit.
+Usage: catalyze db import DATABASE_NAME FILEPATH [-d [-c]]
+
+Import data to a database
+
+Arguments:
+  DATABASE_NAME=""   The name of the database to import data to (i.e. 'db01')
+  FILEPATH=""        The location of the file to import to the database
+
+Options:
+  -c, --mongo-collection=""   If importing into a mongo service, the name of the collection to import into
+  -d, --mongo-database=""     If importing into a mongo service, the name of the database to import into
+```
+
+`import` allows you to inject new data into your database service. For example, if you wrote a simple SQL file
+
+```
+CREATE TABLE mytable (
+id TEXT PRIMARY KEY,
+val TEXT
+);
+
+INSERT INTO mytable (id, val) values ('1', 'test');
+```
+
+and stored it at `./db.sql` you could import this into your database service. When import data into mongo, you may specify the database and collection to import into using the `-d` and `-c` flags respectively. Regardless of a successful import or not, the logs for the import will be printed to the console when the import is finished. Before an import takes place, your database is backed up automatically in case any issues arise. Here is a sample command
+
+```
+catalyze db import db01 ./db.sql
 ```

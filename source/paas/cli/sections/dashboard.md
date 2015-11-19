@@ -5,12 +5,14 @@ layout: paas_guides
 
 # Dashboard
 
-Usage: `catalyze dashboard [OPTIONS]`
+```
+Usage: catalyze dashboard  
 
-  Open the Catalyze dashboard in your browser
+Open the Catalyze Dashboard in your default browser
+```
 
-Options:
+`dashboard` simply opens up the Catalyze Dashboard homepage in your default web browser. Here is a sample command:
 
 ```
-  --help  Show this message and exit.
+catalyze dashboard
 ```

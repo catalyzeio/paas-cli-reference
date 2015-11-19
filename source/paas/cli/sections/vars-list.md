@@ -5,12 +5,14 @@ layout: paas_guides
 
 # Vars List
 
-Usage: `catalyze vars list [OPTIONS]`
+```
+Usage: catalyze vars list  
 
-  List all set variables.
+List all environment variables
+```
 
-Options:
+`vars list` prints out all known environment variables for the associated code service. Here is a sample command
 
 ```
-  --help  Show this message and exit.
+catalyze vars list
 ```

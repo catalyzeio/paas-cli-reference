@@ -5,12 +5,17 @@ layout: paas_guides
 
 # Worker
 
-Usage: `catalyze worker [OPTIONS] [TARGET]`
+```
+Usage: catalyze worker TARGET
 
-  Starts a Procfile target as a worker. Worker containers are intended to be short-lived, one-off tasks.
+Start a background worker
 
-Options:
+Arguments:
+  TARGET=""    The name of the Procfile target to invoke as a worker
+```
+
+`worker` starts a background worker asynchronously. The `TARGET` argument must be specified in your `Procfile`. Once the worker is started, any output can be found in your logging Dashboard or using the [logs](https://resources.catalyze.io/paas/cli/sections/logs/) command. Here is a sample command
 
 ```
-  --help  Show this message and exit.
+catalyze worker Scrape
 ```

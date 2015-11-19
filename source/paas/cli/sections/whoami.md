@@ -5,12 +5,14 @@ layout: paas_guides
 
 # Whoami
 
-Usage: `catalyze whoami [OPTIONS]`
+```
+Usage: catalyze whoami  
 
-  Prompts for login, and prints out your ID so that you can be added to an environment by someone else.
+Retrieve your user ID
+```
 
-Options:
+`whoami` prints out the currently logged in user's users ID. This is used with the [users add](https://resources.catalyze.io/paas/cli/sections/users-add/) and [users rm](https://resources.catalyze.io/paas/cli/sections/users-rm/) commands as well as with Catalyze support. Here is a sample command
 
 ```
-  --help  Show this message and exit.
+catalyze whoami
 ```

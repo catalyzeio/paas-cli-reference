@@ -5,14 +5,17 @@ layout: paas_guides
 
 # Vars Unset
 
-Usage: `catalyze vars unset [OPTIONS] VARIABLE`
+```
+Usage: catalyze vars unset VARIABLE
 
-  Unset (delete) a variable.
+Unset (delete) an existing environment variable
 
-  Variable changes will not take effect in the application until it is redeployed (via either a push or 'catalyze redeploy').
+Arguments:
+  VARIABLE=""   The name of the environment variable to unset
+```
 
-Options:
+`vars unset` removes an environment variables from your associated code service. Only the environment variable name is required to unset. Once environment variables are unset, a [redeploy](https://resources.catalyze.io/paas/cli/sections/redeploy/) is required for your code service to have access to the changes. Here is a sample command
 
 ```
-  --help  Show this message and exit.
+catalyze vars unset AWS_ACCESS_KEY_ID
 ```

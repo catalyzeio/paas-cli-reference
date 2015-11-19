@@ -1,22 +1,9 @@
 ---
-title: Db
+title: DB
 layout: paas_guides
 ---
 
-# Db
+# DB
 
-Usage: `catalyze db [OPTIONS] COMMAND [ARGS]...`
+The `db` command gives access to backup, import, and export services for databases. The db command can not be run directly but has sub commands.
 
-  Interact with database services.
-
-Options:
-
-```
-  --help  Show this message and exit.
-```
-
-Commands:
-
-```
-  import  Imports data into a database
-```
