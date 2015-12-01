@@ -11,8 +11,8 @@ body{
 .r_main-header{
 	@extend .cf;
 	padding: 14px;
-	border-bottom: 1px solid darken($c_border, 7%);
-	background-image: linear-gradient(-180deg, #FDFDFD 0%, #E8E8E8 100%);
+	border-bottom: 1px solid #D4E0E8;
+	background-color: $c_nice-bg;
 	.r_main-logo{
 		display: block;
 		float: left;
@@ -33,7 +33,15 @@ body{
 			&:hover{border-bottom: 1px solid $c_border;}
 		}
 		a.r_nav-btn{
-			@include main-cta(#4BB8E6, #1680AC);
+			color: $c_brand;
+			background-color: transparent;
+			border: 1px solid $c_brand;
+			padding: 10px;
+			@include border-radius(5px);
+			&:hover{
+				background-color: lighten($c_brand, 50%);
+				opacity: 1.0;
+			}
 		}
 		a.r_hiring-btn{
 			color: $c_paas;
@@ -46,7 +54,7 @@ body{
 .r_paas-guides,
 .r_paas{
 	.r_main-header{
-		background-image: linear-gradient(-180deg, #58C3F0 0%, #147BA6 100%);
+		background-color: $c_brand;
 		border: 0px;
 		border-bottom: 1px solid #1C6887;
 	}
@@ -54,8 +62,9 @@ body{
 		a{color: #fff;}
 		a.r_hiring-btn{color: #fff;}
 		a.r_nav-btn{
-			@include main-cta(#5CD775, #218435);
-			border: 1px solid #18702A;
+			color: #fff;
+			border: 1px solid #fff;
+			&:hover{background-color: rgba(255,255,255,0.2);}
 		}
 	}
 }
@@ -73,20 +82,24 @@ body{
 .r_baas-guides,
 .r_baas{
 	.r_main-header{
-		background-image: linear-gradient(-180deg, #9658F0 0%, #491A8F 100%);
+		background-color: $c_baas;
 		border: 0px;
 		border-bottom: 1px solid #351168;
 	}
 	.r_main-nav{
 		a{color: #fff;}
 		a.r_hiring-btn{color: #fff;}
-		a.r_nav-btn{border: 1px solid darken($c_baas, 15%);}
+		a.r_nav-btn{
+			color: #fff;
+			border: 1px solid #fff;
+			&:hover{background-color: rgba(255,255,255,0.2);}
+		}
 	}
 }
 .r_compliance-guides,
 .r_compliance{
 	.r_main-header{
-		background-image: linear-gradient(-180deg, #6C6C6C 0%, #282828 100%);
+		background-color: $c_compliance;
 		border: 0px;
 		border-bottom: 1px solid #000000;
 	}
@@ -94,13 +107,25 @@ body{
 		a{color: #fff;}
 		a.r_hiring-btn{color: #fff;}
 		a.r_nav-btn{
-			@include main-cta(#5CD775, #218435);
-			border: 1px solid #222;
+			color: #fff;
+			border: 1px solid #fff;
+			&:hover{background-color: rgba(255,255,255,0.2);}
 		}
 	}
 }
-.r_newton{
+.r_redpoint{
 	.r_main-header{
-		background-image: linear-gradient(-180deg, #fff 0%, #fff 100%);
+		background-color: $c_hl7;
+		border: 0px;
+		border-bottom: 1px solid darken($c_hl7, 20%);
+	}
+	.r_main-nav{
+		a{color: #fff;}
+		a.r_hiring-btn{color: #fff;}
+		a.r_nav-btn{
+			color: #fff;
+			border: 1px solid #fff;
+			&:hover{background-color: rgba(255,255,255,0.2);}
+		}
 	}
 }

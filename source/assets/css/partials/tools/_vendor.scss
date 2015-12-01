@@ -4,7 +4,6 @@
 	max-width: 260px;
 	max-height: 90%;
 	overflow: auto;
-	margin-top: 10px;
 	position: fixed;
 	border: 1px solid $c_border;
 	@include border-radius(5px);
@@ -19,7 +18,10 @@
 .tocify-header{
 	text-indent: 10px;
 	color: $c_compliance;
-	li{background-image: linear-gradient(-180deg, #FFFFFF 0%, #E7E7E7 100%);line-height:36px;}
+	li{
+		background-color: $c_nice-bg;
+		line-height:36px;
+	}
 }
 .tocify-subheader{
 	background-color: #fff;
@@ -29,7 +31,7 @@
 		font-family: $f_sans-med;
 		border-top: 1px solid $c_border;
 		border-bottom: 1px solid $c_border;
-		background-image: linear-gradient(-180deg, #FFFFFF 0%, #E7E7E7 100%);
+		background-color: #fff;
 		color: $c_brand;
 	}
 }

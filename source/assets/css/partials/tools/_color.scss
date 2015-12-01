@@ -2,11 +2,10 @@ $c_paas: #2098ca;
 $c_paas-alt: #4DB5E1;
 $c_baas: #3F3980;
 $c_baas-alt: #7447B1;
-$c_hl7: #FF9100;
-$c_hl7-alt: #FFB451;
-$c_compliance: #121212;
+$c_hl7: #D93939;
+$c_compliance: #242F36;
 $c_compliance-alt: #444444;
-$c_border: #ddd;
+$c_border: #D4E0E8;
 $c_lightbg: #f4f4f4;
 $c_text: lighten($c_compliance-alt, 25%);
 $c_dark-text: $c_compliance-alt;
@@ -14,7 +13,7 @@ $c_marketing: #6FB75E;
 $c_complete: darken(#6FB75E, 5%);
 $c_highlight: #FFF597;
 $c_code: #ca2657;
-$c_brand: $c_paas;
+$c_nice-bg: #EFF2F4;
 
 /* key gray scale colors used with microcopy */
 $c_primary: #111;
@@ -23,3 +22,7 @@ $c_lightest_gray: #ddd;
 $c_light_gray: #aaa;
 $c_mid_gray: #777;
 $c_dark_gray: #444;
+
+/* Alias' */
+$c_brand: $c_paas;
+$c_brand: $c_paas;

@@ -62,7 +62,9 @@ a.r_crumb-left{
 	text-decoration: none;
 	font-family: $f_sans-med;
 	font-size: 14px;
-	padding: 20px 0px 0px 20px;
+	padding: 10px;
+	margin: 20px 0px 0px 0px;
+	background-color: #EFF2F4;
 	.fa{color: $c_compliance-alt;}
 }
 .r_justsearch-masthead{
@@ -93,6 +95,9 @@ a.r_crumb-left{
 		@include border-radius(5px);
 		font-family: $f_sans-reg;
 		color: $c_text;
+		background-image: url('');
+		line-height: normal;
+		box-sizing: unset;
 		width: 250px;
 	}
 }

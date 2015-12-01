@@ -3,16 +3,16 @@
 		<%= partial "sections/header_index" %>
 		<div class="grid">
 			<section class="r_submod-masthead">
-				<h1 class="r_header-left"><i class="ss-books"></i> <a href="/paas/cli"><%= current_page.data.title %></a></h1>
+				<h1 class="r_header-left"><a href="/paas/cli"><%= current_page.data.title %></a></h1>
 				<form class="r_inline-search">
 					<div class="r_search-wrapper">
 						<label for="globalSearch">Search:</label>
-						<input name="globalSearch" id="st-search-input" type="text" placeholder="Search all resources...">
+						<input type="text" class="st-default-search-input" name="globalSearch" placeholder="Search all resources...">
 						<span><i class="ss-search"></i></span>
 					</div>
 				</form>
 			</section>
-			<a href="/paas" class="r_crumb-left"><i class="ss-earth"></i> PaaS Resources Home</a>
+			<a href="/paas" class="r_crumb-left">PaaS Resources Home</a>
 			<section class="r_guide-section">
 				<div class="col-1-1">
 					<div class="r_guide-content">

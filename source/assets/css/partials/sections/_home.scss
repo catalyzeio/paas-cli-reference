@@ -4,24 +4,37 @@
 	[class*='col-']{&:last-of-type{padding-right:0px;}}
 	@extend .cf;
 	h1{
-		font-size: 30px;
+		font-size: 45px;
 		font-family: $f_sans-thin;
 		color: $c_dark-text;
-		margin: 5px 0px 0px 0px;
+		margin: 0px 0px 15px 0px;
+		text-align: center;
+		line-height: 1;
+	}
+	h2{
+		font-size: 14px;
+		text-align: center;
+		color: $c_text;
+		margin: 0px 0px 15px 0px;
 	}
 	.front-search{
+		width: 350px;
+		margin: auto;
 		input[type="text"]{
+			display: block;
 			@include border-radius(5px);
 			border: 1px solid $c_border;
 			padding: 15px;
-			width: 100%;
-			display: block;
+			width: 92%;
+			background-image: url('');
+			line-height: normal;
+			box-sizing: unset;
 		}
 		position: relative;
 		[class*='ss-']{
 			position: absolute;
 			right: 15px;
-			top: 15px;
+			top: 16px;
 			color: $c_text;
 		}
 	}
@@ -29,14 +42,13 @@
 .front-faq{
 	margin: 40px auto 20px auto;
 	max-width: 99%;
-	border: 1px solid $c_border;
+	border: 1px solid #D4E0E8;
 	@include border-radius(5px);
-	@include box-shadow(0px 0px 10px $c_border);
 	header{
 		@extend .cf;
 		padding: 10px;
-		border-bottom: 1px solid darken($c_border, 3%);
-		background-image: linear-gradient(-180deg, #FFFFFF 0%, #E7E7E7 100%);
+		border-bottom: 1px solid #D4E0E8;
+		background-color: #EFF2F4;
 		@include border-radius-top(5px);
 		h1{
 			float: left;
@@ -73,13 +85,45 @@
 	[class*='col-']{&:last-of-type{padding-right:0px;}}
 	@include box-shadow(0px 0px 0px transparent);
 	a.button{
-		@include main-cta(#4BB8E6, #1680AC);
+		// @include main-cta(#4BB8E6, #1680AC);
 		width: 100%;
 	}
-	a.button-paas{@include main-cta(#4BB8E6, #1680AC);}
-	a.button-baas{@include main-cta(#8B53EC, #331071);border: 1px solid #2C0F5E;}
-	a.button-hl7{@include main-cta(#FCC97B, #D47A01);border: 1px solid #A8701E;}
-	a.button-compliance{@include main-cta(#666666, #1c1c1c);border: 1px solid #000;}
+	a.button-paas{
+		@extend .btn-brand;
+		@include easing(350ms);
+		&:hover{
+			@include easing(350ms);
+			background-color: darken($c_brand, 10%);
+			background-image: linear-gradient(-180deg, transparent 0%, transparent 100%);
+		}
+	}
+	a.button-baas{
+		@extend .btn-baas;
+		@include easing(350ms);
+		&:hover{
+			@include easing(350ms);
+			background-color: darken($c_baas, 10%);
+			background-image: linear-gradient(-180deg, transparent 0%, transparent 100%);
+		}
+	}
+	a.button-hl7{
+		@extend .btn-hl7;
+		@include easing(350ms);
+		&:hover{
+			@include easing(350ms);
+			background-color: darken($c_hl7, 10%);
+			background-image: linear-gradient(-180deg, transparent 0%, transparent 100%);
+		}
+	}
+	a.button-compliance{
+		@extend .btn-compliance;
+		@include easing(350ms);
+		&:hover{
+			@include easing(350ms);
+			background-color: darken($c_compliance, 10%);
+			background-image: linear-gradient(-180deg, transparent 0%, transparent 100%);
+		}
+	}
 }
 .front-guides{
 	margin: 0px auto 20px auto;
@@ -94,20 +138,14 @@
 	.guide-book{
 		position: relative;
 		background-color: #f4f4f4;
-		@include border-radius(5px);
 		border: 1px solid $c_border;
-		background-image: linear-gradient(-180deg, #FFFFFF 0%, #E7E7E7 100%);
-		@include box-shadow(0px 0px 10px $c_border);
 		.spine{
 			font-size: 10px;
 			text-transform: uppercase;
+			border-bottom: 1px solid $c_border;
 			font-family: $f_sans-bold;
-			color: #fff;
-			background-color: $c_dark-text;
-			border-bottom: 1px solid darken($c_dark-text, 25%);
 			letter-spacing: 2px;
 			padding: 5px 5px 5px 10px;
-			@include border-radius-top(5px);
 		}
 		h1{
 			padding: 10px;
@@ -133,21 +171,22 @@
 		}
 	}
 	.paas-guide{
+		.spine,
 		h1{color: $c_paas;}
-		.spine{background-color: $c_paas;border: 1px solid darken($c_paas, 10%);}
 	}
 	.hl7-guide{
+		.spine,
 		h1{color: $c_hl7;}
-		.spine{background-color: $c_hl7;border: 1px solid darken($c_hl7, 10%);}
 	}
 	.baas-guide{
+		.spine,
 		h1{color: $c_baas;}
-		.spine{background-color: $c_baas;border: 1px solid darken($c_baas, 10%);}
 	}
 	.compliance-guide{
+		.spine,
 		h1{color: $c_compliance;}
-		.spine{background-color: $c_compliance;border: 1px solid darken($c_compliance, 10%);}
 	}
+	article{padding: 20px 0px 20px 20px;}
 }
 .front-twoup{
 	@extend .cf;
@@ -187,14 +226,14 @@ a.button{
 	.lang-icon.python{&:after{content: url('../img/icons/python-logo.png');}}
 	.lang-icon.php{&:after{content: url('../img/icons/php-logo.png');}}
 	&:hover{
-		background-image: linear-gradient(-180deg, #FFFAD8 0%, #FFF191 100%);
+		background-color: lighten(#FFF191, 10%);
 		opacity: 1.0;
 	}
 }
 .guide-row{
-	[class*='col-']{
-		float: left;
-		padding-left: 10px;
-		padding-right: 10px;
-	}
+	// [class*='col-']{
+	// 	float: left;
+	// 	padding-left: 10px;
+	// 	padding-right: 10px;
+	// }
 }
