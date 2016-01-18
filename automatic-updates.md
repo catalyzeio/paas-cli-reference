@@ -1,6 +1,6 @@
 ## <a id="autoupdate"></a> Automatic Updates
 ---
-title: Bash Autocompletion
+title: Automatic Updates
 layout: paas_guides
 ---
 
