@@ -1,4 +1,3 @@
-## <a id="autoupdate"></a> Automatic Updates
 ---
 title: Automatic Updates
 layout: paas_guides
