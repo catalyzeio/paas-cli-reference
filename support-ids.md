@@ -6,7 +6,7 @@ layout: paas_guides
 # Support-Ids
 
 ```
-Usage: catalyze support-ids  
+Usage: catalyze support-ids
 
 Print out various IDs related to your associated environment to be used when contacting Catalyze support
 ```

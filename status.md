@@ -6,7 +6,7 @@ layout: paas_guides
 # Status
 
 ```
-Usage: catalyze status  
+Usage: catalyze status
 
 Get quick readout of the current status of your associated environment and all of its services
 ```

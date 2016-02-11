@@ -6,7 +6,7 @@ layout: paas_guides
 # Vars List
 
 ```
-Usage: catalyze vars list  
+Usage: catalyze vars list
 
 List all environment variables
 ```

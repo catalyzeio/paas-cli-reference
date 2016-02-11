@@ -11,7 +11,7 @@ Usage: catalyze logs [QUERY] [(-f | -t)] [--hours] [--minutes] [--seconds]
 Show the logs in your terminal streamed from your logging dashboard
 
 Arguments:
-  QUERY="app*"   The query to send to your logging dashboard's elastic search (regex is supported)
+  QUERY="*"    The query to send to your logging dashboard's elastic search (regex is supported)
 
 Options:
   -f, --follow=false   Tail/follow the logs (Equivalent to -t)

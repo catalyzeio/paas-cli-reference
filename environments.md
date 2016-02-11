@@ -6,7 +6,7 @@ layout: paas_guides
 # Environments
 
 ```
-Usage: catalyze environments  
+Usage: catalyze environments
 
 List all environments you have access to
 ```
