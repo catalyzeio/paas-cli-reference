@@ -23,6 +23,10 @@ db-import.md
 db-list.md
 db-logs.md
 default.md
+deploy-keys.md
+deploy-keys-add.md
+deploy-keys-list.md
+deploy-keys-rm.md
 disassociate.md
 environments.md
 files.md
@@ -41,6 +45,10 @@ keys-set.md
 logout.md
 logs.md
 metrics.md
+metrics-cpu.md
+metrics-memory.md
+metrics-network-in.md
+metrics-network-out.md
 rake.md
 redeploy.md
 services.md
