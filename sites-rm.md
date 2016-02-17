@@ -1,9 +1,9 @@
 ---
-title: Sites RM
+title: Sites Rm
 layout: paas_guides
 ---
 
-# Sites RM
+# Sites Rm
 
 ```
 Usage: catalyze sites rm NAME

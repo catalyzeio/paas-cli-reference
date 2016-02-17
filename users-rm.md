@@ -1,9 +1,9 @@
 ---
-title: Users RM
+title: Users Rm
 layout: paas_guides
 ---
 
-# Users RM
+# Users Rm
 
 ```
 Usage: catalyze users rm USER_ID

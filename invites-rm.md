@@ -1,9 +1,9 @@
 ---
-title: Invites RM
+title: Invites Rm
 layout: paas_guides
 ---
 
-# Invites RM
+# Invites Rm
 
 ```
 Usage: catalyze invites rm INVITE_ID

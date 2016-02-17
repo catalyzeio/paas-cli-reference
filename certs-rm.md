@@ -1,9 +1,9 @@
 ---
-title: Certs RM
+title: Certs Rm
 layout: paas_guides
 ---
 
-# Certs RM
+# Certs Rm
 
 ```
 Usage: catalyze certs rm HOSTNAME

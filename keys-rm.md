@@ -1,9 +1,9 @@
 ---
-title: Keys RM
+title: Keys Rm
 layout: paas_guides
 ---
 
-# Keys RM
+# Keys Rm
 
 ```
 Usage: catalyze keys rm NAME
