@@ -198,7 +198,7 @@ List all existing domains that have SSL certificate and private key pairs
 catalyze certs list
 ```
 
-# Certs RM
+# Certs Rm
 
 ```
 Usage: catalyze certs rm HOSTNAME
@@ -618,7 +618,7 @@ List all pending organization invitations
 catalyze invites list
 ```
 
-# Invites RM
+# Invites Rm
 
 ```
 Usage: catalyze invites rm INVITE_ID
@@ -695,7 +695,7 @@ Options:
 catalyze keys list --include-keys
 ```
 
-# Keys RM
+# Keys Rm
 
 ```
 Usage: catalyze keys rm NAME
@@ -964,7 +964,7 @@ List details for all site configurations
 catalyze sites list
 ```
 
-# Sites RM
+# Sites Rm
 
 ```
 Usage: catalyze sites rm NAME
@@ -1149,7 +1149,7 @@ List all users who have access to the given organization
 catalyze users list
 ```
 
-# Users RM
+# Users Rm
 
 ```
 Usage: catalyze users rm USER_ID
@@ -1165,6 +1165,8 @@ Arguments:
 ```
 catalyze users rm 774bf982-fc4a-428b-a048-c38cffb7d0ab
 ```
+
+# Vars
 
 The `vars` command allows you to manage environment variables for your code services. The vars command can not be run directly but has sub commands.
 
