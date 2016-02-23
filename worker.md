@@ -17,5 +17,5 @@ Arguments:
 `worker` starts a background worker asynchronously. The `TARGET` argument must be specified in your `Procfile`. Once the worker is started, any output can be found in your logging Dashboard or using the [logs](https://resources.catalyze.io/paas/cli/sections/logs/) command. Here is a sample command
 
 ```
-catalyze worker Scrape
+catalyze worker web
 ```

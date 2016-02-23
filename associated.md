@@ -6,7 +6,7 @@ layout: paas_guides
 # Associated
 
 ```
-Usage: catalyze associated  
+Usage: catalyze associated
 
 Lists all associated environments
 ```

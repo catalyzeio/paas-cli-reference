@@ -6,7 +6,7 @@ layout: paas_guides
 # Logout
 
 ```
-Usage: catalyze logout  
+Usage: catalyze logout
 
 Clear the stored user information from your local machine
 ```
