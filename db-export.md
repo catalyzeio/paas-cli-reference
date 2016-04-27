@@ -1,6 +1,6 @@
 ---
 title: DB Export
-layout: paas_guides
+layout: paas_cli
 ---
 
 # DB Export

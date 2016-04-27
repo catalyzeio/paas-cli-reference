@@ -1,6 +1,6 @@
 ---
 title: DB Download
-layout: paas_guides
+layout: paas_cli
 ---
 
 # DB Download

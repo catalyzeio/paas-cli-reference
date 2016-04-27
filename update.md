@@ -1,6 +1,6 @@
 ---
 title: Update
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Update

@@ -1,6 +1,6 @@
 ---
 title: Keys Set
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Keys Set

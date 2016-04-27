@@ -1,6 +1,6 @@
 ---
 title: Supported Platforms
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Supported Platforms

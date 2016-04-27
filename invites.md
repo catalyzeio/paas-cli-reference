@@ -1,6 +1,6 @@
 ---
 title: Invites
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Invites

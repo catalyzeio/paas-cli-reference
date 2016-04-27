@@ -1,6 +1,6 @@
 ---
 title: DB
-layout: paas_guides
+layout: paas_cli
 ---
 
 # DB

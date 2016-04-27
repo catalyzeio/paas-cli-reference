@@ -1,6 +1,6 @@
 ---
 title: Certs Rm
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Certs Rm

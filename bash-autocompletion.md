@@ -1,6 +1,6 @@
 ---
 title: Bash Autocompletion
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Bash Autocompletion

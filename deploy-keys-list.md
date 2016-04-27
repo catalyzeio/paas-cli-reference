@@ -1,6 +1,6 @@
 ---
 title: Deploy Keys List
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Deploy Keys List

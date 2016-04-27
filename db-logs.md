@@ -1,6 +1,6 @@
 ---
 title: DB Logs
-layout: paas_guides
+layout: paas_cli
 ---
 
 # DB Logs

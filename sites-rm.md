@@ -1,6 +1,6 @@
 ---
 title: Sites Rm
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Sites Rm

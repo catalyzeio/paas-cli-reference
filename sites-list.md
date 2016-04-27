@@ -1,6 +1,6 @@
 ---
 title: Sites List
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Sites List

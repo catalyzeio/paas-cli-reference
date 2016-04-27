@@ -1,6 +1,6 @@
 ---
 title: Metrics CPU
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Metrics CPU

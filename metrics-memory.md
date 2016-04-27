@@ -1,6 +1,6 @@
 ---
 title: Metrics Memory
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Metrics Memory

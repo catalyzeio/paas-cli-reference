@@ -1,6 +1,6 @@
 ---
 title: Global Scope
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Global Scope

@@ -1,6 +1,6 @@
 ---
 title: Sites Create
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Sites Create

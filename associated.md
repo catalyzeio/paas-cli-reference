@@ -1,6 +1,6 @@
 ---
 title: Associated
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Associated

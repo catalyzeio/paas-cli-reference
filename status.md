@@ -1,6 +1,6 @@
 ---
 title: Status
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Status

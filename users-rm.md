@@ -1,6 +1,6 @@
 ---
 title: Users Rm
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Users Rm

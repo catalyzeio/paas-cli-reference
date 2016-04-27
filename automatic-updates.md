@@ -1,6 +1,6 @@
 ---
 title: Automatic Updates
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Automatic Updates

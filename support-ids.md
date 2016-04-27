@@ -1,6 +1,6 @@
 ---
 title: Support-Ids
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Support-Ids

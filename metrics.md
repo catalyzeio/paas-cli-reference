@@ -1,6 +1,6 @@
 ---
 title: Metrics
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Metrics

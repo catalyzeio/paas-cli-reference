@@ -1,6 +1,6 @@
 ---
 title: Vars List
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Vars List

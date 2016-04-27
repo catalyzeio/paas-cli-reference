@@ -1,6 +1,6 @@
 ---
 title: SSL
-layout: paas_guides
+layout: paas_cli
 ---
 
 # SSL
