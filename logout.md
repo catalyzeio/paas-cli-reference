@@ -1,6 +1,6 @@
 ---
 title: Logout
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Logout

@@ -1,6 +1,6 @@
 ---
 title: Metrics Network-In
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Metrics Network-In

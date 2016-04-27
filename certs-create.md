@@ -1,6 +1,6 @@
 ---
 title: Certs Create
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Certs Create

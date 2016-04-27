@@ -1,6 +1,6 @@
 ---
 title: Disassociate
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Disassociate

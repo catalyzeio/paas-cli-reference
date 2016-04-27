@@ -1,6 +1,6 @@
 ---
 title: DB Import
-layout: paas_guides
+layout: paas_cli
 ---
 
 # DB Import

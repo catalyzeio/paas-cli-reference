@@ -1,6 +1,6 @@
 ---
 title: DB List
-layout: paas_guides
+layout: paas_cli
 ---
 
 # DB List

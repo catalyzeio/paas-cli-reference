@@ -1,6 +1,6 @@
 ---
 title: Vars Unset
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Vars Unset

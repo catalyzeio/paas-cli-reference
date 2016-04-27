@@ -1,6 +1,6 @@
 ---
 title: Sites Show
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Sites Show

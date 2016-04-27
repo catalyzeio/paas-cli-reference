@@ -1,6 +1,6 @@
 ---
 title: Vars Set
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Vars Set

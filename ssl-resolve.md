@@ -1,6 +1,6 @@
 ---
 title: SSL Resolve
-layout: paas_guides
+layout: paas_cli
 ---
 
 # SSL Resolve

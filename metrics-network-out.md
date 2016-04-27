@@ -1,6 +1,6 @@
 ---
 title: Metrics Network-Out
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Metrics Network-Out

@@ -1,6 +1,6 @@
 ---
 title: Files Download
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Files Download

@@ -1,6 +1,6 @@
 ---
 title: Global Options
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Global Options

@@ -1,6 +1,6 @@
 ---
 title: Users List
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Users List

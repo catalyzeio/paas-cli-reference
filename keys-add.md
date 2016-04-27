@@ -1,6 +1,6 @@
 ---
 title: Keys Add
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Keys Add

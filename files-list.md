@@ -1,6 +1,6 @@
 ---
 title: Files List
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Files List

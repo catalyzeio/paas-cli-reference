@@ -1,6 +1,6 @@
 ---
 title: Certs List
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Certs List

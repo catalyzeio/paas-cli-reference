@@ -1,6 +1,6 @@
 ---
 title: Console
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Console

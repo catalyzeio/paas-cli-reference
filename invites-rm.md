@@ -1,6 +1,6 @@
 ---
 title: Invites Rm
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Invites Rm

@@ -1,6 +1,6 @@
 ---
 title: Keys Rm
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Keys Rm

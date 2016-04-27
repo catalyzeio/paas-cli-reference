@@ -1,6 +1,6 @@
 ---
 title: DB Backup
-layout: paas_guides
+layout: paas_cli
 ---
 
 # DB Backup

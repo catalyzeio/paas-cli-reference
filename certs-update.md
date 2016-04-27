@@ -1,6 +1,6 @@
 ---
 title: Certs Update
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Certs Update

@@ -1,6 +1,6 @@
 ---
 title: Environment Aliases
-layout: paas_guides
+layout: paas_cli
 ---
 
 # Environment Aliases
