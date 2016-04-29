@@ -3,7 +3,7 @@ title: Metrics CPU
 layout: paas_cli
 ---
 
-# Metrics CPU
+## Metrics CPU
 
 ```
 Usage: catalyze metrics cpu [SERVICE_NAME] [(--json | --csv | --spark)] [--stream] [-m]

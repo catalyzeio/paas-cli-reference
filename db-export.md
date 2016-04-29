@@ -3,7 +3,7 @@ title: DB Export
 layout: paas_cli
 ---
 
-# DB Export
+## DB Export
 
 ```
 Usage: catalyze db export DATABASE_NAME FILEPATH [-f]

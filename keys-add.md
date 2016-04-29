@@ -3,7 +3,7 @@ title: Keys Add
 layout: paas_cli
 ---
 
-# Keys Add
+## Keys Add
 
 ```
 Usage: catalyze keys add NAME PUBLIC_KEY_PATH

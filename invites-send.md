@@ -3,7 +3,7 @@ title: Invites Send
 layout: paas_cli
 ---
 
-# Invites Send
+## Invites Send
 
 ```
 Usage: catalyze invites send EMAIL [-m | -a]

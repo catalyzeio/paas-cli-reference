@@ -3,7 +3,7 @@ title: Metrics Memory
 layout: paas_cli
 ---
 
-# Metrics Memory
+## Metrics Memory
 
 ```
 Usage: catalyze metrics memory [SERVICE_NAME] [(--json | --csv | --spark)] [--stream] [-m]

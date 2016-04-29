@@ -3,7 +3,7 @@ title: DB List
 layout: paas_cli
 ---
 
-# DB List
+## DB List
 
 ```
 Usage: catalyze db list DATABASE_NAME [-p] [-n]

@@ -3,7 +3,7 @@ title: Files Download
 layout: paas_cli
 ---
 
-# Files Download
+## Files Download
 
 ```
 Usage: catalyze files download [SERVICE_NAME] FILE_NAME [-o] [-f]

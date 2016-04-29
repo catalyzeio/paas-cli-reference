@@ -3,7 +3,7 @@ title: DB Backup
 layout: paas_cli
 ---
 
-# DB Backup
+## DB Backup
 
 ```
 Usage: catalyze db backup DATABASE_NAME [-s]

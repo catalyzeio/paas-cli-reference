@@ -3,7 +3,7 @@ title: Certs Create
 layout: paas_cli
 ---
 
-# Certs Create
+## Certs Create
 
 ```
 Usage: catalyze certs create HOSTNAME PUBLIC_KEY_PATH PRIVATE_KEY_PATH [-s] [-r]

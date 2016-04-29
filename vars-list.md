@@ -3,7 +3,7 @@ title: Vars List
 layout: paas_cli
 ---
 
-# Vars List
+## Vars List
 
 ```
 Usage: catalyze vars list

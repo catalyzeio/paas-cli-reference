@@ -3,7 +3,7 @@ title: Certs List
 layout: paas_cli
 ---
 
-# Certs List
+## Certs List
 
 ```
 Usage: catalyze certs list

@@ -3,7 +3,7 @@ title: DB Logs
 layout: paas_cli
 ---
 
-# DB Logs
+## DB Logs
 
 ```
 Usage: catalyze db logs DATABASE_NAME BACKUP_ID

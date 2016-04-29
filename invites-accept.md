@@ -3,7 +3,7 @@ title: Invites Accept
 layout: paas_cli
 ---
 
-# Invites Accept
+## Invites Accept
 
 ```
 Usage: catalyze invites accept INVITE_CODE

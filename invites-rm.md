@@ -3,7 +3,7 @@ title: Invites Rm
 layout: paas_cli
 ---
 
-# Invites Rm
+## Invites Rm
 
 ```
 Usage: catalyze invites rm INVITE_ID

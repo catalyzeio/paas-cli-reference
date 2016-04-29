@@ -3,7 +3,7 @@ title: SSL Resolve
 layout: paas_cli
 ---
 
-# SSL Resolve
+## SSL Resolve
 
 ```
 Usage: catalyze ssl resolve CHAIN PRIVATE_KEY HOSTNAME [OUTPUT] [-f]
