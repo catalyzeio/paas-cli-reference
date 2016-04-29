@@ -3,7 +3,7 @@ title: Keys Rm
 layout: paas_cli
 ---
 
-# Keys Rm
+## Keys Rm
 
 ```
 Usage: catalyze keys rm NAME

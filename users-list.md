@@ -3,7 +3,7 @@ title: Users List
 layout: paas_cli
 ---
 
-# Users List
+## Users List
 
 ```
 Usage: catalyze users list

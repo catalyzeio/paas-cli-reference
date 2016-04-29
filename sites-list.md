@@ -3,7 +3,7 @@ title: Sites List
 layout: paas_cli
 ---
 
-# Sites List
+## Sites List
 
 ```
 Usage: catalyze sites list

@@ -3,7 +3,7 @@ title: Files List
 layout: paas_cli
 ---
 
-# Files List
+## Files List
 
 ```
 Usage: catalyze files list [SERVICE_NAME]

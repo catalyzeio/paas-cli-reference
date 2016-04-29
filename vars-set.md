@@ -3,7 +3,7 @@ title: Vars Set
 layout: paas_cli
 ---
 
-# Vars Set
+## Vars Set
 
 ```
 Usage: catalyze vars set -v...

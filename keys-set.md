@@ -3,7 +3,7 @@ title: Keys Set
 layout: paas_cli
 ---
 
-# Keys Set
+## Keys Set
 
 ```
 Usage: catalyze keys set PRIVATE_KEY_PATH

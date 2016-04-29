@@ -3,7 +3,7 @@ title: Invites List
 layout: paas_cli
 ---
 
-# Invites List
+## Invites List
 
 ```
 Usage: catalyze invites list

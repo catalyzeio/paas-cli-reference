@@ -3,7 +3,7 @@ title: SSL Verify
 layout: paas_cli
 ---
 
-# SSL Verify
+## SSL Verify
 
 ```
 Usage: catalyze ssl verify CHAIN PRIVATE_KEY HOSTNAME [-s]

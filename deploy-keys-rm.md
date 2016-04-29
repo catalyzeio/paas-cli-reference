@@ -3,7 +3,7 @@ title: Deploy Keys Rm
 layout: paas_cli
 ---
 
-# Deploy Keys Rm
+## Deploy Keys Rm
 
 ```
 Usage: catalyze deploy-keys rm NAME SERVICE_NAME [-p]

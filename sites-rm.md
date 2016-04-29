@@ -3,7 +3,7 @@ title: Sites Rm
 layout: paas_cli
 ---
 
-# Sites Rm
+## Sites Rm
 
 ```
 Usage: catalyze sites rm NAME

@@ -3,7 +3,7 @@ title: Certs Rm
 layout: paas_cli
 ---
 
-# Certs Rm
+## Certs Rm
 
 ```
 Usage: catalyze certs rm HOSTNAME

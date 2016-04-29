@@ -3,7 +3,7 @@ title: DB Download
 layout: paas_cli
 ---
 
-# DB Download
+## DB Download
 
 ```
 Usage: catalyze db download DATABASE_NAME BACKUP_ID FILEPATH [-f]

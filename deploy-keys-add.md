@@ -3,7 +3,7 @@ title: Deploy Keys Add
 layout: paas_cli
 ---
 
-# Deploy Keys Add
+## Deploy Keys Add
 
 ```
 Usage: catalyze deploy-keys add NAME KEY_PATH SERVICE_NAME [-p]

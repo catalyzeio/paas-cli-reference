@@ -3,7 +3,7 @@ title: Sites Show
 layout: paas_cli
 ---
 
-# Sites Show
+## Sites Show
 
 ```
 Usage: catalyze sites show NAME

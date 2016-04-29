@@ -3,7 +3,7 @@ title: Sites Create
 layout: paas_cli
 ---
 
-# Sites Create
+## Sites Create
 
 ```
 Usage: catalyze sites create NAME SERVICE_NAME HOSTNAME

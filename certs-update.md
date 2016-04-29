@@ -3,7 +3,7 @@ title: Certs Update
 layout: paas_cli
 ---
 
-# Certs Update
+## Certs Update
 
 ```
 Usage: catalyze certs update HOSTNAME PUBLIC_KEY_PATH PRIVATE_KEY_PATH [-s] [-r]

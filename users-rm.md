@@ -3,7 +3,7 @@ title: Users Rm
 layout: paas_cli
 ---
 
-# Users Rm
+## Users Rm
 
 ```
 Usage: catalyze users rm EMAIL

@@ -47,7 +47,11 @@ One feature we've found helpful on \*Nix systems is autocompletion in bash. To e
 
 Note: you may have to add `source /etc/bash_completion.d/catalyze_autocomplete` (`/usr/local/etc/bash_completion.d/catalyze_autocomplete`) in your `~/.bashrc` (`~/.bash_profile`) file.
 
-# Certs Create
+# Certs
+
+The `certs` command gives access to certificate and private key management for public facing services. The certs command can not be run directly but has sub commands.
+
+## Certs Create
 
 ```
 Usage: catalyze certs create HOSTNAME PUBLIC_KEY_PATH PRIVATE_KEY_PATH [-s] [-r]
@@ -72,7 +76,7 @@ The `HOSTNAME` for a certificate does not need to match the valid Subject of the
 catalyze certs create wildcard_mysitecom ~/path/to/cert.pem ~/path/to/priv.key
 ```
 
-# Certs List
+## Certs List
 
 ```
 Usage: catalyze certs list
@@ -86,7 +90,7 @@ List all existing domains that have SSL certificate and private key pairs
 catalyze certs list
 ```
 
-# Certs Rm
+## Certs Rm
 
 ```
 Usage: catalyze certs rm HOSTNAME
@@ -103,7 +107,7 @@ Arguments:
 catalyze certs rm mywebsite.com
 ```
 
-# Certs Update
+## Certs Update
 
 ```
 Usage: catalyze certs update HOSTNAME PUBLIC_KEY_PATH PRIVATE_KEY_PATH [-s] [-r]
@@ -125,10 +129,6 @@ Options:
 ```
 catalyze certs update mywebsite.com ~/path/to/new/cert.pem ~/path/to/new/priv.key
 ```
-
-# Certs
-
-The `certs` command gives access to certificate and private key management for public facing services. The certs command can not be run directly but has sub commands.
 
 # Console
 
@@ -163,7 +163,11 @@ Open the Catalyze Dashboard in your default browser
 catalyze dashboard
 ```
 
-# DB Backup
+# DB
+
+The `db` command gives access to backup, import, and export services for databases. The db command can not be run directly but has sub commands.
+
+## DB Backup
 
 ```
 Usage: catalyze db backup DATABASE_NAME [-s]
@@ -183,7 +187,7 @@ Options:
 catalyze db backup db01
 ```
 
-# DB Download
+## DB Download
 
 ```
 Usage: catalyze db download DATABASE_NAME BACKUP_ID FILEPATH [-f]
@@ -211,7 +215,7 @@ This assumes you are downloading a MySQL or PostgreSQL backup which takes the `.
 catalyze db download db01 cd2b4bce-2727-42d1-89e0-027bf3f1a203 ./db.tar.gz
 ```
 
-# DB Export
+## DB Export
 
 ```
 Usage: catalyze db export DATABASE_NAME FILEPATH [-f]
@@ -238,7 +242,7 @@ This assumes you are exporting a MySQL or PostgreSQL database which takes the `.
 catalyze db export db01 ./dbexport.tar.gz
 ```
 
-# DB Import
+## DB Import
 
 
 ```
@@ -272,7 +276,7 @@ and stored it at `./db.sql` you could import this into your database service. Wh
 catalyze db import db01 ./db.sql
 ```
 
-# DB List
+## DB List
 
 ```
 Usage: catalyze db list DATABASE_NAME [-p] [-n]
@@ -293,7 +297,7 @@ Options:
 catalyze db list db01
 ```
 
-# DB Logs
+## DB Logs
 
 ```
 Usage: catalyze db logs DATABASE_NAME BACKUP_ID
@@ -310,10 +314,6 @@ Arguments:
 ```
 catalyze db logs db01 cd2b4bce-2727-42d1-89e0-027bf3f1a203
 ```
-
-# DB
-
-The `db` command gives access to backup, import, and export services for databases. The db command can not be run directly but has sub commands.
 
 # Default
 
@@ -332,7 +332,11 @@ Arguments:
 catalyze default prod
 ```
 
-# Deploy Keys Add
+# Deploy Keys
+
+The `deploy-keys` command gives access to SSH deploy keys for environment services. The deploy-keys command can not be run directly but has sub commands.
+
+## Deploy Keys Add
 
 ```
 Usage: catalyze deploy-keys add NAME KEY_PATH SERVICE_NAME [-p]
@@ -355,7 +359,7 @@ catalyze deploy-keys add app01_public ~/.ssh/app01_rsa.pub app01
 catalyze deploy-keys add app01_private ~/.ssh/app01_rsa app01 -p
 ```
 
-# Deploy Keys List
+## Deploy Keys List
 
 ```
 Usage: catalyze deploy-keys list SERVICE_NAME
@@ -372,7 +376,7 @@ Arguments:
 catalyze deploy-keys list app01
 ```
 
-# Deploy Keys Rm
+## Deploy Keys Rm
 
 ```
 Usage: catalyze deploy-keys rm NAME SERVICE_NAME [-p]
@@ -393,10 +397,6 @@ Options:
 catalyze deploy-keys rm app01_public app01
 catalyze deploy-keys rm app01_private app01 -p
 ```
-
-# Deploy Keys
-
-The `deploy-keys` command gives access to SSH deploy keys for environment services. The deploy-keys command can not be run directly but has sub commands.
 
 # Disassociate
 
@@ -452,7 +452,11 @@ List all environments you have access to
 catalyze environments
 ```
 
-# Files Download
+# Files
+
+The `files` command gives access to service files on your environment's services. Service files can include nginx configs, SSL certificates, and any other file that might be injected into your running service. The files command can not be run directly but has sub commands.
+
+## Files Download
 
 ```
 Usage: catalyze files download [SERVICE_NAME] FILE_NAME [-o] [-f]
@@ -474,7 +478,7 @@ Options:
 catalyze files download /etc/nginx/sites-enabled/mywebsite.com
 ```
 
-# Files List
+## Files List
 
 ```
 Usage: catalyze files list [SERVICE_NAME]
@@ -490,10 +494,6 @@ Arguments:
 ```
 catalyze files list
 ```
-
-# Files
-
-The `files` command gives access to service files on your environment's services. Service files can include nginx configs, SSL certificates, and any other file that might be injected into your running service. The files command can not be run directly but has sub commands.
 
 # Global Options
 
@@ -576,79 +576,83 @@ associate.md
 associated.md
 automatic-updates.md
 bash-autocompletion.md
+certs.md
 certs-create.md
 certs-list.md
 certs-rm.md
 certs-update.md
-certs.md
 console.md
 dashboard.md
+db.md
 db-backup.md
 db-download.md
 db-export.md
 db-import.md
 db-list.md
 db-logs.md
-db.md
 default.md
+deploy-keys.md
 deploy-keys-add.md
 deploy-keys-list.md
 deploy-keys-rm.md
-deploy-keys.md
 disassociate.md
 environment-aliases.md
 environments.md
+files.md
 files-download.md
 files-list.md
-files.md
 global-options.md
 global-scope.md
 index.md
 index.txt
+invites.md
 invites-accept.md
 invites-list.md
 invites-rm.md
 invites-send.md
-invites.md
+keys.md
 keys-add.md
 keys-list.md
 keys-rm.md
 keys-set.md
-keys.md
 logout.md
 logs.md
+metrics.md
 metrics-cpu.md
 metrics-memory.md
 metrics-network-in.md
 metrics-network-out.md
-metrics.md
 rake.md
 redeploy.md
 services.md
+sites.md
 sites-create.md
 sites-list.md
 sites-rm.md
 sites-show.md
-sites.md
+ssl.md
 ssl-resolve.md
 ssl-verify.md
-ssl.md
 status.md
 support-ids.md
 supported-platforms.md
 update.md
+users.md
 users-list.md
 users-rm.md
-users.md
+vars.md
 vars-list.md
 vars-set.md
 vars-unset.md
-vars.md
 version.md
 whoami.md
 worker.md
 
-# Invites Accept
+# Invites
+
+The `invites` command gives access to organization invitations. Every environment is owned by an organization and users join organizations in order to access individual environments. You can invite new users by email and manage pending invites through the CLI. You cannot call the `invites` command directly, but must call one of its subcommands.
+
+## Invites Accept
 
 ```
 Usage: catalyze invites accept INVITE_CODE
@@ -665,7 +669,7 @@ Arguments:
 catalyze invites accept 5a206aa8-04f4-4bc1-a017-ede7e6c7dbe2
 ```
 
-# Invites List
+## Invites List
 
 ```
 Usage: catalyze invites list
@@ -679,7 +683,7 @@ List all pending organization invitations
 catalyze invites list
 ```
 
-# Invites Rm
+## Invites Rm
 
 ```
 Usage: catalyze invites rm INVITE_ID
@@ -696,7 +700,7 @@ Arguments:
 catalyze invites rm 78b5d0ed-f71c-47f7-a4c8-6c8c58c29db1
 ```
 
-# Invites Send
+## Invites Send
 
 ```
 Usage: catalyze invites send EMAIL [-m | -a]
@@ -717,11 +721,11 @@ Options:
 catalyze invites send coworker@catalyze.io -a
 ```
 
-# Invites
+# Keys
 
-The `invites` command gives access to organization invitations. Every environment is owned by an organization and users join organizations in order to access individual environments. You can invite new users by email and manage pending invites through the CLI. You cannot call the `invites` command directly, but must call one of its subcommands.
+The `keys` command gives access to SSH key management for your user account. SSH keys can be used for authentication and pushing code to the Catalyze platform. Any SSH keys added to your user account should not be shared but be treated as private SSH keys. Any SSH key uploaded to your user account will be able to be used with all code services and environments that you have access to. The keys command can not be run directly but has sub commands.
 
-# Keys Add
+## Keys Add
 
 ```
 Usage: catalyze keys add NAME PUBLIC_KEY_PATH
@@ -739,7 +743,7 @@ Arguments:
 catalyze keys add my_prod_key ~/.ssh/prod_rsa.pub
 ```
 
-# Keys List
+## Keys List
 
 ```
 Usage: catalyze keys list
@@ -753,7 +757,7 @@ List your public keys
 catalyze keys list
 ```
 
-# Keys Rm
+## Keys Rm
 
 ```
 Usage: catalyze keys rm NAME
@@ -770,7 +774,7 @@ Arguments:
 catalyze keys rm my_prod_key
 ```
 
-# Keys Set
+## Keys Set
 
 ```
 Usage: catalyze keys set PRIVATE_KEY_PATH
@@ -786,10 +790,6 @@ Arguments:
 ```
 catalyze keys set ~/.ssh/my_key
 ```
-
-# Keys
-
-The `keys` command gives access to SSH key management for your user account. SSH keys can be used for authentication and pushing code to the Catalyze platform. Any SSH keys added to your user account should not be shared but be treated as private SSH keys. Any SSH key uploaded to your user account will be able to be used with all code services and environments that you have access to. The keys command can not be run directly but has sub commands.
 
 # Logout
 
@@ -829,7 +829,11 @@ Options:
 catalyze logs -f --hours=6 --minutes=30
 ```
 
-# Metrics CPU
+# Metrics
+
+The `metrics` command gives access to environment metrics or individual service metrics through a variety of formats. This is useful for checking on the status and performance of your application or environment as a whole. The metrics command cannot be run directly but has sub commands.
+
+## Metrics CPU
 
 ```
 Usage: catalyze metrics cpu [SERVICE_NAME] [(--json | --csv | --spark)] [--stream] [-m]
@@ -856,7 +860,7 @@ catalyze metrics cpu --json
 catalyze metrics cpu db01 --csv -m 60
 ```
 
-# Metrics Memory
+## Metrics Memory
 
 ```
 Usage: catalyze metrics memory [SERVICE_NAME] [(--json | --csv | --spark)] [--stream] [-m]
@@ -883,7 +887,7 @@ catalyze metrics memory --json
 catalyze metrics memory db01 --csv -m 60
 ```
 
-# Metrics Network-In
+## Metrics Network-In
 
 ```
 Usage: catalyze metrics network-in [SERVICE_NAME] [(--json | --csv | --spark)] [--stream] [-m]
@@ -910,7 +914,7 @@ catalyze metrics network-in --json
 catalyze metrics network-in db01 --csv -m 60
 ```
 
-# Metrics Network-Out
+## Metrics Network-Out
 
 ```
 Usage: catalyze metrics network-out [SERVICE_NAME] [(--json | --csv | --spark)] [--stream] [-m]
@@ -936,10 +940,6 @@ catalyze metrics network-out app01 --stream
 catalyze metrics network-out --json
 catalyze metrics network-out db01 --csv -m 60
 ```
-
-# Metrics
-
-The `metrics` command gives access to environment metrics or individual service metrics through a variety of formats. This is useful for checking on the status and performance of your application or environment as a whole. The metrics command cannot be run directly but has sub commands.
 
 # Rake
 
@@ -989,7 +989,11 @@ List all services for your environment
 catalyze services
 ```
 
-# Sites Create
+# Sites
+
+The `sites` command gives access to hostname and SSL certificate usage for public facing services. `sites` are different from `certs` in that `sites` use an instance of a `cert` and are associated with a single service. `certs` can be used by multiple sites. The sites command can not be run directly but has sub commands.
+
+## Sites Create
 
 ```
 Usage: catalyze sites create NAME SERVICE_NAME HOSTNAME
@@ -1008,7 +1012,7 @@ Arguments:
 catalyze sites create .mysite.com app01 wildcard_mysitecom
 ```
 
-# Sites List
+## Sites List
 
 ```
 Usage: catalyze sites list
@@ -1022,7 +1026,7 @@ List details for all site configurations
 catalyze sites list
 ```
 
-# Sites Rm
+## Sites Rm
 
 ```
 Usage: catalyze sites rm NAME
@@ -1039,7 +1043,7 @@ Arguments:
 catalyze sites rm mywebsite.com
 ```
 
-# Sites Show
+## Sites Show
 
 ```
 Usage: catalyze sites show NAME
@@ -1056,11 +1060,11 @@ Arguments:
 catalyze sites show mywebsite.com
 ```
 
-# Sites
+# SSL
 
-The `sites` command gives access to hostname and SSL certificate usage for public facing services. `sites` are different from `certs` in that `sites` use an instance of a `cert` and are associated with a single service. `certs` can be used by multiple sites. The sites command can not be run directly but has sub commands.
+The `ssl` command offers access to subcommands that deal with SSL certificates. You cannot run the SSL command directly but must call a subcommand.
 
-# SSL Resolve
+## SSL Resolve
 
 ```
 Usage: catalyze ssl resolve CHAIN PRIVATE_KEY HOSTNAME [OUTPUT] [-f]
@@ -1108,7 +1112,7 @@ catalyze ssl resolve ~/mysites_cert.pem ~/mysites_key.key *.mysite.com ~/updated
 catalyze ssl resolve ~/mysites_cert.pem ~/mysites_key.key *.mysite.com
 ```
 
-# SSL Verify
+## SSL Verify
 
 ```
 Usage: catalyze ssl verify CHAIN PRIVATE_KEY HOSTNAME [-s]
@@ -1146,10 +1150,6 @@ You can also use this command to verify self-signed certificates match a given p
 catalyze ssl verify ./catalyze.crt ./catalyze.key *.catalyze.io
 catalyze ssl verify ~/self-signed.crt ~/self-signed.key "" -s
 ```
-
-# SSL
-
-The `ssl` command offers access to subcommands that deal with SSL certificates. You cannot run the SSL command directly but must call a subcommand.
 
 # Status
 
@@ -1203,7 +1203,11 @@ Checks for available updates and updates the CLI if a new update is available
 catalyze update
 ```
 
-# Users List
+# Users
+
+The `users` command allows you to manage who has access to your environment through the organization that owns the environment. The users command can not be run directly but has three sub commands.
+
+## Users List
 
 ```
 Usage: catalyze users list
@@ -1217,7 +1221,7 @@ List all users who have access to the given organization
 catalyze users list
 ```
 
-# Users Rm
+## Users Rm
 
 ```
 Usage: catalyze users rm EMAIL
@@ -1234,11 +1238,11 @@ Arguments:
 catalyze users rm user@example.com
 ```
 
-# Users
+# Vars
 
-The `users` command allows you to manage who has access to your environment through the organization that owns the environment. The users command can not be run directly but has three sub commands.
+The `vars` command allows you to manage environment variables for your code services. The vars command can not be run directly but has sub commands.
 
-# Vars List
+## Vars List
 
 ```
 Usage: catalyze vars list
@@ -1252,7 +1256,7 @@ List all environment variables
 catalyze vars list
 ```
 
-# Vars Set
+## Vars Set
 
 ```
 Usage: catalyze vars set -v...
@@ -1269,7 +1273,7 @@ Options:
 catalyze vars set -v AWS_ACCESS_KEY_ID=1234 -v AWS_SECRET_ACCESS_KEY=5678
 ```
 
-# Vars Unset
+## Vars Unset
 
 ```
 Usage: catalyze vars unset VARIABLE
@@ -1285,10 +1289,6 @@ Arguments:
 ```
 catalyze vars unset AWS_ACCESS_KEY_ID
 ```
-
-# Vars
-
-The `vars` command allows you to manage environment variables for your code services. The vars command can not be run directly but has sub commands.
 
 # Version
 

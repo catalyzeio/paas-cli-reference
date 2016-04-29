@@ -3,7 +3,7 @@ title: Vars Unset
 layout: paas_cli
 ---
 
-# Vars Unset
+## Vars Unset
 
 ```
 Usage: catalyze vars unset VARIABLE
