@@ -67,7 +67,7 @@ The following table outlines all global options available in the CLI. Global opt
 |------------|-----------|-------------|----------------------|
 | -U | --username | Your catalyze username that you login to the Dashboard with | CATALYZE_USERNAME |
 | -P | --password | Your catalyze password that you login to the Dashboard with | CATALYZE_PASSWORD |
-| -E | --env | The local alias of the environment in which this command will be run. Read more about [environment aliases](/paas/paas-cli-reference/#environment-aliases) | CATALYZE_ENV |
+| -E | --env | The local alias of the environment in which this command will be run. Read more about [environment aliases](#environment-aliases) | CATALYZE_ENV |
 | -v | --version | Prints out the CLI version | |
 
 # Overview
@@ -137,7 +137,7 @@ Options:
   -d, --default=false       Specifies whether or not the associated environment will be the default
 ```
 
-`associate` is the entry point of the cli. You need to associate an environment before you can run most other commands. Check out [scope](#global-scope) and [aliases](/paas/paas-cli-reference/#environment-aliases) for more info on the value of the alias and default options. Here is a sample command
+`associate` is the entry point of the cli. You need to associate an environment before you can run most other commands. Check out [scope](#global-scope) and [aliases](#environment-aliases) for more info on the value of the alias and default options. Here is a sample command
 
 ```
 catalyze associate My-Production-Environment app01 -a prod -d
@@ -234,7 +234,7 @@ Options:
   -r, --resolve=true        Whether or not to attempt to automatically resolve incomplete SSL certificate issues
 ```
 
-`certs update` works nearly identical to the [certs create](/paas/paas-cli-reference/#certs-create) command. All rules regarding self signed certs and certificate resolution from the `certs create` command apply to the `certs update` command. This is useful for when your certificates have expired and you need to upload new ones. Simply update your certs, then redeploy your services. Here is a sample command
+`certs update` works nearly identical to the [certs create](#certs-create) command. All rules regarding self signed certs and certificate resolution from the `certs create` command apply to the `certs update` command. This is useful for when your certificates have expired and you need to upload new ones. Simply update your certs, then redeploy your services. Here is a sample command
 
 ```
 catalyze certs update mywebsite.com ~/path/to/new/cert.pem ~/path/to/new/priv.key
@@ -940,7 +940,7 @@ Arguments:
   HOSTNAME=""       The hostname used in the creation of a certs instance with the 'certs' command
 ```
 
-`sites create` allows you to create a site configuration that is tied to a single service. To create a site, you must first [create a cert](/paas/paas-cli-reference/#certs-create). A site has three pieces of information, a name, the service it's tied to, and the cert instance it will use. The name is the `server_name` that will be injected into this site's nginx configuration file. It is important that this site name match what URL your site will respond to. If this is a basic domain, using `mysite.com` is sufficient. If it should respond to the APEX domain and all subdomains, it should be named `.mysite.com` notice the leading `.`. The service is a code service that will use this site configuration. Lastly, the cert instance must be specified by the `HOSTNAME` argument used in the [certs create](/paas/paas-cli-reference/#certs-create) command. Here is a sample command
+`sites create` allows you to create a site configuration that is tied to a single service. To create a site, you must first [create a cert](#certs-create). A site has three pieces of information, a name, the service it's tied to, and the cert instance it will use. The name is the `server_name` that will be injected into this site's nginx configuration file. It is important that this site name match what URL your site will respond to. If this is a basic domain, using `mysite.com` is sufficient. If it should respond to the APEX domain and all subdomains, it should be named `.mysite.com` notice the leading `.`. The service is a code service that will use this site configuration. Lastly, the cert instance must be specified by the `HOSTNAME` argument used in the [certs create](#certs-create) command. Here is a sample command
 
 ```
 catalyze sites create .mysite.com app01 wildcard_mysitecom
@@ -1258,3 +1258,4 @@ Arguments:
 ```
 catalyze worker web
 ```
+
