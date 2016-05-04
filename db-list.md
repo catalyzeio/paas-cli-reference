@@ -18,7 +18,7 @@ Options:
   -n, --page-size=10   The number of items to show per page
 ```
 
-`db list` lists all previously created backups. After listing backups you can copy the backup ID and use it to [download](/paas/paas-cli-reference/#DBDownload) that backup or [view the logs](/paas/paas-cli-reference/#DBLogs) from that backup. Here is a sample command
+`db list` lists all previously created backups. After listing backups you can copy the backup ID and use it to [download](#db-download) that backup or [view the logs](#db-logs) from that backup. Here is a sample command
 
 ```
 catalyze db list db01
