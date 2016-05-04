@@ -14,7 +14,7 @@ Arguments:
   NAME=""      The name of the site configuration to show
 ```
 
-`sites show` will print out detailed information for a single site. The name of the site can be found from the [sites list](https://resources.catalyze.io/paas/cli/sections/sites-list/) command. Here is a sample command
+`sites show` will print out detailed information for a single site. The name of the site can be found from the [sites list](#SitesList) command. Here is a sample command
 
 ```
 catalyze sites show mywebsite.com

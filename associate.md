@@ -20,7 +20,7 @@ Options:
   -d, --default=false       Specifies whether or not the associated environment will be the default
 ```
 
-`associate` is the entry point of the cli. You need to associate an environment before you can run most other commands. Check out [scope](https://resources.catalyze.io/paas/cli/sections/global-scope/) and [aliases](https://resources.catalyze.io/paas/cli/sections/environment-aliases/) for more info on the value of the alias and default options. Here is a sample command
+`associate` is the entry point of the cli. You need to associate an environment before you can run most other commands. Check out [scope](#GlobalScope) and [aliases](#EnvironmentAliases) for more info on the value of the alias and default options. Here is a sample command
 
 ```
 catalyze associate My-Production-Environment app01 -a prod -d

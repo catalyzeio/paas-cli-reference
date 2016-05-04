@@ -20,7 +20,7 @@ Options:
   -r, --resolve=true        Whether or not to attempt to automatically resolve incomplete SSL certificate issues
 ```
 
-`certs update` works nearly identical to the [certs create](https://resources.catalyze.io/paas/cli/sections/certs-create/) command. All rules regarding self signed certs and certificate resolution from the `certs create` command apply to the `certs update` command. This is useful for when your certificates have expired and you need to upload new ones. Simply update your certs, then redeploy your services. Here is a sample command
+`certs update` works nearly identical to the [certs create](#CertsCreate) command. All rules regarding self signed certs and certificate resolution from the `certs create` command apply to the `certs update` command. This is useful for when your certificates have expired and you need to upload new ones. Simply update your certs, then redeploy your services. Here is a sample command
 
 ```
 catalyze certs update mywebsite.com ~/path/to/new/cert.pem ~/path/to/new/priv.key
