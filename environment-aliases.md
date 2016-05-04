@@ -20,7 +20,7 @@ When you associate an environment and you want to pick a shorter name to referen
 catalyze associate "My Health Tech Company Production" app01 -a prod
 ```
 
-Now when you run the [associated](/paas/paas-cli-reference//paas/paas-cli-reference/#Associated) command, you will see the alias as well as the actual environment name.
+Now when you run the [associated](/paas/paas-cli-reference/#Associated) command, you will see the alias as well as the actual environment name.
 
 When using aliases, there are a couple things to keep in mind. Aliases are only local and never leave your local machine. If you alias this environment `prod`, a coworker can alias the environment `healthtech-prod` with no ramifications. Second, after setting an alias you will never reference the environment by its actual name with the CLI. You will always use the alias for flags, arguments, options, etc.
 

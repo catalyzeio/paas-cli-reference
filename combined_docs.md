@@ -26,7 +26,7 @@ First, you can tell the CLI which environment you want to use with the global op
 catalyze -E myprod ...
 ```
 
-This global option will even override the environment found in a local git repo. If you don't set the `-E` flag, and the CLI can't find an environment in your local git repo, the CLI then checks for a default environment. A default environment is used whenever you are outside of a git repo and an environment is not specified. A default environment can be specified using the [default](/paas/paas-cli-reference/#Default) command. You can find out which environment is the default by running the [associated](/paas/paas-cli-reference//paas/paas-cli-reference/#Associated) command.
+This global option will even override the environment found in a local git repo. If you don't set the `-E` flag, and the CLI can't find an environment in your local git repo, the CLI then checks for a default environment. A default environment is used whenever you are outside of a git repo and an environment is not specified. A default environment can be specified using the [default](/paas/paas-cli-reference/#Default) command. You can find out which environment is the default by running the [associated](/paas/paas-cli-reference/#Associated) command.
 
 Lastly, if no environment is specified, you're outside of a git repo, and no default environment is set, then the CLI simply takes the first environment you associated and prompts you to continue with this environment. This concept of scope will make it easier for Catalyze customers with multiple environments to use the CLI!
 
@@ -47,7 +47,7 @@ When you associate an environment and you want to pick a shorter name to referen
 catalyze associate "My Health Tech Company Production" app01 -a prod
 ```
 
-Now when you run the [associated](/paas/paas-cli-reference//paas/paas-cli-reference/#Associated) command, you will see the alias as well as the actual environment name.
+Now when you run the [associated](/paas/paas-cli-reference/#Associated) command, you will see the alias as well as the actual environment name.
 
 When using aliases, there are a couple things to keep in mind. Aliases are only local and never leave your local machine. If you alias this environment `prod`, a coworker can alias the environment `healthtech-prod` with no ramifications. Second, after setting an alias you will never reference the environment by its actual name with the CLI. You will always use the alias for flags, arguments, options, etc.
 
