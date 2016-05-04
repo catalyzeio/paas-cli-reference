@@ -20,7 +20,7 @@ The CLI now supports the concept of scope. Previous to version 2.0.0, all comman
 
 Let's say you have an environment that you associated in the directory `~/mysandbox-code` and another you associated in the directory `~/myprod-code`. These environments are named `mysandbox` and `myprod` respectively. When you are within either of those directories, the CLI knows that any command you run will be in the context of that given environment. Commands run in the `~/myprod-code` directory will be run against the `myprod` environment. Similarly for `~/mysandbox-code` and the `mysandbox` environment. What if you are outside those directories? You have three options.
 
-First, you can tell the CLI which environment you want to use with the global option `-E` or `--env` (see [Global Options](/paas/paas-cli-reference/#GlobalOptions)). Your command might start like this
+First, you can tell the CLI which environment you want to use with the global option `-E` or `--env` (see [Global Options](#global-options)). Your command might start like this
 
 ```
 catalyze -E myprod ...
@@ -1258,4 +1258,3 @@ Arguments:
 ```
 catalyze worker web
 ```
-
