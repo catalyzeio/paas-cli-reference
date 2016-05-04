@@ -12,7 +12,7 @@ When you associate an environment from within a local git repo, you typically ru
 catalyze associate "My Health Tech Company Production" app01
 ```
 
-Where `My Health Tech Company Production` is the name of your environment. However with the concept of <a data-unique="GlobalScope">scope</a> and being able to specify which environment to use on a command by command basis with the `-E` global option, that is a lot to type! This is where environment aliases come in handy.
+Where `My Health Tech Company Production` is the name of your environment. However with the concept of [scope](/paas/paas-cli-reference/#GlobalScope) and being able to specify which environment to use on a command by command basis with the `-E` global option, that is a lot to type! This is where environment aliases come in handy.
 
 When you associate an environment and you want to pick a shorter name to reference the environment by, simply add a `-a` flag to the command. Let's try the command again calling it `prod` this time:
 
@@ -20,8 +20,8 @@ When you associate an environment and you want to pick a shorter name to referen
 catalyze associate "My Health Tech Company Production" app01 -a prod
 ```
 
-Now when you run the <a data-unique="Associated">associated</a> command, you will see the alias as well as the actual environment name.
+Now when you run the [associated](/paas/paas-cli-reference//paas/paas-cli-reference/#Associated) command, you will see the alias as well as the actual environment name.
 
 When using aliases, there are a couple things to keep in mind. Aliases are only local and never leave your local machine. If you alias this environment `prod`, a coworker can alias the environment `healthtech-prod` with no ramifications. Second, after setting an alias you will never reference the environment by its actual name with the CLI. You will always use the alias for flags, arguments, options, etc.
 
-To change or remove an alias, you must <a data-unique="Disassociate">disassociate</a> and then <a data-unique="Associate">reassociate</a> with a new alias.
+To change or remove an alias, you must [disassociate](/paas/paas-cli-reference/#Disassociate) and then [reassociate](/paas/paas-cli-reference/#Associate) with a new alias.

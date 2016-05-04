@@ -19,7 +19,7 @@ Options:
   -p, --private=false   Whether or not this is a private key
 ```
 
-`deploy-keys add` allows you to upload an SSH public key or SSH private key in OpenSSH format. These keys are used for pushing code to your code services but are not required. You may use personal SSH keys with the <a data-unique="Keys">keys</a> command instead. Deploy keys are useful for Continuous Integration or Continuous Deployment scenarios and are intended to be shared among an organization. Here are some sample commands
+`deploy-keys add` allows you to upload an SSH public key or SSH private key in OpenSSH format. These keys are used for pushing code to your code services but are not required. You may use personal SSH keys with the [keys](/paas/paas-cli-reference/#Keys) command instead. Deploy keys are useful for Continuous Integration or Continuous Deployment scenarios and are intended to be shared among an organization. Here are some sample commands
 
 ```
 catalyze deploy-keys add app01_public ~/.ssh/app01_rsa.pub app01

@@ -19,7 +19,7 @@ Options:
   -f, --force=false   If a file previously exists at "filepath", overwrite it and download the backup
 ```
 
-`db download` downloads a previously created backup to your local hard drive. Be careful using this command is it could download PHI. Be sure that all hard drive encryption and necessary precautions have been taken before performing a download. The ID of the backup is found by first running the <a data-unique="DBList">db list</a> command. Here is a sample command
+`db download` downloads a previously created backup to your local hard drive. Be careful using this command is it could download PHI. Be sure that all hard drive encryption and necessary precautions have been taken before performing a download. The ID of the backup is found by first running the [db list](/paas/paas-cli-reference/#DBList) command. Here is a sample command
 
 ```
 catalyze db download db01 cd2b4bce-2727-42d1-89e0-027bf3f1a203 ./db.sql
