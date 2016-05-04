@@ -1,3 +1,125 @@
+# Automatic Updates
+
+Once downloaded, the CLI will attempt to automatically update itself when a new version becomes available. This ensures you are always running a compatible version of the Catalyze CLI. However you can always check out the latest releases on the [releases page](https://github.com/catalyzeio/cli/releases).
+
+To ensure your CLI can automatically update itself, be sure to put the binary in a location where you have write access without the need for sudo or escalated privileges.
+
+# Supported Platforms
+
+Since version 2.0.0, the following platforms and architectures are supported by the Catalyze CLI.
+
+| OS | Architecture |
+|----|--------------|
+| Darwin (Mac OS X) | 64-bit, 32-bit |
+| Linux | 64-bit, 32-bit |
+| Windows | 64-bit, 32-bit |
+
+# Global Scope
+
+The CLI now supports the concept of scope. Previous to version 2.0.0, all commands had to be run within an associated local git repo. Now, the only time you need to be in a local git repo is when you associate to a new environment. After the initial association, CLI commands can be run from any directory. If you have more than one environment, the CLI uses this concept of scope to decide which environment you are using for the command.
+
+Let's say you have an environment that you associated in the directory `~/mysandbox-code` and another you associated in the directory `~/myprod-code`. These environments are named `mysandbox` and `myprod` respectively. When you are within either of those directories, the CLI knows that any command you run will be in the context of that given environment. Commands run in the `~/myprod-code` directory will be run against the `myprod` environment. Similarly for `~/mysandbox-code` and the `mysandbox` environment. What if you are outside those directories? You have three options.
+
+First, you can tell the CLI which environment you want to use with the global option `-E` or `--env` (see [Global Options](#global-options)). Your command might start like this
+
+```
+catalyze -E myprod ...
+```
+
+This global option will even override the environment found in a local git repo. If you don't set the `-E` flag, and the CLI can't find an environment in your local git repo, the CLI then checks for a default environment. A default environment is used whenever you are outside of a git repo and an environment is not specified. A default environment can be specified using the [default](#default) command. You can find out which environment is the default by running the [associated](#associated) command.
+
+Lastly, if no environment is specified, you're outside of a git repo, and no default environment is set, then the CLI simply takes the first environment you associated and prompts you to continue with this environment. This concept of scope will make it easier for Catalyze customers with multiple environments to use the CLI!
+
+# Environment Aliases
+
+
+When you associate an environment from within a local git repo, you typically run the following command:
+
+```
+catalyze associate "My Health Tech Company Production" app01
+```
+
+Where `My Health Tech Company Production` is the name of your environment. However with the concept of [scope](#global-scope) and being able to specify which environment to use on a command by command basis with the `-E` global option, that is a lot to type! This is where environment aliases come in handy.
+
+When you associate an environment and you want to pick a shorter name to reference the environment by, simply add a `-a` flag to the command. Let's try the command again calling it `prod` this time:
+
+```
+catalyze associate "My Health Tech Company Production" app01 -a prod
+```
+
+Now when you run the [associated](#associated) command, you will see the alias as well as the actual environment name.
+
+When using aliases, there are a couple things to keep in mind. Aliases are only local and never leave your local machine. If you alias this environment `prod`, a coworker can alias the environment `healthtech-prod` with no ramifications. Second, after setting an alias you will never reference the environment by its actual name with the CLI. You will always use the alias for flags, arguments, options, etc.
+
+To change or remove an alias, you must [disassociate](#disassociate) and then [reassociate](#associate) with a new alias.
+
+# Bash Autocompletion
+
+One feature we've found helpful on \*Nix systems is autocompletion in bash. To enable this feature, head over to the github repo and download the `catalyze_autocomplete` file. If you use a Mac, you will need to install bash-completion with `brew install bash-completion` or `source` the `catalyze_autocomplete` file each time you start up terminal. Store this file locally in `/etc/bash_completion.d/` or (`/usr/local/etc/bash_completion.d/` on Mac). Completion will be available when you restart terminal. Now simply type `catalyze ` and hit tab twice to see the list of available commands. **Please note** that autocompletion only works one level deep. The CLI will not autocomplete or suggest completions when you type `catalyze db ` and then hit tab twice. It currently only works when you have just `catalyze ` typed into your terminal. This is a feature we are looking into expanding in the future.
+
+Note: you may have to add `source /etc/bash_completion.d/catalyze_autocomplete` (`/usr/local/etc/bash_completion.d/catalyze_autocomplete`) in your `~/.bashrc` (`~/.bash_profile`) file.
+
+# Global Options
+
+The following table outlines all global options available in the CLI. Global options are always set after the word `catalyze` and before any commands. Rather than setting these each time, you may also set an environment variable with the appropriate value which will automatically be used.
+
+| Short Name | Long Name | Description | Environment Variable |
+|------------|-----------|-------------|----------------------|
+| -U | --username | Your catalyze username that you login to the Dashboard with | CATALYZE_USERNAME |
+| -P | --password | Your catalyze password that you login to the Dashboard with | CATALYZE_PASSWORD |
+| -E | --env | The local alias of the environment in which this command will be run. Read more about [environment aliases](#environment-aliases) | CATALYZE_ENV |
+| -v | --version | Prints out the CLI version | |
+
+# Overview
+
+Usage: catalyze [OPTIONS] COMMAND [arg...]
+
+Catalyze CLI. Version 2.3.0
+
+Options:
+
+```
+  -U, --username        Catalyze Username ($CATALYZE_USERNAME)
+  -P, --password        Catalyze Password ($CATALYZE_PASSWORD)
+  -E, --env             The local alias of the environment in which this command will be run ($CATALYZE_ENV)
+  -v, --version=false   Show the version and exit
+```
+
+Commands:
+
+```
+  associate      Associates an environment
+  associated     Lists all associated environments
+  certs          Manage your SSL certificates and domains
+  console        Open a secure console to a service
+  dashboard      Open the Catalyze Dashboard in your default browser
+  db             Tasks for databases
+  default        Set the default associated environment
+  disassociate   Remove the association with an environment
+  environments   List all environments you have access to
+  files          Tasks for managing service files
+  invites        Manage invitations for your organizations
+  keys           Tasks for SSH keys
+  logs           Show the logs in your terminal streamed from your logging dashboard
+  logout         Clear the stored user information from your local machine
+  metrics        Print service and environment metrics in your local time zone
+  rake           Execute a rake task
+  redeploy       Redeploy a service without having to do a git push
+  services       List all services for your environment
+  sites          Tasks for updating sites, including hostnames, SSL certificates, and private keys
+  ssl            Perform operations on local certificates to verify their validity
+  status         Get quick readout of the current status of your associated environment and all of its services
+  supportids     Print out various IDs related to your associated environment to be used when contacting Catalyze support
+  update         Checks for available updates and updates the CLI if a new update is available
+  users          Manage users who have access to the given organization
+  vars           Interaction with environment variables for the associated environment
+  whoami         Retrieve your user ID
+  worker         Start a background worker
+  version        Output the version and quit
+```
+
+Run 'catalyze COMMAND --help' for more information on a command.
+
 # Associate
 
 ```
@@ -15,7 +137,7 @@ Options:
   -d, --default=false       Specifies whether or not the associated environment will be the default
 ```
 
-`associate` is the entry point of the cli. You need to associate an environment before you can run most other commands. Check out [scope](https://resources.catalyze.io/paas/cli/sections/global-scope/) and [aliases](https://resources.catalyze.io/paas/cli/sections/environment-aliases/) for more info on the value of the alias and default options. Here is a sample command
+`associate` is the entry point of the cli. You need to associate an environment before you can run most other commands. Check out [scope](#global-scope) and [aliases](#environment-aliases) for more info on the value of the alias and default options. Here is a sample command
 
 ```
 catalyze associate My-Production-Environment app01 -a prod -d
@@ -34,18 +156,6 @@ Lists all associated environments
 ```
 catalyze associated
 ```
-
-# Automatic Updates
-
-Once downloaded, the CLI will attempt to automatically update itself when a new version becomes available. This ensures you are always running a compatible version of the Catalyze CLI. However you can always check out the latest releases on the [releases page](https://github.com/catalyzeio/cli/releases).
-
-To ensure your CLI can automatically update itself, be sure to put the binary in a location where you have write access without the need for sudo or escalated privileges.
-
-# Bash Autocompletion
-
-One feature we've found helpful on \*Nix systems is autocompletion in bash. To enable this feature, head over to the github repo and download the `catalyze_autocomplete` file. If you use a Mac, you will need to install bash-completion with `brew install bash-completion` or `source` the `catalyze_autocomplete` file each time you start up terminal. Store this file locally in `/etc/bash_completion.d/` or (`/usr/local/etc/bash_completion.d/` on Mac). Completion will be available when you restart terminal. Now simply type `catalyze ` and hit tab twice to see the list of available commands. **Please note** that autocompletion only works one level deep. The CLI will not autocomplete or suggest completions when you type `catalyze db ` and then hit tab twice. It currently only works when you have just `catalyze ` typed into your terminal. This is a feature we are looking into expanding in the future.
-
-Note: you may have to add `source /etc/bash_completion.d/catalyze_autocomplete` (`/usr/local/etc/bash_completion.d/catalyze_autocomplete`) in your `~/.bashrc` (`~/.bash_profile`) file.
 
 # Certs
 
@@ -68,7 +178,7 @@ Options:
   -r, --resolve=true        Whether or not to attempt to automatically resolve incomplete SSL certificate issues
 ```
 
-`certs create` allows you to upload an SSL certificate and private key which can be used to secure your public facing code service. Cert creation can be done at any time, even after environment provisioning, but must be done before [creating a site](https://resources.catalyze.io/paas/cli/sections/sites-create/). When creating a cert, the CLI will check to ensure the certificate and private key match and the given hostname is valid for the given certificate. If you are using a self signed cert, pass in the `-s` flag and the hostname check will be skipped. Catalyze requires that your certificate include your own certificate, intermediate certificates, and the root certificate in that order. If you only include your certificate, the CLI will attempt to resolve this and fetch intermediate and root certificates for you. It is advised that you create a full chain before running this command as the `-r` flag is accomplished on a "best effort" basis.
+`certs create` allows you to upload an SSL certificate and private key which can be used to secure your public facing code service. Cert creation can be done at any time, even after environment provisioning, but must be done before [creating a site](#sites-create). When creating a cert, the CLI will check to ensure the certificate and private key match and the given hostname is valid for the given certificate. If you are using a self signed cert, pass in the `-s` flag and the hostname check will be skipped. Catalyze requires that your certificate include your own certificate, intermediate certificates, and the root certificate in that order. If you only include your certificate, the CLI will attempt to resolve this and fetch intermediate and root certificates for you. It is advised that you create a full chain before running this command as the `-r` flag is accomplished on a "best effort" basis.
 
 The `HOSTNAME` for a certificate does not need to match the valid Subject of the actual SSL certificate nor does it need to match the `site` name used in the `sites create` command. The `HOSTNAME` is used for organizational purposes only and can be named anything with the exclusion of the following characters: `/`, `&`, `%`. Here is a sample command
 
@@ -84,7 +194,7 @@ Usage: catalyze certs list
 List all existing domains that have SSL certificate and private key pairs
 ```
 
-`certs list` lists all of the available certs you have created on your environment. The displayed names are the names that should be used as the `DOMAIN` parameter in the [sites create](https://resources.catalyze.io/paas/cli/sections/sites-create/) command. Here is a sample command
+`certs list` lists all of the available certs you have created on your environment. The displayed names are the names that should be used as the `DOMAIN` parameter in the [sites create](#sites-create) command. Here is a sample command
 
 ```
 catalyze certs list
@@ -124,7 +234,7 @@ Options:
   -r, --resolve=true        Whether or not to attempt to automatically resolve incomplete SSL certificate issues
 ```
 
-`certs update` works nearly identical to the [certs create](https://resources.catalyze.io/paas/cli/sections/certs-create/) command. All rules regarding self signed certs and certificate resolution from the `certs create` command apply to the `certs update` command. This is useful for when your certificates have expired and you need to upload new ones. Simply update your certs, then redeploy your services. Here is a sample command
+`certs update` works nearly identical to the [certs create](#certs-create) command. All rules regarding self signed certs and certificate resolution from the `certs create` command apply to the `certs update` command. This is useful for when your certificates have expired and you need to upload new ones. Simply update your certs, then redeploy your services. Here is a sample command
 
 ```
 catalyze certs update mywebsite.com ~/path/to/new/cert.pem ~/path/to/new/priv.key
@@ -181,7 +291,7 @@ Options:
   -s, --skip-poll=false   Whether or not to wait for the backup to finish
 ```
 
-`db backup` creates a new backup for the given database service. The backup is started and unless `-s` is specified, the CLI will poll every few seconds until it finishes. Regardless of a successful backup or not, the logs for the backup will be printed to the console when the backup is finished. If an error occurs and the logs are not printed, you can use the [db logs](https://resources.catalyze.io/paas/cli/sections/db-logs/) command to print out historical backup job logs. Here is a sample command
+`db backup` creates a new backup for the given database service. The backup is started and unless `-s` is specified, the CLI will poll every few seconds until it finishes. Regardless of a successful backup or not, the logs for the backup will be printed to the console when the backup is finished. If an error occurs and the logs are not printed, you can use the [db logs](#db-logs) command to print out historical backup job logs. Here is a sample command
 
 ```
 catalyze db backup db01
@@ -203,7 +313,7 @@ Options:
   -f, --force=false   If a file previously exists at "filepath", overwrite it and download the backup
 ```
 
-`db download` downloads a previously created backup to your local hard drive. Be careful using this command is it could download PHI. Be sure that all hard drive encryption and necessary precautions have been taken before performing a download. The ID of the backup is found by first running the [db list](https://resources.catalyze.io/paas/cli/sections/db-list/) command. Here is a sample command
+`db download` downloads a previously created backup to your local hard drive. Be careful using this command is it could download PHI. Be sure that all hard drive encryption and necessary precautions have been taken before performing a download. The ID of the backup is found by first running the [db list](#db-list) command. Here is a sample command
 
 ```
 catalyze db download db01 cd2b4bce-2727-42d1-89e0-027bf3f1a203 ./db.sql
@@ -230,7 +340,7 @@ Options:
   -f, --force=false   If a file previously exists at `filepath`, overwrite it and export data
 ```
 
-`db export` is a simple wrapper around the `db backup` and `db download` commands. When you request an export, a backup is created that will be added to the list of backups shown when you perform the [db list](https://resources.catalyze.io/paas/cli/sections/db-list/) command. Then that backup is immediately downloaded. Regardless of a successful export or not, the logs for the backup will be printed to the console when the export is finished. If an error occurs and the logs are not printed, you can use the [db logs](https://resources.catalyze.io/paas/cli/sections/db-logs/) command to print out historical backup job logs. Here is a sample command
+`db export` is a simple wrapper around the `db backup` and `db download` commands. When you request an export, a backup is created that will be added to the list of backups shown when you perform the [db list](#db-list) command. Then that backup is immediately downloaded. Regardless of a successful export or not, the logs for the backup will be printed to the console when the export is finished. If an error occurs and the logs are not printed, you can use the [db logs](#db-logs) command to print out historical backup job logs. Here is a sample command
 
 ```
 catalyze db export db01 ./dbexport.sql
@@ -291,7 +401,7 @@ Options:
   -n, --page-size=10   The number of items to show per page
 ```
 
-`db list` lists all previously created backups. After listing backups you can copy the backup ID and use it to [download](https://resources.catalyze.io/paas/cli/sections/db-download/) that backup or [view the logs](https://resources.catalyze.io/paas/cli/sections/db-logs/) from that backup. Here is a sample command
+`db list` lists all previously created backups. After listing backups you can copy the backup ID and use it to [download](#db-download) that backup or [view the logs](#db-logs) from that backup. Here is a sample command
 
 ```
 catalyze db list db01
@@ -326,7 +436,7 @@ Arguments:
   ENV_ALIAS=""   The alias of an already associated environment to set as the default
 ```
 
-`default` sets the default environment for all commands that don't specify an environment with the `-E` flag or commands that are run outside of a git repo. See [scope](https://resources.catalyze.io/paas/cli/sections/global-scope/) for more information on scope and default environments. When setting a default environment, you must give the alias of the environment if one was set when it was associated and not the real environment name. Here is a sample command
+`default` sets the default environment for all commands that don't specify an environment with the `-E` flag or commands that are run outside of a git repo. See [scope](#global-scope) for more information on scope and default environments. When setting a default environment, you must give the alias of the environment if one was set when it was associated and not the real environment name. Here is a sample command
 
 ```
 catalyze default prod
@@ -352,7 +462,7 @@ Options:
   -p, --private=false   Whether or not this is a private key
 ```
 
-`deploy-keys add` allows you to upload an SSH public key or SSH private key in OpenSSH format. These keys are used for pushing code to your code services but are not required. You may use personal SSH keys with the [keys](https://resources.catalyze.io/paas/cli/sections/keys/) command instead. Deploy keys are useful for Continuous Integration or Continuous Deployment scenarios and are intended to be shared among an organization. Here are some sample commands
+`deploy-keys add` allows you to upload an SSH public key or SSH private key in OpenSSH format. These keys are used for pushing code to your code services but are not required. You may use personal SSH keys with the [keys](#keys) command instead. Deploy keys are useful for Continuous Integration or Continuous Deployment scenarios and are intended to be shared among an organization. Here are some sample commands
 
 ```
 catalyze deploy-keys add app01_public ~/.ssh/app01_rsa.pub app01
@@ -415,29 +525,6 @@ Arguments:
 catalyze disassociate myprod
 ```
 
-# Environment Aliases
-
-
-When you associate an environment from within a local git repo, you typically run the following command:
-
-```
-catalyze associate "My Health Tech Company Production" app01
-```
-
-Where `My Health Tech Company Production` is the name of your environment. However with the concept of [scope](https://resources.catalyze.io/paas/cli/sections/global-scope/) and being able to specify which environment to use on a command by command basis with the `-E` global option, that is a lot to type! This is where environment aliases come in handy.
-
-When you associate an environment and you want to pick a shorter name to reference the environment by, simply add a `-a` flag to the command. Let's try the command again calling it `prod` this time:
-
-```
-catalyze associate "My Health Tech Company Production" app01 -a prod
-```
-
-Now when you run the [associated](https://resources.catalyze.io/paas/cli/sections/associated/) command, you will see the alias as well as the actual environment name.
-
-When using aliases, there are a couple things to keep in mind. Aliases are only local and never leave your local machine. If you alias this environment `prod`, a coworker can alias the environment `healthtech-prod` with no ramifications. Second, after setting an alias you will never reference the environment by its actual name with the CLI. You will always use the alias for flags, arguments, options, etc.
-
-To change or remove an alias, you must [disassociate](https://resources.catalyze.io/paas/cli/sections/disassociate/) and then [reassociate](https://resources.catalyze.io/paas/cli/sections/associate/) with a new alias.
-
 # Environments
 
 ```
@@ -472,7 +559,7 @@ Options:
   -f, --force=false   If the specified output file already exists, automatically overwrite it
 ```
 
-`files download` allows you to view the contents of a service file and save it to your local machine. Most service files are stored on your service_proxy and therefore you should not have to specify the `SERVICE_NAME` argument. Simply supply the `FILE_NAME` found from the [files list](https://resources.catalyze.io/paas/cli/sections/files-list/) command and the contents of the file, as well as the permissions string, will be printed to your console. You can always store the file locally, applying the same permissions as those on the remote server, by specifying an output file with the `-o` flag. Here is a sample command
+`files download` allows you to view the contents of a service file and save it to your local machine. Most service files are stored on your service_proxy and therefore you should not have to specify the `SERVICE_NAME` argument. Simply supply the `FILE_NAME` found from the [files list](#files-list) command and the contents of the file, as well as the permissions string, will be printed to your console. You can always store the file locally, applying the same permissions as those on the remote server, by specifying an output file with the `-o` flag. Here is a sample command
 
 ```
 catalyze files download /etc/nginx/sites-enabled/mywebsite.com
@@ -494,159 +581,6 @@ Arguments:
 ```
 catalyze files list
 ```
-
-# Global Options
-
-The following table outlines all global options available in the CLI. Global options are always set after the word `catalyze` and before any commands. Rather than setting these each time, you may also set an environment variable with the appropriate value which will automatically be used.
-
-| Short Name | Long Name | Description | Environment Variable |
-|------------|-----------|-------------|----------------------|
-| -U | --username | Your catalyze username that you login to the Dashboard with | CATALYZE_USERNAME |
-| -P | --password | Your catalyze password that you login to the Dashboard with | CATALYZE_PASSWORD |
-| -E | --env | The local alias of the environment in which this command will be run. Read more about [environment aliases](https://resources.catalyze.io/paas/cli/sections/environment-aliases/) | CATALYZE_ENV |
-| -v | --version | Prints out the CLI version | |
-
-# Global Scope
-
-The CLI now supports the concept of scope. Previous to version 2.0.0, all commands had to be run within an associated local git repo. Now, the only time you need to be in a local git repo is when you associate to a new environment. After the initial association, CLI commands can be run from any directory. If you have more than one environment, the CLI uses this concept of scope to decide which environment you are using for the command.
-
-Let's say you have an environment that you associated in the directory `~/mysandbox-code` and another you associated in the directory `~/myprod-code`. These environments are named `mysandbox` and `myprod` respectively. When you are within either of those directories, the CLI knows that any command you run will be in the context of that given environment. Commands run in the `~/myprod-code` directory will be run against the `myprod` environment. Similarly for `~/mysandbox-code` and the `mysandbox` environment. What if you are outside those directories? You have three options.
-
-First, you can tell the CLI which environment you want to use with the global option `-E` or `--env` (see [Global Options](https://resources.catalyze.io/paas/cli/sections/global-options/)). Your command might start like this
-
-```
-catalyze -E myprod ...
-```
-
-This global option will even override the environment found in a local git repo. If you don't set the `-E` flag, and the CLI can't find an environment in your local git repo, the CLI then checks for a default environment. A default environment is used whenever you are outside of a git repo and an environment is not specified. A default environment can be specified using the [default](https://resources.catalyze.io/paas/cli/sections/default/) command. You can find out which environment is the default by running the [associated](https://resources.catalyze.io/paas/cli/sections/associated/) command.
-
-Lastly, if no environment is specified, you're outside of a git repo, and no default environment is set, then the CLI simply takes the first environment you associated and prompts you to continue with this environment. This concept of scope will make it easier for Catalyze customers with multiple environments to use the CLI!
-
-# Overview
-
-Usage: catalyze [OPTIONS] COMMAND [arg...]
-
-Catalyze CLI. Version 2.3.0
-
-Options:
-
-```
-  -U, --username        Catalyze Username ($CATALYZE_USERNAME)
-  -P, --password        Catalyze Password ($CATALYZE_PASSWORD)
-  -E, --env             The local alias of the environment in which this command will be run ($CATALYZE_ENV)
-  -v, --version=false   Show the version and exit
-```
-
-Commands:
-
-```
-  associate      Associates an environment
-  associated     Lists all associated environments
-  certs          Manage your SSL certificates and domains
-  console        Open a secure console to a service
-  dashboard      Open the Catalyze Dashboard in your default browser
-  db             Tasks for databases
-  default        Set the default associated environment
-  disassociate   Remove the association with an environment
-  environments   List all environments you have access to
-  files          Tasks for managing service files
-  invites        Manage invitations for your organizations
-  keys           Tasks for SSH keys
-  logs           Show the logs in your terminal streamed from your logging dashboard
-  logout         Clear the stored user information from your local machine
-  metrics        Print service and environment metrics in your local time zone
-  rake           Execute a rake task
-  redeploy       Redeploy a service without having to do a git push
-  services       List all services for your environment
-  sites          Tasks for updating sites, including hostnames, SSL certificates, and private keys
-  ssl            Perform operations on local certificates to verify their validity
-  status         Get quick readout of the current status of your associated environment and all of its services
-  supportids     Print out various IDs related to your associated environment to be used when contacting Catalyze support
-  update         Checks for available updates and updates the CLI if a new update is available
-  users          Manage users who have access to the given organization
-  vars           Interaction with environment variables for the associated environment
-  whoami         Retrieve your user ID
-  worker         Start a background worker
-  version        Output the version and quit
-```
-
-Run 'catalyze COMMAND --help' for more information on a command.
-
-associate.md
-associated.md
-automatic-updates.md
-bash-autocompletion.md
-certs.md
-certs-create.md
-certs-list.md
-certs-rm.md
-certs-update.md
-console.md
-dashboard.md
-db.md
-db-backup.md
-db-download.md
-db-export.md
-db-import.md
-db-list.md
-db-logs.md
-default.md
-deploy-keys.md
-deploy-keys-add.md
-deploy-keys-list.md
-deploy-keys-rm.md
-disassociate.md
-environment-aliases.md
-environments.md
-files.md
-files-download.md
-files-list.md
-global-options.md
-global-scope.md
-index.md
-index.txt
-invites.md
-invites-accept.md
-invites-list.md
-invites-rm.md
-invites-send.md
-keys.md
-keys-add.md
-keys-list.md
-keys-rm.md
-keys-set.md
-logout.md
-logs.md
-metrics.md
-metrics-cpu.md
-metrics-memory.md
-metrics-network-in.md
-metrics-network-out.md
-rake.md
-redeploy.md
-services.md
-sites.md
-sites-create.md
-sites-list.md
-sites-rm.md
-sites-show.md
-ssl.md
-ssl-resolve.md
-ssl-verify.md
-status.md
-support-ids.md
-supported-platforms.md
-update.md
-users.md
-users-list.md
-users-rm.md
-vars.md
-vars-list.md
-vars-set.md
-vars-unset.md
-version.md
-whoami.md
-worker.md
 
 # Invites
 
@@ -677,7 +611,7 @@ Usage: catalyze invites list
 List all pending organization invitations
 ```
 
-`invites list` lists all pending invites for the associated environment's organization. Any invites that have already been accepted will not appear in this list. To manage users who have already accepted invitations or are already granted access to your environment, use the [users](https://resources.catalyze.io/paas/cli/sections/users/) group of commands. Here is a sample command
+`invites list` lists all pending invites for the associated environment's organization. Any invites that have already been accepted will not appear in this list. To manage users who have already accepted invitations or are already granted access to your environment, use the [users](#users) group of commands. Here is a sample command
 
 ```
 catalyze invites list
@@ -694,7 +628,7 @@ Arguments:
   INVITE_ID=""   The ID of an invitation to remove
 ```
 
-`invites rm` removes a pending invitation found by using the [invites list](https://resources.catalyze.io/paas/cli/sections/invites-list) command. Once an invite has already been accepted, it cannot be removed. Removing an invitation is helpful if an email was misspelled and an invitation was sent to an incorrect email address. If you want to revoke access to a user who already has been given access to your environment, use the [users rm](https://resources.catalyze.io/paas/cli/sections/users-rm) command. Here is a sample command
+`invites rm` removes a pending invitation found by using the [invites list](#invites-list) command. Once an invite has already been accepted, it cannot be removed. Removing an invitation is helpful if an email was misspelled and an invitation was sent to an incorrect email address. If you want to revoke access to a user who already has been given access to your environment, use the [users rm](#users-rm) command. Here is a sample command
 
 ```
 catalyze invites rm 78b5d0ed-f71c-47f7-a4c8-6c8c58c29db1
@@ -768,7 +702,7 @@ Arguments:
   NAME=""      The name of the key to remove.
 ```
 
-`keys rm` allows you to remove an SSH key previously uploaded to your account. The name of the key can be found by using the [keys list](https://resources.catalyze.io/paas/cli/sections/keys-list/) command. Here is a sample command
+`keys rm` allows you to remove an SSH key previously uploaded to your account. The name of the key can be found by using the [keys list](#keys-list) command. Here is a sample command
 
 ```
 catalyze keys rm my_prod_key
@@ -983,7 +917,7 @@ Usage: catalyze services
 List all services for your environment
 ```
 
-`services` prints out a list of all services in your environment and their sizes. The services will be printed regardless of their currently running state. To see which services are currently running and which are not, use the [status](https://resources.catalyze.io/paas/cli/sections/status/) command. Here is a sample command
+`services` prints out a list of all services in your environment and their sizes. The services will be printed regardless of their currently running state. To see which services are currently running and which are not, use the [status](#status) command. Here is a sample command
 
 ```
 catalyze services
@@ -1006,7 +940,7 @@ Arguments:
   HOSTNAME=""       The hostname used in the creation of a certs instance with the 'certs' command
 ```
 
-`sites create` allows you to create a site configuration that is tied to a single service. To create a site, you must first [create a cert](https://resources.catalyze.io/paas/cli/sections/certs-create/). A site has three pieces of information, a name, the service it's tied to, and the cert instance it will use. The name is the `server_name` that will be injected into this site's nginx configuration file. It is important that this site name match what URL your site will respond to. If this is a basic domain, using `mysite.com` is sufficient. If it should respond to the APEX domain and all subdomains, it should be named `.mysite.com` notice the leading `.`. The service is a code service that will use this site configuration. Lastly, the cert instance must be specified by the `HOSTNAME` argument used in the [certs create](https://resources.catalyze.io/paas/cli/sections/certs-create/) command. Here is a sample command
+`sites create` allows you to create a site configuration that is tied to a single service. To create a site, you must first [create a cert](#certs-create). A site has three pieces of information, a name, the service it's tied to, and the cert instance it will use. The name is the `server_name` that will be injected into this site's nginx configuration file. It is important that this site name match what URL your site will respond to. If this is a basic domain, using `mysite.com` is sufficient. If it should respond to the APEX domain and all subdomains, it should be named `.mysite.com` notice the leading `.`. The service is a code service that will use this site configuration. Lastly, the cert instance must be specified by the `HOSTNAME` argument used in the [certs create](#certs-create) command. Here is a sample command
 
 ```
 catalyze sites create .mysite.com app01 wildcard_mysitecom
@@ -1037,7 +971,7 @@ Arguments:
   NAME=""      The name of the site configuration to delete
 ```
 
-`sites rm` allows you to remove a site by name. Since sites cannot be updated, if you want to change the name of a site, you must `rm` the site and then [create](https://resources.catalyze.io/paas/cli/sections/sites-create/) it again. If you simply need to update your SSL certificates, you can use the [certs update](https://resources.catalyze.io/paas/cli/sections/certs-update/) command on the cert instance used by the site in question. Here is a sample command
+`sites rm` allows you to remove a site by name. Since sites cannot be updated, if you want to change the name of a site, you must `rm` the site and then [create](#sites-create) it again. If you simply need to update your SSL certificates, you can use the [certs update](#certs-update) command on the cert instance used by the site in question. Here is a sample command
 
 ```
 catalyze sites rm mywebsite.com
@@ -1054,7 +988,7 @@ Arguments:
   NAME=""      The name of the site configuration to show
 ```
 
-`sites show` will print out detailed information for a single site. The name of the site can be found from the [sites list](https://resources.catalyze.io/paas/cli/sections/sites-list/) command. Here is a sample command
+`sites show` will print out detailed information for a single site. The name of the site can be found from the [sites list](#sites-list) command. Here is a sample command
 
 ```
 catalyze sites show mywebsite.com
@@ -1179,16 +1113,6 @@ Print out various IDs related to your associated environment to be used when con
 catalyze support-ids
 ```
 
-# Supported Platforms
-
-Since version 2.0.0, the following platforms and architectures are supported by the Catalyze CLI.
-
-| OS | Architecture |
-|----|--------------|
-| Darwin (Mac OS X) | 64-bit, 32-bit |
-| Linux | 64-bit, 32-bit |
-| Windows | 64-bit, 32-bit |
-
 # Update
 
 ```
@@ -1267,7 +1191,7 @@ Options:
   -v, --variable    The env variable to set or update in the form "<key>=<value>"
 ```
 
-`vars set` allows you to add new environment variables or update the value of an existing environment variable on your code service. You can set/update 1 or more environment variables at a time with this command by repeating the `-v` option multiple times. Once new environment variables are added or values updated, a [redeploy](https://resources.catalyze.io/paas/cli/sections/redeploy/) is required for your code service to have access to the new values. The environment variables must be of the form `<key>=<value>`. Here is a sample command
+`vars set` allows you to add new environment variables or update the value of an existing environment variable on your code service. You can set/update 1 or more environment variables at a time with this command by repeating the `-v` option multiple times. Once new environment variables are added or values updated, a [redeploy](#redeploy) is required for your code service to have access to the new values. The environment variables must be of the form `<key>=<value>`. Here is a sample command
 
 ```
 catalyze vars set -v AWS_ACCESS_KEY_ID=1234 -v AWS_SECRET_ACCESS_KEY=5678
@@ -1284,7 +1208,7 @@ Arguments:
   VARIABLE=""   The name of the environment variable to unset
 ```
 
-`vars unset` removes an environment variables from your associated code service. Only the environment variable name is required to unset. Once environment variables are unset, a [redeploy](https://resources.catalyze.io/paas/cli/sections/redeploy/) is required for your code service to realize the variable was removed. Here is a sample command
+`vars unset` removes an environment variables from your associated code service. Only the environment variable name is required to unset. Once environment variables are unset, a [redeploy](#redeploy) is required for your code service to realize the variable was removed. Here is a sample command
 
 ```
 catalyze vars unset AWS_ACCESS_KEY_ID
@@ -1329,7 +1253,7 @@ Arguments:
   TARGET=""    The name of the Procfile target to invoke as a worker
 ```
 
-`worker` starts a background worker asynchronously. The `TARGET` argument must be specified in your `Procfile`. Once the worker is started, any output can be found in your logging Dashboard or using the [logs](https://resources.catalyze.io/paas/cli/sections/logs/) command. Here is a sample command
+`worker` starts a background worker asynchronously. The `TARGET` argument must be specified in your `Procfile`. Once the worker is started, any output can be found in your logging Dashboard or using the [logs](#logs) command. Here is a sample command
 
 ```
 catalyze worker web
