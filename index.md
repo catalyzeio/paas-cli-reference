@@ -7,7 +7,7 @@ layout: paas_cli
 
 Usage: catalyze [OPTIONS] COMMAND [arg...]
 
-Catalyze CLI. Version 2.3.0
+Catalyze CLI. Version 3.6.0
 
 Options:
 
@@ -24,10 +24,12 @@ Commands:
   associate      Associates an environment
   associated     Lists all associated environments
   certs          Manage your SSL certificates and domains
+  clear          Clear out information in the global settings file to fix a misconfigured CLI. All information will be cleared unless otherwise specified
   console        Open a secure console to a service
   dashboard      Open the Catalyze Dashboard in your default browser
   db             Tasks for databases
   default        Set the default associated environment
+  deploy-keys    Tasks for SSH deploy keys
   disassociate   Remove the association with an environment
   environments   List all environments you have access to
   files          Tasks for managing service files
@@ -38,11 +40,13 @@ Commands:
   metrics        Print service and environment metrics in your local time zone
   rake           Execute a rake task
   redeploy       Redeploy a service without having to do a git push
-  services       List all services for your environment
+  releases       Manage releases for code services
+  rollback       Rollback a code service to a specific release
+  services       Perform operations on an environment's services
   sites          Tasks for updating sites, including hostnames, SSL certificates, and private keys
   ssl            Perform operations on local certificates to verify their validity
   status         Get quick readout of the current status of your associated environment and all of its services
-  supportids     Print out various IDs related to your associated environment to be used when contacting Catalyze support
+  support-ids    Print out various IDs related to your associated environment to be used when contacting Catalyze support
   update         Checks for available updates and updates the CLI if a new update is available
   users          Manage users who have access to the given organization
   vars           Interaction with environment variables for the associated environment
