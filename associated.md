@@ -16,4 +16,3 @@ Lists all associated environments
 ```
 catalyze associated
 ```
-
