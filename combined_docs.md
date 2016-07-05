@@ -246,24 +246,25 @@ catalyze certs update mywebsite.com ~/path/to/new/cert.pem ~/path/to/new/priv.ke
 # Clear
 
 ```
-Usage: catalyze clear [--private-key] [--session] [--environments] [--default] [--pods]
+Usage: catalyze clear [--private-key] [--session] [--environments] [--default] [--pods] [--all]
 
-Clear out information in the global settings file to fix a misconfigured CLI. All information will be cleared unless otherwise specified
+Clear out information in the global settings file to fix a misconfigured CLI.
 
 Options:
-  --private-key=true    Clear out the saved private key information
-  --session=true        Clear out all session information
-  --environments=true   Clear out all associated environments
-  --default=true        Clear out the saved default environment
-  --pods=true           Clear out all saved pods
+  --private-key=false    Clear out the saved private key information
+  --session=false        Clear out all session information
+  --environments=false   Clear out all associated environments
+  --default=false        Clear out the saved default environment
+  --pods=false           Clear out all saved pods
+  --all=false            Clear out all settings
 ```
 
 `clear` allows you to manage your global settings file in case your CLI becomes misconfigured. The global settings file is stored in your home directory at `~/.catalyze`. You can clear out all settings or pick and choose which ones need removed. After running the `clear` command, any other CLI command will reset the removed settings to their appropriate values. Here are some sample commands
 
 ```
-catalyze clear # clears all settings
-catalyze clear --environments=false # saves your associated environments
-catalyze clear --environments=false --default=false # saves your associated environments and saves your default environment
+catalyze clear --all
+catalyze clear --environments # removes your associated environments
+catalyze clear --session --private-key # removes all session and private key authentication information
 ```
 
 # Console
@@ -1048,20 +1049,30 @@ The `sites` command gives access to hostname and SSL certificate usage for publi
 ## Sites Create
 
 ```
-Usage: catalyze sites create NAME SERVICE_NAME HOSTNAME
+Usage: catalyze sites create SITE_NAME SERVICE_NAME HOSTNAME [--client-max-body-size] [--proxy-connect-timeout] [--proxy-read-timeout] [--proxy-send-timeout] [--proxy-upstream-timeout] [--enable-cors] [--enable-websockets]
 
 Create a new site linking it to an existing cert instance
 
 Arguments:
-  NAME=""           The name of the site to be created. This will be used in this site's nginx configuration file
+  SITE_NAME=""      The name of the site to be created. This will be used in this site's nginx configuration file (i.e. ".example.com")
   SERVICE_NAME=""   The name of the service to add this site configuration to (i.e. 'app01')
-  HOSTNAME=""       The hostname used in the creation of a certs instance with the 'certs' command
+  HOSTNAME=""       The hostname used in the creation of a certs instance with the 'certs' command (i.e. "star_example_com")
+
+Options:
+  --client-max-body-size=-1     The 'client_max_body_size' nginx config specified in megabytes
+  --proxy-connect-timeout=-1    The 'proxy_connect_timeout' nginx config specified in seconds
+  --proxy-read-timeout=-1       The 'proxy_read_timeout' nginx config specified in seconds
+  --proxy-send-timeout=-1       The 'proxy_send_timeout' nginx config specified in seconds
+  --proxy-upstream-timeout=-1   The 'proxy_next_upstream_timeout' nginx config specified in seconds
+  --enable-cors=false           Enable or disable all features related to full CORS support
+  --enable-websockets=false     Enable or disable all features related to full websockets support
 ```
 
-`sites create` allows you to create a site configuration that is tied to a single service. To create a site, you must first [create a cert](#certs-create). A site has three pieces of information, a name, the service it's tied to, and the cert instance it will use. The name is the `server_name` that will be injected into this site's Nginx configuration file. It is important that this site name match what URL your site will respond to. If this is a basic domain, using `mysite.com` is sufficient. If it should respond to the APEX domain and all subdomains, it should be named `.mysite.com` notice the leading `.`. The service is a code service that will use this site configuration. Lastly, the cert instance must be specified by the `HOSTNAME` argument used in the [certs create](#certs-create) command. Here is a sample command
+`sites create` allows you to create a site configuration that is tied to a single service. To create a site, you must first [create a cert](#certs-create). A site has three pieces of information, a name, the service it's tied to, and the cert instance it will use. The name is the `server_name` that will be injected into this site's Nginx configuration file. It is important that this site name match what URL your site will respond to. If this is a bare domain, using `mysite.com` is sufficient. If it should respond to the APEX domain and all subdomains, it should be named `.mysite.com` notice the leading `.`. The service is a code service that will use this site configuration. Lastly, the cert instance must be specified by the `HOSTNAME` argument used in the [certs create](#certs-create) command. You can also set Nginx configuration values directly by specifying one of the above flags. Here are some sample commands
 
 ```
 catalyze sites create .mysite.com app01 wildcard_mysitecom
+catalyze sites create .mysite.com app01 wildcard_mysitecom --client-max-body-size 50 --enable-cors
 ```
 
 ## Sites List
