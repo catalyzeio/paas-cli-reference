@@ -19,7 +19,7 @@ Options:
   --all=false            Clear out all settings
 ```
 
-`clear` allows you to manage your global settings file in case your CLI becomes misconfigured. The global settings file is stored in your home directory at `~/.catalyze`. You can clear out all settings or pick and choose which ones need removed. After running the `clear` command, any other CLI command will reset the removed settings to their appropriate values. Here are some sample commands
+`clear` allows you to manage your global settings file in case your CLI becomes misconfigured. The global settings file is stored in your home directory at `~/.catalyze`. You can clear out all settings or pick and choose which ones need to be removed. After running the `clear` command, any other CLI command will reset the removed settings to their appropriate values. Here are some sample commands
 
 ```
 catalyze clear --all

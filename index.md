@@ -7,7 +7,7 @@ layout: paas_cli
 
 Usage: catalyze [OPTIONS] COMMAND [arg...]
 
-Catalyze CLI. Version 3.6.0
+Catalyze CLI. Version 3.2.0
 
 Options:
 
