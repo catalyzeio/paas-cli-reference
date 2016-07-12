@@ -19,7 +19,7 @@ Options:
   -s, --self-signed=false   Whether or not the certificate is self signed. If set, chain verification is skipped
 ```
 
-`ssl verify` will tell you if your SSL certificate and private key are properly formatted for use with the Catalyze PaaS. Before uploading a certificate to Catalyze you should verify it creates a full chain and matches the given private key with this command. Both your chain and private key should be **unencrypted** and in **PEM** format. The private key is the only key in the key file. However, for the chain, you should include your SSL certificate, intermediate certificates, and root certificate in the following order and format.
+`ssl verify` will tell you if your SSL certificate and private key are properly formatted for use with Stratum. Before uploading a certificate to Catalyze you should verify it creates a full chain and matches the given private key with this command. Both your chain and private key should be **unencrypted** and in **PEM** format. The private key is the only key in the key file. However, for the chain, you should include your SSL certificate, intermediate certificates, and root certificate in the following order and format.
 
 ```
 -----BEGIN CERTIFICATE-----

@@ -13,6 +13,7 @@ certs-create.md
 certs-list.md
 certs-rm.md
 certs-update.md
+clear.md
 console.md
 dashboard.md
 db.md
@@ -51,7 +52,14 @@ metrics-network-in.md
 metrics-network-out.md
 rake.md
 redeploy.md
+releases.md
+releases-list.md
+releases-rm.md
+releases-update.md
+rollback.md
 services.md
+services-list.md
+services-stop.md
 sites.md
 sites-create.md
 sites-list.md
