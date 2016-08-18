@@ -29,10 +29,16 @@ deploy-keys-add.md
 deploy-keys-list.md
 deploy-keys-rm.md
 disassociate.md
+domain.md
 environments.md
+environments-list.md
+environments-rename.md
 files.md
 files-download.md
 files-list.md
+git-remote.md
+git-remote-add.md
+git-remote-show.md
 invites.md
 invites-accept.md
 invites-list.md
@@ -59,6 +65,7 @@ releases-update.md
 rollback.md
 services.md
 services-list.md
+services-rename.md
 services-stop.md
 sites.md
 sites-create.md

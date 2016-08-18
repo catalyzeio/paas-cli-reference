@@ -16,9 +16,9 @@ Since version 2.0.0, the following platforms and architectures are supported by 
 
 # Global Scope
 
-The CLI now supports the concept of scope. Previous to version 2.0.0, all commands had to be run within an associated local git repo. Now, the only time you need to be in a local git repo is when you associate to a new environment. After the initial association, CLI commands can be run from any directory. If you have more than one environment, the CLI uses this concept of scope to decide which environment you are using for the command.
+The CLI now supports the concept of scope. Previous to version 2.0.0, all commands had to be run within an associated local git repo. Now, the only time you need to be in a local git repo is when you associate to a new environment. After the initial association, CLI commands can be run from any directory. If you have more than one environment, you must specify which environment to use with the global `-E` flag.
 
-Let's say you have an environment that you associated in the directory `~/mysandbox-code` and another you associated in the directory `~/myprod-code`. These environments are named `mysandbox` and `myprod` respectively. You have two options to specify which environment to run a command against.
+Let's say you have associated to two environments named `mysandbox` and `myprod`. You have two options to specify which environment to run a command against.
 
 First, you can tell the CLI which environment you want to use with the global option `-E` or `--env` (see [Global Options](#global-options)). Your command might start like this
 
@@ -26,9 +26,7 @@ First, you can tell the CLI which environment you want to use with the global op
 catalyze -E myprod ...
 ```
 
-If you don't set the `-E` flag, the CLI then checks for a default environment. A default environment is used whenever an environment is not specified. A default environment can be specified using the [default](#default) command. You can find out which environment is the default by running the [associated](#associated) command.
-
-Second, if no environment is specified, and no default environment is set, then the CLI simply takes the first environment you associated and prompts you to continue with this environment. This concept of scope will make it easier for Catalyze customers with multiple environments to use the CLI!
+If you don't set the `-E` flag, then the CLI takes the first environment you associated and prompts you to continue with this environment. This concept of scope will make it easier for Catalyze customers with multiple environments to use the CLI!
 
 # Environment Aliases
 
@@ -73,7 +71,7 @@ The following table outlines all global options available in the CLI. Global opt
 
 Usage: catalyze [OPTIONS] COMMAND [arg...]
 
-Catalyze CLI. Version 3.2.0
+Catalyze CLI. Version 3.3.0
 
 Options:
 
@@ -90,19 +88,21 @@ Commands:
   associate      Associates an environment
   associated     Lists all associated environments
   certs          Manage your SSL certificates and domains
-  clear          Clear out information in the global settings file to fix a misconfigured CLI. All information will be cleared unless otherwise specified
+  clear          Clear out information in the global settings file to fix a misconfigured CLI.
   console        Open a secure console to a service
   dashboard      Open the Catalyze Dashboard in your default browser
   db             Tasks for databases
-  default        Set the default associated environment
+  default        [DEPRECATED] Set the default associated environment
   deploy-keys    Tasks for SSH deploy keys
   disassociate   Remove the association with an environment
-  environments   List all environments you have access to
+  domain         Print out the temporary domain name of the environment
+  environments   Manage environments for which you have access
   files          Tasks for managing service files
+  git-remote     Manage git remotes to Catalyze code services
   invites        Manage invitations for your organizations
   keys           Tasks for SSH keys
-  logs           Show the logs in your terminal streamed from your logging dashboard
   logout         Clear the stored user information from your local machine
+  logs           Show the logs in your terminal streamed from your logging dashboard
   metrics        Print service and environment metrics in your local time zone
   rake           Execute a rake task
   redeploy       Redeploy a service without having to do a git push
@@ -137,13 +137,13 @@ Arguments:
 Options:
   -a, --alias=""            A shorter name to reference your environment by for local commands
   -r, --remote="catalyze"   The name of the remote
-  -d, --default=false       Specifies whether or not the associated environment will be the default
+  -d, --default=false       [DEPRECATED] Specifies whether or not the associated environment will be the default
 ```
 
 `associate` is the entry point of the cli. You need to associate an environment before you can run most other commands. Check out [scope](#global-scope) and [aliases](#environment-aliases) for more info on the value of the alias and default options. Here is a sample command
 
 ```
-catalyze associate My-Production-Environment app01 -a prod -d
+catalyze associate My-Production-Environment app01 -a prod
 ```
 
 # Associated
@@ -154,7 +154,7 @@ Usage: catalyze associated
 Lists all associated environments
 ```
 
-`associated` outputs information about all previously associated environments on your local machine. The information that is printed out includes the alias, environment ID, actual environment name, service ID, the git repo directory, and whether or not it is the default environment. Here is a sample command
+`associated` outputs information about all previously associated environments on your local machine. The information that is printed out includes the alias, environment ID, actual environment name, service ID, and the git repo directory. Here is a sample command
 
 ```
 catalyze associated
@@ -237,7 +237,7 @@ Options:
   -r, --resolve=true        Whether or not to attempt to automatically resolve incomplete SSL certificate issues
 ```
 
-`certs update` works nearly identical to the [certs create](#certs-create) command. All rules regarding self signed certs and certificate resolution from the `certs create` command apply to the `certs update` command. This is useful for when your certificates have expired and you need to upload new ones. Simply update your certs, then redeploy your services. Here is a sample command
+`certs update` works nearly identical to the [certs create](#certs-create) command. All rules regarding self signed certs and certificate resolution from the `certs create` command apply to the `certs update` command. This is useful for when your certificates have expired and you need to upload new ones. Update your certs and then redeploy your service_proxy. Here is a sample command:
 
 ```
 catalyze certs update mywebsite.com ~/path/to/new/cert.pem ~/path/to/new/priv.key
@@ -254,7 +254,7 @@ Options:
   --private-key=false    Clear out the saved private key information
   --session=false        Clear out all session information
   --environments=false   Clear out all associated environments
-  --default=false        Clear out the saved default environment
+  --default=false        [DEPRECATED] Clear out the saved default environment
   --pods=false           Clear out all saved pods
   --all=false            Clear out all settings
 ```
@@ -457,11 +457,13 @@ catalyze db logs db01 cd2b4bce-2727-42d1-89e0-027bf3f1a203
 ```
 Usage: catalyze default ENV_ALIAS
 
-Set the default associated environment
+[DEPRECATED] Set the default associated environment
 
 Arguments:
   ENV_ALIAS=""   The alias of an already associated environment to set as the default
 ```
+
+The `default` command has been deprecated! It will be removed in a future version. Please specify `-E` on all commands instead of using the default.
 
 `default` sets the default environment for all commands that don't specify an environment with the `-E` flag. See [scope](#global-scope) for more information on scope and default environments. When setting a default environment, you must give the alias of the environment if one was set when it was associated and not the real environment name. Here is a sample command
 
@@ -544,18 +546,57 @@ Arguments:
 catalyze disassociate myprod
 ```
 
-# Environments
+# Domain
 
 ```
-Usage: catalyze environments
+Usage: catalyze domain
+
+Print out the temporary domain name of the environment
+```
+
+The `default` command has been deprecated! It will be removed in a future version. Please specify `-E` on all commands instead of using the default.
+
+`domain` prints out the temporary domain name setup by Catalyze for an environment. This domain name usually takes the form podXXXXX.catalyzeapps.com but may vary based on the environment. Here is a sample command
+
+```
+catalyze domain
+```
+
+# Environments
+
+This command has been moved! Please use [environments list](#environments-list) instead. This alias will be removed in the next CLI update.
+
+The `environments` command allows you to manage your environments. The environments command can not be run directly but has sub commands.
+
+# Environments List
+
+```
+Usage: catalyze environments list
 
 List all environments you have access to
 ```
 
-`environments` lists all environments that you are granted access to. These environments include those you created and those that other Catalyze customers have added you to. Here is a sample command
+`environments list` lists all environments that you are granted access to. These environments include those you created and those that other Catalyze customers have added you to. Here is a sample command
 
 ```
-catalyze environments
+catalyze environments list
+```
+
+# Environments Rename
+
+```
+Usage: catalyze environments rename NAME
+
+Rename an environment
+
+Arguments:
+  NAME=""      The new name of the environment
+```
+
+`environments rename` allows you to rename your environment. Here is a sample command
+
+```
+catalyze environments rename MyNewEnvName
 ```
 
 # Files
@@ -599,6 +640,47 @@ Arguments:
 
 ```
 catalyze files list
+```
+
+# Git-Remote
+
+The `git-remote` command allows you to interact with code service remote git URLs. The git-remote command can not be run directly but has sub commands.
+
+# Git-Remote Add
+
+```
+Usage: catalyze git-remote add SERVICE_NAME [-r]
+
+Add the git remote for the given code service to the local git repo
+
+Arguments:
+  SERVICE_NAME=""   The name of the service to add a git remote for
+
+Options:
+  -r, --remote="catalyze"   The name of the git remote to be added
+```
+
+`git-remote add` adds the proper git remote to a local git repository with the given remote name and service. Here is a sample command
+
+```
+catalyze git-remote add code-1 -r catalyze-code-1
+```
+
+# Git-Remote Show
+
+```
+Usage: catalyze git-remote show SERVICE_NAME
+
+Print out the git remote for a given code service
+
+Arguments:
+  SERVICE_NAME=""   The name of the service to add a git remote for
+```
+
+`git-remote show` prints out the git remote URL for the given service. This can be used to do a manual push or use the git remote for another purpose such as a CI integration. Here is a sample command
+
+```
+catalyze git-remote show code-1
 ```
 
 # Invites
@@ -772,14 +854,15 @@ Options:
   -f, --follow=false   Tail/follow the logs (Equivalent to -t)
   -t, --tail=false     Tail/follow the logs (Equivalent to -f)
   --hours=0            The number of hours before now (in combination with minutes and seconds) to retrieve logs
-  --minutes=1          The number of minutes before now (in combination with hours and seconds) to retrieve logs
+  --minutes=0          The number of minutes before now (in combination with hours and seconds) to retrieve logs
   --seconds=0          The number of seconds before now (in combination with hours and minutes) to retrieve logs
 ```
 
-`logs` prints out your application logs directly from your logging Dashboard. If you do not see your logs, try adjusting the number of hours, minutes, or seconds of logs that are retrieved with the `--hours`, `--minutes`, and `--seconds` options respectively. You can also follow the logs with the `-f` option. When using `-f` all logs will be printed to the console within the given time frame as well as any new logs that are sent to the logging Dashboard for the duration of the command. When using the `-f` option, hit ctrl-c to stop. Here is a sample command
+`logs` prints out your application logs directly from your logging Dashboard. If you do not see your logs, try adjusting the number of hours, minutes, or seconds of logs that are retrieved with the `--hours`, `--minutes`, and `--seconds` options respectively. You can also follow the logs with the `-f` option. When using `-f` all logs will be printed to the console within the given time frame as well as any new logs that are sent to the logging Dashboard for the duration of the command. When using the `-f` option, hit ctrl-c to stop. Here are some sample commands
 
 ```
-catalyze logs -f --hours=6 --minutes=30
+catalyze logs --hours=6 --minutes=30
+catalyze logs -f
 ```
 
 # Metrics
@@ -897,18 +980,19 @@ catalyze metrics network-out db01 --csv -m 60
 # Rake
 
 ```
-Usage: catalyze rake TASK_NAME
+Usage: catalyze rake [SERVICE_NAME] TASK_NAME
 
 Execute a rake task
 
 Arguments:
-  TASK_NAME=""   The name of the rake task to run
+  SERVICE_NAME=""   The service that will run the rake task. Defaults to the associated service.
+  TASK_NAME=""      The name of the rake task to run
 ```
 
 `rake` executes a rake task by its name asynchronously. Once executed, the output of the task can be seen through your logging Dashboard. Here is a sample command
 
 ```
-catalyze rake db:migrate
+catalyze rake code-1 db:migrate
 ```
 
 # Redeploy
@@ -1023,6 +1107,24 @@ List all services for your environment
 
 ```
 catalyze services list
+```
+
+# Services Rename
+
+```
+Usage: catalyze services rename SERVICE_NAME NEW_NAME
+
+Rename a service
+
+Arguments:
+  SERVICE_NAME=""   The service to rename
+  NEW_NAME=""       The new name for the service
+```
+
+`services rename` allows you to rename any service in your environment. Here is a sample command
+
+```
+catalyze services rename code-1 api-svc
 ```
 
 # Services Stop
@@ -1298,54 +1400,61 @@ The `vars` command allows you to manage environment variables for your code serv
 ## Vars List
 
 ```
-Usage: catalyze vars list [--json | --yaml]
+Usage: catalyze vars list [SERVICE_NAME] [--json | --yaml]
 
 List all environment variables
+
+Arguments:
+  SERVICE_NAME=""   The name of the service containing the environment variables. Defaults to the associated service.
 
 Options:
   --json=false   Output environment variables in JSON format
   --yaml=false   Output environment variables in YAML format
 ```
 
-`vars list` prints out all known environment variables for the associated code service. You can print out environment variables in JSON or YAML format through the `--json` or `--yaml` flags. Here are some sample commands
+`vars list` prints out all known environment variables for the given code service. You can print out environment variables in JSON or YAML format through the `--json` or `--yaml` flags. Here are some sample commands
 
 ```
-catalyze vars list
-catalyze vars list --json
+catalyze vars list code-1
+catalyze vars list code-1 --json
 ```
 
 ## Vars Set
 
 ```
-Usage: catalyze vars set -v...
+Usage: catalyze vars set [SERVICE_NAME] -v...
 
 Set one or more new environment variables or update the values of existing ones
+
+Arguments:
+  SERVICE_NAME=""   The name of the service on which the environment variables will be set. Defaults to the associated service.
 
 Options:
   -v, --variable    The env variable to set or update in the form "<key>=<value>"
 ```
 
-`vars set` allows you to add new environment variables or update the value of an existing environment variable on your code service. You can set/update 1 or more environment variables at a time with this command by repeating the `-v` option multiple times. Once new environment variables are added or values updated, a [redeploy](#redeploy) is required for your code service to have access to the new values. The environment variables must be of the form `<key>=<value>`. Here is a sample command
+`vars set` allows you to add new environment variables or update the value of an existing environment variable on the given code service. You can set/update 1 or more environment variables at a time with this command by repeating the `-v` option multiple times. Once new environment variables are added or values updated, a [redeploy](#redeploy) is required for the given code service to have access to the new values. The environment variables must be of the form `<key>=<value>`. Here is a sample command
 
 ```
-catalyze vars set -v AWS_ACCESS_KEY_ID=1234 -v AWS_SECRET_ACCESS_KEY=5678
+catalyze vars set code-1 -v AWS_ACCESS_KEY_ID=1234 -v AWS_SECRET_ACCESS_KEY=5678
 ```
 
 ## Vars Unset
 
 ```
-Usage: catalyze vars unset VARIABLE
+Usage: catalyze vars unset [SERVICE_NAME] VARIABLE
 
 Unset (delete) an existing environment variable
 
 Arguments:
-  VARIABLE=""   The name of the environment variable to unset
+  SERVICE_NAME=""   The name of the service on which the environment variables will be unset. Defaults to the associated service.
+  VARIABLE=""       The name of the environment variable to unset
 ```
 
-`vars unset` removes an environment variables from your associated code service. Only the environment variable name is required to unset. Once environment variables are unset, a [redeploy](#redeploy) is required for your code service to realize the variable was removed. Here is a sample command
+`vars unset` removes an environment variables from the given code service. Only the environment variable name is required to unset. Once environment variables are unset, a [redeploy](#redeploy) is required for the given code service to realize the variable was removed. Here is a sample command
 
 ```
-catalyze vars unset AWS_ACCESS_KEY_ID
+catalyze vars unset code-1 AWS_ACCESS_KEY_ID
 ```
 
 # Version
@@ -1379,17 +1488,18 @@ catalyze whoami
 # Worker
 
 ```
-Usage: catalyze worker TARGET
+Usage: catalyze worker [SERVICE_NAME] TARGET
 
 Start a background worker
 
 Arguments:
-  TARGET=""    The name of the Procfile target to invoke as a worker
+  SERVICE_NAME=""   The name of the service to use to start a worker. Defaults to the associated service.
+  TARGET=""         The name of the Procfile target to invoke as a worker
 ```
 
 `worker` starts a background worker asynchronously. The `TARGET` argument must be specified in your `Procfile`. Once the worker is started, any output can be found in your logging Dashboard or using the [logs](#logs) command. Here is a sample command
 
 ```
-catalyze worker web
+catalyze worker code-1 web
 ```
 
