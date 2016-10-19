@@ -5,14 +5,6 @@ layout: paas_cli
 
 # Environments
 
-```
-Usage: catalyze environments
+This command has been moved! Please use [environments list](#environments-list) instead. This alias will be removed in the next CLI update.
 
-List all environments you have access to
-```
-
-`environments` lists all environments that you are granted access to. These environments include those you created and those that other Catalyze customers have added you to. Here is a sample command
-
-```
-catalyze environments
-```
+The `environments` command allows you to manage your environments. The environments command can not be run directly but has sub commands.

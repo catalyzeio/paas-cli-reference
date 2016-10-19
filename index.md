@@ -7,7 +7,7 @@ layout: paas_cli
 
 Usage: catalyze [OPTIONS] COMMAND [arg...]
 
-Catalyze CLI. Version 3.2.0
+Catalyze CLI. Version 3.3.0
 
 Options:
 
@@ -24,19 +24,21 @@ Commands:
   associate      Associates an environment
   associated     Lists all associated environments
   certs          Manage your SSL certificates and domains
-  clear          Clear out information in the global settings file to fix a misconfigured CLI. All information will be cleared unless otherwise specified
+  clear          Clear out information in the global settings file to fix a misconfigured CLI.
   console        Open a secure console to a service
   dashboard      Open the Catalyze Dashboard in your default browser
   db             Tasks for databases
-  default        Set the default associated environment
+  default        [DEPRECATED] Set the default associated environment
   deploy-keys    Tasks for SSH deploy keys
   disassociate   Remove the association with an environment
-  environments   List all environments you have access to
+  domain         Print out the temporary domain name of the environment
+  environments   Manage environments for which you have access
   files          Tasks for managing service files
+  git-remote     Manage git remotes to Catalyze code services
   invites        Manage invitations for your organizations
   keys           Tasks for SSH keys
-  logs           Show the logs in your terminal streamed from your logging dashboard
   logout         Clear the stored user information from your local machine
+  logs           Show the logs in your terminal streamed from your logging dashboard
   metrics        Print service and environment metrics in your local time zone
   rake           Execute a rake task
   redeploy       Redeploy a service without having to do a git push
