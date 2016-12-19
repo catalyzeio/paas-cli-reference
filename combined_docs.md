@@ -1638,9 +1638,7 @@ catalyze whoami
 
 # Worker
 
-This command has been moved! Please use [worker deploy](#worker-deploy) instead. This alias will be removed in the next CLI update.
-
-The `worker` commands allow you to manage your environment variables per service. The `worker` command cannot be run directly, but has subcommands.
+The `worker` command allows to deploy, list, remove, and scale the workers in a code service.
 
 ## Worker Deploy
 
