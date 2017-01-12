@@ -110,6 +110,7 @@ Commands:
   ssl	Perform operations on local certificates to verify their validity
   status	Get quick readout of the current status of your associated environment and all of its services
   support-ids	Print out various IDs related to your associated environment to be used when contacting Catalyze support
+  update	Checks for available updates and updates the CLI if a new update is available
   users	Manage users who have access to the given organization
   vars	Interaction with environment variables for the associated environment
   version	Output the version and quit
@@ -1539,6 +1540,22 @@ Print out various IDs related to your associated environment to be used when con
 
 ```
 catalyze -E "<your_env_alias>" support-ids
+```
+
+# Update
+
+```
+
+Usage: catalyze update
+
+Checks for available updates and updates the CLI if a new update is available
+
+```
+
+`update` is a shortcut to update your CLI instantly. If a newer version of the CLI is available, it will be downloaded and installed automatically. This is used when you want to apply an update before the CLI automatically applies it on its own. Here is a sample command
+
+```
+catalyze update
 ```
 
 # Users
