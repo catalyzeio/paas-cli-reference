@@ -99,6 +99,7 @@ Commands:
   keys	Tasks for SSH keys
   logout	Clear the stored user information from your local machine
   logs	Show the logs in your terminal streamed from your logging dashboard
+  maintenance	Manage maintenance mode for code services
   metrics	Print service and environment metrics in your local time zone
   rake	Execute a rake task
   redeploy	Redeploy a service without having to do a git push. This will cause downtime for all redeploys (see the resources page for more details).
@@ -109,7 +110,6 @@ Commands:
   ssl	Perform operations on local certificates to verify their validity
   status	Get quick readout of the current status of your associated environment and all of its services
   support-ids	Print out various IDs related to your associated environment to be used when contacting Catalyze support
-  update	Checks for available updates and updates the CLI if a new update is available
   users	Manage users who have access to the given organization
   vars	Interaction with environment variables for the associated environment
   version	Output the version and quit
@@ -933,6 +933,68 @@ catalyze -E "<your_env_alias>" logs --hours=6 --minutes=30
 catalyze -E "<your_env_alias>" logs -f
 ```
 
+# Maintenance
+
+Maintenance mode can be enabled or disabled for code services on demand. This redirects all traffic to a default maintenance page.
+
+## Maintenance Disable
+
+```
+
+Usage: catalyze maintenance disable SERVICE_NAME
+
+Disable maintenance mode for a code service
+
+Arguments:
+  SERVICE_NAME=""   The name of the service to disable maintenance mode for
+
+```
+
+`maintenance disable` turns off maintenance mode for a given code service. Here is a sample command
+
+```
+catalyze -E "<your_env_alias>" maintenance disable code-1
+```
+
+## Maintenance Enable
+
+```
+
+Usage: catalyze maintenance enable SERVICE_NAME
+
+Enable maintenance mode for a code service
+
+Arguments:
+  SERVICE_NAME=""   The name of the code service to enable maintenance mode for
+
+```
+
+`maintenance enable` turns on maintenance mode for a given code service. Maintenance mode redirects all traffic for the given code service to a default HTTP maintenance page. If you would like to customize this maintenance page, please contact Catalyze support. Here is a sample command
+
+```
+catalyze -E "<your_env_alias>" maintenance enable code-1
+```
+
+## Maintenance Show
+
+```
+
+Usage: catalyze maintenance show [SERVICE_NAME]
+
+Show the status of maintenance mode for a code service
+
+Arguments:
+  SERVICE_NAME=""   The name of the code service to show the status of maintenance mode
+
+```
+
+`maintenance show` displays whether or not maintenance mode is enabled for a code service or all code services. Here are some sample commands
+
+```
+catalyze -E "<your_env_alias>" maintenance show
+catalyze -E "<your_env_alias>" maintenance show code-1
+```
+
 # Metrics
 
 The `metrics` command gives access to environment metrics or individual service metrics through a variety of formats. This is useful for checking on the status and performance of your application or environment as a whole. The metrics command cannot be run directly but has sub commands.
@@ -1479,22 +1541,6 @@ Print out various IDs related to your associated environment to be used when con
 catalyze -E "<your_env_alias>" support-ids
 ```
 
-# Update
-
-```
-
-Usage: catalyze update
-
-Checks for available updates and updates the CLI if a new update is available
-
-```
-
-`update` is a shortcut to update your CLI instantly. If a newer version of the CLI is available, it will be downloaded and installed automatically. This is used when you want to apply an update before the CLI automatically applies it on its own. Here is a sample command
-
-```
-catalyze update
-```
-
 # Users
 
 The `users` command allows you to manage who has access to your environment through the organization that owns the environment. The users command can not be run directly but has three sub commands.
@@ -1638,9 +1684,7 @@ catalyze whoami
 
 # Worker
 
-This command has been moved! Please use [worker deploy](#worker-deploy) instead. This alias will be removed in the next CLI update.
-
-The `worker` commands allow you to manage your environment variables per service. The `worker` command cannot be run directly, but has subcommands.
+The `worker` command allows to deploy, list, remove, and scale the workers in a code service.
 
 ## Worker Deploy
 
