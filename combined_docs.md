@@ -404,7 +404,7 @@ datica -E "<your_env_alias>" db export db01 ./dbexport.tar.gz
 
 ```
 
-Usage: datica db import DATABASE_NAME FILEPATH [-d [-c]]
+Usage: datica db import DATABASE_NAME FILEPATH [-s][-d [-c]]
 
 Import data into a database
 
@@ -415,6 +415,7 @@ Arguments:
 Options:
   -c, --mongo-collection=""   If importing into a mongo service, the name of the collection to import into
   -d, --mongo-database=""     If importing into a mongo service, the name of the database to import into
+  -s, --skip-backup=false     Skip backing up database. Useful for large databases, which can have long backup times.
 
 ```
 
@@ -1160,9 +1161,7 @@ datica -E "<your_env_alias>" redeploy app01
 
 # Releases
 
-The `releases` command allows you to manage your code service releases. A release is automatically created each time you perform a git push. The release is tagged with the git SHA of the commit. Releases are a way of tagging specific points in time of your git history. You can rollback to a specific release by using the [rollback](#rollback) command. The releases command cannot be run directly but has sub commands.
-
-By default, the last three releases will be kept.  Please contact Support if you require more than the last three releases to be retained
+The `releases` command allows you to manage your code service releases. A release is automatically created each time you perform a git push. The release is tagged with the git SHA of the commit. Releases are a way of tagging specific points in time of your git history. By default, the last three releases will be kept. Please contact Support if you require more than the last three releases to be retained. You can rollback to a specific release by using the [rollback](#rollback) command. The releases command cannot be run directly but has sub commands.
 
 ## Releases List
 
@@ -1784,3 +1783,4 @@ Arguments:
 datica -E "<your_env_alias>" worker scale code-1 mailer 1
 datica -E "<your_env_alias>" worker scale code-1 mailer -- -2
 ```
+
