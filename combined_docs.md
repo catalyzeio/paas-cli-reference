@@ -1279,7 +1279,7 @@ Arguments:
 
 ```
 
-`services stop` shuts down all running instances of a given service. This is useful when performing maintenance and a service must be shutdown to perform that maintenance. Take caution when running this command as all instances of the service, all workers, all rake tasks, and all open console sessions will be stopped. Here is a sample command
+`services stop` shuts down all running instances of a given service. This is useful when performing maintenance on code services or services without volumes that must be shutdown to perform maintenance. Take caution when running this command as all instances of the service, all workers, all rake tasks, and all open console sessions will be stopped. Here is a sample command
 
 ```
 datica -E "<your_env_alias>" services stop code-1
