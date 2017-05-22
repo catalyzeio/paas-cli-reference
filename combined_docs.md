@@ -1514,16 +1514,19 @@ datica ssl verify ~/self-signed.crt ~/self-signed.key "" -s
 
 ```
 
-Usage: datica status
+Usage: datica status [--historical]
 
 Get quick readout of the current status of your associated environment and all of its services
 
+Options:
+  --historical=false    Output all of the services (past and present) 
 ```
 
 `status` will give a quick readout of your environment's health. This includes your environment name, environment ID, and for each service the name, size, build status, deploy status, and service ID. Here is a sample command
 
 ```
 datica -E "<your_env_alias>" status
+datica -E "<your_env_alias>" status --historical
 ```
 
 # Support-ids
