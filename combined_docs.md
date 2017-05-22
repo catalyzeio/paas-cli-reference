@@ -695,7 +695,7 @@ The `git-remote` command allows you to interact with code service remote git URL
 
 ```
 
-Usage: datica git-remote add SERVICE_NAME [-r]
+Usage: datica git-remote add SERVICE_NAME [-r] [-f]
 
 Add the git remote for the given code service to the local git repo
 
@@ -704,6 +704,7 @@ Arguments:
 
 Options:
   -r, --remote="datica"   The name of the git remote to be added
+  -f, --force=false       If a git remote with the specified name already exists, overwrite it
 
 ```
 
@@ -802,15 +803,15 @@ Arguments:
   EMAIL=""     The email of a user to invite to the associated environment. This user does not need to have a Datica account prior to sending the invitation
 
 Options:
-  -m, --member=true   Whether or not the user will be invited as a basic member
-  -a, --admin=false   Whether or not the user will be invited as an admin
+  -m, --member=false   [DEPRECATED] Whether or not the user will be invited as a basic member. This flag will be removed in the next version
+  -a, --admin=false    [DEPRECATED] Whether or not the user will be invited as an admin. This flag will be removed in the next version
 
 ```
 
-`invites send` invites a new user to your environment's organization. The only piece of information required is the email address to send the invitation to. The invited user will join the organization as a basic member, unless otherwise specified with the `-a` flag. The recipient does **not** need to have a Dashboard account in order to send them an invitation. However, they will need to have a Dashboard account to accept the invitation. Here is a sample command
+`invites send` invites a new user to your environment's organization. The only piece of information required is the email address to send the invitation to. The invited user will join the organization as a member with no permissions. You must grant them permission through the dashboard. The recipient does **not** need to have a Dashboard account in order to send them an invitation. However, they will need to have a Dashboard account to accept the invitation. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" invites send coworker@datica.com -a
+datica -E "<your_env_alias>" invites send coworker@datica.com
 ```
 
 # Keys
@@ -1519,7 +1520,8 @@ Usage: datica status [--historical]
 Get quick readout of the current status of your associated environment and all of its services
 
 Options:
-  --historical=false    Output all of the services (past and present) 
+  --historical=false   If this option is specified, a complete history of jobs will be reported
+
 ```
 
 `status` will give a quick readout of your environment's health. This includes your environment name, environment ID, and for each service the name, size, build status, deploy status, and service ID. Here is a sample command
