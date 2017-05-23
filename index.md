@@ -7,7 +7,7 @@ layout: paas_cli
 
 Usage: datica [OPTIONS] COMMAND [arg...]
 
-Datica CLI. Version 3.4.1
+Datica CLI. Version 3.6.0
 
 ```
 Options:
