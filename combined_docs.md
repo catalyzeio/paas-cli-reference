@@ -89,6 +89,7 @@ Commands:
   ssl            Perform operations on local certificates to verify their validity
   status         Get quick readout of the current status of an environment and all of its services
   support-ids    Print out various IDs related to an environment to be used when contacting Datica support
+  update         Checks for available updates and updates the CLI if a new update is available
   users          Manage users who have access to the given organization
   vars           Interaction with environment variables for an environment
   version        Output the version and quit
@@ -107,9 +108,9 @@ The `certs` command gives access to certificate and private key management for p
 
 ```
 
-Usage: datica certs create NAME PUBLIC_KEY_PATH PRIVATE_KEY_PATH [-s] [-r]
+Usage: datica certs create NAME ((PUBLIC_KEY_PATH PRIVATE_KEY_PATH [-s] [-r]) | -l)
 
-Create a new domain with an SSL certificate and private key
+Create a new domain with an SSL certificate and private key or create a Let's Encrypt certificate
 
 Arguments:
   NAME=""               The name of this SSL certificate plus private key pair
@@ -117,17 +118,19 @@ Arguments:
   PRIVATE_KEY_PATH=""   The path to an unencrypted private key file in PEM format
 
 Options:
-  -s, --self-signed=false   Whether or not the given SSL certificate and private key are self signed
-  -r, --resolve=true        Whether or not to attempt to automatically resolve incomplete SSL certificate issues
+  -s, --self-signed=false    Whether or not the given SSL certificate and private key are self signed
+  -r, --resolve=true         Whether or not to attempt to automatically resolve incomplete SSL certificate issues
+  -l, --lets-encrypt=false   Whether or not this is a Let's Encrypt certificate
 
 ```
 
-`certs create` allows you to upload an SSL certificate and private key which can be used to secure your public facing code service. Cert creation can be done at any time, even after environment provisioning, but must be done before [creating a site](#sites-create). When creating a cert, the CLI will check to ensure the certificate and private key match. If you are using a self signed cert, pass in the `-s` flag and the hostname check will be skipped. Datica requires that your certificate include your own certificate, intermediate certificates, and the root certificate in that order. If you only include your certificate, the CLI will attempt to resolve this and fetch intermediate and root certificates for you. It is advised that you create a full chain before running this command as the `-r` flag is accomplished on a "best effort" basis.
+`certs create` allows you to upload an SSL certificate and private key which can be used to secure your public facing code service. Alternatively, you may opt to create a Let's Encrypt certificate. When creating a Let's Encrypt certificate, you only need to provide the certificate name along with the "-l" flag. Let's Encrypt certificates are issued asynchronously and may not be available immediately. Use the [certs list](#certs-list) command to check on the issuance status. Once issued, Let's Encrypt certificates automatically renew before expiring. Cert creation can be done at any time, even after environment provisioning, but must be done before [creating a site](#sites-create). When uploading a custom cert, the CLI will check to ensure the certificate and private key match. If you are using a self signed cert, pass in the `-s` flag and the hostname check will be skipped. Datica requires that your certificate include your own certificate, intermediate certificates, and the root certificate in that order. If you only include your certificate, the CLI will attempt to resolve this and fetch intermediate and root certificates for you. It is advised that you create a full chain before running this command as the `-r` flag is accomplished on a "best effort" basis.
 
-The `HOSTNAME` for a certificate does not need to match the valid Subject of the actual SSL certificate nor does it need to match the `site` name used in the `sites create` command. The `HOSTNAME` is used for organizational purposes only and can be named anything with the exclusion of the following characters: `/`, `&`, `%`. Here is a sample command
+Here are a few sample commands
 
 ```
 datica -E "<your_env_name>" certs create wildcard_mysitecom ~/path/to/cert.pem ~/path/to/priv.key
+datica -E "<your_env_name>" certs create my.site.com --lets-encrypt
 ```
 
 ## Certs List
@@ -140,7 +143,7 @@ List all existing domains that have SSL certificate and private key pairs
 
 ```
 
-`certs list` lists all of the available certs you have created on your environment. The displayed names are the names that should be used as the `DOMAIN` parameter in the [sites create](#sites-create) command. Here is a sample command
+`certs list` lists all of the available certs you have created on your environment. The displayed names are the names that should be used as the `CERT_NAME` parameter in the [sites create](#sites-create) command. If any certs are Let's Encrypt certs, the issuance status will also be shown. Here is a sample command
 
 ```
 datica -E "<your_env_name>" certs list
@@ -150,12 +153,12 @@ datica -E "<your_env_name>" certs list
 
 ```
 
-Usage: datica certs rm HOSTNAME
+Usage: datica certs rm NAME
 
 Remove an existing domain and its associated SSL certificate and private key pair
 
 Arguments:
-  HOSTNAME=""   The hostname of the domain and SSL certificate and private key pair
+  NAME=""      The name of the certificate to remove
 
 ```
 
@@ -184,7 +187,7 @@ Options:
 
 ```
 
-`certs update` works nearly identical to the [certs create](#certs-create) command. All rules regarding self signed certs and certificate resolution from the `certs create` command apply to the `certs update` command. This is useful for when your certificates have expired and you need to upload new ones. Update your certs and then redeploy your service_proxy. Here is a sample command
+`certs update` works nearly identical to the [certs create](#certs-create) command. All rules regarding self signed certs and certificate resolution from the `certs create` command apply to the `certs update` command. Let's Encrypt certs cannot be updated since they are automatically renewed before expiring. This is useful for when your certificates have expired and you need to upload new ones. Update your certs and then redeploy your service_proxy. Here is a sample command
 
 ```
 datica -E "<your_env_name>" certs update mywebsite.com ~/path/to/new/cert.pem ~/path/to/new/priv.key
@@ -1197,14 +1200,14 @@ The `sites` command gives access to hostname and SSL certificate usage for publi
 
 ```
 
-Usage: datica sites create SITE_NAME SERVICE_NAME HOSTNAME [--client-max-body-size] [--proxy-connect-timeout] [--proxy-read-timeout] [--proxy-send-timeout] [--proxy-upstream-timeout] [--enable-cors] [--enable-websockets]
+Usage: datica sites create SITE_NAME SERVICE_NAME (CERT_NAME | -l) [--client-max-body-size] [--proxy-connect-timeout] [--proxy-read-timeout] [--proxy-send-timeout] [--proxy-upstream-timeout] [--enable-cors] [--enable-websockets]
 
 Create a new site linking it to an existing cert instance
 
 Arguments:
   SITE_NAME=""      The name of the site to be created. This will be used in this site's nginx configuration file (i.e. ".example.com")
   SERVICE_NAME=""   The name of the service to add this site configuration to (i.e. 'app01')
-  HOSTNAME=""       The hostname used in the creation of a certs instance with the 'certs' command (i.e. "star_example_com")
+  CERT_NAME=""      The name of the cert created with the 'certs' command (i.e. "star_example_com")
 
 Options:
   --client-max-body-size=-1     The 'client_max_body_size' nginx config specified in megabytes
@@ -1214,10 +1217,11 @@ Options:
   --proxy-upstream-timeout=-1   The 'proxy_next_upstream_timeout' nginx config specified in seconds
   --enable-cors=false           Enable or disable all features related to full CORS support
   --enable-websockets=false     Enable or disable all features related to full websockets support
+  -l, --lets-encrypt=false      Whether or not this site should create an auto-renewing Let's Encrypt certificate
 
 ```
 
-`sites create` allows you to create a site configuration that is tied to a single service. To create a site, you must first [create a cert](#certs-create). A site has three pieces of information: a name, the service it's tied to, and the cert instance it will use. The name is the `server_name` that will be injected into this site's Nginx configuration file. It is important that this site name match what URL your site will respond to. If this is a bare domain, using `mysite.com` is sufficient. If it should respond to the APEX domain and all subdomains, it should be named `.mysite.com` notice the leading `.`. The service is a code service that will use this site configuration. Lastly, the cert instance must be specified by the `HOSTNAME` argument used in the [certs create](#certs-create) command. You can also set Nginx configuration values directly by specifying one of the above flags. Specifying `--enable-cors` will add the following lines to your Nginx configuration
+`sites create` allows you to create a site configuration that is tied to a single service. To create a site, you must specify an existing cert made by the [certs create](#certs-create) command or use the "-l" flag to automatically create a Let's Encrypt certificate. A site has three pieces of information: a name, the service it's tied to, and the cert instance it will use. The name is the `server_name` that will be injected into this site's Nginx configuration file. It is important that this site name match what URL your site will respond to. If this is a bare domain, using `mysite.com` is sufficient. If it should respond to the APEX domain and all subdomains, it should be named `.mysite.com` notice the leading `.`. The service is a code service that will use this site configuration. Lastly, the cert instance must be specified by the `CERT_NAME` argument used in the [certs create](#certs-create) command or by the "-l" flag indicating a new Let's Encrypt certificate should be created. You can also set Nginx configuration values directly by specifying one of the above flags. Specifying `--enable-cors` will add the following lines to your Nginx configuration
 
 ```
 add_header 'Access-Control-Allow-Origin' '$http_origin' always;
@@ -1243,6 +1247,7 @@ Here are some sample commands
 ```
 datica -E "<your_env_name>" sites create .mysite.com app01 wildcard_mysitecom
 datica -E "<your_env_name>" sites create .mysite.com app01 wildcard_mysitecom --client-max-body-size 50 --enable-cors
+datica -E "<your_env_name>" sites create app01.mysite.com app01 --lets-encrypt --enable-websockets
 ```
 
 ## Sites List
@@ -1428,6 +1433,22 @@ Print out various IDs related to an environment to be used when contacting Datic
 
 ```
 datica -E "<your_env_name>" support-ids
+```
+
+# Update
+
+```
+
+Usage: datica update
+
+Checks for available updates and updates the CLI if a new update is available
+
+```
+
+`update` is a shortcut to update your CLI instantly. If a newer version of the CLI is available, it will be downloaded and installed automatically. This is used when you want to apply an update before the CLI automatically applies it on its own. Here is a sample command
+
+```
+datica update
 ```
 
 # Users
