@@ -1,5 +1,7 @@
 # Automatic Updates
 
+Any version of the CLI before version 4.0.0 will no longer automatically update. In order to obtain version 4.0.0 you will have to manually install the CLI. Automatic updates will work again once you have upgraded to 4.0.0 or greater.
+
 Once downloaded, the CLI will attempt to automatically update itself when a new version becomes available. This ensures you are always running a compatible version of the Datica CLI. However you can always check out the latest releases on the [releases page](https://github.com/daticahealth/cli/releases).
 
 To ensure your CLI can automatically update itself, be sure to put the binary in a location where you have **write access** without the need for sudo or escalated privileges.
@@ -10,15 +12,17 @@ Since version 2.0.0, the following platforms and architectures are supported by 
 
 | OS | Architecture |
 |----|--------------|
-| Darwin (Mac OS X) | 64-bit, 32-bit |
-| Linux | 64-bit, 32-bit |
-| Windows | 64-bit, 32-bit |
+| Darwin (Mac OS X) | 64-bit |
+| Linux | 64-bit |
+| Windows | 64-bit |
 
 # Global Scope
 
-The CLI now supports the concept of scope. Previous to version 2.0.0, all commands had to be run within an associated local git repo. Now, the only time you need to be in a local git repo is when you associate to a new environment. After the initial association, CLI commands can be run from any directory. If you have more than one environment, you must specify which environment to use with the global `-E` flag.
+Datica CLI commands can be run anywhere on your system with two exceptions. The [`datica init`](#init) command expects to be inside of either a git repository or a directory that you intend to be a git repository, as it will set up a git repository if one does not exist. Additionally, the [`datica git-remote`](#git-remote) command is used to manage git remotes and must be run inside of a git repository in order to work.
 
-Let's say you have associated to two environments named `mysandbox` and `myprod`. You have two options to specify which environment to run a command against.
+If you have more than one environment, you must specify which environment to use with the global `-E` flag.
+
+Let's say you have initialized a code project for two environments (ex. "staging" and "production") named `mysandbox` and `myprod`. You have two options to specify which environment to run a command against.
 
 First, you can tell the CLI which environment you want to use with the global option `-E` or `--env` (see [Global Options](#global-options)). Your command might start like this
 
@@ -26,29 +30,7 @@ First, you can tell the CLI which environment you want to use with the global op
 datica -E myprod ...
 ```
 
-If you don't set the `-E` flag, then the CLI takes the first environment you associated and prompts you to continue with this environment. This concept of scope will make it easier for Datica customers with multiple environments to use the CLI!
-
-# Environment Aliases
-
-When you associate an environment from within a local git repo, you typically run the following command:
-
-```
-datica -E "<your_env_alias>" associate "My Health Tech Company Production" app01
-```
-
-Where `My Health Tech Company Production` is the name of your environment. However with the concept of [scope](#global-scope) and being able to specify which environment to use on a command by command basis with the `-E` global option, that is a lot to type! This is where environment aliases come in handy.
-
-When you associate an environment and you want to pick a shorter name to reference the environment by, simply add a `-a` flag to the command. Let's try the command again calling it `prod` this time:
-
-```
-datica -E "<your_env_alias>" associate "My Health Tech Company Production" app01 -a prod
-```
-
-Now when you run the [associated](#associated) command, you will see the alias as well as the actual environment name.
-
-When using aliases, there are a couple things to keep in mind. Aliases are only local and never leave your local machine. If you alias this environment `prod`, a coworker can alias the environment `healthtech-prod` with no ramifications. Second, after setting an alias you will never reference the environment by its actual name with the CLI. You will always use the alias for flags, arguments, options, etc.
-
-To change or remove an alias, you must [disassociate](#disassociate) and then [reassociate](#associate) with a new alias.
+If you don't set the `-E` flag, then the CLI picks one of your environments and prompts you to continue with this environment. This concept of scope will make it easier for Datica customers with multiple environments to use the CLI!
 
 # Bash Autocompletion
 
@@ -62,9 +44,10 @@ The following table outlines all global options available in the CLI. Global opt
 
 | Short Name | Long Name | Description | Environment Variable |
 |------------|-----------|-------------|----------------------|
-| -U | --username | Your Datica username that you login to the Dashboard with | DATICA_USERNAME |
+| &nbsp; | --email | Your Datica email that you login to the Dashboard with | DATICA_EMAIL |
+| -U | --username | [DEPRECATED] Your Datica username that you login to the Dashboard with. Please use --email instead | DATICA_USERNAME |
 | -P | --password | Your Datica password that you login to the Dashboard with | DATICA_PASSWORD |
-| -E | --env | The local alias of the environment in which this command will be run. Read more about [environment aliases](#environment-aliases) | DATICA_ENV |
+| -E | --env | The name of the environment for which this command will be run. | DATICA_ENV |
 
 # Overview
 
@@ -74,91 +57,47 @@ Usage: datica [OPTIONS] COMMAND [arg...]
 
 
 Options:
-  -U, --username    Datica Username ($DATICA_USERNAME)
+  --email           Datica Email ($DATICA_EMAIL)
+  -U, --username    [DEPRECATED] Datica Username (This flag is deprecated. Please use --email instead) ($DATICA_USERNAME)
   -P, --password    Datica Password ($DATICA_PASSWORD)
-  -E, --env         The local alias of the environment in which this command will be run ($DATICA_ENV)
+  -E, --env         The name of the environment in which this command will be run ($DATICA_ENV)
   -v, --version     Show the version and exit
 
 Commands:
-  associate	Associates an environment
-  associated	Lists all associated environments
-  certs	Manage your SSL certificates and domains
-  clear	Clear out information in the global settings file to fix a misconfigured CLI.
-  console	Open a secure console to a service
-  dashboard	Open the Datica Dashboard in your default browser
-  db	Tasks for databases
-  default	[DEPRECATED] Set the default associated environment
-  deploy-keys	Tasks for SSH deploy keys
-  disassociate	Remove the association with an environment
-  domain	Print out the temporary domain name of the environment
-  environments	Manage environments for which you have access
-  files	Tasks for managing service files
-  git-remote	Manage git remotes to Datica code services
-  invites	Manage invitations for your organizations
-  keys	Tasks for SSH keys
-  logout	Clear the stored user information from your local machine
-  logs	Show the logs in your terminal streamed from your logging dashboard
-  maintenance	Manage maintenance mode for code services
-  metrics	Print service and environment metrics in your local time zone
-  rake	Execute a rake task
-  redeploy	Redeploy a service without having to do a git push. This will cause downtime for all redeploys (see the resources page for more details).
-  releases	Manage releases for code services
-  rollback	Rollback a code service to a specific release
-  services	Perform operations on an environment's services
-  sites	Tasks for updating sites, including hostnames, SSL certificates, and private keys
-  ssl	Perform operations on local certificates to verify their validity
-  status	Get quick readout of the current status of your associated environment and all of its services
-  support-ids	Print out various IDs related to your associated environment to be used when contacting Datica support
-  update	Checks for available updates and updates the CLI if a new update is available
-  users	Manage users who have access to the given organization
-  vars	Interaction with environment variables for the associated environment
-  version	Output the version and quit
-  whoami	Retrieve your user ID
-  worker	Manage a service's workers
+  certs          Manage your SSL certificates and domains
+  clear          Clear out information in the global settings file to fix a misconfigured CLI.
+  console        Open a secure console to a service
+  db             Tasks for databases
+  deploy-keys    Tasks for SSH deploy keys
+  domain         Print out the temporary domain name of the environment
+  environments   Manage environments for which you have access
+  files          Tasks for managing service files
+  git-remote     Manage git remotes to Datica code services
+  init           Get started using the Datica platform
+  invites        Manage invitations for your organizations
+  keys           Tasks for SSH keys
+  logout         Clear the stored user information from your local machine
+  logs           Show the logs in your terminal streamed from your logging dashboard
+  maintenance    Manage maintenance mode for code services
+  metrics        Print service and environment metrics in your local time zone
+  rake           Execute a rake task
+  redeploy       Redeploy a service without having to do a git push. This will cause downtime for all redeploys (see the resources page for more details).
+  releases       Manage releases for code services
+  rollback       Rollback a code service to a specific release
+  services       Perform operations on an environment's services
+  sites          Tasks for updating sites, including hostnames, SSL certificates, and private keys
+  ssl            Perform operations on local certificates to verify their validity
+  status         Get quick readout of the current status of an environment and all of its services
+  support-ids    Print out various IDs related to an environment to be used when contacting Datica support
+  update         Checks for available updates and updates the CLI if a new update is available
+  users          Manage users who have access to the given organization
+  vars           Interaction with environment variables for an environment
+  version        Output the version and quit
+  whoami         Retrieve your user ID
+  worker         Manage a service's workers
 
 Run 'datica COMMAND --help' for more information on a command.
 
-```
-
-# Associate
-
-```
-
-Usage: datica associate ENV_NAME SERVICE_NAME [-a] [-r] [-d]
-
-Associates an environment
-
-Arguments:
-  ENV_NAME=""       The name of your environment
-  SERVICE_NAME=""   The name of the primary code service to associate with this environment (i.e. 'app01')
-
-Options:
-  -a, --alias=""          A shorter name to reference your environment by for local commands
-  -r, --remote="datica"   The name of the remote
-  -d, --default=false     [DEPRECATED] Specifies whether or not the associated environment will be the default
-
-```
-
-`associate` is the entry point of the cli. You need to associate an environment before you can run most other commands. Check out [scope](#global-scope) and [aliases](#environment-aliases) for more info on the value of the alias and default options. Here is a sample command
-
-```
-datica associate My-Production-Environment app01 -a prod
-```
-
-# Associated
-
-```
-
-Usage: datica associated
-
-Lists all associated environments
-
-```
-
-`associated` outputs information about all previously associated environments on your local machine. The information that is printed out includes the alias, environment ID, actual environment name, service ID, and the git repo directory. Here is a sample command
-
-```
-datica associated
 ```
 
 # Certs
@@ -169,9 +108,9 @@ The `certs` command gives access to certificate and private key management for p
 
 ```
 
-Usage: datica certs create NAME PUBLIC_KEY_PATH PRIVATE_KEY_PATH [-s] [-r]
+Usage: datica certs create NAME ((PUBLIC_KEY_PATH PRIVATE_KEY_PATH [-s] [-r]) | -l)
 
-Create a new domain with an SSL certificate and private key
+Create a new domain with an SSL certificate and private key or create a Let's Encrypt certificate
 
 Arguments:
   NAME=""               The name of this SSL certificate plus private key pair
@@ -179,17 +118,19 @@ Arguments:
   PRIVATE_KEY_PATH=""   The path to an unencrypted private key file in PEM format
 
 Options:
-  -s, --self-signed=false   Whether or not the given SSL certificate and private key are self signed
-  -r, --resolve=true        Whether or not to attempt to automatically resolve incomplete SSL certificate issues
+  -s, --self-signed=false    Whether or not the given SSL certificate and private key are self signed
+  -r, --resolve=true         Whether or not to attempt to automatically resolve incomplete SSL certificate issues
+  -l, --lets-encrypt=false   Whether or not this is a Let's Encrypt certificate
 
 ```
 
-`certs create` allows you to upload an SSL certificate and private key which can be used to secure your public facing code service. Cert creation can be done at any time, even after environment provisioning, but must be done before [creating a site](#sites-create). When creating a cert, the CLI will check to ensure the certificate and private key match. If you are using a self signed cert, pass in the `-s` flag and the hostname check will be skipped. Datica requires that your certificate include your own certificate, intermediate certificates, and the root certificate in that order. If you only include your certificate, the CLI will attempt to resolve this and fetch intermediate and root certificates for you. It is advised that you create a full chain before running this command as the `-r` flag is accomplished on a "best effort" basis.
+`certs create` allows you to upload an SSL certificate and private key which can be used to secure your public facing code service. Alternatively, you may opt to create a Let's Encrypt certificate. When creating a Let's Encrypt certificate, you only need to provide the certificate name along with the "-l" flag. Let's Encrypt certificates are issued asynchronously and may not be available immediately. Use the [certs list](#certs-list) command to check on the issuance status. Once issued, Let's Encrypt certificates automatically renew before expiring. Cert creation can be done at any time, even after environment provisioning, but must be done before [creating a site](#sites-create). When uploading a custom cert, the CLI will check to ensure the certificate and private key match. If you are using a self signed cert, pass in the `-s` flag and the hostname check will be skipped. Datica requires that your certificate file include your own certificate, intermediate certificates, and the root certificate in that order. If you only include your certificate, the CLI will attempt to resolve this and fetch intermediate and root certificates for you. It is advised that you create a full chain before running this command as the `-r` flag is accomplished on a "best effort" basis.
 
-The `HOSTNAME` for a certificate does not need to match the valid Subject of the actual SSL certificate nor does it need to match the `site` name used in the `sites create` command. The `HOSTNAME` is used for organizational purposes only and can be named anything with the exclusion of the following characters: `/`, `&`, `%`. Here is a sample command
+Here are a few sample commands
 
 ```
-datica -E "<your_env_alias>" certs create wildcard_mysitecom ~/path/to/cert.pem ~/path/to/priv.key
+datica -E "<your_env_name>" certs create wildcard_mysitecom ~/path/to/cert.pem ~/path/to/priv.key
+datica -E "<your_env_name>" certs create my.site.com --lets-encrypt
 ```
 
 ## Certs List
@@ -202,29 +143,29 @@ List all existing domains that have SSL certificate and private key pairs
 
 ```
 
-`certs list` lists all of the available certs you have created on your environment. The displayed names are the names that should be used as the `DOMAIN` parameter in the [sites create](#sites-create) command. Here is a sample command
+`certs list` lists all of the available certs you have created on your environment. The displayed names are the names that should be used as the `CERT_NAME` parameter in the [sites create](#sites-create) command. If any certs are Let's Encrypt certs, the issuance status will also be shown. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" certs list
+datica -E "<your_env_name>" certs list
 ```
 
 ## Certs Rm
 
 ```
 
-Usage: datica certs rm HOSTNAME
+Usage: datica certs rm NAME
 
 Remove an existing domain and its associated SSL certificate and private key pair
 
 Arguments:
-  HOSTNAME=""   The hostname of the domain and SSL certificate and private key pair
+  NAME=""      The name of the certificate to remove
 
 ```
 
 `certs rm` allows you to delete old certificate and private key pairs. Only certs that are not in use by a site can be deleted. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" certs rm mywebsite.com
+datica -E "<your_env_name>" certs rm mywebsite.com
 ```
 
 ## Certs Update
@@ -246,25 +187,24 @@ Options:
 
 ```
 
-`certs update` works nearly identical to the [certs create](#certs-create) command. All rules regarding self signed certs and certificate resolution from the `certs create` command apply to the `certs update` command. This is useful for when your certificates have expired and you need to upload new ones. Update your certs and then redeploy your service_proxy. Here is a sample command
+`certs update` works nearly identical to the [certs create](#certs-create) command. All rules regarding self signed certs and certificate resolution from the `certs create` command apply to the `certs update` command. Let's Encrypt certs cannot be updated since they are automatically renewed before expiring. This is useful for when your certificates have expired and you need to upload new ones. Update your certs and then redeploy your service_proxy. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" certs update mywebsite.com ~/path/to/new/cert.pem ~/path/to/new/priv.key
+datica -E "<your_env_name>" certs update mywebsite.com ~/path/to/new/cert.pem ~/path/to/new/priv.key
 ```
 
 # Clear
 
 ```
 
-Usage: datica clear [--private-key] [--session] [--environments] [--default] [--pods] [--all]
+Usage: datica clear [--private-key] [--session] [--environments] [--pods] [--all]
 
 Clear out information in the global settings file to fix a misconfigured CLI.
 
 Options:
   --private-key=false    Clear out the saved private key information
   --session=false        Clear out all session information
-  --environments=false   Clear out all associated environments
-  --default=false        [DEPRECATED] Clear out the saved default environment
+  --environments=false   Clear out all your environment data
   --pods=false           Clear out all saved pods
   --all=false            Clear out all settings
 
@@ -274,7 +214,7 @@ Options:
 
 ```
 datica clear --all
-datica clear --environments # removes your associated environments
+datica clear --environments # removes your locally cached environment(s) configuration data
 datica clear --session --private-key # removes all session and private key authentication information
 ```
 
@@ -295,24 +235,8 @@ Arguments:
 `console` gives you direct access to your database service or application shell. For example, if you open up a console to a postgres database, you will be given access to a psql prompt. You can also open up a mysql prompt, mongo cli prompt, rails console, django shell, and much more. When accessing a database service, the `COMMAND` argument is not needed because the appropriate prompt will be given to you. If you are connecting to an application service the `COMMAND` argument is required. Here are some sample commands
 
 ```
-datica -E "<your_env_alias>" console db01
-datica -E "<your_env_alias>" console app01 "bundle exec rails console"
-```
-
-# Dashboard
-
-```
-
-Usage: datica dashboard
-
-Open the Datica Dashboard in your default browser
-
-```
-
-`dashboard` opens up the Datica Dashboard homepage in your default web browser. Here is a sample command
-
-```
-datica dashboard
+datica -E "<your_env_name>" console db01
+datica -E "<your_env_name>" console app01 "bundle exec rails console"
 ```
 
 # Db
@@ -338,7 +262,7 @@ Options:
 `db backup` creates a new backup for the given database service. The backup is started and unless `-s` is specified, the CLI will poll every few seconds until it finishes. Regardless of a successful backup or not, the logs for the backup will be printed to the console when the backup is finished. If an error occurs and the logs are not printed, you can use the [db logs](#db-logs) command to print out historical backup job logs. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" db backup db01
+datica -E "<your_env_name>" db backup db01
 ```
 
 ## Db Download
@@ -362,13 +286,13 @@ Options:
 `db download` downloads a previously created backup to your local hard drive. Be careful using this command as it could download PHI. Be sure that all hard drive encryption and necessary precautions have been taken before performing a download. The ID of the backup is found by first running the [db list](#db-list) command. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" db download db01 cd2b4bce-2727-42d1-89e0-027bf3f1a203 ./db.sql
+datica -E "<your_env_name>" db download db01 cd2b4bce-2727-42d1-89e0-027bf3f1a203 ./db.sql
 ```
 
 This assumes you are downloading a MySQL or PostgreSQL backup which takes the `.sql` file format. If you are downloading a mongo backup, the command might look like this
 
 ```
-datica -E "<your_env_alias>" db download db01 cd2b4bce-2727-42d1-89e0-027bf3f1a203 ./db.tar.gz
+datica -E "<your_env_name>" db download db01 cd2b4bce-2727-42d1-89e0-027bf3f1a203 ./db.tar.gz
 ```
 
 ## Db Export
@@ -391,13 +315,13 @@ Options:
 `db export` is a simple wrapper around the `db backup` and `db download` commands. When you request an export, a backup is created that will be added to the list of backups shown when you perform the [db list](#db-list) command. Then that backup is immediately downloaded. Regardless of a successful export or not, the logs for the backup will be printed to the console when the export is finished. If an error occurs and the logs are not printed, you can use the [db logs](#db-logs) command to print out historical backup job logs. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" db export db01 ./dbexport.sql
+datica -E "<your_env_name>" db export db01 ./dbexport.sql
 ```
 
 This assumes you are exporting a MySQL or PostgreSQL database which takes the `.sql` file format. If you are exporting a mongo database, the command might look like this
 
 ```
-datica -E "<your_env_alias>" db export db01 ./dbexport.tar.gz
+datica -E "<your_env_name>" db export db01 ./dbexport.tar.gz
 ```
 
 ## Db Import
@@ -433,7 +357,7 @@ INSERT INTO mytable (id, val) values ('1', 'test');
 and stored it at `./db.sql` you could import this into your database service. When importing data into mongo, you may specify the database and collection to import into using the `-d` and `-c` flags respectively. Regardless of a successful import or not, the logs for the import will be printed to the console when the import is finished. Before an import takes place, your database is backed up automatically in case any issues arise. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" db import db01 ./db.sql
+datica -E "<your_env_name>" db import db01 ./db.sql
 ```
 
 ## Db List
@@ -456,7 +380,7 @@ Options:
 `db list` lists all previously created backups. After listing backups you can copy the backup ID and use it to [download](#db-download) that backup or [view the logs](#db-logs) from that backup. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" db list db01
+datica -E "<your_env_name>" db list db01
 ```
 
 ## Db Logs
@@ -476,28 +400,7 @@ Arguments:
 `db logs` allows you to view backup logs from historical backup jobs. You can find the backup ID from using the `db list` command. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" db logs db01 cd2b4bce-2727-42d1-89e0-027bf3f1a203
-```
-
-# Default
-
-```
-
-Usage: datica default ENV_ALIAS
-
-[DEPRECATED] Set the default associated environment
-
-Arguments:
-  ENV_ALIAS=""   The alias of an already associated environment to set as the default
-
-```
-
-The `default` command has been deprecated! It will be removed in a future version. Please specify `-E` on all commands instead of using the default.
-
-`default` sets the default environment for all commands that don't specify an environment with the `-E` flag. See [scope](#global-scope) for more information on scope and default environments. When setting a default environment, you must give the alias of the environment if one was set when it was associated and not the real environment name. Here is a sample command
-
-```
-datica default prod
+datica -E "<your_env_name>" db logs db01 cd2b4bce-2727-42d1-89e0-027bf3f1a203
 ```
 
 # Deploy-keys
@@ -522,7 +425,7 @@ Arguments:
 `deploy-keys add` allows you to upload an SSH public key in OpenSSH format. These keys are used for pushing code to your code services but are not required. You should be using personal SSH keys with the [keys](#keys) command unless you are pushing code from Continuous Integration or Continuous Deployment scenarios. Deploy keys are intended to be shared among an organization. Here are some sample commands
 
 ```
-datica -E "<your_env_alias>" deploy-keys add app01_public ~/.ssh/app01_rsa.pub app01
+datica -E "<your_env_name>" deploy-keys add app01_public ~/.ssh/app01_rsa.pub app01
 ```
 
 ## Deploy-keys List
@@ -541,7 +444,7 @@ Arguments:
 `deploy-keys list` will list all of your previously uploaded deploy keys by name including the key's fingerprint in SHA256 format. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" deploy-keys list app01
+datica -E "<your_env_name>" deploy-keys list app01
 ```
 
 ## Deploy-keys Rm
@@ -561,26 +464,7 @@ Arguments:
 `deploy-keys rm` will remove a previously created deploy key by name. It is a good idea to rotate deploy keys on a set schedule as they are intended to be shared among an organization. Here are some sample commands
 
 ```
-datica -E "<your_env_alias>" deploy-keys rm app01_public app01
-```
-
-# Disassociate
-
-```
-
-Usage: datica disassociate ENV_ALIAS
-
-Remove the association with an environment
-
-Arguments:
-  ENV_ALIAS=""   The alias of an already associated environment to disassociate
-
-```
-
-`disassociate` removes the environment from your list of associated environments but **does not** remove the datica git remote on the git repo. Disassociate does not have to be run from within a git repo. Here is a sample command
-
-```
-datica disassociate myprod
+datica -E "<your_env_name>" deploy-keys rm app01_public app01
 ```
 
 # Domain
@@ -596,12 +480,10 @@ Print out the temporary domain name of the environment
 `domain` prints out the temporary domain name setup by Datica for an environment. This domain name typically takes the form podXXXXX.catalyzeapps.com but may vary based on the environment. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" domain
+datica -E "<your_env_name>" domain
 ```
 
 # Environments
-
-This command has been moved! Please use [environments list](#environments-list) instead. This alias will be removed in the next CLI update.
 
 The `environments` command allows you to manage your environments. The environments command can not be run directly but has sub commands.
 
@@ -637,7 +519,7 @@ Arguments:
 `environments rename` allows you to rename your environment. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" environments rename MyNewEnvName
+datica -E "<your_env_name>" environments rename MyNewEnvName
 ```
 
 # Files
@@ -665,7 +547,7 @@ Options:
 `files download` allows you to view the contents of a service file and save it to your local machine. Most service files are stored on your service_proxy and therefore you should not have to specify the `SERVICE_NAME` argument. Simply supply the `FILE_NAME` found from the [files list](#files-list) command and the contents of the file, as well as the permissions string, will be printed to your console. You can always store the file locally, applying the same permissions as those on the remote server, by specifying an output file with the `-o` flag. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" files download /etc/nginx/sites-enabled/mywebsite.com
+datica -E "<your_env_name>" files download /etc/nginx/sites-enabled/mywebsite.com
 ```
 
 ## Files List
@@ -684,7 +566,7 @@ Arguments:
 `files list` prints out a listing of all service files available for download. Nearly all service files are stored on the service_proxy and therefore you should not have to specify the `SERVICE_NAME` argument. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" files list
+datica -E "<your_env_name>" files list
 ```
 
 # Git-remote
@@ -711,7 +593,7 @@ Options:
 `git-remote add` adds the proper git remote to a local git repository with the given remote name and service. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" git-remote add code-1 -r datica-code-1
+datica -E "<your_env_name>" git-remote add code-1 -r datica-code-1
 ```
 
 ## Git-remote Show
@@ -730,8 +612,20 @@ Arguments:
 `git-remote show` prints out the git remote URL for the given service. This can be used to do a manual push or use the git remote for another purpose such as a CI integration. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" git-remote show code-1
+datica -E "<your_env_name>" git-remote show code-1
 ```
+
+# Init
+
+```
+
+Usage: datica init
+
+Get started using the Datica platform
+
+```
+
+The `init` command walks you through setting up the CLI to use with the Datica platform. The `init` command requires you to have an environment already setup. 
 
 # Invites
 
@@ -753,7 +647,7 @@ Arguments:
 `invites accept` is an alternative form of accepting an invitation sent by email. The invitation email you receive will have instructions as well as the invite code to use with this command. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" invites accept 5a206aa8-04f4-4bc1-a017-ede7e6c7dbe2
+datica -E "<your_env_name>" invites accept 5a206aa8-04f4-4bc1-a017-ede7e6c7dbe2
 ```
 
 ## Invites List
@@ -766,10 +660,10 @@ List all pending organization invitations
 
 ```
 
-`invites list` lists all pending invites for the associated environment's organization. Any invites that have already been accepted will not appear in this list. To manage users who have already accepted invitations or are already granted access to your environment, use the [users](#users) group of commands. Here is a sample command
+`invites list` lists all pending invites for an environment's organization. Any invites that have already been accepted will not appear in this list. To manage users who have already accepted invitations or are already granted access to your environment, use the [users](#users) group of commands. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" invites list
+datica -E "<your_env_name>" invites list
 ```
 
 ## Invites Rm
@@ -788,30 +682,26 @@ Arguments:
 `invites rm` removes a pending invitation found by using the [invites list](#invites-list) command. Once an invite has already been accepted, it cannot be removed. Removing an invitation is helpful if an email was misspelled or an invitation was sent to an incorrect email address. If you want to revoke access to a user who already has been given access to your environment, use the [users rm](#users-rm) command. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" invites rm 78b5d0ed-f71c-47f7-a4c8-6c8c58c29db1
+datica -E "<your_env_name>" invites rm 78b5d0ed-f71c-47f7-a4c8-6c8c58c29db1
 ```
 
 ## Invites Send
 
 ```
 
-Usage: datica invites send EMAIL [-m | -a]
+Usage: datica invites send EMAIL
 
 Send an invite to a user by email for a given organization
 
 Arguments:
-  EMAIL=""     The email of a user to invite to the associated environment. This user does not need to have a Datica account prior to sending the invitation
-
-Options:
-  -m, --member=false   [DEPRECATED] Whether or not the user will be invited as a basic member. This flag will be removed in the next version
-  -a, --admin=false    [DEPRECATED] Whether or not the user will be invited as an admin. This flag will be removed in the next version
+  EMAIL=""     The email of a user to invite to an environment. This user does not need to have a Datica account prior to sending the invitation
 
 ```
 
-`invites send` invites a new user to your environment's organization. The only piece of information required is the email address to send the invitation to. The invited user will join the organization as a member with no permissions. You must grant them permission through the dashboard. The recipient does **not** need to have a Dashboard account in order to send them an invitation. However, they will need to have a Dashboard account to accept the invitation. Here is a sample command
+`invites send` invites a new user to your environment's organization. The only piece of information required is the email address to send the invitation to. The invited user will join the organization with no permissions. You must grant them permission through the dashboard. The recipient does **not** need to have a Dashboard account in order to send them an invitation. However, they will need to have a Dashboard account to accept the invitation. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" invites send coworker@datica.com
+datica -E "<your_env_name>" invites send coworker@datica.com
 ```
 
 # Keys
@@ -832,7 +722,7 @@ Arguments:
 
 ```
 
-`keys add` allows you to add a new SSH key to your user account. SSH keys added to your user account should be private and not shared with others. SSH keys can be used for authentication (as opposed to the traditional username and password) as well as pushing code to an environment's code services. Please note, you must specify the path to the public key file and not the private key. All SSH keys should be in either OpenSSH RSA format or PEM format. Here is a sample command
+`keys add` allows you to add a new SSH key to your user account. SSH keys added to your user account should be private and not shared with others. SSH keys can be used for authentication (as opposed to the traditional email and password) as well as pushing code to an environment's code services. Please note, you must specify the path to the public key file and not the private key. All SSH keys should be in either OpenSSH RSA format or PEM format. Here is a sample command
 
 ```
 datica keys add my_prod_key ~/.ssh/prod_rsa.pub
@@ -886,7 +776,7 @@ Arguments:
 
 ```
 
-`keys set` allows the CLI to use an SSH key for authentication instead of the traditional username and password combination. This can be useful for automation or where shared workstations are involved. Please note that you must pass in the path to the private key and not the public key. The given key must already be added to your account by using the [keys add](#keys-add) command. Here is a sample command
+`keys set` allows the CLI to use an SSH key for authentication instead of the traditional email and password combination. This can be useful for automation or where shared workstations are involved. Please note that you must pass in the path to the private key and not the public key. The given key must already be added to your account by using the [keys add](#keys-add) command. Here is a sample command
 
 ```
 datica keys set ~/.ssh/my_key
@@ -902,7 +792,7 @@ Clear the stored user information from your local machine
 
 ```
 
-When using the CLI, your username and password are **never** stored in any file on your filesystem. However, in order to not type in your username and password each and every command, a session token is stored in the CLI's configuration file and used until it expires. `logout` removes this session token from the configuration file. Here is a sample command
+When using the CLI, your email and password are **never** stored in any file on your filesystem. However, in order to not type in your email and password each and every command, a session token is stored in the CLI's configuration file and used until it expires. `logout` removes this session token from the configuration file. Here is a sample command
 
 ```
 datica logout
@@ -931,8 +821,8 @@ Options:
 `logs` prints out your application logs directly from your logging Dashboard. If you do not see your logs, try adjusting the number of hours, minutes, or seconds of logs that are retrieved with the `--hours`, `--minutes`, and `--seconds` options respectively. You can also follow the logs with the `-f` option. When using `-f` all logs will be printed to the console within the given time frame as well as any new logs that are sent to the logging Dashboard for the duration of the command. When using the `-f` option, hit ctrl-c to stop. Here are some sample commands
 
 ```
-datica -E "<your_env_alias>" logs --hours=6 --minutes=30
-datica -E "<your_env_alias>" logs -f
+datica -E "<your_env_name>" logs --hours=6 --minutes=30
+datica -E "<your_env_name>" logs -f
 ```
 
 # Maintenance
@@ -955,7 +845,7 @@ Arguments:
 `maintenance disable` turns off maintenance mode for a given code service. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" maintenance disable code-1
+datica -E "<your_env_name>" maintenance disable code-1
 ```
 
 ## Maintenance Enable
@@ -974,7 +864,7 @@ Arguments:
 `maintenance enable` turns on maintenance mode for a given code service. Maintenance mode redirects all traffic for the given code service to a default HTTP maintenance page. If you would like to customize this maintenance page, please contact Datica support. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" maintenance enable code-1
+datica -E "<your_env_name>" maintenance enable code-1
 ```
 
 ## Maintenance Show
@@ -993,8 +883,8 @@ Arguments:
 `maintenance show` displays whether or not maintenance mode is enabled for a code service or all code services. Here are some sample commands
 
 ```
-datica -E "<your_env_alias>" maintenance show
-datica -E "<your_env_alias>" maintenance show code-1
+datica -E "<your_env_name>" maintenance show
+datica -E "<your_env_name>" maintenance show code-1
 ```
 
 # Metrics
@@ -1005,7 +895,7 @@ The `metrics` command gives access to environment metrics or individual service 
 
 ```
 
-Usage: datica metrics cpu [SERVICE_NAME] [(--json | --csv | --text | --spark)] [--stream] [-m]
+Usage: datica metrics cpu [SERVICE_NAME] [(--json | --csv | --text)] [--stream] [-m]
 
 Print service and environment CPU metrics in your local time zone
 
@@ -1016,26 +906,25 @@ Options:
   --json=false     Output the data as json
   --csv=false      Output the data as csv
   --text=true      Output the data in plain text
-  --spark=false    Output the data using spark lines
   --stream=false   Repeat calls once per minute until this process is interrupted.
   -m, --mins=1     How many minutes worth of metrics to retrieve.
 
 ```
 
-`metrics cpu` prints out CPU metrics for your environment or individual services. You can print out metrics in csv, json, plain text, or spark lines format. If you want plain text format, simply omit the `--json`, `--csv`, and `--spark` flags. You can only stream metrics using plain text or spark lines formats. To print out metrics for every service in your environment, omit the `SERVICE_NAME` argument. Otherwise you may choose a service, such as an app service, to retrieve metrics for. Here are some sample commands
+`metrics cpu` prints out CPU metrics for your environment or individual services. You can print out metrics in csv, json, plain text, or spark lines format. If you want plain text format, omit the `--json` and `--csv` flags. You can only stream metrics using plain text or spark lines formats. To print out metrics for every service in your environment, omit the `SERVICE_NAME` argument. Otherwise you may choose a service, such as an app service, to retrieve metrics for. Here are some sample commands
 
 ```
-datica -E "<your_env_alias>" metrics cpu
-datica -E "<your_env_alias>" metrics cpu app01 --stream
-datica -E "<your_env_alias>" metrics cpu --json
-datica -E "<your_env_alias>" metrics cpu db01 --csv -m 60
+datica -E "<your_env_name>" metrics cpu
+datica -E "<your_env_name>" metrics cpu app01 --stream
+datica -E "<your_env_name>" metrics cpu --json
+datica -E "<your_env_name>" metrics cpu db01 --csv -m 60
 ```
 
 ## Metrics Memory
 
 ```
 
-Usage: datica metrics memory [SERVICE_NAME] [(--json | --csv | --text | --spark)] [--stream] [-m]
+Usage: datica metrics memory [SERVICE_NAME] [(--json | --csv | --text)] [--stream] [-m]
 
 Print service and environment memory metrics in your local time zone
 
@@ -1046,26 +935,25 @@ Options:
   --json=false     Output the data as json
   --csv=false      Output the data as csv
   --text=true      Output the data in plain text
-  --spark=false    Output the data using spark lines
   --stream=false   Repeat calls once per minute until this process is interrupted.
   -m, --mins=1     How many minutes worth of metrics to retrieve.
 
 ```
 
-`metrics memory` prints out memory metrics for your environment or individual services. You can print out metrics in csv, json, plain text, or spark lines format. If you want plain text format, simply omit the `--json`, `--csv`, and `--spark` flags. You can only stream metrics using plain text or spark lines formats. To print out metrics for every service in your environment, omit the `SERVICE_NAME` argument. Otherwise you may choose a service, such as an app service, to retrieve metrics for. Here are some sample commands
+`metrics memory` prints out memory metrics for your environment or individual services. You can print out metrics in csv, json, plain text, or spark lines format. If you want plain text format, omit the `--json` and `--csv` flags. You can only stream metrics using plain text or spark lines formats. To print out metrics for every service in your environment, omit the `SERVICE_NAME` argument. Otherwise you may choose a service, such as an app service, to retrieve metrics for. Here are some sample commands
 
 ```
-datica -E "<your_env_alias>" metrics memory
-datica -E "<your_env_alias>" metrics memory app01 --stream
-datica -E "<your_env_alias>" metrics memory --json
-datica -E "<your_env_alias>" metrics memory db01 --csv -m 60
+datica -E "<your_env_name>" metrics memory
+datica -E "<your_env_name>" metrics memory app01 --stream
+datica -E "<your_env_name>" metrics memory --json
+datica -E "<your_env_name>" metrics memory db01 --csv -m 60
 ```
 
 ## Metrics Network-in
 
 ```
 
-Usage: datica metrics network-in [SERVICE_NAME] [(--json | --csv | --text | --spark)] [--stream] [-m]
+Usage: datica metrics network-in [SERVICE_NAME] [(--json | --csv | --text)] [--stream] [-m]
 
 Print service and environment received network data metrics in your local time zone
 
@@ -1076,26 +964,25 @@ Options:
   --json=false     Output the data as json
   --csv=false      Output the data as csv
   --text=true      Output the data in plain text
-  --spark=false    Output the data using spark lines
   --stream=false   Repeat calls once per minute until this process is interrupted.
   -m, --mins=1     How many minutes worth of metrics to retrieve.
 
 ```
 
-`metrics network-in` prints out received network metrics for your environment or individual services. You can print out metrics in csv, json, plain text, or spark lines format. If you want plain text format, simply omit the `--json`, `--csv`, and `--spark` flags. You can only stream metrics using plain text or spark lines formats. To print out metrics for every service in your environment, omit the `SERVICE_NAME` argument. Otherwise you may choose a service, such as an app service, to retrieve metrics for. Here are some sample commands
+`metrics network-in` prints out received network metrics for your environment or individual services. You can print out metrics in csv, json, plain text, or spark lines format. If you want plain text format, omit the `--json` and `--csv` flags. You can only stream metrics using plain text or spark lines formats. To print out metrics for every service in your environment, omit the `SERVICE_NAME` argument. Otherwise you may choose a service, such as an app service, to retrieve metrics for. Here are some sample commands
 
 ```
-datica -E "<your_env_alias>" metrics network-in
-datica -E "<your_env_alias>" metrics network-in app01 --stream
-datica -E "<your_env_alias>" metrics network-in --json
-datica -E "<your_env_alias>" metrics network-in db01 --csv -m 60
+datica -E "<your_env_name>" metrics network-in
+datica -E "<your_env_name>" metrics network-in app01 --stream
+datica -E "<your_env_name>" metrics network-in --json
+datica -E "<your_env_name>" metrics network-in db01 --csv -m 60
 ```
 
 ## Metrics Network-out
 
 ```
 
-Usage: datica metrics network-out [SERVICE_NAME] [(--json | --csv | --text | --spark)] [--stream] [-m]
+Usage: datica metrics network-out [SERVICE_NAME] [(--json | --csv | --text)] [--stream] [-m]
 
 Print service and environment transmitted network data metrics in your local time zone
 
@@ -1106,31 +993,30 @@ Options:
   --json=false     Output the data as json
   --csv=false      Output the data as csv
   --text=true      Output the data in plain text
-  --spark=false    Output the data using spark lines
   --stream=false   Repeat calls once per minute until this process is interrupted.
   -m, --mins=1     How many minutes worth of metrics to retrieve.
 
 ```
 
-`metrics network-out` prints out transmitted network metrics for your environment or individual services. You can print out metrics in csv, json, plain text, or spark lines format. If you want plain text format, simply omit the `--json`, `--csv`, and `--spark` flags. You can only stream metrics using plain text or spark lines formats. To print out metrics for every service in your environment, omit the `SERVICE_NAME` argument. Otherwise you may choose a service, such as an app service, to retrieve metrics for. Here are some sample commands
+`metrics network-out` prints out transmitted network metrics for your environment or individual services. You can print out metrics in csv, json, plain text, or spark lines format. If you want plain text format, simply omit the `--json` and `--csv` flags. You can only stream metrics using plain text or spark lines formats. To print out metrics for every service in your environment, omit the `SERVICE_NAME` argument. Otherwise you may choose a service, such as an app service, to retrieve metrics for. Here are some sample commands
 
 ```
-datica -E "<your_env_alias>" metrics network-out
-datica -E "<your_env_alias>" metrics network-out app01 --stream
-datica -E "<your_env_alias>" metrics network-out --json
-datica -E "<your_env_alias>" metrics network-out db01 --csv -m 60
+datica -E "<your_env_name>" metrics network-out
+datica -E "<your_env_name>" metrics network-out app01 --stream
+datica -E "<your_env_name>" metrics network-out --json
+datica -E "<your_env_name>" metrics network-out db01 --csv -m 60
 ```
 
 # Rake
 
 ```
 
-Usage: datica rake [SERVICE_NAME] TASK_NAME
+Usage: datica rake SERVICE_NAME TASK_NAME
 
 Execute a rake task
 
 Arguments:
-  SERVICE_NAME=""   The service that will run the rake task. Defaults to the associated service.
+  SERVICE_NAME=""   The service that will run the rake task.
   TASK_NAME=""      The name of the rake task to run
 
 ```
@@ -1138,7 +1024,7 @@ Arguments:
 `rake` executes a rake task by its name asynchronously. Once executed, the output of the task can be seen through your logging Dashboard. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" rake code-1 db:migrate
+datica -E "<your_env_name>" rake code-1 db:migrate
 ```
 
 # Redeploy
@@ -1157,7 +1043,7 @@ Arguments:
 `redeploy` deploys an identical copy of the given service. For code services, this avoids having to perform a code push. You skip the git push and the build. For service proxies, new instances replace the old ones. All other service types cannot be redeployed with this command. For service proxy redeploys, there will be approximately 5 minutes of downtime. For code service redeploys, there will be approximately 30 seconds of downtime. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" redeploy app01
+datica -E "<your_env_name>" redeploy app01
 ```
 
 # Releases
@@ -1180,7 +1066,7 @@ Arguments:
 `releases list` lists all of the releases for a given service. A release is automatically created each time a git push is performed. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" releases list code-1
+datica -E "<your_env_name>" releases list code-1
 ```
 
 ## Releases Rm
@@ -1200,7 +1086,7 @@ Arguments:
 `releases rm` removes an existing release. This is useful in the case of a misbehaving code service. Removing the release avoids the risk of rolling back to a "bad" build. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" releases rm code-1 f93ced037f828dcaabccfc825e6d8d32cc5a1883
+datica -E "<your_env_name>" releases rm code-1 f93ced037f828dcaabccfc825e6d8d32cc5a1883
 ```
 
 ## Releases Update
@@ -1224,7 +1110,7 @@ Options:
 `releases update` allows you to rename or add notes to an existing release. By default, releases are named with the git SHA of the commit used to create the release. Renaming them allows you to organize your releases. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" releases update code-1 f93ced037f828dcaabccfc825e6d8d32cc5a1883 --notes "This is a stable build" --release v1
+datica -E "<your_env_name>" releases update code-1 f93ced037f828dcaabccfc825e6d8d32cc5a1883 --notes "This is a stable build" --release v1
 ```
 
 # Rollback
@@ -1244,7 +1130,7 @@ Arguments:
 `rollback` is a way to redeploy older versions of your code service. You must specify the name of the service to rollback and the name of an existing release to rollback to. Releases can be found with the [releases list](#releases-list) command. Here are some sample commands
 
 ```
-datica -E "<your_env_alias>" rollback code-1 f93ced037f828dcaabccfc825e6d8d32cc5a1883
+datica -E "<your_env_name>" rollback code-1 f93ced037f828dcaabccfc825e6d8d32cc5a1883
 ```
 
 # Services
@@ -1264,7 +1150,7 @@ List all services for your environment
 `services list` prints out a list of all services in your environment and their sizes. The services will be printed regardless of their currently running state. To see which services are currently running and which are not, use the [status](#status) command. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" services list
+datica -E "<your_env_name>" services list
 ```
 
 ## Services Stop
@@ -1283,7 +1169,7 @@ Arguments:
 `services stop` shuts down all running instances of a given service. This is useful when performing maintenance on code services or services without volumes that must be shutdown to perform maintenance. Take caution when running this command as all instances of the service, all workers, all rake tasks, and all open console sessions will be stopped. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" services stop code-1
+datica -E "<your_env_name>" services stop code-1
 ```
 
 ## Services Rename
@@ -1303,7 +1189,7 @@ Arguments:
 `services rename` allows you to rename any service in your environment. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" services rename code-1 api-svc
+datica -E "<your_env_name>" services rename code-1 api-svc
 ```
 
 # Sites
@@ -1314,14 +1200,14 @@ The `sites` command gives access to hostname and SSL certificate usage for publi
 
 ```
 
-Usage: datica sites create SITE_NAME SERVICE_NAME HOSTNAME [--client-max-body-size] [--proxy-connect-timeout] [--proxy-read-timeout] [--proxy-send-timeout] [--proxy-upstream-timeout] [--enable-cors] [--enable-websockets]
+Usage: datica sites create SITE_NAME SERVICE_NAME (CERT_NAME | -l) [--client-max-body-size] [--proxy-connect-timeout] [--proxy-read-timeout] [--proxy-send-timeout] [--proxy-upstream-timeout] [--enable-cors] [--enable-websockets]
 
 Create a new site linking it to an existing cert instance
 
 Arguments:
   SITE_NAME=""      The name of the site to be created. This will be used in this site's nginx configuration file (i.e. ".example.com")
   SERVICE_NAME=""   The name of the service to add this site configuration to (i.e. 'app01')
-  HOSTNAME=""       The hostname used in the creation of a certs instance with the 'certs' command (i.e. "star_example_com")
+  CERT_NAME=""      The name of the cert created with the 'certs' command (i.e. "star_example_com")
 
 Options:
   --client-max-body-size=-1     The 'client_max_body_size' nginx config specified in megabytes
@@ -1331,10 +1217,11 @@ Options:
   --proxy-upstream-timeout=-1   The 'proxy_next_upstream_timeout' nginx config specified in seconds
   --enable-cors=false           Enable or disable all features related to full CORS support
   --enable-websockets=false     Enable or disable all features related to full websockets support
+  -l, --lets-encrypt=false      Whether or not this site should create an auto-renewing Let's Encrypt certificate
 
 ```
 
-`sites create` allows you to create a site configuration that is tied to a single service. To create a site, you must first [create a cert](#certs-create). A site has three pieces of information: a name, the service it's tied to, and the cert instance it will use. The name is the `server_name` that will be injected into this site's Nginx configuration file. It is important that this site name match what URL your site will respond to. If this is a bare domain, using `mysite.com` is sufficient. If it should respond to the APEX domain and all subdomains, it should be named `.mysite.com` notice the leading `.`. The service is a code service that will use this site configuration. Lastly, the cert instance must be specified by the `HOSTNAME` argument used in the [certs create](#certs-create) command. You can also set Nginx configuration values directly by specifying one of the above flags. Specifying `--enable-cors` will add the following lines to your Nginx configuration
+`sites create` allows you to create a site configuration that is tied to a single service. To create a site, you must specify an existing cert made by the [certs create](#certs-create) command or use the "-l" flag to automatically create a Let's Encrypt certificate. A site has three pieces of information: a name, the service it's tied to, and the cert instance it will use. The name is the `server_name` that will be injected into this site's Nginx configuration file. It is important that this site name match what URL your site will respond to. If this is a bare domain, using `mysite.com` is sufficient. If it should respond to the APEX domain and all subdomains, it should be named `.mysite.com` notice the leading `.`. The service is a code service that will use this site configuration. Lastly, the cert instance must be specified by the `CERT_NAME` argument used in the [certs create](#certs-create) command or by the "-l" flag indicating a new Let's Encrypt certificate should be created. You can also set Nginx configuration values directly by specifying one of the above flags. Specifying `--enable-cors` will add the following lines to your Nginx configuration
 
 ```
 add_header 'Access-Control-Allow-Origin' '$http_origin' always;
@@ -1358,8 +1245,9 @@ proxy_set_header Connection "upgrade";
 Here are some sample commands
 
 ```
-datica -E "<your_env_alias>" sites create .mysite.com app01 wildcard_mysitecom
-datica -E "<your_env_alias>" sites create .mysite.com app01 wildcard_mysitecom --client-max-body-size 50 --enable-cors
+datica -E "<your_env_name>" sites create .mysite.com app01 wildcard_mysitecom
+datica -E "<your_env_name>" sites create .mysite.com app01 wildcard_mysitecom --client-max-body-size 50 --enable-cors
+datica -E "<your_env_name>" sites create app01.mysite.com app01 --lets-encrypt --enable-websockets
 ```
 
 ## Sites List
@@ -1375,7 +1263,7 @@ List details for all site configurations
 `sites list` lists all sites for the given environment. The names printed out can be used in the other sites commands. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" sites list
+datica -E "<your_env_name>" sites list
 ```
 
 ## Sites Rm
@@ -1394,7 +1282,7 @@ Arguments:
 `sites rm` allows you to remove a site by name. Since sites cannot be updated, if you want to change the name of a site, you must `rm` the site and then [create](#sites-create) it again. If you simply need to update your SSL certificates, you can use the [certs update](#certs-update) command on the cert instance used by the site in question. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" sites rm mywebsite.com
+datica -E "<your_env_name>" sites rm mywebsite.com
 ```
 
 ## Sites Show
@@ -1413,7 +1301,7 @@ Arguments:
 `sites show` will print out detailed information for a single site. The name of the site can be found from the [sites list](#sites-list) command. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" sites show mywebsite.com
+datica -E "<your_env_name>" sites show mywebsite.com
 ```
 
 # Ssl
@@ -1517,7 +1405,7 @@ datica ssl verify ~/self-signed.crt ~/self-signed.key "" -s
 
 Usage: datica status [--historical]
 
-Get quick readout of the current status of your associated environment and all of its services
+Get quick readout of the current status of an environment and all of its services
 
 Options:
   --historical=false   If this option is specified, a complete history of jobs will be reported
@@ -1527,8 +1415,8 @@ Options:
 `status` will give a quick readout of your environment's health. This includes your environment name, environment ID, and for each service the name, size, build status, deploy status, and service ID. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" status
-datica -E "<your_env_alias>" status --historical
+datica -E "<your_env_name>" status
+datica -E "<your_env_name>" status --historical
 ```
 
 # Support-ids
@@ -1537,14 +1425,14 @@ datica -E "<your_env_alias>" status --historical
 
 Usage: datica support-ids
 
-Print out various IDs related to your associated environment to be used when contacting Datica support
+Print out various IDs related to an environment to be used when contacting Datica support
 
 ```
 
 `support-ids` is helpful when contacting Datica support by submitting a ticket at https://datica.com/support. If you are having an issue with a CLI command or anything with your environment, it is helpful to run this command and copy the output into the initial correspondence with a Datica engineer. This will help Datica identify the environment faster and help come to resolution faster. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" support-ids
+datica -E "<your_env_name>" support-ids
 ```
 
 # Update
@@ -1580,7 +1468,7 @@ List all users who have access to the given organization
 `users list` shows every user that belongs to your environment's organization. Users who belong to your environment's organization may access to your environment's services and data depending on their role in the organization. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" users list
+datica -E "<your_env_name>" users list
 ```
 
 ## Users Rm
@@ -1599,7 +1487,7 @@ Arguments:
 `users rm` revokes a users access to your environment's organization. Revoking a user's access to your environment's organization will revoke their access to your organization's environments. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" users rm user@example.com
+datica -E "<your_env_name>" users rm user@example.com
 ```
 
 # Vars
@@ -1610,12 +1498,12 @@ The `vars` command allows you to manage environment variables for your code serv
 
 ```
 
-Usage: datica vars list [SERVICE_NAME] [--json | --yaml]
+Usage: datica vars list SERVICE_NAME [--json | --yaml]
 
 List all environment variables
 
 Arguments:
-  SERVICE_NAME=""   The name of the service containing the environment variables. Defaults to the associated service.
+  SERVICE_NAME=""   The name of the service containing the environment variables.
 
 Options:
   --json=false   Output environment variables in JSON format
@@ -1626,50 +1514,51 @@ Options:
 `vars list` prints out all known environment variables for the given code service. You can print out environment variables in JSON or YAML format through the `--json` or `--yaml` flags. Here are some sample commands
 
 ```
-datica -E "<your_env_alias>" vars list code-1
-datica -E "<your_env_alias>" vars list code-1 --json
+datica -E "<your_env_name>" vars list code-1
+datica -E "<your_env_name>" vars list code-1 --json
 ```
 
 ## Vars Set
 
 ```
 
-Usage: datica vars set [SERVICE_NAME] -v...
+Usage: datica vars set SERVICE_NAME (-v... | -f)
 
 Set one or more new environment variables or update the values of existing ones
 
 Arguments:
-  SERVICE_NAME=""   The name of the service on which the environment variables will be set. Defaults to the associated service.
+  SERVICE_NAME=""   The name of the service on which the environment variables will be set.
 
 Options:
   -v, --variable    The env variable to set or update in the form "<key>=<value>"
+  -f, --file=""     The path to a file to import environment variables from. This file can be in JSON, YAML, or KEY=VALUE format
 
 ```
 
 `vars set` allows you to add new environment variables or update the value of an existing environment variable on the given code service. You can set/update 1 or more environment variables at a time with this command by repeating the `-v` option multiple times. Once new environment variables are added or values updated, a [redeploy](#redeploy) is required for the given code service to have access to the new values. The environment variables must be of the form `<key>=<value>`. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" vars set code-1 -v AWS_ACCESS_KEY_ID=1234 -v AWS_SECRET_ACCESS_KEY=5678
+datica -E "<your_env_name>" vars set code-1 -v AWS_ACCESS_KEY_ID=1234 -v AWS_SECRET_ACCESS_KEY=5678
 ```
 
 ## Vars Unset
 
 ```
 
-Usage: datica vars unset [SERVICE_NAME] VARIABLE
+Usage: datica vars unset SERVICE_NAME VARIABLE...
 
 Unset (delete) an existing environment variable
 
 Arguments:
-  SERVICE_NAME=""   The name of the service on which the environment variables will be unset. Defaults to the associated service.
-  VARIABLE=""       The name of the environment variable to unset
+  SERVICE_NAME=""   The name of the service on which the environment variables will be unset.
+  VARIABLE          The names of environment variables to unset
 
 ```
 
-`vars unset` removes an environment variables from the given code service. Only the environment variable name is required to unset. Once environment variables are unset, a [redeploy](#redeploy) is required for the given code service to realize the variable was removed. Here is a sample command
+`vars unset` removes environment variables from the given code service. Only the environment variable name is required to unset. Once environment variables are unset, a [redeploy](#redeploy) is required for the given code service to realize the variable was removed. You can unset any number of environment variables in one command. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" vars unset code-1 AWS_ACCESS_KEY_ID
+datica -E "<your_env_name>" vars unset code-1 AWS_ACCESS_KEY_ID AWS_SECRET_ACCES_KEY_ID
 ```
 
 # Version
@@ -1725,7 +1614,7 @@ Arguments:
 `worker deploy` allows you to start a background process asynchronously. The TARGET must be specified in your Procfile. Once the worker is started, any output can be found in your logging Dashboard or using the [logs](#logs) command. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" worker deploy code-1 mailer
+datica -E "<your_env_name>" worker deploy code-1 mailer
 ```
 
 ## Worker List
@@ -1744,7 +1633,7 @@ Arguments:
 `worker list` lists all workers and their scale for a given code service along with the number of currently running instances of each worker target. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" worker list code-1
+datica -E "<your_env_name>" worker list code-1
 ```
 
 ## Worker Rm
@@ -1764,7 +1653,7 @@ Arguments:
 `worker rm` removes a worker by the given TARGET and stops all currently running instances of that TARGET. Here is a sample command
 
 ```
-datica -E "<your_env_alias>" worker rm code-1 mailer
+datica -E "<your_env_name>" worker rm code-1 mailer
 ```
 
 ## Worker Scale
@@ -1785,7 +1674,7 @@ Arguments:
 `worker scale` allows you to scale up or down a given worker TARGET. Scaling up will launch new instances of the worker TARGET while scaling down will immediately stop running instances of the worker TARGET if applicable. Here are some sample commands
 
 ```
-datica -E "<your_env_alias>" worker scale code-1 mailer 1
-datica -E "<your_env_alias>" worker scale code-1 mailer -- -2
+datica -E "<your_env_name>" worker scale code-1 mailer 1
+datica -E "<your_env_name>" worker scale code-1 mailer -- -2
 ```
 
