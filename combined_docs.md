@@ -75,6 +75,7 @@ Commands:
   git-remote     Manage git remotes to Datica code services
   init           Get started using the Datica platform
   invites        Manage invitations for your organizations
+  jobs           Perform operations on a service's jobs
   keys           Tasks for SSH keys
   logout         Clear the stored user information from your local machine
   logs           Show the logs in your terminal streamed from your logging dashboard
@@ -625,7 +626,7 @@ Get started using the Datica platform
 
 ```
 
-The `init` command walks you through setting up the CLI to use with the Datica platform. The `init` command requires you to have an environment already setup. 
+The `init` command walks you through setting up the CLI to use with the Datica platform. The `init` command requires you to have an environment already setup.
 
 # Invites
 
@@ -702,6 +703,68 @@ Arguments:
 
 ```
 datica -E "<your_env_name>" invites send coworker@datica.com
+```
+
+# Jobs
+
+The `jobs` command allows you to manage jobs for your service(s).  The jobs command cannot be run directly but has sub commands.
+
+## Jobs List
+
+```
+
+Usage: datica jobs list SERVICE_NAME
+
+List all jobs for a service
+
+Arguments:
+  SERVICE_NAME=""   The name of the service to list jobs for
+
+```
+
+`jobs list` prints out a list of all jobs in your environment and their current status.Here is a sample command
+
+```
+datica -E "<your_env_name>" jobs list <your_service_name>
+```
+
+## Jobs Start
+
+```
+
+Usage: datica jobs start SERVICE_NAME JOB_ID
+
+Start a specific job within a service
+
+Arguments:
+  SERVICE_NAME=""   The name of the service to list jobs for
+  JOB_ID=""         The job ID for the job in service to be started
+
+```
+
+`jobs start` will start a job that is configured but not currently running within a given serviceThis command is useful for granual control of your services and their workers, tasks, etc.```
+datica -E "<your_env_name>" jobs start <your_service_name> <your_job_id>
+```
+
+## Jobs Stop
+
+```
+
+Usage: datica jobs stop [SERVICE_NAME] [JOB_ID] [-f]
+
+Stop a specific job within a service
+
+Arguments:
+  SERVICE_NAME=""   The name of the service to list jobs for
+  JOB_ID=""         The job ID for the job in service to be stopped
+
+Options:
+  -f, --force=false   Allow this command to be executed without prompting to confirm
+
+```
+
+`jobs stop` will shut down a running job within a given serviceThis command is useful for granual control of your services and their workers, tasks, etc.```
+datica -E "<your_env_name>" jobs stop <your_service_name> <your_job_id>
 ```
 
 # Keys
@@ -1677,4 +1740,3 @@ Arguments:
 datica -E "<your_env_name>" worker scale code-1 mailer 1
 datica -E "<your_env_name>" worker scale code-1 mailer -- -2
 ```
-
