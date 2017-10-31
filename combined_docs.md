@@ -75,6 +75,7 @@ Commands:
   git-remote     Manage git remotes to Datica code services
   init           Get started using the Datica platform
   invites        Manage invitations for your organizations
+  jobs           Perform operations on a service's jobs
   keys           Tasks for SSH keys
   logout         Clear the stored user information from your local machine
   logs           Show the logs in your terminal streamed from your logging dashboard
@@ -102,7 +103,7 @@ Run 'datica COMMAND --help' for more information on a command.
 
 # Certs
 
-The `certs` command gives access to certificate and private key management for public facing services. The certs command cannot be run directly but has sub commands.
+The `certs` command gives access to certificate and private key management for public facing services. The certs command cannot be run directly but has subcommands.
 
 ## Certs Create
 
@@ -241,7 +242,7 @@ datica -E "<your_env_name>" console app01 "bundle exec rails console"
 
 # Db
 
-The `db` command gives access to backup, import, and export services for databases. The db command can not be run directly but has sub commands.
+The `db` command gives access to backup, import, and export services for databases. The db command can not be run directly but has subcommands.
 
 ## Db Backup
 
@@ -405,7 +406,7 @@ datica -E "<your_env_name>" db logs db01 cd2b4bce-2727-42d1-89e0-027bf3f1a203
 
 # Deploy-keys
 
-The `deploy-keys` command gives access to SSH deploy keys for environment services. The deploy-keys command can not be run directly but has sub commands.
+The `deploy-keys` command gives access to SSH deploy keys for environment services. The deploy-keys command can not be run directly but has subcommands.
 
 ## Deploy-keys Add
 
@@ -485,7 +486,7 @@ datica -E "<your_env_name>" domain
 
 # Environments
 
-The `environments` command allows you to manage your environments. The environments command can not be run directly but has sub commands.
+The `environments` command allows you to manage your environments. The environments command can not be run directly but has subcommands.
 
 ## Environments List
 
@@ -524,7 +525,7 @@ datica -E "<your_env_name>" environments rename MyNewEnvName
 
 # Files
 
-The `files` command gives access to service files on your environment's services. Service files can include Nginx configs, SSL certificates, and any other file that might be injected into your running service. The files command can not be run directly but has sub commands.
+The `files` command gives access to service files on your environment's services. Service files can include Nginx configs, SSL certificates, and any other file that might be injected into your running service. The files command can not be run directly but has subcommands.
 
 ## Files Download
 
@@ -571,7 +572,7 @@ datica -E "<your_env_name>" files list
 
 # Git-remote
 
-The `git-remote` command allows you to interact with code service remote git URLs. The git-remote command can not be run directly but has sub commands.
+The `git-remote` command allows you to interact with code service remote git URLs. The git-remote command can not be run directly but has subcommands.
 
 ## Git-remote Add
 
@@ -625,7 +626,7 @@ Get started using the Datica platform
 
 ```
 
-The `init` command walks you through setting up the CLI to use with the Datica platform. The `init` command requires you to have an environment already setup. 
+The `init` command walks you through setting up the CLI to use with the Datica platform. The `init` command requires you to have an environment already setup.
 
 # Invites
 
@@ -704,9 +705,71 @@ Arguments:
 datica -E "<your_env_name>" invites send coworker@datica.com
 ```
 
+# Jobs
+
+The `jobs` command allows you to manage jobs for your service(s).  The jobs command cannot be run directly but has subcommands.
+
+## Jobs List
+
+```
+
+Usage: datica jobs list SERVICE_NAME
+
+List all jobs for a service
+
+Arguments:
+  SERVICE_NAME=""   The name of the service to list jobs for
+
+```
+
+`jobs list` prints out a list of all jobs in your environment and their current status. Here is a sample command
+
+```
+datica -E "<your_env_name>" jobs list <your_service_name>
+```
+
+## Jobs Start
+
+```
+
+Usage: datica jobs start SERVICE_NAME JOB_ID
+
+Start a specific job within a service
+
+Arguments:
+  SERVICE_NAME=""   The name of the service to list jobs for
+  JOB_ID=""         The job ID for the job in service to be started
+
+```
+
+`jobs start` will start a job that is configured but not currently running within a given service. This command is useful for granual control of your services and their workers, tasks, etc.```
+datica -E "<your_env_name>" jobs start <your_service_name> <your_job_id>
+```
+
+## Jobs Stop
+
+```
+
+Usage: datica jobs stop [SERVICE_NAME] [JOB_ID] [-f]
+
+Stop a specific job within a service
+
+Arguments:
+  SERVICE_NAME=""   The name of the service to list jobs for
+  JOB_ID=""         The job ID for the job in service to be stopped
+
+Options:
+  -f, --force=false   Allow this command to be executed without prompting to confirm
+
+```
+
+`jobs stop` will shut down a running job within a given service. This command is useful for granular control of your services and their workers, tasks, etc.```
+datica -E "<your_env_name>" jobs stop <your_service_name> <your_job_id>
+```
+
 # Keys
 
-The `keys` command gives access to SSH key management for your user account. SSH keys can be used for authentication and pushing code to the Datica platform. Any SSH keys added to your user account should not be shared but be treated as private SSH keys. Any SSH key uploaded to your user account will be able to be used with all code services and environments that you have access to. The keys command can not be run directly but has sub commands.
+The `keys` command gives access to SSH key management for your user account. SSH keys can be used for authentication and pushing code to the Datica platform. Any SSH keys added to your user account should not be shared but be treated as private SSH keys. Any SSH key uploaded to your user account will be able to be used with all code services and environments that you have access to. The keys command can not be run directly but has subcommands.
 
 ## Keys Add
 
@@ -889,7 +952,7 @@ datica -E "<your_env_name>" maintenance show code-1
 
 # Metrics
 
-The `metrics` command gives access to environment metrics or individual service metrics through a variety of formats. This is useful for checking on the status and performance of your application or environment as a whole. The metrics command cannot be run directly but has sub commands.
+The `metrics` command gives access to environment metrics or individual service metrics through a variety of formats. This is useful for checking on the status and performance of your application or environment as a whole. The metrics command cannot be run directly but has subcommands.
 
 ## Metrics Cpu
 
@@ -1048,7 +1111,7 @@ datica -E "<your_env_name>" redeploy app01
 
 # Releases
 
-The `releases` command allows you to manage your code service releases. A release is automatically created each time you perform a git push. The release is tagged with the git SHA of the commit. Releases are a way of tagging specific points in time of your git history. By default, the last three releases will be kept. Please contact Support if you require more than the last three releases to be retained. You can rollback to a specific release by using the [rollback](#rollback) command. The releases command cannot be run directly but has sub commands.
+The `releases` command allows you to manage your code service releases. A release is automatically created each time you perform a git push. The release is tagged with the git SHA of the commit. Releases are a way of tagging specific points in time of your git history. By default, the last three releases will be kept. Please contact Support if you require more than the last three releases to be retained. You can rollback to a specific release by using the [rollback](#rollback) command. The releases command cannot be run directly but has subcommands.
 
 ## Releases List
 
@@ -1135,7 +1198,7 @@ datica -E "<your_env_name>" rollback code-1 f93ced037f828dcaabccfc825e6d8d32cc5a
 
 # Services
 
-The `services` command allows you to manage your services. The services command cannot be run directly but has sub commands.
+The `services` command allows you to manage your services. The services command cannot be run directly but has subcommands.
 
 ## Services List
 
@@ -1194,7 +1257,7 @@ datica -E "<your_env_name>" services rename code-1 api-svc
 
 # Sites
 
-The `sites` command gives access to hostname and SSL certificate usage for public facing services. `sites` are different from `certs` in that `sites` use an instance of a `cert` and are associated with a single service. `certs` can be used by multiple sites. The sites command can not be run directly but has sub commands.
+The `sites` command gives access to hostname and SSL certificate usage for public facing services. `sites` are different from `certs` in that `sites` use an instance of a `cert` and are associated with a single service. `certs` can be used by multiple sites. The sites command can not be run directly but has subcommands.
 
 ## Sites Create
 
@@ -1453,7 +1516,7 @@ datica update
 
 # Users
 
-The `users` command allows you to manage who has access to your environment through the organization that owns the environment. The users command can not be run directly but has three sub commands.
+The `users` command allows you to manage who has access to your environment through the organization that owns the environment. The users command can not be run directly but has three subcommands.
 
 ## Users List
 
@@ -1492,7 +1555,7 @@ datica -E "<your_env_name>" users rm user@example.com
 
 # Vars
 
-The `vars` command allows you to manage environment variables for your code services. The vars command can not be run directly but has sub commands.
+The `vars` command allows you to manage environment variables for your code services. The vars command can not be run directly but has subcommands.
 
 ## Vars List
 
@@ -1677,4 +1740,3 @@ Arguments:
 datica -E "<your_env_name>" worker scale code-1 mailer 1
 datica -E "<your_env_name>" worker scale code-1 mailer -- -2
 ```
-
