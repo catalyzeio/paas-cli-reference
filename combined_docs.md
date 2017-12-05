@@ -68,7 +68,9 @@ Commands:
   clear          Clear out information in the global settings file to fix a misconfigured CLI.
   console        Open a secure console to a service
   db             Tasks for databases
+  deploy         Deploy a Docker image to a container service.
   deploy-keys    Tasks for SSH deploy keys
+  images         Operations for working with images
   domain         Print out the temporary domain name of the environment
   environments   Manage environments for which you have access
   files          Tasks for managing service files
@@ -253,7 +255,7 @@ Usage: datica db backup DATABASE_NAME [-s]
 Create a new backup
 
 Arguments:
-  DATABASE_NAME=""   The name of the database service to create a backup for (i.e. 'db01')
+  DATABASE_NAME=""   The name of the database service to create a backup for (e.g. 'db01')
 
 Options:
   -s, --skip-poll=false   Whether or not to wait for the backup to finish
@@ -275,7 +277,7 @@ Usage: datica db download DATABASE_NAME BACKUP_ID FILEPATH [-f]
 Download a previously created backup
 
 Arguments:
-  DATABASE_NAME=""   The name of the database service which was backed up (i.e. 'db01')
+  DATABASE_NAME=""   The name of the database service which was backed up (e.g. 'db01')
   BACKUP_ID=""       The ID of the backup to download (found from "datica backup list")
   FILEPATH=""        The location to save the downloaded backup to. This location must NOT already exist unless -f is specified
 
@@ -305,7 +307,7 @@ Usage: datica db export DATABASE_NAME FILEPATH [-f]
 Export data from a database
 
 Arguments:
-  DATABASE_NAME=""   The name of the database to export data from (i.e. 'db01')
+  DATABASE_NAME=""   The name of the database to export data from (e.g. 'db01')
   FILEPATH=""        The location to save the exported data. This location must NOT already exist unless -f is specified
 
 Options:
@@ -334,7 +336,7 @@ Usage: datica db import DATABASE_NAME FILEPATH [-s][-d [-c]]
 Import data into a database
 
 Arguments:
-  DATABASE_NAME=""   The name of the database to import data to (i.e. 'db01')
+  DATABASE_NAME=""   The name of the database to import data to (e.g. 'db01')
   FILEPATH=""        The location of the file to import to the database
 
 Options:
@@ -370,7 +372,7 @@ Usage: datica db list DATABASE_NAME [-p] [-n]
 List created backups
 
 Arguments:
-  DATABASE_NAME=""   The name of the database service to list backups for (i.e. 'db01')
+  DATABASE_NAME=""   The name of the database service to list backups for (e.g. 'db01')
 
 Options:
   -p, --page=1         The page to view
@@ -393,7 +395,7 @@ Usage: datica db logs DATABASE_NAME BACKUP_ID
 Print out the logs from a previous database backup job
 
 Arguments:
-  DATABASE_NAME=""   The name of the database service (i.e. 'db01')
+  DATABASE_NAME=""   The name of the database service (e.g. 'db01')
   BACKUP_ID=""       The ID of the backup to download logs from (found from "datica backup list")
 
 ```
@@ -402,6 +404,26 @@ Arguments:
 
 ```
 datica -E "<your_env_name>" db logs db01 cd2b4bce-2727-42d1-89e0-027bf3f1a203
+```
+
+# Deploy
+
+```
+
+Usage: datica deploy SERVICE_NAME IMAGE_NAME
+
+Deploy a Docker image to a container service.
+
+Arguments:
+  SERVICE_NAME=""   The name of the service to deploy to (e.g. 'container01')
+  IMAGE_NAME=""     The name of the image to deploy (e.g. 'image01')
+
+```
+
+`deploy` deploys a Docker image for the given service. This command will only deploy for "container" services. Here is a sample command
+
+```
+datica -E "<your_env_name>" deploy container01 image01
 ```
 
 # Deploy-keys
@@ -466,6 +488,65 @@ Arguments:
 
 ```
 datica -E "<your_env_name>" deploy-keys rm app01_public app01
+```
+
+# Images
+
+`images` allows interactions with container images and tags. This command cannot be run directly, but has subcommands.
+
+## Images List
+
+```
+
+Usage: datica images list
+
+List images available for an environment
+
+```
+
+`images list` lists available images for an environment. These images must be pushed to the registry for the environment in order to show. Example:
+```
+datica -E "<your_env_name>" images list```
+
+## Images Tags
+
+`tags` allows interactions with container image tags. This command cannot be run directly, but has subcommands.
+
+### Images Tags List
+
+```
+
+Usage: datica images tags list IMAGE_NAME
+
+List tags for a given image
+
+Arguments:
+  IMAGE_NAME=""   The name of the image to list tags for, including the environment's namespace.
+
+```
+
+List pushed tags for given image. Example:
+```
+datica -E "<your_env_name>" images tags list pod012345/my-image
+```
+
+### Images Tags Rm
+
+```
+
+Usage: datica images tags rm IMAGE_NAME TAG
+
+Delete a tag for a given image
+
+Arguments:
+  IMAGE_NAME=""   The name of the image to list tags for, including the environment's namespace.
+  TAG=""          The tag to delete.
+
+```
+
+Delete a tag for a given image. Example:
+```
+datica -E "<your_env_name>" images tags delete pod012345/my-image v1
 ```
 
 # Domain
@@ -722,7 +803,7 @@ Arguments:
 
 ```
 
-`jobs list` prints out a list of all jobs in your environment and their current status. Here is a sample command
+`jobs list` prints out a list of all jobs in your environment and their current status. Here is a sample command:
 
 ```
 datica -E "<your_env_name>" jobs list <your_service_name>
@@ -742,7 +823,7 @@ Arguments:
 
 ```
 
-`jobs start` will start a job that is configured but not currently running within a given service. This command is useful for granual control of your services and their workers, tasks, etc.```
+`jobs start` will start a job that is configured but not currently running within a given service. This command is useful for granual control of your services and their workers, tasks, etc. ```
 datica -E "<your_env_name>" jobs start <your_service_name> <your_job_id>
 ```
 
@@ -763,7 +844,7 @@ Options:
 
 ```
 
-`jobs stop` will shut down a running job within a given service. This command is useful for granular control of your services and their workers, tasks, etc.```
+`jobs stop` will shut down a running job within a given service. This command is useful for granular control of your services and their workers, tasks, etc. ```
 datica -E "<your_env_name>" jobs stop <your_service_name> <your_job_id>
 ```
 
@@ -865,7 +946,7 @@ datica logout
 
 ```
 
-Usage: datica logs [QUERY] [(-f | -t)] [--hours] [--minutes] [--seconds]
+Usage: datica logs [QUERY] [(-f | -t)] [--hours] [--minutes] [--seconds] [--service [(--job-id | --target)]]
 
 Show the logs in your terminal streamed from your logging dashboard
 
@@ -878,14 +959,19 @@ Options:
   --hours=0            The number of hours before now (in combination with minutes and seconds) to retrieve logs
   --minutes=0          The number of minutes before now (in combination with hours and seconds) to retrieve logs
   --seconds=0          The number of seconds before now (in combination with hours and minutes) to retrieve logs
+  --service=""         Query logs for a specific service label
+  --job-id=""          Query logs for a particular job by id
+  --target=""          Query logs for a particular procfile target
 
 ```
 
-`logs` prints out your application logs directly from your logging Dashboard. If you do not see your logs, try adjusting the number of hours, minutes, or seconds of logs that are retrieved with the `--hours`, `--minutes`, and `--seconds` options respectively. You can also follow the logs with the `-f` option. When using `-f` all logs will be printed to the console within the given time frame as well as any new logs that are sent to the logging Dashboard for the duration of the command. When using the `-f` option, hit ctrl-c to stop. Here are some sample commands
+`logs` prints out your application logs directly from your logging Dashboard. If you do not see your logs, try adjusting the number of hours, minutes, or seconds of logs that are retrieved with the `--hours`, `--minutes`, and `--seconds` options respectively. To specify a specific service, job, or target use the '--service', '--job-id', and '--target' commands. You must specify a service to use '--job-id' or '--target', and you cannot specify both a job-id and a target at the same time. You can also follow the logs with the `-f` option. When using `-f` all logs will be printed to the console within the given time frame as well as any new logs that are sent to the logging Dashboard for the duration of the command. When using the `-f` option, hit ctrl-c to stop. Here are some sample commands
 
 ```
 datica -E "<your_env_name>" logs --hours=6 --minutes=30
 datica -E "<your_env_name>" logs -f
+datica -E "<your_env_name>" logs --service="<your_service_name>"
+datica -E "<your_env_name>" logs --service="<your_service_name>" --job-id="<your_job_id>"
 ```
 
 # Maintenance
@@ -1099,7 +1185,7 @@ Usage: datica redeploy SERVICE_NAME
 Redeploy a service without having to do a git push. This will cause downtime for all redeploys (see the resources page for more details).
 
 Arguments:
-  SERVICE_NAME=""   The name of the service to redeploy (i.e. 'app01')
+  SERVICE_NAME=""   The name of the service to redeploy (e.g. 'app01')
 
 ```
 
@@ -1156,7 +1242,7 @@ datica -E "<your_env_name>" releases rm code-1 f93ced037f828dcaabccfc825e6d8d32c
 
 ```
 
-Usage: datica releases update SERVICE_NAME RELEASE_NAME [--notes] [--release]
+Usage: datica releases update SERVICE_NAME RELEASE_NAME [--notes]
 
 Update a release from a code service
 
@@ -1165,15 +1251,14 @@ Arguments:
   RELEASE_NAME=""   The name of the release to update
 
 Options:
-  -n, --notes=""     The new notes to save on the release. If omitted, notes will be unchanged.
-  -r, --release=""   The new name of the release. If omitted, the release name will be unchanged.
+  -n, --notes=""   The new notes to save on the release.
 
 ```
 
 `releases update` allows you to rename or add notes to an existing release. By default, releases are named with the git SHA of the commit used to create the release. Renaming them allows you to organize your releases. Here is a sample command
 
 ```
-datica -E "<your_env_name>" releases update code-1 f93ced037f828dcaabccfc825e6d8d32cc5a1883 --notes "This is a stable build" --release v1
+datica -E "<your_env_name>" releases update code-1 f93ced037f828dcaabccfc825e6d8d32cc5a1883 --notes "This is a stable build"
 ```
 
 # Rollback
@@ -1268,9 +1353,9 @@ Usage: datica sites create SITE_NAME SERVICE_NAME (CERT_NAME | -l) [--client-max
 Create a new site linking it to an existing cert instance
 
 Arguments:
-  SITE_NAME=""      The name of the site to be created. This will be used in this site's nginx configuration file (i.e. ".example.com")
-  SERVICE_NAME=""   The name of the service to add this site configuration to (i.e. 'app01')
-  CERT_NAME=""      The name of the cert created with the 'certs' command (i.e. "star_example_com")
+  SITE_NAME=""      The name of the site to be created. This will be used in this site's nginx configuration file (e.g. ".example.com")
+  SERVICE_NAME=""   The name of the service to add this site configuration to (e.g. 'app01')
+  CERT_NAME=""      The name of the cert created with the 'certs' command (e.g. "star_example_com")
 
 Options:
   --client-max-body-size=-1     The 'client_max_body_size' nginx config specified in megabytes
@@ -1382,7 +1467,7 @@ Verify that an SSL certificate is signed by a valid CA and attempt to resolve an
 Arguments:
   CHAIN=""         The path to your full certificate chain in PEM format
   PRIVATE_KEY=""   The path to your private key in PEM format
-  HOSTNAME=""      The hostname that should match your certificate (i.e. "*.datica.com")
+  HOSTNAME=""      The hostname that should match your certificate (e.g. "*.datica.com")
   OUTPUT=""        The path of a file to save your properly resolved certificate chain (defaults to STDOUT)
 
 Options:
@@ -1432,7 +1517,7 @@ Verify whether a certificate chain is complete and if it matches the given priva
 Arguments:
   CHAIN=""         The path to your full certificate chain in PEM format
   PRIVATE_KEY=""   The path to your private key in PEM format
-  HOSTNAME=""      The hostname that should match your certificate (i.e. "*.datica.com")
+  HOSTNAME=""      The hostname that should match your certificate (e.g. "*.datica.com")
 
 Options:
   -s, --self-signed=false   Whether or not the certificate is self signed. If set, chain verification is skipped
@@ -1730,7 +1815,7 @@ Scale existing workers up or down for a given service and target
 Arguments:
   SERVICE_NAME=""   The name of the service running the workers
   TARGET=""         The worker target to scale up or down
-  SCALE=""          The new scale (or change in scale) for the given worker target. This can be a single value (i.e. 2) representing the final number of workers that should be running. Or this can be a change represented by a plus or minus sign followed by the value (i.e. +2 or -1). When using a change in value, be sure to insert the "--" operator to signal the end of options. For example, "datica worker scale code-1 worker -- -1"
+  SCALE=""          The new scale (or change in scale) for the given worker target. This can be a single value (e.g. 2) representing the final number of workers that should be running. Or this can be a change represented by a plus or minus sign followed by the value (e.g. +2 or -1). When using a change in value, be sure to insert the "--" operator to signal the end of options. For example, "datica worker scale code-1 worker -- -1"
 
 ```
 
